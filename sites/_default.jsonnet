@@ -1,5 +1,5 @@
 {
-  name: error 'Must override annotations.name',
+  name: error 'Must override site name',
   annotations: {
     type: error 'Must override annotations.type, e.g. physical, cloud',
   },
