@@ -10,8 +10,9 @@ all: $(ALL)
 	time jsonnet -J . $< > $@
 
 fmt:
-	@for f in `find . -name "*.jsonnet"` ; do \
-        jsonnet fmt --indent 2 --max-blank-lines 2 --sort-imports \
-		            --string-style s --comment-style s $$f | diff $$f - ; \
+	@find . -name '*.jsonnet' -print0 | \
+	  while read -d \\0 f; do \
+      jsonnet fmt --indent 2 --max-blank-lines 2 --sort-imports \
+		              --string-style s --comment-style s $$f | diff $$f - ; \
 	    jsonnet fmt --in-place $$f ; \
-	done
+	  done
