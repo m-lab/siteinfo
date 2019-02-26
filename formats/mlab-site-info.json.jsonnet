@@ -1,17 +1,17 @@
 local sites = import 'sites.jsonnet';
 [
   {
-    local location = sites[name].location,
+    local location = site.location,
     city: location.city,
     metro: [
-      name,
+      site.name,
       location.metro,
     ],
     country: location.country_code,
-    site: name,
+    site: site.name,
     longitude: location.longitude,
     latitude: location.latitude,
-    roundrobin: sites[name].loadbalancer.roundrobin,
+    roundrobin: site.loadbalancer.roundrobin,
   }
-  for name in std.objectFields(sites)
+  for site in sites
 ]
