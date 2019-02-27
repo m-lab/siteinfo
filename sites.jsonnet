@@ -3,9 +3,10 @@ local sites = {
    tyo01: import 'sites/tyo01.jsonnet'
 };
 [
-  if sites[name].name == name then
-      sites[name]
+  local site = sites[name];
+  if site.name == name then
+      site
   else
-      error "Site name (%s) does not match object.name (%s)" % [name, sites[name].name],
+      error "Site name (%s) does not match object.name (%s)" % [name, site.name],
   for name in std.objectFields(sites)
 ]
