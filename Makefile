@@ -3,7 +3,7 @@ ALL=$(shell cd formats; find . -name '*.jsonnet' \
 	        | sed -e 's/\.\///' -e 's/.jsonnet//g' )
 
 TESTS=$(shell find . -type f -a -name '*_test.jsonnet' \
-            | grep -v jsonnetunit \
+	        | grep -v jsonnetunit \
 	        | sed -e 's/\.\///' -e 's/.jsonnet//g' )
 
 DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet
