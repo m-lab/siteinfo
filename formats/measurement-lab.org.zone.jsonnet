@@ -34,7 +34,7 @@ local records = std.flattenArrays([
     { record: e.record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.record('v4'), ipv4: e.v4.ip },
     { record: e.record('v6'), ipv6: e.v6.ip },
-    if std.objectHas(e, 'flat_hostname') && e.flat_hostname == true then
+    if e.flat_hostname == true then
       { record: flatten(e.record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
   ]
   for site in sites
