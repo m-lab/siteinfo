@@ -14,7 +14,7 @@ all: $(ALL)
 test: $(TESTS)
 
 clean:
-	rm -f *.json *.zone *.ts
+	rm -f *.json *.zone
 
 %.json: formats/%.json.jsonnet $(DEPS)
 	time jsonnet -J . $< > $@
