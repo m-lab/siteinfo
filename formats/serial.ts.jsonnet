@@ -20,6 +20,8 @@ else if std.extVar('operation') == 'update' then
     new
 else if std.extVar('operation') == 'format' then
   // Generate a serial number using the values in the serial record.
+  // RFC1912 (http://www.ietf.org/rfc/rfc1912.txt) recommends 'nn' as the
+  // revision. serial.ts maintains a daily sequance counter.
   local prev = import 'serial.ts';
   '%s%02d' % [prev.prefix, prev.serial]
 else
