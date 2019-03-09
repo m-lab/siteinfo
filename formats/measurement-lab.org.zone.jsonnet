@@ -68,10 +68,6 @@ std.lines([
     @       IN      A       128.112.139.90
     @       IN      MX 0    mail.planet-lab.org.
     *       IN      MX 0    mail.planet-lab.org.
-
-    ; ---------- WWW ----------
-    ;
-    www     IN      A       128.112.139.90
   ||| % std.extVar('serial'),
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
