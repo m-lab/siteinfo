@@ -4,10 +4,22 @@ ALL=$(shell cd formats; find . -name '*.jsonnet' \
 TESTS=$(shell find . -type f -a -name '*_test.jsonnet' \
 	        | grep -v jsonnetunit \
 	        | sed -e 's/\.\///' -e 's/.jsonnet//g' )
-PREFIX=$(shell date +%Y%m%d )
 DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
-
-.PRECIOUS: %.ts
+SERIAL=$(shell ( \
+  prefix=$$( date +%Y%m%d ); \
+  current=$$( dig @dns.measurementlab.net soa measurementlab.net \
+	    | grep SOA \
+			| awk '{print $$7}' \
+	); \
+	if [[ -z "$$current" ]]; then \
+	  exit 1; \
+	fi; \
+  if [[ $$current -lt $${prefix}00 ]]; then \
+    echo $${prefix}00; \
+  else \
+    echo $$(( $$current + 1 )); \
+  fi \
+))
 
 all: $(ALL)
 
@@ -22,16 +34,11 @@ clean:
 %_test: %_test.jsonnet $(DEPS)
 	time jsonnet -J . -J jsonnetunit $<
 
-%.zone: formats/%.zone.jsonnet $(DEPS) serial.ts
-	jsonnet -J . --ext-str prefix=$(PREFIX) --ext-str operation=update \
-	  formats/serial.ts.jsonnet > .serial.tmp
-	mv .serial.tmp serial.ts
-	jsonnet -J . --ext-str prefix=$(PREFIX) --ext-str operation=format \
-	  formats/serial.ts.jsonnet > .serial.raw
-	time jsonnet -J . --string --ext-str serial=`cat .serial.raw` $< > $@
-
-%.ts: formats/%.ts.jsonnet
-	jsonnet --ext-str prefix=$(PREFIX) --ext-str operation=create $< > $@
+%.zone: formats/%.zone.jsonnet $(DEPS)
+	@if [[ -z "$(strip $(SERIAL))" ]] ; then \
+	  echo 'ERROR: Empty serial ID from shadow master; exiting early.'; exit 1; \
+	fi
+	time jsonnet -J . --string --ext-str serial=$(SERIAL) $< > $@
 
 fmt:
 	@find . -name '*.jsonnet' -print0 | while read -d $$'\0' f; do \
