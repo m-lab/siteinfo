@@ -8,12 +8,12 @@ DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
 SERIAL=$(shell ( \
   prefix=$$( date +%Y%m%d ); \
   current=$$( dig @dns.measurementlab.net soa measurementlab.net \
-	    | grep SOA \
-			| awk '{print $$7}' \
-	); \
-	if [[ -z "$$current" ]]; then \
-	  exit 1; \
-	fi; \
+      | grep SOA \
+      | awk '{print $$7}' \
+  ); \
+  if [[ -z "$$current" ]]; then \
+    exit 1; \
+  fi; \
   if [[ $$current -lt $${prefix}00 ]]; then \
     echo $${prefix}00; \
   else \
