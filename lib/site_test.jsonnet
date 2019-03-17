@@ -107,10 +107,10 @@ test.suite({
   },
   test_drac_record: {
     actual: [
-      v4v6Site.drac(1).record,
-      v4v6Site.drac(2).record,
-      v4v6Site.drac(3).record,
-      v4v6Site.drac(4).record,
+      v4v6Site.drac(1).record(),
+      v4v6Site.drac(2).record(),
+      v4v6Site.drac(3).record(),
+      v4v6Site.drac(4).record(),
     ],
     expect: [
       'mlab1d.mck0t',
