@@ -6,7 +6,7 @@ TESTS=$(shell find . -type f -a -name '*_test.jsonnet' \
 	        | sed -e 's/\.\///' -e 's/.jsonnet//g' )
 DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
 SERIAL=$(shell ( \
-  prefix=$$( date +%Y%m%d ); \
+  default=$$( date +%Y%m%d ); \
   current=$$( dig @dns.measurementlab.net soa measurementlab.net \
       | grep SOA \
       | awk '{print $$7}' \
@@ -14,8 +14,8 @@ SERIAL=$(shell ( \
   if [[ -z "$$current" ]]; then \
     exit 1; \
   fi; \
-  if [[ $$current -lt $${prefix}00 ]]; then \
-    echo $${prefix}00; \
+  if [[ $$current -lt $${default}00 ]]; then \
+    echo $${default}00; \
   else \
     echo $$(( $$current + 1 )); \
   fi \
