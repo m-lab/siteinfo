@@ -4,8 +4,8 @@
     v4: {
       ip: $.index4(2),
     },
-    record: 's1.%s' % $.name,
-    hostname: '%s.measurement-lab.org' % self.record,
+    record():: 's1.%s' % $.name,
+    hostname():: '%s.measurement-lab.org' % self.record(),
   },
   // drac returns a network spec for the drac attached to machine index m.
   drac(m):: {
@@ -17,8 +17,8 @@
           error 'Machine indexes must be within range [1,4]'
       ),
     },
-    record: 'mlab%dd.%s' % [m, $.name],
-    hostname: '%s.measurement-lab.org' % self.record,
+    record(): 'mlab%dd.%s' % [m, $.name],
+    hostname(): '%s.measurement-lab.org' % self.record(),
   },
   // machine returns a network spec for machine index m. The decoration
   // parameter may be used to decorate the machine record and hostname.
