@@ -25,7 +25,8 @@ clean:
 
 %.zone: formats/%.zone.jsonnet $(DEPS)
 	time jsonnet -J . --string --ext-str latest=$(strip $(LATEST)) \
-	  --ext-str serial=$(strip $(CURRENT)) $< > $@
+		--ext-str serial=$(strip $(CURRENT)) \
+		$< > $@
 
 fmt:
 	@find . -name '*.jsonnet' -print0 | while read -d $$'\0' f; do \
