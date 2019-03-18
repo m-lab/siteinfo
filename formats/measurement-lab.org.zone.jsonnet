@@ -1,6 +1,15 @@
 local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 local flatten(record) = std.strReplace(record, '.', '-');
+local serial(current, latest) = (
+  if current == "" || latest == "" then
+    error "ERROR: given serial and latest must not be empty!"
+  else
+    if current < latest then
+      latest
+    else
+      std.toString(std.parseInt(current) + 1)
+);
 
 local records = std.flattenArrays([
   // Routers & switches
@@ -68,7 +77,7 @@ std.lines([
     @       IN      A       128.112.139.90
     @       IN      MX 0    mail.planet-lab.org.
     *       IN      MX 0    mail.planet-lab.org.
-  ||| % std.extVar('serial'),
+  ||| % serial(std.extVar('serial'), std.extVar('latest')),
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records

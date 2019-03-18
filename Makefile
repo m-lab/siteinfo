@@ -5,21 +5,10 @@ TESTS=$(shell find . -type f -a -name '*_test.jsonnet' \
 	        | grep -v jsonnetunit \
 	        | sed -e 's/\.\///' -e 's/.jsonnet//g' )
 DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
-SERIAL=$(shell ( \
-  default=$$( date +%Y%m%d ); \
-  current=$$( dig @dns.measurementlab.net soa measurementlab.net \
+LATEST=$(shell date +%Y%m%d00 )
+CURRENT=$(shell dig @dns.measurementlab.net soa measurementlab.net \
       | grep SOA \
-      | awk '{print $$7}' \
-  ); \
-  if [[ -z "$$current" ]]; then \
-    exit 1; \
-  fi; \
-  if [[ $$current -lt $${default}00 ]]; then \
-    echo $${default}00; \
-  else \
-    echo $$(( $$current + 1 )); \
-  fi \
-))
+      | awk '{print $$7}' )
 
 all: $(ALL)
 
@@ -35,10 +24,8 @@ clean:
 	time jsonnet -J . -J jsonnetunit $<
 
 %.zone: formats/%.zone.jsonnet $(DEPS)
-	@if [[ -z "$(strip $(SERIAL))" ]] ; then \
-	  echo 'ERROR: Empty serial ID from shadow master; exiting early.'; exit 1; \
-	fi
-	time jsonnet -J . --string --ext-str serial=$(SERIAL) $< > $@
+	time jsonnet -J . --string --ext-str latest=$(strip $(LATEST)) \
+	  --ext-str serial=$(strip $(CURRENT)) $< > $@
 
 fmt:
 	@find . -name '*.jsonnet' -print0 | while read -d $$'\0' f; do \
