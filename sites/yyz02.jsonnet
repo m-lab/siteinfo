@@ -1,35 +1,33 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'tyo01',
+  name: 'yyz02',
   annotations+: {
-    type: 'cloud',
-  },
-  machines+: {
-    count: 1,
+    type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '35.200.102.226/32',
+      prefix: '216.66.68.128/26',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2001:470:1:70a::/64',
     },
   },
   transit+: {
-    provider: 'Google',
+    provider: 'Hurricane Electric LLC',
     uplink: '1g',
+    asn: 'AS6939',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'tyo',
-    city: 'Tokyo',
+    metro: 'yyz',
+    city: 'Toronto',
     state: '',
-    latitude: 35.5522,
-    longitude: 139.78,
+    latitude: 43.6767,
+    longitude: -79.6306,
   },
   lifecycle+: {
-    created: '2018-01-01',
+    created: '2019-01-01',
   },
 }

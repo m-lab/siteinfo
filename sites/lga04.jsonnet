@@ -1,22 +1,22 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'lga04',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '173.205.4.64/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:668:1f:22::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
-    uplink: '10g',
-    asn: 'AS3356',
+    provider: 'GTT Communications Inc.',
+    uplink: '1g',
+    asn: 'AS3257',
   },
   location+: {
     continent_code: 'NA',

@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'tyo01',
+  name: 'tyo02',
   annotations+: {
     type: 'cloud',
   },
@@ -10,7 +10,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '35.200.102.226/32',
+      prefix: '35.200.34.149/32',
     },
     ipv6+: {
       prefix: null,

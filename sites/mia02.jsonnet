@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'mia02',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '38.109.21.0/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:550:6c01::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
+    provider: 'Cogent Communications',
     uplink: '10g',
-    asn: 'AS3356',
+    asn: 'AS174',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'lga',
-    city: 'New York',
-    state: 'NY',
-    latitude: 40.7667,
-    longitude: -73.8667,
+    metro: 'mia',
+    city: 'Miami',
+    state: 'FL',
+    latitude: 25.7833,
+    longitude: -80.2667,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'ord05',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '128.177.163.0/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:438:fffd:2f::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
-    uplink: '10g',
-    asn: 'AS3356',
+    provider: 'Zayo Bandwidth',
+    uplink: '1g',
+    asn: 'AS6461',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'lga',
-    city: 'New York',
-    state: 'NY',
-    latitude: 40.7667,
-    longitude: -73.8667,
+    metro: 'ord',
+    city: 'Chicago',
+    state: 'IL',
+    latitude: 41.9786,
+    longitude: -87.9047,
   },
   lifecycle+: {
     created: '2019-01-01',
