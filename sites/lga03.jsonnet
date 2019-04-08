@@ -1,22 +1,22 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'lga03',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '64.86.148.128/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:5a0:4300::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
-    uplink: '10g',
-    asn: 'AS3356',
+    provider: 'TATA COMMUNICATIONS (AMERICA) INC',
+    uplink: '1g',
+    asn: 'AS6453',
   },
   location+: {
     continent_code: 'NA',

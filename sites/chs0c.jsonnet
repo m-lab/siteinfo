@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'tyo01',
+  name: 'chs0c',
   annotations+: {
     type: 'cloud',
   },
@@ -10,7 +10,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '35.200.102.226/32',
+      prefix: '35.237.214.243/32',
     },
     ipv6+: {
       prefix: null,
@@ -23,11 +23,11 @@ sitesDefault {
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'tyo',
-    city: 'Tokyo',
-    state: '',
-    latitude: 35.5522,
-    longitude: 139.78,
+    metro: 'chs',
+    city: 'Charleston',
+    state: 'SC',
+    latitude: 32.896663,
+    longitude: -80.039184,
   },
   lifecycle+: {
     created: '2018-01-01',

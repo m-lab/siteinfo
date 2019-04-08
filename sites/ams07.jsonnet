@@ -1,35 +1,33 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'tyo01',
+  name: 'ams07',
   annotations+: {
-    type: 'cloud',
-  },
-  machines+: {
-    count: 1,
+    type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '35.200.102.226/32',
+      prefix: '31.186.242.0/26',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2a02:b50:4020:cfb1::/64',
     },
   },
   transit+: {
-    provider: 'Google',
+    provider: 'Internap Corporation',
     uplink: '1g',
+    asn: 'AS30282',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'tyo',
-    city: 'Tokyo',
+    metro: 'ams',
+    city: 'Amsterdam',
     state: '',
-    latitude: 35.5522,
-    longitude: 139.78,
+    latitude: 52.3086,
+    longitude: 4.7639,
   },
   lifecycle+: {
-    created: '2018-01-01',
+    created: '2019-01-01',
   },
 }

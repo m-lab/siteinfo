@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'iad03',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '66.198.10.128/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:5a0:3c03::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
-    uplink: '10g',
-    asn: 'AS3356',
+    provider: 'TATA COMMUNICATIONS (AMERICA) INC',
+    uplink: '1g',
+    asn: 'AS6453',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'lga',
-    city: 'New York',
-    state: 'NY',
-    latitude: 40.7667,
-    longitude: -73.8667,
+    metro: 'iad',
+    city: 'Washington',
+    state: 'DC',
+    latitude: 38.9444,
+    longitude: -77.4558,
   },
   lifecycle+: {
     created: '2019-01-01',

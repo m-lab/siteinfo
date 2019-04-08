@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'sin01',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '180.87.97.64/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2405:2000:301::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
+    provider: 'TATA COMMUNICATIONS (AMERICA) INC',
     uplink: '10g',
-    asn: 'AS3356',
+    asn: 'AS6453',
   },
   location+: {
     continent_code: 'NA',
-    country_code: 'US',
-    metro: 'lga',
-    city: 'New York',
-    state: 'NY',
-    latitude: 40.7667,
-    longitude: -73.8667,
+    country_code: 'CA',
+    metro: 'sin',
+    city: 'Singapore',
+    state: '',
+    latitude: 1.355,
+    longitude: 103.988,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -1,26 +1,26 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'lga1t',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '4.14.3.0/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:1900:2100:1::/64',
     },
   },
   transit+: {
     provider: 'Level 3 Parent, LLC',
-    uplink: '10g',
+    uplink: '1g',
     asn: 'AS3356',
   },
   location+: {
     continent_code: 'NA',
-    country_code: 'US',
+    country_code: 'CA',
     metro: 'lga',
     city: 'New York',
     state: 'NY',

@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'tyo01',
+  name: 'pdx0c',
   annotations+: {
     type: 'cloud',
   },
@@ -10,7 +10,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '35.200.102.226/32',
+      prefix: '35.230.97.78/32',
     },
     ipv6+: {
       prefix: null,
@@ -23,11 +23,11 @@ sitesDefault {
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'tyo',
-    city: 'Tokyo',
-    state: '',
-    latitude: 35.5522,
-    longitude: 139.78,
+    metro: 'pdx',
+    city: 'Portland',
+    state: 'OR',
+    latitude: 45.589191,
+    longitude: -122.600228,
   },
   lifecycle+: {
     created: '2018-01-01',

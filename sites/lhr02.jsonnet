@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'lhr02',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '80.239.170.192/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2001:2030:33::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
+    provider: 'Telia Company AB',
     uplink: '10g',
-    asn: 'AS3356',
+    asn: 'AS1299',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'lga',
-    city: 'New York',
-    state: 'NY',
-    latitude: 40.7667,
-    longitude: -73.8667,
+    metro: 'lhr',
+    city: 'London',
+    state: '',
+    latitude: 51.4697,
+    longitude: -0.4514,
   },
   lifecycle+: {
     created: '2019-01-01',

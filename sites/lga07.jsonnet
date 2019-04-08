@@ -1,22 +1,22 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga0t',
+  name: 'lga07',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '4.14.159.64/26',
+      prefix: '66.151.223.128/26',
     },
     ipv6+: {
-      prefix: '2001:1900:2100:2d::/64',
+      prefix: '2600:c0f:2002::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
-    uplink: '10g',
-    asn: 'AS3356',
+    provider: 'Internap Corporation',
+    uplink: '1g',
+    asn: 'AS10910',
   },
   location+: {
     continent_code: 'NA',
