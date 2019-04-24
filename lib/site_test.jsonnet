@@ -154,7 +154,7 @@ test.suite({
     ],
     expect: [
       '',
-      '2001:1900:2100:2d::56',
+      '2001:1900:2100:2d::86',
     ],
   },
   test_machine_v6_record: {
@@ -187,7 +187,7 @@ test.suite({
       v4Site.experiment(1, { index: 1, name: 'fake.exp' }).v6.ip,
     ],
     expect: [
-      '2001:1900:2100:2d::57',  // 0x57 == 87
+      '2001:1900:2100:2d::87',
       'fake.exp.mlab2.mck0t',
       'fake.exp.mlab2v6.mck0t',
       '',
