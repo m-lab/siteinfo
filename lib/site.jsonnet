@@ -105,7 +105,7 @@
     local v6net = $.network.ipv6.prefix;
     local v4off = $._v4_net_offset($.network.ipv4.prefix);
     if v6net == null then '' else
-      '%s%x' % [std.split(v6net, '/')[0], v4off + i]
+      '%s%d' % [std.split(v6net, '/')[0], v4off + i]
   ),
   // gateway6
   gateway6():: (
