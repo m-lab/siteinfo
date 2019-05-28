@@ -1,0 +1,34 @@
+############################################################################
+# BUILD ARTIFACTS
+############################################################################
+
+steps:
+# Create the sjsonnet container for later steps.
+- name: gcr.io/cloud-builders/docker
+  args: [
+    'build', '-t', 'jsonnet-env', '.'
+  ]
+
+# Generate jsonnet files.
+- name: jsonnet-env
+  args: [
+    'make'
+  ]
+
+############################################################################
+# DEPLOY ARTIFACTS
+############################################################################
+
+# Publish new data.
+- name: gcr.io/cloud-builders/gsutil
+  args: [
+    '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
+    'cp', '-r', '/workspace/output/v1/*', 'gs://siteinfo-$PROJECT_ID/v1/'
+  ]
+
+# Copy configs to archive.
+- name: gcr.io/cloud-builders/gsutil
+  args: [
+    '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
+    'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
+  ]
