@@ -10,10 +10,25 @@ PROJECT=${1:?Please provide project}
 
 # TODO: make buckets.
 # siteinfo-${PROJECT} && empty-${PROJECT}
+lookup_ip='gcloud --project ${PROJECT} compute addresses describe siteinfo-lb-ip-1 --global --format="value(address)"'
+create_ip='gcloud --project ${PROJECT} compute addresses create siteinfo-lb-ip-1 --ip-version=IPV4 --global --format="value(address)"'
 
-# TODO: add ip lookup
-gcloud --project ${PROJECT} compute addresses create \
-  siteinfo-lb-ip-1 --ip-version=IPV4 --global
+# TODO: add ip lookup.
+#  gcloud --project ${PROJECT} compute addresses describe \
+#    siteinfo-lb-ip-1 --global --format="value(address)"
+#)
+#    gcloud --project ${PROJECT} compute addresses create \
+#      siteinfo-lb-ip-1 --ip-version=IPV4 --global --format="value(address)"
+#  )
+function lookup_or_create_ip() {
+  local ip=$( eval $lookup_ip )
+  if [[ -z "${ip}" ]] ; then
+    ip=$( eval $create_ip )
+  fi
+  echo $ip
+}
+
+LB_IP=$( lookup_or_create_ip )
 
 # TODO: create backend bucket for empty-bucket.
 gcloud --project ${PROJECT} compute backend-buckets create \
@@ -21,7 +36,8 @@ gcloud --project ${PROJECT} compute backend-buckets create \
     --gcs-bucket-name siteinfo-${PROJECT}
 
 # TODO: create url-map with default to empty-bucket.
-gcloud --project ${PROJECT} compute url-maps create siteinfo-url-map \
+gcloud --project ${PROJECT} compute url-maps create \
+    siteinfo-url-map \
     --default-backend-bucket=siteinfo-backend-bucket
 
 # TODO: restrict all requests to /v1/* -- requires an "empty" default backend bucket.
