@@ -2,8 +2,8 @@ local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 local flatten(record) = std.strReplace(record, '.', '-');
 local serial(current, latest) = (
-  if current == "" || latest == "" then
-    error "ERROR: given serial and latest must not be empty!"
+  if current == '' || latest == '' then
+    error 'ERROR: given serial and latest must not be empty!'
   else
     if current < latest then
       latest
