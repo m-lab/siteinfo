@@ -49,6 +49,7 @@ clean:
 		--ext-str serial=$(strip $(CURRENT)) $< \
 		| jsonnet --string - > $(OUTDIR)/v1/zones/$@
 	rm -f $(OUTDIR)/v1/zones/$@.tmp
+	./zonediff.sh $(OUTDIR)/v1/zones
 
 # NOTE: this target only works with the C++ implementation of jsonnet.
 fmt:
