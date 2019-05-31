@@ -32,14 +32,3 @@ steps:
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
     'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
   ]
-
-############################################################################
-# CREATE / DEPLOY GCP COMPONENTS
-############################################################################
-
-# Deploy to GCE.
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: bash
-  args: [
-    '/workspace/create_siteinfo_api.sh',  '$PROJECT_ID'
-  ]
