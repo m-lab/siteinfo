@@ -14,6 +14,8 @@ steps:
   args: [
     'make'
   ]
+  env:
+   - 'PROJECT=$PROJECT_ID'
 
 ############################################################################
 # DEPLOY ARTIFACTS
