@@ -41,10 +41,11 @@
             error 'Machine indexes for single-machine sites must be 1'
         )
       ),
-      network: v4net,
       dns1: $.network.ipv4.dns1,
       dns2: $.network.ipv4.dns2,
-      netmask: $._v4_netmask($._v4_net_subnet(v4net)),
+      network: v4net,
+      netmask: $._v4_netmask($._net_subnet(v4net)),
+      subnet: $._net_subnet(v4net),
       gateway: $.Index4(1),
       broadcast: $.Index4(63),
     } else {
@@ -55,6 +56,7 @@
       dns1: $.network.ipv6.dns1,
       dns2: $.network.ipv6.dns2,
       network: v6net,
+      subnet: $._net_subnet(v6net),
       gateway: $.Gateway6(),
     } else {
       ip: '',
@@ -126,7 +128,7 @@
     std.join('.', [octets[0], octets[1], octets[2]])
   ),
   // Extract the subnet.
-  _v4_net_subnet(net):: std.parseInt(std.split(net, '/')[1]),
+  _net_subnet(net):: std.parseInt(std.split(net, '/')[1]),
   // Calculate netmask.
   _v4_netmask(subnet):: (
     local hexmask = (std.pow(2, 32) - std.pow(2, 32 - subnet));

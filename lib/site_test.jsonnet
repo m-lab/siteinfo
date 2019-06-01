@@ -61,11 +61,11 @@ test.suite({
         '192.168.1',
       ],
     },
-  test_v4_net_subnet:
+  test_net_subnet:
     {
       actual: [
-        v4v6Site._v4_net_subnet('192.168.1.64/26'),
-        v4v6Site._v4_net_subnet('192.168.1.66/32'),
+        v4v6Site._net_subnet('192.168.1.64/26'),
+        v4v6Site._net_subnet('192.168.1.66/32'),
       ],
       expect: [
         26,
