@@ -20,7 +20,7 @@ sitesDefault {
   },
   location+: {
     continent_code: 'EU',
-    country_code: 'GB',
+    country_code: 'FR',
     metro: 'par',
     city: 'Paris',
     state: '',

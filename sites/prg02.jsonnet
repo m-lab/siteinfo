@@ -20,7 +20,7 @@ sitesDefault {
   },
   location+: {
     continent_code: 'EU',
-    country_code: 'PL',
+    country_code: 'CZ',
     metro: 'prg',
     city: 'Prague',
     state: '',

@@ -19,8 +19,8 @@ sitesDefault {
     asn: 'AS3257',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
+    continent_code: 'EU',
+    country_code: 'ES',
     metro: 'mad',
     city: 'Madrid',
     state: '',

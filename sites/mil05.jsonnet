@@ -20,7 +20,7 @@ sitesDefault {
   },
   location+: {
     continent_code: 'EU',
-    country_code: 'GB',
+    country_code: 'IT',
     metro: 'mil',
     city: 'Milan',
     state: '',

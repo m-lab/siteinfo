@@ -20,7 +20,7 @@ sitesDefault {
   },
   location+: {
     continent_code: 'NA',
-    country_code: 'CA',
+    country_code: 'US',
     metro: 'lga',
     city: 'New York',
     state: 'NY',

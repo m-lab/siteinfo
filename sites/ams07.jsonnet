@@ -19,8 +19,8 @@ sitesDefault {
     asn: 'AS30282',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
+    continent_code: 'EU',
+    country_code: 'NL',
     metro: 'ams',
     city: 'Amsterdam',
     state: '',
