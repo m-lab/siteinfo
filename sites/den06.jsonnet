@@ -1,0 +1,33 @@
+local sitesDefault = import 'sites/_default.jsonnet';
+
+sitesDefault {
+  name: 'den06',
+  annotations+: {
+    type: 'physical',
+  },
+  network+: {
+    ipv4+: {
+      prefix: '208.116.164.0/26',
+    },
+    ipv6+: {
+      prefix: '2001:668:1f:b3::/64',
+    },
+  },
+  transit+: {
+    provider: 'GTT Communications Inc.',
+    uplink: '10g',
+    asn: 'AS3257',
+  },
+  location+: {
+    continent_code: 'NA',
+    country_code: 'US',
+    metro: 'den',
+    city: 'Denver',
+    state: 'CO',
+    latitude: 39.8561,
+    longitude: -104.6737,
+  },
+  lifecycle+: {
+    created: '2019-01-01',
+  },
+}
