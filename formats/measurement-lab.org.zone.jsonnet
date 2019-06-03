@@ -14,37 +14,37 @@ local serial(current, latest) = (
 local records = std.flattenArrays([
   // Routers & switches
   [
-    local s1 = site.s1();
-    { record: s1.record(), ipv4: s1.v4.ip },
+    local s1 = site.Switch();
+    { record: s1.Record(), ipv4: s1.v4.ip },
   ]
   for site in sites
   if site.annotations.type == 'physical'
 ]) + [
   // DRACs
-  local d = site.drac(mIndex);
-  { record: d.record(), ipv4: d.v4.ip }
+  local d = site.DRAC(mIndex);
+  { record: d.Record(), ipv4: d.v4.ip }
   for site in sites
   for mIndex in std.range(1, site.machines.count)
   if site.annotations.type == 'physical'
 ] + std.flattenArrays([
   // Machines
-  local m = site.machine(mIndex);
+  local m = site.Machine(mIndex);
   [
-    { record: m.record(), ipv4: m.v4.ip, ipv6: m.v6.ip },
-    { record: m.record('v4'), ipv4: m.v4.ip },
-    { record: m.record('v6'), ipv6: m.v6.ip },
+    { record: m.Record(), ipv4: m.v4.ip, ipv6: m.v6.ip },
+    { record: m.Record('v4'), ipv4: m.v4.ip },
+    { record: m.Record('v6'), ipv6: m.v6.ip },
   ]
   for site in sites
   for mIndex in std.range(1, site.machines.count)
 ]) + std.flattenArrays([
   // Experiments
-  local e = site.experiment(mIndex, experiment);
+  local e = site.Experiment(mIndex, experiment);
   [
-    { record: e.record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
-    { record: e.record('v4'), ipv4: e.v4.ip },
-    { record: e.record('v6'), ipv6: e.v6.ip },
+    { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
+    { record: e.Record('v4'), ipv4: e.v4.ip },
+    { record: e.Record('v6'), ipv6: e.v6.ip },
     if e.flat_hostname == true then
-      { record: flatten(e.record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
+      { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
   ]
   for site in sites
   for mIndex in std.range(1, site.machines.count)

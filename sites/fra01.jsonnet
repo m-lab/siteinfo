@@ -19,8 +19,8 @@ sitesDefault {
     asn: 'AS1299',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
+    continent_code: 'EU',
+    country_code: 'DE',
     metro: 'fra',
     city: 'Frankfurt',
     state: '',

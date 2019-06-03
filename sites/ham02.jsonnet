@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'mil05',
+  name: 'ham02',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '195.89.147.0/26',
+      prefix: '80.239.142.192/26',
     },
     ipv6+: {
-      prefix: '2001:5008:100:14::/64',
+      prefix: '2001:2030:0:19::/64',
     },
   },
   transit+: {
-    provider: 'Vodafone Group PLC',
+    provider: 'Telia Company AB',
     uplink: '10g',
-    asn: 'AS1273',
+    asn: 'AS1299',
   },
   location+: {
     continent_code: 'EU',
-    country_code: 'IT',
-    metro: 'mil',
-    city: 'Milan',
+    country_code: 'DE',
+    metro: 'ham',
+    city: 'Hamburg',
     state: '',
-    latitude: 45.464,
-    longitude: 9.1916,
+    latitude: 53.6333,
+    longitude: 9.9833,
   },
   lifecycle+: {
     created: '2019-01-01',

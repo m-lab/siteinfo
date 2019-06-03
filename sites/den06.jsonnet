@@ -1,31 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lax05',
+  name: 'den06',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '128.177.109.192/26',
+      prefix: '208.116.164.0/26',
     },
     ipv6+: {
-      prefix: '2001:438:fffd:2e::/64',
+      prefix: '2001:668:1f:b3::/64',
     },
   },
   transit+: {
-    provider: 'Zayo Bandwidth',
+    provider: 'GTT Communications Inc.',
     uplink: '10g',
-    asn: 'AS6461',
+    asn: 'AS3257',
   },
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'lax',
-    city: 'Los Angeles',
-    state: 'CA',
-    latitude: 33.9425,
-    longitude: -118.4072,
+    metro: 'den',
+    city: 'Denver',
+    state: 'CO',
+    latitude: 39.8561,
+    longitude: -104.6737,
   },
   lifecycle+: {
     created: '2019-01-01',

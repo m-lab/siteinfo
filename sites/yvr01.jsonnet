@@ -20,7 +20,7 @@ sitesDefault {
   },
   location+: {
     continent_code: 'NA',
-    country_code: 'US',
+    country_code: 'CA',
     metro: 'yvr',
     city: 'Vancouver',
     state: '',

@@ -15,7 +15,7 @@ sitesDefault {
   },
   transit+: {
     provider: 'Zayo Bandwidth',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS6461',
   },
   location+: {

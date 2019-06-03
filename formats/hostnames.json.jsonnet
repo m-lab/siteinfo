@@ -2,8 +2,8 @@ local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 [
   {
-    local m = site.machine(mIndex),
-    hostname: m.hostname(),
+    local m = site.Machine(mIndex),
+    hostname: m.Hostname(),
     ipv4: m.v4.ip,
     ipv6: m.v6.ip,
   }
@@ -11,8 +11,8 @@ local sites = import 'sites.jsonnet';
   for mIndex in std.range(1, site.machines.count)
 ] + [
   {
-    local e = site.experiment(mIndex, experiment),
-    hostname: e.hostname(),
+    local e = site.Experiment(mIndex, experiment),
+    hostname: e.Hostname(),
     ipv4: e.v4.ip,
     ipv6: e.v6.ip,
   }

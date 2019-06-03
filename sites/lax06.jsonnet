@@ -1,22 +1,22 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lax05',
+  name: 'lax06',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '128.177.109.192/26',
+      prefix: '38.98.51.0/26',
     },
     ipv6+: {
-      prefix: '2001:438:fffd:2e::/64',
+      prefix: '2001:550:6800::/64',
     },
   },
   transit+: {
-    provider: 'Zayo Bandwidth',
+    provider: 'Cogent Communications',
     uplink: '10g',
-    asn: 'AS6461',
+    asn: 'AS174',
   },
   location+: {
     continent_code: 'NA',

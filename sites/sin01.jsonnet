@@ -19,8 +19,8 @@ sitesDefault {
     asn: 'AS6453',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'CA',
+    continent_code: 'AS',
+    country_code: 'SG',
     metro: 'sin',
     city: 'Singapore',
     state: '',

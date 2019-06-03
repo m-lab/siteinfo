@@ -3,13 +3,13 @@ local sites = import 'sites.jsonnet';
 [
   site {
     nodes: [
-      local m = site.machine(mIndex);
+      local m = site.Machine(mIndex);
       m {
-        name: m.hostname(),
+        hostname: m.Hostname(),
         experiments: [
-          local e = site.experiment(mIndex, experiment);
+          local e = site.Experiment(mIndex, experiment);
           e {
-            name: e.hostname(),
+            hostname: e.Hostname(),
           }
           for experiment in experiments
         ],

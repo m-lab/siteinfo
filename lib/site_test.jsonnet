@@ -61,11 +61,11 @@ test.suite({
         '192.168.1',
       ],
     },
-  test_v4_net_subnet:
+  test_net_subnet:
     {
       actual: [
-        v4v6Site._v4_net_subnet('192.168.1.64/26'),
-        v4v6Site._v4_net_subnet('192.168.1.66/32'),
+        v4v6Site._net_subnet('192.168.1.64/26'),
+        v4v6Site._net_subnet('192.168.1.66/32'),
       ],
       expect: [
         26,
@@ -88,15 +88,15 @@ test.suite({
       ],
     },
   test_s1: {
-    actual: v4v6Site.s1().v4.ip,
+    actual: v4v6Site.Switch().v4.ip,
     expect: '192.168.1.66',
   },
   test_drac: {
     actual: [
-      v4v6Site.drac(1).v4.ip,
-      v4v6Site.drac(2).v4.ip,
-      v4v6Site.drac(3).v4.ip,
-      v4v6Site.drac(4).v4.ip,
+      v4v6Site.DRAC(1).v4.ip,
+      v4v6Site.DRAC(2).v4.ip,
+      v4v6Site.DRAC(3).v4.ip,
+      v4v6Site.DRAC(4).v4.ip,
     ],
     expect: [
       '192.168.1.68',
@@ -107,10 +107,10 @@ test.suite({
   },
   test_drac_record: {
     actual: [
-      v4v6Site.drac(1).record(),
-      v4v6Site.drac(2).record(),
-      v4v6Site.drac(3).record(),
-      v4v6Site.drac(4).record(),
+      v4v6Site.DRAC(1).Record(),
+      v4v6Site.DRAC(2).Record(),
+      v4v6Site.DRAC(3).Record(),
+      v4v6Site.DRAC(4).Record(),
     ],
     expect: [
       'mlab1d.mck0t',
@@ -121,12 +121,12 @@ test.suite({
   },
   test_machine_v4: {
     actual: [
-      v4v6Site.machine(2).v4.ip,
-      v4v6Site.machine(2).v4.netmask,
-      v4v6Site.machine(2).v4.gateway,
-      v4v6Site.machine(2).v4.broadcast,
-      v4v6Site.machine(2).record(),
-      v4v6Site.machine(2).record('v4'),
+      v4v6Site.Machine(2).v4.ip,
+      v4v6Site.Machine(2).v4.netmask,
+      v4v6Site.Machine(2).v4.gateway,
+      v4v6Site.Machine(2).v4.broadcast,
+      v4v6Site.Machine(2).Record(),
+      v4v6Site.Machine(2).Record('v4'),
     ],
     expect: [
       '192.168.1.86',
@@ -139,8 +139,8 @@ test.suite({
   },
   test_machine_v6_gateway: {
     actual: [
-      v4v6Site.machine(2).v6.gateway,
-      v6GwSite.machine(2).v6.gateway,
+      v4v6Site.Machine(2).v6.gateway,
+      v6GwSite.Machine(2).v6.gateway,
     ],
     expect: [
       '2001:1900:2100:2d::1',
@@ -149,8 +149,8 @@ test.suite({
   },
   test_machine_v6_ip: {
     actual: [
-      v4Site.machine(2).v6.ip,
-      v4v6Site.machine(2).v6.ip,
+      v4Site.Machine(2).v6.ip,
+      v4v6Site.Machine(2).v6.ip,
     ],
     expect: [
       '',
@@ -159,8 +159,8 @@ test.suite({
   },
   test_machine_v6_record: {
     actual: [
-      v4v6Site.machine(1).record('v6'),
-      v4v6Site.machine(2).record('v6'),
+      v4v6Site.Machine(1).Record('v6'),
+      v4v6Site.Machine(2).Record('v6'),
     ],
     expect: [
       'mlab1v6.mck0t',
@@ -169,9 +169,9 @@ test.suite({
   },
   test_experiment_v4: {
     actual: [
-      v4v6Site.experiment(2, { index: 1, name: 'fake.exp' }).v4.ip,
-      v4v6Site.experiment(2, { index: 1, name: 'fake.exp' }).record(),
-      v4v6Site.experiment(2, { index: 1, name: 'fake.exp' }).record('v4'),
+      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).v4.ip,
+      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record(),
+      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record('v4'),
     ],
     expect: [
       '192.168.1.87',
@@ -181,10 +181,10 @@ test.suite({
   },
   test_experiment_v6: {
     actual: [
-      v4v6Site.experiment(2, { index: 1, name: 'fake.exp' }).v6.ip,
-      v4v6Site.experiment(2, { index: 1, name: 'fake.exp' }).record(),
-      v4v6Site.experiment(2, { index: 1, name: 'fake.exp' }).record('v6'),
-      v4Site.experiment(1, { index: 1, name: 'fake.exp' }).v6.ip,
+      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).v6.ip,
+      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record(),
+      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record('v6'),
+      v4Site.Experiment(1, { index: 1, name: 'fake.exp' }).v6.ip,
     ],
     expect: [
       '2001:1900:2100:2d::87',
