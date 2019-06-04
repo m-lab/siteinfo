@@ -32,6 +32,16 @@ site {
   switch: {
     auto_negotiation: 'yes',
     flow_control: 'yes',
+    make: 'juniper',
+    model: 'qfx5100',
+    uplink_port: (
+      if $.transit.uplink == '10g' then
+        'xe-0/0/45'
+      else if $.transit.uplink == '1g' then
+        'ge-0/0/47'
+      else
+        error 'Unknown uplink speed! %s' % $.transit.uplink
+    ),
   },
   location: {
     continent_code: error 'Must override location.continent_code',
