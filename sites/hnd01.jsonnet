@@ -18,6 +18,11 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS2500',
   },
+  switch+: {
+    auto_negotiation: 'no',
+    uplink_port: 'ge-0/0/23',
+    model: 'ex4200',
+  },
   location+: {
     continent_code: 'AS',
     country_code: 'JP',

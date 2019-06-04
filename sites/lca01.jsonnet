@@ -18,6 +18,11 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS3268',
   },
+  switch+: {
+    flow_control: 'no',
+    uplink_port: 'GigabitEthernet0/48',
+    make: 'cisco',
+  },
   location+: {
     continent_code: 'AS',
     country_code: 'CY',

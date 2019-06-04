@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS9498',
   },
+  switch+: {
+    auto_negotiation: 'no',
+  },
   location+: {
     continent_code: 'AS',
     country_code: 'IN',

@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS4826',
   },
+  switch+: {
+    flow_control: 'no',
+  },
   location+: {
     continent_code: 'OC',
     country_code: 'AU',

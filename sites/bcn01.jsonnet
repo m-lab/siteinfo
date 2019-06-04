@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS49638',
   },
+  switch+: {
+    flow_control: 'no',
+  },
   location+: {
     continent_code: 'EU',
     country_code: 'ES',
