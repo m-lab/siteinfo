@@ -22,6 +22,7 @@ sitesDefault {
     flow_control: 'no',
     uplink_port: '45',
     make: 'hp',
+    model: 'procurve',
   },
   location+: {
     continent_code: 'AF',

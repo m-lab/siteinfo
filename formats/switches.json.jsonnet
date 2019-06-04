@@ -5,6 +5,7 @@ local sites = import 'sites.jsonnet';
     auto_negotiation: site.switch.auto_negotiation,
     flow_control: site.switch.flow_control,
     switch_make: site.switch.make,
+    switch_model: site.switch.model,
     uplink_port: site.switch.uplink_port,
     uplink_speed: site.transit.uplink,
   },
