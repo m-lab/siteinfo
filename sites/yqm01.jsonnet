@@ -18,6 +18,10 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS6939',
   },
+  switch+: {
+    auto_negotiation: 'no',
+    uplink_port: 'ge-0/0/46',
+  },
   location+: {
     continent_code: 'NA',
     country_code: 'CA',

@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS6939',
   },
+  switch+: {
+    auto_negotiation: 'no',
+  },
   location+: {
     continent_code: 'NA',
     country_code: 'CA',

@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS14745',
   },
+  switch+: {
+    auto_negotiation: 'no',
+  },
   location+: {
     continent_code: 'NA',
     country_code: 'US',

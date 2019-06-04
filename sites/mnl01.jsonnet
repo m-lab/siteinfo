@@ -18,6 +18,11 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS9821',
   },
+  switch+: {
+    flow_control: 'no',
+    uplink_port: '48',
+    make: 'hp',
+  },
   location+: {
     continent_code: 'AS',
     country_code: 'PH',

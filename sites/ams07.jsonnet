@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS30282',
   },
+  switch+: {
+    auto_negotiation: 'no',
+  },
   location+: {
     continent_code: 'EU',
     country_code: 'NL',

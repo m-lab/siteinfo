@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS3356',
   },
+  switch+: {
+    flow_control: 'no',
+  },
   location+: {
     continent_code: 'NA',
     country_code: 'US',

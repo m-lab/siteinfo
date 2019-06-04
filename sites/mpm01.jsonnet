@@ -18,6 +18,11 @@ sitesDefault {
     uplink: '1g',
     asn: 'AS327700',
   },
+  switch+: {
+    flow_control: 'no',
+    uplink_port: '45',
+    make: 'hp',
+  },
   location+: {
     continent_code: 'AF',
     country_code: 'MZ',

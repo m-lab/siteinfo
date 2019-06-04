@@ -18,6 +18,9 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS3257',
   },
+  switch+: {
+    flow_control: 'no',
+  },
   location+: {
     continent_code: 'EU',
     country_code: 'IT',
