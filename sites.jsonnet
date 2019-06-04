@@ -1,12 +1,10 @@
 local sites = {
   // Physical sites.
-  acc02: import 'sites/acc02.jsonnet',
   akl01: import 'sites/akl01.jsonnet',
   ams01: import 'sites/ams01.jsonnet',
   ams03: import 'sites/ams03.jsonnet',
   ams04: import 'sites/ams04.jsonnet',
   ams05: import 'sites/ams05.jsonnet',
-  ams06: import 'sites/ams06.jsonnet',
   ams07: import 'sites/ams07.jsonnet',
   ams08: import 'sites/ams08.jsonnet',
   arn02: import 'sites/arn02.jsonnet',
@@ -64,7 +62,6 @@ local sites = {
   lax04: import 'sites/lax04.jsonnet',
   lax05: import 'sites/lax05.jsonnet',
   lax06: import 'sites/lax06.jsonnet',
-  lba01: import 'sites/lba01.jsonnet',
   lca01: import 'sites/lca01.jsonnet',
   lga02: import 'sites/lga02.jsonnet',
   lga03: import 'sites/lga03.jsonnet',
