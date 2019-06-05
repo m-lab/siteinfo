@@ -3,6 +3,7 @@ local default = {
   ipv6_enabled: true,
   flat_hostname: false,
   cloud_enabled: false,
+  rsync_modules: [],
 };
 
 [
@@ -11,6 +12,12 @@ local default = {
     name: 'ndt.iupui',
     flat_hostname: true,
     cloud_enabled: true,
+    rsync_modules: ['ndt'],
+  },
+  default {
+    index: 3,
+    name: 'npad.iupui',
+    rsync_modules: ['sidestream', 'npad', 'paris-traceroute'],
   },
   default {
     index: 5,
@@ -33,6 +40,7 @@ local default = {
   default {
     index: 10,
     name: 'neubot.mlab',
+    rsync_modules: ['neubot'],
   },
   default {
     index: 11,
@@ -41,5 +49,6 @@ local default = {
   default {
     index: 12,
     name: 'utility.mlab',
+    rsync_modules: ['utilization', 'switch'],
   },
 ]
