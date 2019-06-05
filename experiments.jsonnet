@@ -3,6 +3,7 @@ local default = {
   ipv6_enabled: true,
   flat_hostname: false,
   cloud_enabled: false,
+  rsync_modules: [],
 };
 
 [
