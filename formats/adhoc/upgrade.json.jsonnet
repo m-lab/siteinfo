@@ -11,13 +11,13 @@ std.flattenArrays([
       ipv4: m.v4.ip,
       ipv6: m.v6.ip,
     }
-	// For now, only consier mlab2s and mlab3s.
+    // For now, only consier mlab2s and mlab3s.
     for mIndex in std.range(2, 3)
   ], hashHostKey);
   [
     s[0],
     // Once we wish to include mlab1s, report top 2 sites:
-	// s[1],
+    // s[1],
   ]
   for site in sites
   if (site.annotations.type == 'physical')
