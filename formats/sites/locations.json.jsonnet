@@ -12,6 +12,7 @@ local sites = import 'sites.jsonnet';
     longitude: location.longitude,
     latitude: location.latitude,
     roundrobin: site.loadbalancer.roundrobin,
+    uplink_speed: site.transit.uplink,
   }
   for site in sites
 ]
