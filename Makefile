@@ -11,7 +11,7 @@ CURRENT=$(shell dig @dns.measurementlab.net soa measurementlab.net \
       | awk '{print $$7}' )
 OUTDIR=output
 ARCHDIR:=$(shell date +%Y/%m/%d/%H:%M:%S )
-SJSONNET_JAR=~/bin/sjsonnet.jar
+SJSONNET_JAR=/usr/bin/sjsonnet.jar
 # NOTE: It's possible to execute the sjsonnet.jar directly, however that uses
 # the default heap size of 64M which is not always enough for our large outputs.
 # So, run sjsonnet the hard way and provide maximum heap.
