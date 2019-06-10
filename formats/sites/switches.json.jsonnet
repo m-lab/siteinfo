@@ -8,7 +8,7 @@ local sites = import 'sites.jsonnet';
     switch_model: site.switch.model,
     uplink_port: site.switch.uplink_port,
     uplink_speed: site.transit.uplink,
-  },
+  }
   for site in sites
   if site.annotations.type == 'physical'
 }
