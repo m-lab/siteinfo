@@ -60,7 +60,7 @@ zones/%.zone: formats/zones/%.zone.jsonnet $(DEPS)
 # NOTE: this target only works with the C++ implementation of jsonnet.
 fmt:
 	@find . -name '*.jsonnet' -print0 | while read -d $$'\0' f; do \
-	  jsonnet fmt --indent 2 --max-blank-lines 2 --sort-imports \
-	              --string-style s --comment-style s $$f | diff $$f - ; \
-	  jsonnet fmt --in-place $$f ; \
+	  jsonnetfmt --indent 2 --max-blank-lines 2 --sort-imports \
+	             --string-style s --comment-style s $$f | diff $$f - ; \
+	  jsonnetfmt --in-place $$f ; \
 	done
