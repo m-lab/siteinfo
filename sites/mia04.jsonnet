@@ -15,7 +15,7 @@ sitesDefault {
   },
   transit+: {
     provider: 'GTT Communications Inc.',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS3257',
   },
   location+: {
