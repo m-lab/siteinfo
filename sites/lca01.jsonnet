@@ -5,6 +5,9 @@ sitesDefault {
   annotations+: {
     type: 'physical',
   },
+  machines+: {
+    count: 3
+  },
   network+: {
     ipv4+: {
       prefix: '82.116.199.0/26',
