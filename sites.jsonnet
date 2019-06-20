@@ -26,7 +26,6 @@ local sites = {
   bru03: import 'sites/bru03.jsonnet',
   bru04: import 'sites/bru04.jsonnet',
   cpt01: import 'sites/cpt01.jsonnet',
-  den01: import 'sites/den01.jsonnet',
   den02: import 'sites/den02.jsonnet',
   den04: import 'sites/den04.jsonnet',
   den05: import 'sites/den05.jsonnet',
