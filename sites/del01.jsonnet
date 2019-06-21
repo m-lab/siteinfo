@@ -16,7 +16,7 @@ sitesDefault {
   transit+: {
     provider: 'TATA Communications formerly VSNL is Leading ISP',
     uplink: '10g',
-    asn: 'AS38022',
+    asn: 'AS4755',
   },
   location+: {
     continent_code: 'AS',
