@@ -25,7 +25,7 @@ RUN chmod 755 /usr/bin/sjsonnet.jar
 # Install additional dependencies.
 RUN apk add --no-cache libstdc++
 RUN apk add --no-cache ca-certificates && update-ca-certificates
-RUN apk add openjdk8 bash make bind-tools
+RUN apk add openjdk8 bash make bind-tools curl
 
 
 WORKDIR /
