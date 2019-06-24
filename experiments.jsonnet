@@ -29,6 +29,12 @@ local default = {
     ipv6_enabled: false,
   },
   default {
+    index: 7,
+    name: "ooni.mlab",
+    ipv6_enabled: false,
+    rsync_modules: ['ooni'],
+  },
+  default {
     index: 8,
     name: 'ispmon.samknows',
   },
