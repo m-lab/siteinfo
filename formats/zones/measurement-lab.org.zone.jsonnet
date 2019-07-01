@@ -13,10 +13,10 @@ local serial(current, latest) = (
 
 local records = std.flattenArrays([
   // Routers & switches
-  local s1 = site.Switch();
-  local r1 = site.Router();
   [
+    local s1 = site.Switch();
     { record: s1.Record(), ipv4: s1.v4.ip },
+    local r1 = site.Router();
     { record: r1.Record(), ipv4: r1.v4.ip },
   ]
   for site in sites
