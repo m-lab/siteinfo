@@ -13,7 +13,7 @@
       ip: $.Index4(1),
     },
     Record():: 'r1.%s' % $.name,
-    Hostname():: '$s.measurement-lab.org' % self.Record(),
+    Hostname():: '%s.measurement-lab.org' % self.Record(),
   },
   // DRAC returns a network spec for the drac attached to machine index m.
   DRAC(m):: {
