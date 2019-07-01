@@ -7,6 +7,13 @@
     Record():: 's1.%s' % $.name,
     Hostname():: '%s.measurement-lab.org' % self.Record(),
   },
+  Router():: {
+    v4: {
+      ip: $.Index4(1),
+    },
+    Record():: 'r1.%s' % $.name,
+    Hostname():: '$s.measurement-lab.org' % self.Record(),
+  },
   // DRAC returns a network spec for the drac attached to machine index m.
   DRAC(m):: {
     v4: {
