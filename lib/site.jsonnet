@@ -7,7 +7,7 @@
     Record():: 's1.%s' % $.name,
     Hostname():: '%s.measurement-lab.org' % self.Record(),
   },
-  // Router returns a network spec for the site router.
+  // Router returns a network spec for the site's upstream router.
   Router():: {
     v4: {
       ip: $.Index4(1),
