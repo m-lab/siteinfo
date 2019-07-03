@@ -15,14 +15,11 @@ sitesDefault {
   },
   transit+: {
     provider: 'Department of Science and Technology',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS9821',
   },
   switch+: {
     flow_control: 'no',
-    uplink_port: '48',
-    make: 'hp',
-    model: 'procurve',
   },
   location+: {
     continent_code: 'AS',
