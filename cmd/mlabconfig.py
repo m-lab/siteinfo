@@ -181,7 +181,7 @@ def parse_flags():
         dest='decoration',
         default='',
         choices=['', 'v4', 'v6', 'd'],
-        help='Protocol decoration for Prom targets (e.g, mlab1v4.abc01).')
+        help='Decoration for Prom targets (e.g, mlab1v4.abc01).')
     parser.add_option(
         '',
         '--select',
