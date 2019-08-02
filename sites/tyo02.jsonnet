@@ -17,6 +17,7 @@ sitesDefault {
     },
   },
   transit+: {
+    asn: 'AS15169',
     provider: 'Google',
     uplink: '1g',
   },
