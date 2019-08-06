@@ -60,7 +60,6 @@ local sites = {
   lax04: import 'sites/lax04.jsonnet',
   lax05: import 'sites/lax05.jsonnet',
   lax06: import 'sites/lax06.jsonnet',
-  lca01: import 'sites/lca01.jsonnet',
   lga03: import 'sites/lga03.jsonnet',
   lga04: import 'sites/lga04.jsonnet',
   lga05: import 'sites/lga05.jsonnet',
