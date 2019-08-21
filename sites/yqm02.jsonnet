@@ -1,26 +1,26 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'yqm01',
+  name: 'yqm02',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '209.51.169.128/26',
+      prefix: '98.143.249.192/26',
     },
     ipv6+: {
-      prefix: '2001:470:1:820::/64',
+      prefix: '2605:5080:1001:1::/64',
     },
   },
   transit+: {
-    provider: 'Hurricane Electric LLC',
-    uplink: '1g',
-    asn: 'AS6939',
+    provider: 'F6 Newtorks Inc',
+    uplink: '10g',
+    asn: 'AS3367',
   },
   switch+: {
-    auto_negotiation: 'no',
-    uplink_port: 'ge-0/0/47',
+    auto_negotiation: 'yes',
+    uplink_port: 'xe-0/0/45',
   },
   location+: {
     continent_code: 'NA',
@@ -32,6 +32,6 @@ sitesDefault {
     longitude: -64.6738,
   },
   lifecycle+: {
-    created: '2019-01-01',
+    created: '2019-08-21',
   },
 }
