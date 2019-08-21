@@ -14,7 +14,7 @@ sitesDefault {
     },
   },
   transit+: {
-    provider: 'F6 Newtorks Inc'
+    provider: 'F6 Newtorks Inc',
     uplink: '10g',
     asn: 'AS3367',
   },
