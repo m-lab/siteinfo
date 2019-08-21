@@ -273,11 +273,8 @@ def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
             # TODO(soltesz): support multiple (or all) object types.
             if select_regex and not re.search(select_regex, node['hostname']):
                 continue
-            # Add the site's uplink speed so that nodes can become aware of
-            # the uplink capacity of the switch they are connected to.
-            i = {'uplink_speed': site['transit']['uplink']}
             # Add 'hostname' so that it is available to templates.
-            i['hostname'] = node['hostname']
+            i = {'hostname': node['hostname']}
             # Get IPv4 settings.
             i.update({'ipv4_' + k: node['v4'][k] for k in node['v4']})
             i['ipv4_enabled'] = 'true' if node['v4']['ip'] else 'false'
