@@ -20,7 +20,7 @@ sitesDefault {
   },
   switch+: {
     auto_negotiation: 'no',
-    uplink_port: 'ge-0/0/46',
+    uplink_port: 'ge-0/0/47',
   },
   location+: {
     continent_code: 'NA',
