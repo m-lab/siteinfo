@@ -150,3 +150,8 @@ if [[ -z "${forwarder_name}" ]] ; then
     --target-https-proxy ${proxy_name} \
     --ports 443
 fi
+
+# Make sure CORS settings are applied to the GCS bucket.
+sed -e 's/{{PROJECT}}/${PROJECT}/g' cors-settings.json.template > \
+  cors-settings.json
+gsutil cors set ~/cors-settings.json gs://siteinfo-${PROJECT}
