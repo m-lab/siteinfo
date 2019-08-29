@@ -154,4 +154,4 @@ fi
 # Apply CORS settings to the GCS bucket.
 sed -e 's/{{PROJECT}}/${PROJECT}/g' cors-settings.json.template > \
   cors-settings.json
-gsutil cors set cors-settings.json gs://siteinfo-${PROJECT}
+gsutil cors set cors-settings.json gs://${siteinfo_bucket}
