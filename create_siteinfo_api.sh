@@ -151,7 +151,7 @@ if [[ -z "${forwarder_name}" ]] ; then
     --ports 443
 fi
 
-# Make sure CORS settings are applied to the GCS bucket.
+# Apply CORS settings to the GCS bucket.
 sed -e 's/{{PROJECT}}/${PROJECT}/g' cors-settings.json.template > \
   cors-settings.json
-gsutil cors set ~/cors-settings.json gs://siteinfo-${PROJECT}
+gsutil cors set cors-settings.json gs://siteinfo-${PROJECT}
