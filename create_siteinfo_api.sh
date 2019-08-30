@@ -18,6 +18,9 @@ if ! gsutil acl get "gs://${empty_bucket}" &> /dev/null ; then
   gsutil defacl set public-read "gs://${empty_bucket}"
 fi
 
+# Apply CORS settings to the siteinfo bucket.
+gsutil cors set cors-settings.json gs://${siteinfo_bucket}
+
 # Lookup or create loadbalancer IP.
 lb_ip=$(
   gcloud --project ${PROJECT} compute addresses describe \
