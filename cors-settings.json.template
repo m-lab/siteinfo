@@ -1,14 +1,8 @@
 [
     {
-      "origin": ["http://website.{{PROJECT}}.measurementlab.net"],
+      "origin": ["*"],
       "responseHeader": ["Content-Type"],
-      "method": ["GET"],
-      "maxAgeSeconds": 3600
-    },
-    {
-      "origin": ["https://www.measurementlab.net"],
-      "responseHeader": ["Content-Type"],
-      "method": ["GET"],
+      "method": ["GET", "POST", "PUT", "HEAD", "PATCH", "DELETE", "OPTIONS"],
       "maxAgeSeconds": 3600
     }
 ]
