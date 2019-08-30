@@ -19,8 +19,6 @@ if ! gsutil acl get "gs://${empty_bucket}" &> /dev/null ; then
 fi
 
 # Apply CORS settings to the siteinfo bucket.
-sed -e 's/{{PROJECT}}/${PROJECT}/g' cors-settings.json.template > \
-  cors-settings.json
 gsutil cors set cors-settings.json gs://${siteinfo_bucket}
 
 # Lookup or create loadbalancer IP.
