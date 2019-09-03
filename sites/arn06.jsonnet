@@ -10,7 +10,7 @@ sitesDefault {
       prefix: '193.142.125.64/26',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2a01:3e0:1b01:2::/64',
     },
   },
   transit+: {
