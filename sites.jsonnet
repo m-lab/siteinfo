@@ -120,6 +120,7 @@ local sites = {
   tnr01: import 'sites/tnr01.jsonnet',
   tpe01: import 'sites/tpe01.jsonnet',
   trn01: import 'sites/trn01.jsonnet',
+  trn02: import 'sites/trn02.jsonnet',
   tun01: import 'sites/tun01.jsonnet',
   vie01: import 'sites/vie01.jsonnet',
   wlg02: import 'sites/wlg02.jsonnet',
