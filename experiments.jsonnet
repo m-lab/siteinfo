@@ -45,6 +45,7 @@ local default = {
   },
   default {
     index: 10,
+    flat_hostname: true,
     name: 'neubot.mlab',
     rsync_modules: ['neubot'],
   },
