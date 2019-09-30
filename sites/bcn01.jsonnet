@@ -20,6 +20,7 @@ sitesDefault {
   },
   switch+: {
     flow_control: 'no',
+    rstp: 'no',
   },
   location+: {
     continent_code: 'EU',

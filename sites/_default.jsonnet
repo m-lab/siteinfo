@@ -34,6 +34,7 @@ site {
     flow_control: 'yes',
     make: 'juniper',
     model: 'qfx5100',
+    rstp: 'yes',
     uplink_port: (
       if $.transit.uplink == '10g' then
         'xe-0/0/45'
