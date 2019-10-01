@@ -138,16 +138,6 @@ local sites = {
   // Test sites.
   lga0t: import 'sites/lga0t.jsonnet',
   lga1t: import 'sites/lga1t.jsonnet',
-
-  // Cloud sites.
-  chs0c: import 'sites/chs0c.jsonnet',
-  iad0c: import 'sites/iad0c.jsonnet',
-  lax0c: import 'sites/lax0c.jsonnet',
-  oma0c: import 'sites/oma0c.jsonnet',
-  pdx0c: import 'sites/pdx0c.jsonnet',
-  tyo01: import 'sites/tyo01.jsonnet',
-  tyo02: import 'sites/tyo02.jsonnet',
-  tyo03: import 'sites/tyo03.jsonnet',
 };
 [
   local site = sites[name];
