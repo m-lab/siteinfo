@@ -15,11 +15,8 @@ sitesDefault {
   },
   transit+: {
     provider: 'TATA COMMUNICATIONS (AMERICA) INC',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS6453',
-  },
-  switch+: {
-    auto_negotiation: 'no',
   },
   location+: {
     continent_code: 'NA',
