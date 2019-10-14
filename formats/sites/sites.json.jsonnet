@@ -20,7 +20,6 @@ local sites = import 'sites.jsonnet';
       }
       for mIndex in std.range(1, site.machines.count)
     ],
-
   }
   for site in sites
 ]
