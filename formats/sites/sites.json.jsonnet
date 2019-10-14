@@ -4,8 +4,12 @@ local sites = import 'sites.jsonnet';
   site {
     nodes: [
       local m = site.Machine(mIndex);
+      local d = site.DRAC(mIndex);
       m {
         hostname: m.Hostname(),
+        drac: d + {
+          hostname: d.Hostname()
+        },
         experiments: [
           local e = site.Experiment(mIndex, experiment);
           e {
