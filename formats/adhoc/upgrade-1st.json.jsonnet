@@ -25,8 +25,6 @@ std.sort(
     ], hashHostKey);
     [
       s[0],
-      // Once we wish to include mlab1s, report top 2 sites:
-      // s[1],
     ]
     for site in sites
     if (site.annotations.type == 'physical')
