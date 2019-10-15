@@ -13,18 +13,13 @@ local hashHostKey = function(x) std.substr(std.md5(x.hostname + 'nonce0'), 30, 2
 
 std.sort(
   std.flattenArrays([
-    local s = std.sort([
+    [
       {
-        local m = site.Machine(mIndex),
+        local m = site.Machine(1),
         hostname: m.Hostname(),
         ipv4: m.v4.ip,
         ipv6: m.v6.ip,
       }
-      // For now, only consier mlab2s and mlab3s.
-      for mIndex in std.range(1)
-    ], hashHostKey);
-    [
-      s[0],
     ]
     for site in sites
     if (site.annotations.type == 'physical')
