@@ -30,22 +30,5 @@ std.sort(
     if (site.annotations.type == 'physical')
     if !std.objectHas(migrated, site.name)
   ])
-
-  +
-
-  std.flattenArrays([
-    local s = [
-      {
-        local m = site.Machine(mIndex),
-        hostname: m.Hostname(),
-        ipv4: m.v4.ip,
-        ipv6: m.v6.ip,
-      }
-      for mIndex in migrated[site.name]
-    ];
-    s
-    for site in sites
-    if std.objectHas(migrated, site.name)
-  ])
 , function(x) x.hostname)
 
