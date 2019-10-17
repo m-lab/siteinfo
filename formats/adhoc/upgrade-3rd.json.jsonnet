@@ -4,6 +4,7 @@ local sites = import 'sites.jsonnet';
 local migrated = {
   "del01": std.range(1, 4),
   "den06": std.range(1, 4),
+  "fra05": std.range(1, 4),
   "gru01": std.range(1, 4),
   "gru02": std.range(1, 4),
   "gru03": std.range(1, 4),
