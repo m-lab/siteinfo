@@ -283,6 +283,8 @@ def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
             i.update({'ipv6_' + k: node['v6'][k] for k in node['v6']})
             i['ipv6_enabled'] = 'true' if node['v6']['ip'] else 'false'
             i['ipv6_address'] = i['ipv6_ip']
+            # Add DRAC IPv4 settings.
+            i['drac_ipv4_address'] = node['drac']['v4']['ip']
             # Add extra provided labels.
             i.update(labels)
             filename = output_name.safe_substitute(i)
