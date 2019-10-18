@@ -2,8 +2,18 @@ local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 
 local migrated = {
-  "den06": std.range(1, 4),
   "del01": std.range(1, 4),
+  "den06": std.range(1, 4),
+  "fra05": std.range(1, 4),
+  "gru01": std.range(1, 4),
+  "gru02": std.range(1, 4),
+  "gru03": std.range(1, 4),
+  "gru04": std.range(1, 4),
+  "hkg01": std.range(1, 4),
+  "hnd03": std.range(1, 4),
+  "maa01": std.range(1, 4),
+  "maa02": std.range(1, 4),
+  "trn02": std.range(1, 4),
   "vie01": [1],
 };
 
