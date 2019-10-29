@@ -77,10 +77,8 @@ std.lines([
     @       IN      NS      sns-pb.isc.org.
     @       IN      NS      ns-mlab.greenhost.net.
 
-    ; TODO: fix A and MX records appropriately.
-    @       IN      A       128.112.139.90
-    @       IN      MX 0    mail.planet-lab.org.
-    *       IN      MX 0    mail.planet-lab.org.
+    @       IN      A       151.101.1.195
+    @       IN      A       151.101.65.195
   ||| % serial(std.extVar('serial'), std.extVar('latest')),
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
