@@ -79,6 +79,8 @@ std.lines([
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
+    www       IN      A       151.101.1.195
+    www       IN      A       151.101.65.195
 
     ; Google site verification to use this domain in Firebase
     @                     IN      TXT   google-site-verification=YJspItE9L3D8mw76XKHxEGb7x9usph7x_CsqFQbUK28
