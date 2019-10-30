@@ -79,8 +79,12 @@ std.lines([
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
+
     ; Google site verification to use this domain in Firebase
-    @       IN      TXT     google-site-verification=YJspItE9L3D8mw76XKHxEGb7x9usph7x_CsqFQbUK28
+    @                     IN      TXT   google-site-verification=YJspItE9L3D8mw76XKHxEGb7x9usph7x_CsqFQbUK28
+
+    ; LetsEncrypt ACME DNS challenge record
+    _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
   ||| % serial(std.extVar('serial'), std.extVar('latest')),
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
