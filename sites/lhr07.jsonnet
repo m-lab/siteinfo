@@ -16,7 +16,7 @@ sitesDefault {
   transit+: {
     provider: 'TELECOM ITALIA SPARKLE S.p.A.',
     uplink: '10g',
-    asn: "AS6762",
+    asn: 'AS6762',
   },
   location+: {
     continent_code: 'EU',
