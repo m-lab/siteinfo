@@ -92,7 +92,6 @@ local sites = {
   mil04: import 'sites/mil04.jsonnet',
   mil05: import 'sites/mil05.jsonnet',
   mnl01: import 'sites/mnl01.jsonnet',
-  mpm01: import 'sites/mpm01.jsonnet',
   nbo01: import 'sites/nbo01.jsonnet',
   nuq02: import 'sites/nuq02.jsonnet',
   nuq03: import 'sites/nuq03.jsonnet',
