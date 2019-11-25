@@ -267,6 +267,8 @@ def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
     template = BracketTemplate(input_tmpl.read())
     output_name = BracketTemplate(name_tmpl)
     for site in sites:
+        if site['lifecycle']['retired'] is not None:
+            continue
         if only_physical and site['annotations']['type'] != 'physical':
             continue
         for node in site['nodes']:
@@ -319,6 +321,8 @@ def select_prometheus_experiment_targets(sites, select_regex,
     """
     records = []
     for site in sites:
+        if site['lifecycle']['retired'] is not None:
+            continue
         if only_physical and site['annotations']['type'] != 'physical':
             continue
         for node in site['nodes']:
@@ -377,6 +381,8 @@ def select_prometheus_node_targets(sites, select_regex, target_templates,
     """
     records = []
     for site in sites:
+        if site['lifecycle']['retired'] is not None:
+            continue
         if only_physical and site['annotations']['type'] != 'physical':
             continue
         for node in site['nodes']:
@@ -420,6 +426,8 @@ def select_prometheus_site_targets(sites, select_regex, target_templates,
     """
     records = []
     for site in sites:
+        if site['lifecycle']['retired'] is not None:
+            continue
         if select_regex and not re.search(select_regex, site['name']):
             continue
         if only_physical and site['annotations']['type'] != 'physical':
