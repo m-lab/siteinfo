@@ -128,7 +128,6 @@ local sites = {
   vie01: import 'sites/vie01.jsonnet',
   wlg02: import 'sites/wlg02.jsonnet',
   yqm01: import 'sites/yqm01.jsonnet',
-  yqm02: import 'sites/yqm02.jsonnet',
   yul02: import 'sites/yul02.jsonnet',
   yvr01: import 'sites/yvr01.jsonnet',
   ywg01: import 'sites/ywg01.jsonnet',
