@@ -4,7 +4,7 @@ RUN apk add --no-cache git
 RUN go get -v github.com/google/go-jsonnet/cmd/jsonnet
 
 # Build CPP version of jsonnet.
-FROM alpine:latest AS jsonnet-cpp-builder
+FROM alpine:3.9 AS jsonnet-cpp-builder
 RUN apk -U add build-base
 WORKDIR /opt
 RUN wget https://github.com/google/jsonnet/archive/v0.13.0.tar.gz
