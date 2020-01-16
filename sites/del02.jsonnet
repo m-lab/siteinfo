@@ -10,7 +10,7 @@ sitesDefault {
       prefix: '61.246.223.0/26',
     },
     ipv6+: {
-      prefix: '2404:a800:1000:23::/64',
+      prefix: null,
     },
   },
   transit+: {
