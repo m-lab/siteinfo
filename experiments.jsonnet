@@ -21,7 +21,7 @@ local default = {
   },
   default {
     index: 5,
-    name: 'diff.mlab',
+    name: 'wehe',
   },
   default {
     index: 6,
