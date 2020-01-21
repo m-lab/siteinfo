@@ -24,25 +24,18 @@ all: output $(ALL)
 	cp $(OUTDIR)/v1/sites/* $(OUTDIR)/configs/sites/$(ARCHDIR)/
 	mkdir -p $(OUTDIR)/configs/zones/$(ARCHDIR)
 	cp $(OUTDIR)/v1/zones/* $(OUTDIR)/configs/zones/$(ARCHDIR)/
-	mkdir -p $(OUTDIR)/configs/adhoc/$(ARCHDIR)
-	cp $(OUTDIR)/v1/adhoc/* $(OUTDIR)/configs/adhoc/$(ARCHDIR)/
 
 test: $(TESTS)
 
 output:
 	mkdir -p $(OUTDIR)/v1/zones
 	mkdir -p $(OUTDIR)/v1/sites
-	mkdir -p $(OUTDIR)/v1/adhoc
 
 clean:
 	rm -f *.json *.zone
 
 sites/%.json: formats/sites/%.json.jsonnet $(DEPS)
 	time $(SJSONNET) -J . $< > $(OUTDIR)/v1/$@
-
-adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
-	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
-	time jsonnet -J . $< > $(OUTDIR)/v1/$@
 
 %_test: %_test.jsonnet $(DEPS)
 	time $(SJSONNET) -J . -J jsonnetunit $<
