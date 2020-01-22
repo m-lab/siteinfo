@@ -68,7 +68,7 @@ std.lines([
     $ORIGIN measurement-lab.org.
     $TTL    300
 
-    @       IN      SOA     sns-pb.isc.org. support.measurementlab.net. (
+    @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
             %s        ; Serial
             3600      ; Refresh
             600       ; Retry
@@ -76,6 +76,7 @@ std.lines([
             300 )     ; Negative caching TTL
     @       IN      NS      sns-pb.isc.org.
     @       IN      NS      ns-mlab.greenhost.net.
+    @       IN      NS      ns.measurementlab.net.
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
