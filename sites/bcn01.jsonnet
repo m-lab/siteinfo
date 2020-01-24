@@ -19,7 +19,6 @@ sitesDefault {
     asn: 'AS49638',
   },
   switch+: {
-    flow_control: 'no',
     rstp: 'no',
   },
   location+: {

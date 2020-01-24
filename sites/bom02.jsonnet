@@ -18,9 +18,6 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS4755',
   },
-  switch+: {
-    flow_control: 'no',
-  },
   location+: {
     continent_code: 'AS',
     country_code: 'IN',
