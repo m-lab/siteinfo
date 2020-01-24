@@ -18,9 +18,6 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS12956',
   },
-  switch+: {
-    flow_control: 'no',
-  },
   location+: {
     continent_code: 'SA',
     country_code: 'BR',

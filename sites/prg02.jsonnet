@@ -18,9 +18,6 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS3356',
   },
-  switch+: {
-    auto_negotiation: 'no',
-  },
   location+: {
     continent_code: 'EU',
     country_code: 'CZ',

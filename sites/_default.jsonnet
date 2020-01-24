@@ -31,7 +31,7 @@ site {
   },
   switch: {
     auto_negotiation: 'yes',
-    flow_control: 'yes',
+    flow_control: 'no',
     make: 'juniper',
     model: 'qfx5100',
     rstp: 'yes',
