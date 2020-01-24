@@ -3,6 +3,12 @@
 ############################################################################
 
 steps:
+# Pull in submodules to run jsonnet unit tests.
+- name: gcr.io/cloud-builders/git
+  args: [
+    'submodule', 'update', '--init', '--recursive'
+  ]
+
 # Create the sjsonnet container for later steps.
 - name: gcr.io/cloud-builders/docker
   args: [
