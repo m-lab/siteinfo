@@ -1,12 +1,12 @@
 local sites = import 'sites.jsonnet';
 {
-  type: "FeatureCollection",
+  type: 'FeatureCollection',
   features: [
     {
       local location = site.location,
-      type: "Feature",
+      type: 'Feature',
       geometry: {
-        type: "Point",
+        type: 'Point',
         coordinates: [location.longitude, location.latitude],
       },
       properties: {
@@ -18,8 +18,8 @@ local sites = import 'sites.jsonnet';
         asn: site.transit.asn,
         ipv4_prefix: site.network.ipv4.prefix,
         ipv6_prefix: site.network.ipv6.prefix,
-      }
+      },
     }
     for site in sites
-  ]
+  ],
 }
