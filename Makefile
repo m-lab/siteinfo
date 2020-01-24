@@ -58,7 +58,7 @@ $(OUTDIR)/v1/zones/%.zone: formats/zones/%.zone.jsonnet $(DEPS)
 	./zonediff.sh $(OUTDIR)/v1/zones
 
 $(OUTDIR)/v1/%.html: %.html.jsonnet $(DEPS)
-	cd $(OUTDIR) && find v1/ -type f | grep -v 'index.html' | sort > files.list
+	cd $(OUTDIR)/v1 && find . -type f | grep -v 'index.html' | sort > ../files.list
 	time jsonnet -J . --ext-str latest=$(strip $(shell date +%Y-%m-%dT%H:%M:%S )) --string $< > $@
 
 # NOTE: this target only works with the C++ implementation of jsonnet.
