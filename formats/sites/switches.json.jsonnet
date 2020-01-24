@@ -9,6 +9,7 @@ local sites = import 'sites.jsonnet';
     switch_model: site.switch.model,
     uplink_port: site.switch.uplink_port,
     uplink_speed: site.transit.uplink,
+    ipv4_prefix: site.network.ipv4.prefix,
   }
   for site in sites
   if site.annotations.type == 'physical'
