@@ -19,7 +19,7 @@ SJSONNET=java -Xmx2G -cp $(SJSONNET_JAR) sjsonnet.SjsonnetMain
 
 .PHONY: output
 
-all: test output $(ALL) $(OUTDIR)/v1/index.html
+all: output $(ALL) $(OUTDIR)/v1/index.html
 	mkdir -p $(OUTDIR)/configs/sites/$(ARCHDIR)
 	cp $(OUTDIR)/v1/sites/* $(OUTDIR)/configs/sites/$(ARCHDIR)/
 	mkdir -p $(OUTDIR)/configs/zones/$(ARCHDIR)

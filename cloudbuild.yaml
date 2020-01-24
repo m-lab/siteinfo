@@ -3,11 +3,12 @@
 ############################################################################
 
 steps:
-# Pull in submodules to run jsonnet unit tests.
-- name: gcr.io/cloud-builders/git
-  args: [
-    'submodule', 'update', '--init', '--recursive'
-  ]
+# TODO: enable once we can reconstruct .git directory using cbif.
+## Pull in submodules to run jsonnet unit tests.
+#- name: gcr.io/cloud-builders/git
+#  args: [
+#    'submodule', 'update', '--init', '--recursive'
+#  ]
 
 # Create the sjsonnet container for later steps.
 - name: gcr.io/cloud-builders/docker
