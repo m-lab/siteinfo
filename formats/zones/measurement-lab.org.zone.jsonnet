@@ -74,7 +74,6 @@ std.lines([
             600       ; Retry
             604800    ; Expire
             300 )     ; Negative caching TTL
-    @       IN      NS      sns-pb.isc.org.
     @       IN      NS      ns-mlab.greenhost.net.
     @       IN      NS      ns.measurementlab.net.
 
