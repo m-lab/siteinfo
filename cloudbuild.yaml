@@ -11,7 +11,7 @@ steps:
 #  ]
 
 # Fetch a bearer token for running an epoxy-images trigger.
-- name: ubuntu
+- name: curlimages/curl
   args: ['bash', './trigger_epoxy-images_build.sh']
 
 # Create the sjsonnet container for later steps.
