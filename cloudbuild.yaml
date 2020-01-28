@@ -41,3 +41,7 @@ steps:
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
     'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
   ]
+
+# Fetch a bearer token for running an epoxy-images trigger.
+- name: ubuntu
+  args: ['bash', './trigger_epoxy-images_build.sh']
