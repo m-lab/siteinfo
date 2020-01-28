@@ -10,6 +10,10 @@ steps:
 #    'submodule', 'update', '--init', '--recursive'
 #  ]
 
+# Fetch a bearer token for running an epoxy-images trigger.
+- name: ubuntu
+  args: ['bash', './trigger_epoxy-images_build.sh']
+
 # Create the sjsonnet container for later steps.
 - name: gcr.io/cloud-builders/docker
   args: [
@@ -42,6 +46,3 @@ steps:
     'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
   ]
 
-# Fetch a bearer token for running an epoxy-images trigger.
-- name: ubuntu
-  args: ['bash', './trigger_epoxy-images_build.sh']
