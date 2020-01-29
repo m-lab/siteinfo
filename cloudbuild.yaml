@@ -42,7 +42,6 @@ steps:
     'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
   ]
 
-
 ############################################################################
 # RUN CLOUD BUILD TRIGGERS IN REMOTE REPOS
 ############################################################################
