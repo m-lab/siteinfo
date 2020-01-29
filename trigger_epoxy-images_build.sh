@@ -1,7 +1,9 @@
 #!/bin/bash
 
-apt update
-apt install -y curl
+set -x
+
+apt update > /dev/null
+apt install -y curl > /dev/null
 
 TRIGGER_ID_mlab_sandbox="2a1bc430-6ae6-4d9d-9ae7-d75716a6077d"
 TRIGGER_ID_mlab_staging="98e3222b-e851-4622-86d1-e41368a72c47"
