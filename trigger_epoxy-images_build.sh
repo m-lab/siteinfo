@@ -2,9 +2,6 @@
 
 set -x
 
-#apt update > /dev/null
-#apt install -y curl > /dev/null
-
 BASE_URL="https://cloudbuild.googleapis.com/v1/projects"
 
 TRIGGER_ID_mlab_sandbox="2a1bc430-6ae6-4d9d-9ae7-d75716a6077d"
@@ -18,7 +15,6 @@ AUTH_TOKEN="$(gcloud config config-helper --format='value(credential.access_toke
 cat <<EOF > request.json
 {
   "projectId": "${PROJECT_ID}",
-  "triggerId": "${!TRIGGER_ID}",
   "branchName": "${BRANCH_NAME}"
 }
 EOF
