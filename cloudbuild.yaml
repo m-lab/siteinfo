@@ -10,9 +10,10 @@ steps:
 #    'submodule', 'update', '--init', '--recursive'
 #  ]
 
-# Fetch a bearer token for running an epoxy-images trigger.
-- name: debian:stable-slim
-  args: ['bash', './trigger_epoxy-images_build.sh']
+# Generate an auth bearer token for later steps.
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: '/bin/bash'
+  args: ['./trigger_epoxy-images_build.sh']
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'BRANCH_NAME=$BRANCH_NAME'

@@ -2,8 +2,8 @@
 
 set -x
 
-apt update > /dev/null
-apt install -y curl > /dev/null
+#apt update > /dev/null
+#apt install -y curl > /dev/null
 
 BASE_URL="https://cloudbuild.googleapis.com/v1/projects"
 
