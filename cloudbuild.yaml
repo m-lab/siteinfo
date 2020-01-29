@@ -10,14 +10,6 @@ steps:
 #    'submodule', 'update', '--init', '--recursive'
 #  ]
 
-# Run build triggers in other repos.
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: '/bin/bash'
-  args: ['./run_remote_build_triggers.sh']
-  env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'BRANCH_NAME=$BRANCH_NAME'
-
 # Create the sjsonnet container for later steps.
 - name: gcr.io/cloud-builders/docker
   args: [
@@ -49,4 +41,16 @@ steps:
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
     'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
   ]
+
+
+############################################################################
+# RUN CLOUD BUILD TRIGGERS IN REMOTE REPOS
+############################################################################
+
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: '/bin/bash'
+  args: ['./run_remote_build_triggers.sh']
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
+  - 'BRANCH_NAME=$BRANCH_NAME'
 
