@@ -3,30 +3,9 @@
 # A simple script to run a Cloud Build trigger on a remote repo.
 
 # A small echo for the benefit of the Cloud Build build logs.
-echo "Running remote Cloud Build triggers..."
+echo "Running remote Cloud Build triggers."
 
 BASE_URL="https://cloudbuild.googleapis.com/v1/projects"
-
-case $PROJECT_ID in
-mlab-sandbox)
-  TRIGGER_NAMES=(
-    epoxy-images-push-to-sandbox-stage1
-  )
-  ;;
-mlab-staging)
-  TRIGGER_NAMES=(
-    epoxy-images-push-to-master-stage1
-  )
-  ;;
-mlab-oti)
-  TRIGGER_NAMES=(
-    epoxy-images-tag-stage1
-  )
-  ;;
-*)
-  echo "Unknown project: ${PROJECT_ID}. Exiting..."
-  exit 1
-esac
 
 # Generate an auth bearer token for the HTTPS request to the API.
 AUTH_TOKEN="$(gcloud config config-helper --format='value(credential.access_token)')"
@@ -40,7 +19,7 @@ cat <<EOF > request.json
 }
 EOF
 
-for trigger in ${TRIGGER_NAMES[@]}; do
+for trigger in "$@"; do
   # Get the trigger ID for the named trigger.
   trigger_id=$(
     gcloud beta builds triggers list --filter "name=${trigger}" \
