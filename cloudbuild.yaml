@@ -15,7 +15,6 @@ steps:
   args: ['bash', './trigger_epoxy-images_build.sh']
   env:
   - 'PROJECT_ID=$PROJECT_ID'
-  - 'TRIGGER_ID=$TRIGGER_ID'
   - 'BRANCH_NAME=$BRANCH_NAME'
 
 # Create the sjsonnet container for later steps.
