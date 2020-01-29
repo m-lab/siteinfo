@@ -10,10 +10,10 @@ steps:
 #    'submodule', 'update', '--init', '--recursive'
 #  ]
 
-# Generate an auth bearer token for later steps.
+# Run build triggers in other repos.
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
-  args: ['./trigger_epoxy-images_build.sh']
+  args: ['./run_remote_build_triggers.sh']
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'BRANCH_NAME=$BRANCH_NAME'
