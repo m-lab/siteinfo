@@ -41,3 +41,18 @@ steps:
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
     'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
   ]
+
+############################################################################
+# RUN CLOUD BUILD TRIGGERS IN REMOTE REPOS
+############################################################################
+
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: '/bin/bash'
+  args: [
+    './run_remote_build_triggers.sh',
+    'epoxy-images-stage1'
+  ]
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
+  - 'BRANCH_NAME=$BRANCH_NAME'
+
