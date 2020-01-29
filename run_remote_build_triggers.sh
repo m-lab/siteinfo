@@ -2,6 +2,9 @@
 #
 # A simple script to run a Cloud Build trigger on a remote repo.
 
+# A small echo for the benefit of the Cloud Build build logs.
+echo "Running remote Cloud Build triggers..."
+
 BASE_URL="https://cloudbuild.googleapis.com/v1/projects"
 
 case $PROJECT_ID in
@@ -44,11 +47,12 @@ for trigger in ${TRIGGER_NAMES[@]}; do
         --format "value(id)" --project "${PROJECT_ID}"
   )
   if [[ -n "${trigger_id}" ]]; then
-    curl --request POST \
-        --data "@request.json" \
+    echo "Running Cloud Build trigger ${trigger} in project ${PROJECT_ID}."
+    curl --silent --request POST --data "@request.json" \
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer $AUTH_TOKEN" \
-        "${BASE_URL}/${PROJECT_ID}/triggers/${trigger_id}:run"
+        "${BASE_URL}/${PROJECT_ID}/triggers/${trigger_id}:run" \
+        > /dev/null
   else
     echo "Unable to determine trigger ID for named trigger: ${trigger}"
     exit 1
