@@ -50,7 +50,8 @@ steps:
   entrypoint: '/bin/bash'
   args: [
     './run_remote_build_triggers.sh',
-    'epoxy-images-stage1'
+    'epoxy-images-stage1',
+    'switch-config'
   ]
   env:
   - 'PROJECT_ID=$PROJECT_ID'
