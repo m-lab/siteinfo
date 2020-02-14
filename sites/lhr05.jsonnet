@@ -15,11 +15,8 @@ sitesDefault {
   },
   transit+: {
     provider: 'Level 3 Parent, LLC',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS3356',
-  },
-  switch+: {
-    auto_negotiation: 'no',
   },
   location+: {
     continent_code: 'EU',
