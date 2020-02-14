@@ -15,7 +15,7 @@ sitesDefault {
   },
   transit+: {
     provider: 'Level 3 Parent, LLC',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS3356',
   },
   location+: {
