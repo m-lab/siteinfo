@@ -29,7 +29,7 @@ grep '\bIN' "${SITEINFO_ZONE}" | \
     sed -e 's/^@/measurement-lab.org./' -e 's/[[:space:]]\+/ /g' | \
     sort > "${SITEINFO_NORMALIZED}"
 
-NEW_DNS_RR_COUNT=$(wc -l "${SITEINFO_NORMALIZED}")
+NEW_DNS_RR_COUNT=$(cat "${SITEINFO_NORMALIZED}" | wc -l)
 
 PERCENT_CHANGE=$(echo "scale=2; (${CURRENT_DNS_RR_COUNT} - ${NEW_DNS_RR_COUNT}) / ${CURRENT_DNS_RR_COUNT}" | bc)
 ABS_PERCENT_CHANGE=$(echo "${PERCENT_CHANGE}" | sed -e 's/^-//')
