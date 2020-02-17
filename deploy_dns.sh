@@ -29,7 +29,7 @@ apt install -y bc
 CURRENT_DNS_RR_COUNT=$(cat /workspace/current_dns_rr_count)
 
 grep '\bIN' "${SITEINFO_ZONE}" | \
-    sed -e 's/^@/measurement-lab.org./' -e 's/[[:space:]]\+/ /g' | \
+    sed -e "s/^@/${PROJECT}.measurement-lab.org./" -e "s/[[:space:]]\+/ /g" | \
     sort > "${SITEINFO_NORMALIZED}"
 
 NEW_DNS_RR_COUNT=$(cat "${SITEINFO_NORMALIZED}" | wc -l)
@@ -77,11 +77,12 @@ done
 # be unnecessary or not useful, but it just one very small sanity check.
 gcloud dns record-sets export ${CLOUDDNS_ZONE} \
     --zone ${PROJECT}-measurement-lab-org \
+    --zone-file-format \
     --project ${PROJECT}
-grep '\bIN' "${CLOUDDNS_ZONE}" | \
-    sed -e 's/.measurement-lab.org.//' -e 's/"//g' | \
-    cut -d' ' -f1,3,4,5 | \
-    grep -Ev '(NS|SOA)' | \
+grep "\bIN" "${CLOUDDNS_ZONE}" | \
+    sed -e "s/.${PROJECT}.measurement-lab.org.//" -e "s/\"//g" | \
+    cut -d" " -f1,3,4,5 | \
+    grep -Ev "(NS|SOA)" | \
     sort > "${CLOUDDNS_NORMALIZED}"
 
 RR_DIFFS=$(comm -3 "${SITEINFO_NORMALIZED}" "${CLOUDDNS_NORMALIZED}")
