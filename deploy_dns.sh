@@ -10,12 +10,12 @@ _=${PROJECT:?Please provide PROJECT name in environment}
 # increases, this value can be made smaller.
 MAX_PERCENT_RR_CHANGE="0.30"
 
-CLOUDDNS_ZONE="${PROJECT}-measurement-lab-org"
 
 SITEINFO_ZONE="/workspace/output/v1/zones/measurement-lab.org.zone"
 SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
 
 CLOUDDNS_ZONE="/workspace/clouddns.zone"
+CLOUDDNS_ZONE_NAME="${PROJECT}-measurement-lab-org"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
 # Install bc for doing floating point math.
@@ -43,7 +43,7 @@ fi
 # Deploy the zone to Cloud DNS
 gcloud dns record-sets import "${SITEINFO_ZONE}" \
     --zone-file-format \
-    --zone "${CLOUDDNS_ZONE}" \
+    --zone "${CLOUDDNS_ZONE_NAME}" \
     --delete-all-existing \
     --project "${PROJECT}"
 
