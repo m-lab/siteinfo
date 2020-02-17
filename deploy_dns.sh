@@ -12,11 +12,11 @@ MAX_PERCENT_RR_CHANGE="0.30"
 
 CLOUDDNS_ZONE="${PROJECT}-measurement-lab-org"
 
-SITEINFO_ZONE=$(find . -name "measurement-lab.org.zone")
-SITEINFO_NORMALIZED="siteinfo.normalized"
+SITEINFO_ZONE="/workspace/output/v1/zones/measurement-lab.org.zone"
+SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
 
-CLOUDDNS_ZONE="clouddns.zone"
-CLOUDDNS_NORMALIZED="clouddns.normalized"
+CLOUDDNS_ZONE="/workspace/clouddns.zone"
+CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
 # Install bc for doing floating point math.
 apt update
