@@ -10,6 +10,9 @@ _=${PROJECT:?Please provide PROJECT name in environment}
 # increases, this value can be made smaller.
 MAX_PERCENT_RR_CHANGE="0.30"
 
+# The maximum amount of time in seconds to wait for the zone file import
+# operation to complete before exiting with an error.
+MAX_IMPORT_WAIT="300"
 
 SITEINFO_ZONE="/workspace/output/v1/zones/measurement-lab.org.zone"
 SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
@@ -46,6 +49,28 @@ gcloud dns record-sets import "${SITEINFO_ZONE}" \
     --zone "${CLOUDDNS_ZONE_NAME}" \
     --delete-all-existing \
     --project "${PROJECT}"
+
+# Wait until the import operation is complete before continuing.
+count="0"
+while true; do
+  if [[ "${count}" -gt "${MAX_IMPORT_WAIT}"]]; then
+    echo "Zone file import to Cloud DNS taking too long."
+    exit 1
+  fi
+  status=$(
+    gcloud dns record-sets changes list \
+        --zone "${CLOUDDNS_ZONE_NAME}" \
+        --sort-order descending \
+        --limit 1 \
+        --format 'value(status)' \
+        --project "${PROJECT}"
+  )
+  if [[ "${status}" == "done" ]]; then
+    break;
+  fi
+  sleep 5
+  count=$(( count + 5 ))
+done
 
 # After the new zone has been imported, double check to be sure that an export
 # of the zone _exactly_ matches the zone file we just imported. This step may
