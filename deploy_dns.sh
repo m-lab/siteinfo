@@ -53,8 +53,8 @@ gcloud dns record-sets import "${SITEINFO_ZONE}" \
 # Wait until the import operation is complete before continuing.
 count="0"
 while true; do
-  if [[ "${count}" -gt "${MAX_IMPORT_WAIT}"]]; then
-    echo "Zone file import to Cloud DNS taking too long."
+  if [[ "${count}" -gt "${MAX_IMPORT_WAIT}" ]]; then
+    echo "Zone file import to Cloud DNS is taking too long."
     exit 1
   fi
   status=$(
