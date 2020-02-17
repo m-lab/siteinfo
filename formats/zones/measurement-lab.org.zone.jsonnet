@@ -65,17 +65,8 @@ std.lines([
     ; NOTE: DO NOT EDIT
     ;
 
-    $ORIGIN measurement-lab.org.
-    $TTL    3600
-
-    @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
-            %s        ; Serial
-            3600      ; Refresh
-            600       ; Retry
-            604800    ; Expire
-            300 )     ; Negative caching TTL
-    @       IN      NS      ns-mlab.greenhost.net.
-    @       IN      NS      ns.measurementlab.net.
+    $ORIGIN %s.measurement-lab.org.
+    $TTL    300
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
@@ -87,7 +78,7 @@ std.lines([
 
     ; LetsEncrypt ACME DNS challenge record
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
-  ||| % serial(std.extVar('serial'), std.extVar('latest')),
+  ||| % std.extVar('project'),
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records

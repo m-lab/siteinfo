@@ -53,7 +53,8 @@ $(OUTDIR)/v1/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
 $(OUTDIR)/v1/zones/%.zone: formats/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
 	  --ext-str latest=$(strip $(LATEST)) \
-		--ext-str serial=$(strip $(CURRENT)) $< \
+		--ext-str serial=$(strip $(CURRENT)) \
+		--ext-str project=$(strip $(PROJECT)) $< \
 		| jsonnet --string - > $@
 	./zonediff.sh $(OUTDIR)/v1/zones
 

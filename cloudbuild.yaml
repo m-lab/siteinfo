@@ -1,8 +1,20 @@
+steps:
+
+############################################################################
+# PRE BUILD STEPS
+############################################################################
+
+# Using gcloud image here just because it contains curl.
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: '/bin/bash'
+  args: ['-c', 'curl --silent $ZONE_URL | grep "\bIN" | wc -l > curr_dns_rr_count']
+  env:
+  - 'ZONE_URL=https://siteinfo.mlab-oti.measurementlab.net/v1/zones/measurement-lab.org.zone'
+
 ############################################################################
 # BUILD ARTIFACTS
 ############################################################################
 
-steps:
 # TODO: enable once we can reconstruct .git directory using cbif.
 ## Pull in submodules to run jsonnet unit tests.
 #- name: gcr.io/cloud-builders/git
@@ -43,9 +55,10 @@ steps:
   ]
 
 ############################################################################
-# RUN CLOUD BUILD TRIGGERS IN REMOTE REPOS
+# POST BUILD STEPS
 ############################################################################
 
+# Run cloud build triggers in remote repos
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
   args: [
@@ -57,3 +70,11 @@ steps:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'BRANCH_NAME=$BRANCH_NAME'
 
+# Deploy DNS
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: '/bin/bash'
+  args: [
+    './deploy_dns.sh'
+  ]
+  env:
+  - 'PROJECT=$PROJECT_ID'
