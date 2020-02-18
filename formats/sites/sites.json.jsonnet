@@ -18,7 +18,7 @@ local sites = import 'sites.jsonnet';
           for experiment in experiments
         ],
       }
-      for mIndex in std.range(1, site.machines.count)
+      for mIndex in std.range(1, std.length(site.machines.nodes))
     ],
   }
   for site in sites

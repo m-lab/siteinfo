@@ -9,7 +9,20 @@ site {
     roundrobin: true,
   },
   machines: {
-    count: 4,
+    nodes: {
+      mlab1: {
+        class: 'production',
+      },
+      mlab2: {
+        class: 'production',
+      },
+      mlab3: {
+        class: 'production',
+      },
+      mlab4: {
+        class: 'staging',
+      },
+    },
     disk: 'sda',
     iface: 'eth0',
   },

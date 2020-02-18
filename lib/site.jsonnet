@@ -1,11 +1,20 @@
 {
+  // Returns the appropriate base domain depending on the node class.
+  BaseDomain(m='production'):: (
+    local domainMap = {
+      sandbox: 'mlab-sandbox.measurement-lab.org',
+      staging: 'mlab-staging.measurement-lab.org',
+      production: 'measurement-lab.org',
+    };
+    '%s' % domainMap[$.machines.nodes['mlab' + m].class]
+  ),
   // Switch returns a network spec for the site switch.
   Switch():: {
     v4: {
       ip: $.Index4(2),
     },
     Record():: 's1.%s' % $.name,
-    Hostname():: '%s.measurement-lab.org' % self.Record(),
+    Hostname():: '%s.%s' % [self.Record, $.BaseDomain()],
   },
   // DRAC returns a network spec for the drac attached to machine index m.
   DRAC(m):: {
@@ -18,7 +27,7 @@
       ),
     },
     Record():: 'mlab%dd.%s' % [m, $.name],
-    Hostname():: '%s.measurement-lab.org' % self.Record(),
+    Hostname():: '%s.%s' % [self.Record(), $.BaseDomain(m)],
   },
   // Machine returns a network spec for machine index m. The decoration
   // parameter may be used to decorate the machine record and hostname.
@@ -26,6 +35,7 @@
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     index: m,
+    class: $.machines.nodes['mlab' + m].class,
     v4: if v4net != null then {
       ip: (
         if $.annotations.type == 'physical' then (
@@ -65,7 +75,7 @@
     // decoration if given.
     Record(decoration=''):: 'mlab%d%s.%s' % [m, decoration, $.name],
     // Hostname returns a machine FQDN including the decoration, if given.
-    Hostname(decoration=''):: '%s.measurement-lab.org' % self.Record(decoration),
+    Hostname(decoration=''):: '%s.%s' % [self.Record(), $.BaseDomain(m)]
   },
   // Experiment returns a network spec for the given experiment config on machine
   // index m.
@@ -93,7 +103,7 @@
     // decoration if given.
     Record(decoration=''):: '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name],
     // Hostname returns a machine FQDN including the decoration, if given.
-    Hostname(decoration=''):: '%s.measurement-lab.org' % self.Record(decoration),
+    Hostname(decoration=''):: '%s.%s' % [self.Record(), $.BaseDomain(m)]
   },
 
   // Index4 returns the i-th IPv4 address in the site's ipv4 network.

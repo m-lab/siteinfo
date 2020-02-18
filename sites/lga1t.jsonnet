@@ -5,6 +5,22 @@ sitesDefault {
   annotations+: {
     type: 'physical',
   },
+  machines+: {
+    nodes: {
+      mlab1: {
+        class: 'sandbox',
+      },
+      mlab2: {
+        class: 'sandbox',
+      },
+      mlab3: {
+        class: 'sandbox',
+      },
+      mlab4: {
+        class: 'sandbox',
+      },
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '4.14.3.0/26',
