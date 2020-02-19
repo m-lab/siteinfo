@@ -70,6 +70,21 @@ std.lines([
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
   ||| % std.extVar('project'),
 ] + [
+  if std.extVar('project') == 'mlab-oti' then
+  |||
+    ; Delegate mlab-sandbox subdomain to sandbox Cloud DNS servers.
+    mlab-sandbox     IN     NS      ns1-cloud-a1.googledomains.com.
+                     IN     NS      ns1-cloud-a2.googledomains.com.
+                     IN     NS      ns1-cloud-a3.googledomains.com.
+                     IN     NS      ns1-cloud-a4.googledomains.com.
+
+    ; Delegate mlab-staging subdomain to staging Cloud DNS servers.
+    mlab-staging     IN     NS      ns1-cloud-a1.googledomains.com.
+                     IN     NS      ns1-cloud-a2.googledomains.com.
+                     IN     NS      ns1-cloud-a3.googledomains.com.
+                     IN     NS      ns1-cloud-a4.googledomains.com.
+  |||
+] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records
   if row != null && std.objectHas(row, 'ipv4') && row.ipv4 != ''
