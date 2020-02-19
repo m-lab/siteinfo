@@ -66,7 +66,7 @@ std.lines([
     ;
 
     $ORIGIN measurement-lab.org.
-    $TTL    300
+    $TTL    3600
 
     @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
             %s        ; Serial
