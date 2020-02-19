@@ -14,7 +14,7 @@ local records = std.flattenArrays([
   local d = site.DRAC(mIndex);
   { record: d.Record(), ipv4: d.v4.ip }
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines.nodes))
+  for mIndex in std.range(1, std.length(site.machines))
   if site.annotations.type == 'physical'
 ] + std.flattenArrays([
   // Machines
@@ -25,7 +25,7 @@ local records = std.flattenArrays([
     { record: m.Record('v6'), ipv6: m.v6.ip },
   ]
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines.nodes))
+  for mIndex in std.range(1, std.length(site.machines))
 ]) + std.flattenArrays([
   // Experiments
   local e = site.Experiment(mIndex, experiment);
@@ -41,7 +41,7 @@ local records = std.flattenArrays([
     // do nothing for flat_hostname == false.
   ]
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines.nodes))
+  for mIndex in std.range(1, std.length(site.machines))
   for experiment in experiments
   if (site.annotations.type == 'physical' ||
       experiment.cloud_enabled == true)
@@ -69,7 +69,7 @@ std.lines([
     ; LetsEncrypt ACME DNS challenge record
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
   ||| % std.extVar('project'),
-] + [
+
   if std.extVar('project') == 'mlab-oti' then
   |||
     ; Delegate mlab-sandbox subdomain to sandbox Cloud DNS servers.

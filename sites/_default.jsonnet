@@ -9,22 +9,26 @@ site {
     roundrobin: true,
   },
   machines: {
-    nodes: {
-      mlab1: {
-        class: 'production',
-      },
-      mlab2: {
-        class: 'production',
-      },
-      mlab3: {
-        class: 'production',
-      },
-      mlab4: {
-        class: 'staging',
-      },
+    mlab1: {
+      class: 'production',
+      disk: 'sda',
+      iface: 'eth0',
     },
-    disk: 'sda',
-    iface: 'eth0',
+    mlab2: {
+      class: 'production',
+      disk: 'sda',
+      iface: 'eth0',
+    },
+    mlab3: {
+      class: 'production',
+      disk: 'sda',
+      iface: 'eth0',
+    },
+    mlab4: {
+      class: 'staging',
+      disk: 'sda',
+      iface: 'eth0',
+    },
   },
   network: {
     ipv4: {

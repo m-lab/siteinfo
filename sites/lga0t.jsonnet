@@ -6,19 +6,17 @@ sitesDefault {
     type: 'physical',
   },
   machines+: {
-    nodes: {
-      mlab1: {
-        class: 'sandbox',
-      },
-      mlab2: {
-        class: 'sandbox',
-      },
-      mlab3: {
-        class: 'sandbox',
-      },
-      mlab4: {
-        class: 'sandbox',
-      },
+    mlab1+: {
+      class: 'sandbox',
+    },
+    mlab2+: {
+      class: 'sandbox',
+    },
+    mlab3+: {
+      class: 'sandbox',
+    },
+    mlab4+: {
+      class: 'sandbox',
     },
   },
   network+: {

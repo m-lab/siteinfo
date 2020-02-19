@@ -36,6 +36,7 @@ output:
 
 clean:
 	rm -f *.json *.zone
+	rm -rf output
 
 $(OUTDIR)/v1/sites/%.json: formats/sites/%.json.jsonnet $(DEPS)
 	time $(SJSONNET) -J . $< > $@

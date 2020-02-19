@@ -6,7 +6,7 @@
       staging: 'mlab-staging.measurement-lab.org',
       production: 'measurement-lab.org',
     };
-    '%s' % domainMap[$.machines.nodes['mlab' + m].class]
+    '%s' % domainMap[$.machines['mlab' + m].class]
   ),
   // Switch returns a network spec for the site switch.
   Switch():: {
@@ -35,7 +35,7 @@
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     index: m,
-    class: $.machines.nodes['mlab' + m].class,
+    class: $.machines['mlab' + m].class,
     v4: if v4net != null then {
       ip: (
         if $.annotations.type == 'physical' then (
