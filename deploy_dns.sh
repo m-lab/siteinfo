@@ -14,7 +14,7 @@ MAX_PERCENT_RR_CHANGE="0.30"
 # operation to complete before exiting with an error.
 MAX_IMPORT_WAIT="300"
 
-SITEINFO_ZONE="/workspace/output/v1/zones/measurement-lab.org.zone"
+SITEINFO_ZONE="/workspace/output/v1/zones/${PROJECT}.measurement-lab.org.zone"
 SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
 
 CLOUDDNS_ZONE="/workspace/clouddns.zone"

@@ -51,12 +51,19 @@ $(OUTDIR)/v1/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
 # NOTE: sjsonnet.jar does not support the --string option. And, jsonnet alone
 # takes over 6min to process the zone file. So, this two step operation saves
 # _considerable_ time.
+#
+# A single jsonnet file is responsible for generating the subdomain zones
+# for all 3 GCP projects. That jsonnet filename has a prefix of 'projects_'.
+# The mv command below will replace 'projects_' with the appropriate project
+# name, otherwise the operating is a no-op.
 $(OUTDIR)/v1/zones/%.zone: formats/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
 	  --ext-str latest=$(strip $(LATEST)) \
 		--ext-str project=$(strip $(PROJECT)) $< \
 		| jsonnet --string - > $@
-	./zonediff.sh $(OUTDIR)/v1/zones
+	$(eval ZONE_FILE := $(shell echo $@ | sed -e "s/projects_/$(PROJECT)./"))
+	mv $@ ${ZONE_FILE}
+	./zonediff.sh ${ZONE_FILE}
 
 $(OUTDIR)/v1/%.html: %.html.jsonnet $(DEPS)
 	cd $(OUTDIR)/v1 && find . -type f | grep -v 'index.html' | sort > ../files.list

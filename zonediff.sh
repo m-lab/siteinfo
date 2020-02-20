@@ -1,9 +1,9 @@
 #!/bin/bash
 
-OUTPUT=${1:?Please provide output location}
+ZONE_FILE=${1:?Please provide a zone file}
+ZONE_NAME=$(basename $ZONE_FILE)
 _=${PROJECT:?Please provide PROJECT name in environment}
-ZONE=measurement-lab.org.zone
-URL=https://siteinfo.${PROJECT}.measurementlab.net/v1/zones/${ZONE}
+URL=https://siteinfo.${PROJECT}.measurementlab.net/v1/zones/${ZONE_NAME}
 diff -Ndur \
   <( curl --silent ${URL} ) \
-  ${OUTPUT}/${ZONE} > ${OUTPUT}/${ZONE}.diff || :
+  ${ZONE_FILE} > ${ZONE_FILE}.diff || :
