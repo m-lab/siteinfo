@@ -1,12 +1,12 @@
 {
-  // Returns the appropriate base domain depending on the node class.
-  BaseDomain(m='production'):: (
+  // Returns the appropriate base domain depending on the node project.
+  BaseDomain(m):: (
     local domainMap = {
-      sandbox: 'mlab-sandbox.measurement-lab.org',
-      staging: 'mlab-staging.measurement-lab.org',
-      production: 'measurement-lab.org',
+      'mlab-sandbox': 'mlab-sandbox.measurement-lab.org',
+      'mlab-staging': 'mlab-staging.measurement-lab.org',
+      'mlab-oti': 'mlab-oti.measurement-lab.org',
     };
-    '%s' % domainMap[$.machines['mlab' + m].class]
+    '%s' % domainMap[$.machines['mlab' + m].project]
   ),
   // Switch returns a network spec for the site switch.
   Switch():: {
@@ -35,7 +35,7 @@
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     index: m,
-    class: $.machines['mlab' + m].class,
+    project: $.machines['mlab' + m].project,
     v4: if v4net != null then {
       ip: (
         if $.annotations.type == 'physical' then (

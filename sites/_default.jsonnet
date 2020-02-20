@@ -10,22 +10,22 @@ site {
   },
   machines: {
     mlab1: {
-      class: 'production',
+      project: 'mlab-oti',
       disk: 'sda',
       iface: 'eth0',
     },
     mlab2: {
-      class: 'production',
+      project: 'mlab-oti',
       disk: 'sda',
       iface: 'eth0',
     },
     mlab3: {
-      class: 'production',
+      project: 'mlab-oti',
       disk: 'sda',
       iface: 'eth0',
     },
     mlab4: {
-      class: 'staging',
+      project: 'mlab-staging',
       disk: 'sda',
       iface: 'eth0',
     },
