@@ -7,16 +7,16 @@ sitesDefault {
   },
   machines+: {
     mlab1+: {
-      class: 'sandbox',
+      project: 'mlab-sandbox',
     },
     mlab2+: {
-      class: 'sandbox',
+      project: 'mlab-sandbox',
     },
     mlab3+: {
-      class: 'sandbox',
+      project: 'mlab-sandbox',
     },
     mlab4+: {
-      class: 'sandbox',
+      project: 'mlab-sandbox',
     },
   },
   network+: {
