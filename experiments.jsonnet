@@ -19,10 +19,6 @@ local default = {
     name: 'wehe',
   },
   default {
-    index: 8,
-    name: 'ispmon.samknows',
-  },
-  default {
     index: 10,
     flat_hostname: true,
     name: 'neubot.mlab',
