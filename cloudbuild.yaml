@@ -11,8 +11,6 @@ steps:
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
   args: ['-c', 'curl --silent $_ZONE_URL | grep "\bIN" | wc -l > /workspace/current_dns_rr_count']
-  env:
-  - 'ZONE_URL=https://siteinfo.mlab-oti.measurementlab.net/v1/zones/measurement-lab.org.zone'
 
 ############################################################################
 # BUILD ARTIFACTS
