@@ -28,6 +28,7 @@ site {
   transit: {
     provider: error 'Must override transit.provider',
     uplink: error 'Must override transit.uplink',
+    asn: error 'Must override transit.uplink',
   },
   switch: {
     auto_negotiation: 'yes',
