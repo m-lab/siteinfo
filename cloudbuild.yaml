@@ -51,18 +51,32 @@ steps:
 # DEPLOY ARTIFACTS
 ############################################################################
 
-# Publish new data.
+# Publish new v1 data.
 - name: gcr.io/cloud-builders/gsutil
   args: [
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
     'cp', '-r', '/workspace/output/v1/*', 'gs://siteinfo-$PROJECT_ID/v1/'
   ]
 
-# Copy configs to archive.
+# Publish new v2 data.
 - name: gcr.io/cloud-builders/gsutil
   args: [
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
-    'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
+    'cp', '-r', '/workspace/output/v2/*', 'gs://siteinfo-$PROJECT_ID/v2/'
+  ]
+
+# Copy v1 configs to archive.
+- name: gcr.io/cloud-builders/gsutil
+  args: [
+    '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
+    'cp', '-r', '/workspace/output/configs/v1/*', 'gs://siteinfo-$PROJECT_ID/configs/v1'
+  ]
+
+# Copy v2 configs to archive.
+- name: gcr.io/cloud-builders/gsutil
+  args: [
+    '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
+    'cp', '-r', '/workspace/output/configs/v2/*', 'gs://siteinfo-$PROJECT_ID/configs/v2'
   ]
 
 ############################################################################
