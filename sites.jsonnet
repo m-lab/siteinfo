@@ -78,6 +78,7 @@ local sites = {
   lhr07: import 'sites/lhr07.jsonnet',
   lis01: import 'sites/lis01.jsonnet',
   lis02: import 'sites/lis02.jsonnet',
+  lis03: import 'sites/lis03.jsonnet',
   lju01: import 'sites/lju01.jsonnet',
   maa01: import 'sites/maa01.jsonnet',
   maa02: import 'sites/maa02.jsonnet',
