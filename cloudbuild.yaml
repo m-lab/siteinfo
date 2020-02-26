@@ -29,13 +29,23 @@ steps:
     'build', '-t', 'jsonnet-env', '.'
   ]
 
-# Generate jsonnet files.
+# Generate v1 json files.
 - name: jsonnet-env
   args: [
     'make'
   ]
   env:
    - 'PROJECT=$PROJECT_ID'
+   - 'VERSION=v1'
+
+# Generate v2 json files.
+- name: jsonnet-env
+  args: [
+    'make'
+  ]
+  env:
+   - 'PROJECT=$PROJECT_ID'
+   - 'VERSION=v2'
 
 ############################################################################
 # DEPLOY ARTIFACTS
