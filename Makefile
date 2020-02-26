@@ -39,11 +39,11 @@ clean:
 	rm -rf output
 
 $(OUTDIR)/$(VERSION)/sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . $< > $@
+	time $(SJSONNET) -J . --ext-str=$(strip $(VERSION)) $< > $@
 
 $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEPS)
 	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
-	time jsonnet -J . $< > $@
+	time jsonnet -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
 %_test: %_test.jsonnet $(DEPS)
 	time $(SJSONNET) -J . -J jsonnetunit $<
@@ -58,8 +58,9 @@ $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEP
 # name, otherwise the operating is a no-op.
 $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
-	  --ext-str latest=$(strip $(LATEST)) \
-		--ext-str project=$(strip $(PROJECT)) $< \
+		--ext-str latest=$(strip $(LATEST)) \
+		--ext-str project=$(strip $(PROJECT)) \
+		--ext-str version=$(strip $(VERSION)) $< \
 		| jsonnet --string - > $@
 	$(eval ZONE_FILE := $(shell echo $@ | sed -e "s/projects_/$(PROJECT)./"))
 	mv $@ ${ZONE_FILE}
@@ -67,7 +68,10 @@ $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEP
 
 $(OUTDIR)/$(VERSION)/%.html: %.html.jsonnet $(DEPS)
 	cd $(OUTDIR)/$(VERSION) && find . -type f | grep -v 'index.html' | sort > ../files.list
-	time jsonnet -J . --ext-str latest=$(strip $(shell date +%Y-%m-%dT%H:%M:%S )) --string $< > $@
+	time jsonnet -J . \
+		--ext-str latest=$(strip $(shell date +%Y-%m-%dT%H:%M:%S )) \
+		--ext-str version=$(strip $(VERSION)) \
+		--string $< > $@
 
 # NOTE: this target only works with the C++ implementation of jsonnet.
 fmt:
