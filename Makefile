@@ -20,12 +20,12 @@ SJSONNET=java -Xmx2G -cp $(SJSONNET_JAR) sjsonnet.SjsonnetMain
 .PHONY: output
 
 all: output $(ALL) $(OUTDIR)/$(VERSION)/index.html
-	mkdir -p $(OUTDIR)/configs/sites/$(ARCHDIR)
-	cp $(OUTDIR)/$(VERSION)/sites/* $(OUTDIR)/configs/sites/$(ARCHDIR)/
-	mkdir -p $(OUTDIR)/configs/zones/$(ARCHDIR)
-	cp $(OUTDIR)/$(VERSION)/zones/* $(OUTDIR)/configs/zones/$(ARCHDIR)/
-	mkdir -p $(OUTDIR)/configs/adhoc/$(ARCHDIR)
-	cp $(OUTDIR)/$(VERSION)/adhoc/* $(OUTDIR)/configs/adhoc/$(ARCHDIR)/
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/sites/* $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)/
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/zones/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/zones/* $(OUTDIR)/configs/$(VERSION)/zones/$(ARCHDIR)/
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/adhoc/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/adhoc/* $(OUTDIR)/configs/$(VERSION)/adhoc/$(ARCHDIR)/
 
 test: $(TESTS)
 
