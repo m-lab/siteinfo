@@ -4,7 +4,7 @@ ALL=$(shell pushd formats; find . -name "*.jsonnet" \
 TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
 	        | sed -e "s/\.\///" -e "s/.jsonnet//g" )
-DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
+DEPS=sites.jsonnet sites/_default.jsonnet lib/site.$(VERSION).jsonnet experiments.jsonnet
 LATEST=$(shell date +%Y%m%d00 )
 CURRENT=$(shell dig @dns.measurementlab.net soa measurementlab.net \
       | grep SOA \
