@@ -1,16 +1,4 @@
-substitutions:
-  _ZONE_URL: https://siteinfo.mlab-oti.measurementlab.net/v1/zones/measurement-lab.org.zone
-
 steps:
-
-############################################################################
-# PRE BUILD STEPS
-############################################################################
-
-# Using gcloud image here just because it contains curl.
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: '/bin/bash'
-  args: ['-c', 'curl --silent $_ZONE_URL | grep "\bIN" | wc -l > /workspace/current_dns_rr_count']
 
 ############################################################################
 # BUILD ARTIFACTS
@@ -95,7 +83,18 @@ steps:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'BRANCH_NAME=$BRANCH_NAME'
 
-# Deploy DNS
+# Deploy primary measurement-lab.org DNS zone to Cloud DNS
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: '/bin/bash'
+  args: [
+    './deploy_primary_dns.sh'
+  ]
+  env:
+  - 'PROJECT=$PROJECT_ID'
+  - 'DOMAIN=measurement-lab.org'
+  - 'VERSION=v1'
+
+# Deploy measurement-lab.org project subdomain zone to Cloud DNS
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
   args: [
@@ -103,3 +102,5 @@ steps:
   ]
   env:
   - 'PROJECT=$PROJECT_ID'
+  - 'DOMAIN=${PROJECT_ID}".measurement-lab.org'
+  - 'VERSION=v2'
