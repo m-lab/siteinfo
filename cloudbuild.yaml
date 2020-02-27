@@ -72,22 +72,22 @@ steps:
 ############################################################################
 
 # Run cloud build triggers in remote repos
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: '/bin/bash'
-  args: [
-    './run_remote_build_triggers.sh',
-    'epoxy-images-stage1',
-    'switch-config'
-  ]
-  env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'BRANCH_NAME=$BRANCH_NAME'
+#- name: gcr.io/cloud-builders/gcloud
+#  entrypoint: '/bin/bash'
+#  args: [
+#    './run_remote_build_triggers.sh',
+#    'epoxy-images-stage1',
+#    'switch-config'
+#  ]
+#  env:
+#  - 'PROJECT_ID=$PROJECT_ID'
+#  - 'BRANCH_NAME=$BRANCH_NAME'
 
 # Deploy primary measurement-lab.org DNS zone to Cloud DNS
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
   args: [
-    './deploy_primary_dns.sh'
+    './deploy_dns.sh'
   ]
   env:
   - 'PROJECT=$PROJECT_ID'
