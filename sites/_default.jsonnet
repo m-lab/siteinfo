@@ -1,4 +1,9 @@
-local site = import 'lib/site.' + std.extVar('version') + '.jsonnet';
+// https://github.com/google/jsonnet/issues/62#issuecomment-134655282
+local site_lib_versions = {
+  'v1': import 'lib/site.v1.jsonnet',
+  'v2': import 'lib/site.v2.jsonnet',
+};
+local site = site_lib_versions[std.extVar('version')];
 
 site {
   name: error 'Must override site name',
