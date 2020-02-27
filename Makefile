@@ -39,7 +39,7 @@ clean:
 	rm -rf output
 
 $(OUTDIR)/$(VERSION)/sites/%.json: formats/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . --ext-str=$(strip $(VERSION)) $< > $@
+	time $(SJSONNET) -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
 $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
 	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
