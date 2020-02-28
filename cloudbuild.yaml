@@ -16,44 +16,68 @@ steps:
     'build', '-t', 'jsonnet-env', '.'
   ]
 
-# Generate jsonnet files.
+# Generate v1 json files.
 - name: jsonnet-env
   args: [
     'make'
   ]
   env:
-   - 'PROJECT=$PROJECT_ID'
+   - 'PROJECT=${PROJECT_ID}'
+   - 'VERSION=v1'
+
+# Generate v2 json files.
+- name: jsonnet-env
+  args: [
+    'make'
+  ]
+  env:
+   - 'PROJECT=${PROJECT_ID}'
+   - 'VERSION=v2'
 
 ############################################################################
 # DEPLOY ARTIFACTS
 ############################################################################
 
-# Publish new data.
+# Publish new v1 data.
 - name: gcr.io/cloud-builders/gsutil
   args: [
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
     'cp', '-r', '/workspace/output/v1/*', 'gs://siteinfo-$PROJECT_ID/v1/'
   ]
 
-# Copy configs to archive.
+# Publish new v2 data.
 - name: gcr.io/cloud-builders/gsutil
   args: [
     '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
-    'cp', '-r', '/workspace/output/configs/*', 'gs://siteinfo-$PROJECT_ID/configs/'
+    'cp', '-r', '/workspace/output/v2/*', 'gs://siteinfo-$PROJECT_ID/v2/'
   ]
 
-############################################################################
-# RUN CLOUD BUILD TRIGGERS IN REMOTE REPOS
-############################################################################
-
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: '/bin/bash'
+# Copy v1 configs to archive.
+- name: gcr.io/cloud-builders/gsutil
   args: [
-    './run_remote_build_triggers.sh',
-    'epoxy-images-stage1',
-    'switch-config'
+    '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
+    'cp', '-r', '/workspace/output/configs/v1/*', 'gs://siteinfo-$PROJECT_ID/configs/v1'
   ]
-  env:
-  - 'PROJECT_ID=$PROJECT_ID'
-  - 'BRANCH_NAME=$BRANCH_NAME'
 
+# Copy v2 configs to archive.
+- name: gcr.io/cloud-builders/gsutil
+  args: [
+    '-h', 'Cache-Control:private, max-age=0, no-transform', '-m',
+    'cp', '-r', '/workspace/output/configs/v2/*', 'gs://siteinfo-$PROJECT_ID/configs/v2'
+  ]
+
+############################################################################
+# POST BUILD STEPS
+############################################################################
+
+# Run cloud build triggers in remote repos
+#- name: gcr.io/cloud-builders/gcloud
+#  entrypoint: '/bin/bash'
+#  args: [
+#    './run_remote_build_triggers.sh',
+#    'epoxy-images-stage1',
+#    'switch-config'
+#  ]
+#  env:
+#  - 'PROJECT_ID=$PROJECT_ID'
+#  - 'BRANCH_NAME=$BRANCH_NAME'
