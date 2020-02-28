@@ -1,5 +1,6 @@
 local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
+local flatten(record) = std.strReplace(record, '.', '-');
 local records = std.flattenArrays([
   // Routers & switches
   [
@@ -32,6 +33,12 @@ local records = std.flattenArrays([
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
+  ] + if e.flat_hostname == true then [
+    { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
+    { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
+    { record: flatten(e.Record('v6')), ipv6: e.v6.ip },
+  ] else [
+    // do nothing for flat_hostname == false.
   ]
   for site in sites
   for mIndex in std.range(1, std.length(site.machines))
