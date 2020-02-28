@@ -8,7 +8,7 @@ local sites = import 'sites.jsonnet';
     ipv6: m.v6.ip,
   }
   for site in sites
-  for mIndex in std.range(1, site.machines.count)
+  for mIndex in std.range(1, std.length(site.machines))
 ] + [
   {
     local e = site.Experiment(mIndex, experiment),
@@ -17,7 +17,7 @@ local sites = import 'sites.jsonnet';
     ipv6: e.v6.ip,
   }
   for site in sites
-  for mIndex in std.range(1, site.machines.count)
+  for mIndex in std.range(1, std.length(site.machines))
   for experiment in experiments
   if (site.annotations.type == 'physical' || experiment.cloud_enabled == true)
 ]

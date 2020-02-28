@@ -26,6 +26,7 @@
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     index: m,
+    project: $.machines['mlab' + m].project,
     v4: if v4net != null then {
       ip: (
         if $.annotations.type == 'physical' then (
