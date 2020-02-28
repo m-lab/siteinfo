@@ -101,7 +101,7 @@
     },
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.
-    Record(decoration=''):: '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name],
+    Record(decoration=''):: '%s-mlab%d%s-%s' % [std.strReplace(expConfig.name, '.', '-'), m, decoration, $.name],
     // Hostname returns a machine FQDN including the decoration, if given.
     Hostname(decoration=''):: '%s.%s' % [self.Record(), $.BaseDomain(m)]
   },
