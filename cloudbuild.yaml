@@ -102,5 +102,5 @@ steps:
   ]
   env:
   - 'PROJECT=$PROJECT_ID'
-  - 'DOMAIN=${PROJECT_ID}".measurement-lab.org'
+  - 'DOMAIN=${PROJECT_ID}.measurement-lab.org'
   - 'VERSION=v2'
