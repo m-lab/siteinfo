@@ -54,6 +54,7 @@ $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEP
 $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
 		--ext-str latest=$(strip $(LATEST)) \
+		--ext-str serial=$(strip $(CURRENT)) \
 		--ext-str project=$(strip $(PROJECT)) \
 		--ext-str version=$(strip $(VERSION)) $< \
 		| jsonnet --string - > $@
