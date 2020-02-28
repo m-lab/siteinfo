@@ -22,7 +22,8 @@ UNIQ_EXP_RR_COUNTS=$(
   grep -oP '^([a-z-]+?)(?=[.-]mlab[1-4])' "${SITEINFO_ZONE}" \
     | sort | uniq -c | awk '{print $1}' | uniq
 )
-if [[ "${UNIQ_EXP_RR_COUNTS}" -ne "1" ]]; then
+UNIQ_EXP_RR_COUNT=$(echo "${UNIQ_EXP_RR_COUNTS}" | wc -w)
+if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
   echo "Not all experiments have the same number of RRs."
   exit 1
 fi
