@@ -17,8 +17,10 @@ CLOUDDNS_ZONE="/workspace/clouddns.zone"
 CLOUDDNS_ZONE_NAME="${DOMAIN//./-}"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
+
 # Install jsonnet
-curl --location https://github.com/google/jsonnet/releases/download/v0.15.0/jsonnet-bin-v0.15.0-linux.tar.gz > jsonnet.tar.gz
+JSONNET_URL="https://github.com/google/jsonnet/releases/download/v0.15.0/jsonnet-bin-v0.15.0-linux.tar.gz"
+curl --location "${JSONNET_URL}" > jsonnet.tar.gz
 tar xzf jsonnet.tar.gz
 
 # Make sure that every experiment has the same number of RRs.
