@@ -5,6 +5,20 @@ sitesDefault {
   annotations+: {
     type: 'physical',
   },
+  machines+: {
+    mlab1+: {
+      project: 'mlab-sandbox',
+    },
+    mlab2+: {
+      project: 'mlab-sandbox',
+    },
+    mlab2+: {
+      project: 'mlab-sandbox',
+    },
+    mlab2+: {
+      project: 'mlab-sandbox',
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '4.14.159.64/26',
