@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-ALL=$(shell pushd formats; find . -name "*.jsonnet" \
+ALL=$(shell pushd formats/$(VERSION); find . -name "*.jsonnet" \
             | sed -e "s/\.\//output\/$(VERSION)\//" -e "s/.jsonnet//g" )
 TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
@@ -38,10 +38,10 @@ clean:
 	rm -f *.json *.zone
 	rm -rf output
 
-$(OUTDIR)/$(VERSION)/sites/%.json: formats/sites/%.json.jsonnet $(DEPS)
+$(OUTDIR)/$(VERSION)/sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
 	time $(SJSONNET) -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
-$(OUTDIR)/$(VERSION)/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
+$(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEPS)
 	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
 	time jsonnet -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
@@ -56,7 +56,7 @@ $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
 # for all 3 GCP projects. That jsonnet filename has a prefix of 'projects_'.
 # The mv command below will replace 'projects_' with the appropriate project
 # name, otherwise the operating is a no-op.
-$(OUTDIR)/$(VERSION)/zones/%.zone: formats/zones/%.zone.jsonnet $(DEPS)
+$(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
 		--ext-str latest=$(strip $(LATEST)) \
 		--ext-str project=$(strip $(PROJECT)) \
