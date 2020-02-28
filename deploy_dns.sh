@@ -75,6 +75,7 @@ done
 # Normalize the zone siteinfo just generated.
 grep '\bIN' "${SITEINFO_ZONE}" | \
     sed -e "s/^@/${DOMAIN}./" -e "s/[[:space:]]\+/ /g" | \
+    grep -Ev "(NS|SOA)" | \
     sort > "${SITEINFO_NORMALIZED}"
 
 # After the new zone has been imported, double check to be sure that an export
