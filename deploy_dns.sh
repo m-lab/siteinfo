@@ -43,6 +43,12 @@ if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
   exit 1
 fi
 
+# We only deploy the primary zone file for measurement-lab.org to the mlab-oti project.
+if [[ "${DOMAIN}" == "measurement-lab.org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
+  echo "Not deploying primary zone for ${DOMAIN} to project ${PROJECT}."
+  exit 0
+fi
+
 # Deploy the zone to Cloud DNS
 gcloud dns record-sets import "${SITEINFO_ZONE}" \
     --zone-file-format \
