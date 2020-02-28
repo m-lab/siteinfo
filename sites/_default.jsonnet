@@ -9,9 +9,26 @@ site {
     roundrobin: true,
   },
   machines: {
-    count: 4,
-    disk: 'sda',
-    iface: 'eth0',
+    mlab1: {
+      disk: 'sda',
+      iface: 'eth0',
+      project: 'mlab-oti',
+    },
+    mlab2: {
+      disk: 'sda',
+      iface: 'eth0',
+      project: 'mlab-oti',
+    },
+    mlab3: {
+      disk: 'sda',
+      iface: 'eth0',
+      project: 'mlab-oti',
+    },
+    mlab4: {
+      disk: 'sda',
+      iface: 'eth0',
+      project: 'mlab-staging',
+    },
   },
   network: {
     ipv4: {
