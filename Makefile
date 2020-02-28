@@ -1,9 +1,9 @@
 SHELL=/bin/bash
-ALL=$(shell pushd formats; find . -name '*.jsonnet' \
-            | sed -e 's/\.\//output\/v1\//' -e 's/.jsonnet//g' )
-TESTS=$(shell find . -type f -a -name '*_test.jsonnet' \
+ALL=$(shell pushd formats/$(VERSION); find . -name "*.jsonnet" \
+            | sed -e "s/\.\//output\/$(VERSION)\//" -e "s/.jsonnet//g" )
+TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
-	        | sed -e 's/\.\///' -e 's/.jsonnet//g' )
+	        | sed -e "s/\.\///" -e "s/.jsonnet//g" )
 DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
 LATEST=$(shell date +%Y%m%d00 )
 CURRENT=$(shell dig @dns.measurementlab.net soa measurementlab.net \
@@ -19,30 +19,31 @@ SJSONNET=java -Xmx2G -cp $(SJSONNET_JAR) sjsonnet.SjsonnetMain
 
 .PHONY: output
 
-all: output $(ALL) $(OUTDIR)/v1/index.html
-	mkdir -p $(OUTDIR)/configs/sites/$(ARCHDIR)
-	cp $(OUTDIR)/v1/sites/* $(OUTDIR)/configs/sites/$(ARCHDIR)/
-	mkdir -p $(OUTDIR)/configs/zones/$(ARCHDIR)
-	cp $(OUTDIR)/v1/zones/* $(OUTDIR)/configs/zones/$(ARCHDIR)/
-	mkdir -p $(OUTDIR)/configs/adhoc/$(ARCHDIR)
-	cp $(OUTDIR)/v1/adhoc/* $(OUTDIR)/configs/adhoc/$(ARCHDIR)/
+all: output $(ALL) $(OUTDIR)/$(VERSION)/index.html
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/sites/* $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)/
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/zones/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/zones/* $(OUTDIR)/configs/$(VERSION)/zones/$(ARCHDIR)/
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/adhoc/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/adhoc/* $(OUTDIR)/configs/$(VERSION)/adhoc/$(ARCHDIR)/
 
 test: $(TESTS)
 
 output:
-	mkdir -p $(OUTDIR)/v1/zones
-	mkdir -p $(OUTDIR)/v1/sites
-	mkdir -p $(OUTDIR)/v1/adhoc
+	mkdir -p $(OUTDIR)/$(VERSION)/zones
+	mkdir -p $(OUTDIR)/$(VERSION)/sites
+	mkdir -p $(OUTDIR)/$(VERSION)/adhoc
 
 clean:
 	rm -f *.json *.zone
+	rm -rf output
 
-$(OUTDIR)/v1/sites/%.json: formats/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . $< > $@
+$(OUTDIR)/$(VERSION)/sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
+	time $(SJSONNET) -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
-$(OUTDIR)/v1/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
+$(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEPS)
 	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
-	time jsonnet -J . $< > $@
+	time jsonnet -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
 %_test: %_test.jsonnet $(DEPS)
 	time $(SJSONNET) -J . -J jsonnetunit $<
@@ -50,16 +51,21 @@ $(OUTDIR)/v1/adhoc/%.json: formats/adhoc/%.json.jsonnet $(DEPS)
 # NOTE: sjsonnet.jar does not support the --string option. And, jsonnet alone
 # takes over 6min to process the zone file. So, this two step operation saves
 # _considerable_ time.
-$(OUTDIR)/v1/zones/%.zone: formats/zones/%.zone.jsonnet $(DEPS)
+$(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
-	  --ext-str latest=$(strip $(LATEST)) \
-		--ext-str serial=$(strip $(CURRENT)) $< \
+		--ext-str latest=$(strip $(LATEST)) \
+		--ext-str serial=$(strip $(CURRENT)) \
+		--ext-str project=$(strip $(PROJECT)) \
+		--ext-str version=$(strip $(VERSION)) $< \
 		| jsonnet --string - > $@
 	./zonediff.sh $(OUTDIR)/v1/zones
 
-$(OUTDIR)/v1/%.html: %.html.jsonnet $(DEPS)
-	cd $(OUTDIR)/v1 && find . -type f | grep -v 'index.html' | sort > ../files.list
-	time jsonnet -J . --ext-str latest=$(strip $(shell date +%Y-%m-%dT%H:%M:%S )) --string $< > $@
+$(OUTDIR)/$(VERSION)/%.html: %.html.jsonnet $(DEPS)
+	cd $(OUTDIR)/$(VERSION) && find . -type f | grep -v 'index.html' | sort > ../files.list
+	time jsonnet -J . \
+		--ext-str latest=$(strip $(shell date +%Y-%m-%dT%H:%M:%S )) \
+		--ext-str version=$(strip $(VERSION)) \
+		--string $< > $@
 
 # NOTE: this target only works with the C++ implementation of jsonnet.
 fmt:
