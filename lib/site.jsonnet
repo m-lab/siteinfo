@@ -105,7 +105,14 @@
     },
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.
-    Record(decoration=''):: '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name],
+    Record(decoration=''):: (
+      // For v1 zones we include dotted and dashed/flat hostnames. For anything
+      // after than v1 we only include dashed/flat names.
+      if std.extVar('version') == 'v1' then
+        '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name]
+      else
+        '%s-mlab%d%s-%s' % [std.strReplace(expConfig.name, '.', '-'), m, decoration, $.name]
+    ),
     // Hostname returns a machine FQDN including the decoration, if given.
     Hostname(decoration=''):: '%s.%s' % [self.Record(decoration), $.BaseDomain(m)],
   },
