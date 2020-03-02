@@ -58,7 +58,9 @@ $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEP
 		--ext-str project=$(strip $(PROJECT)) \
 		--ext-str version=$(strip $(VERSION)) $< \
 		| jsonnet --string - > $@
-	./zonediff.sh $(OUTDIR)/v1/zones
+	$(eval ZONE_FILE := $(shell echo $@ | sed -e "s/projects_/$(PROJECT)./"))
+	mv $@ ${ZONE_FILE}
+	./zonediff.sh ${ZONE_FILE}
 
 $(OUTDIR)/$(VERSION)/%.html: %.html.jsonnet $(DEPS)
 	cd $(OUTDIR)/$(VERSION) && find . -type f | grep -v 'index.html' | sort > ../files.list

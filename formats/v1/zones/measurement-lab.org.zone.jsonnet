@@ -43,13 +43,15 @@ local records = std.flattenArrays([
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
-  ] + if e.flat_hostname == true then [
-    { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
-    { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
-    { record: flatten(e.Record('v6')), ipv6: e.v6.ip },
-  ] else [
-    // do nothing for flat_hostname == false.
-  ]
+  ] + if std.extVar('version') == "v1" then
+    if e.flat_hostname == true then [
+      { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
+      { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
+      { record: flatten(e.Record('v6')), ipv6: e.v6.ip },
+    ] else [
+      // do nothing for flat_hostname == false.
+    ]
+  else []
   for site in sites
   for mIndex in std.range(1, std.length(site.machines))
   for experiment in experiments
@@ -57,16 +59,8 @@ local records = std.flattenArrays([
       experiment.cloud_enabled == true)
 ]);
 
-std.lines([
-  |||
-    ;
-    ; Primary DNS zone file
-    ; NOTE: this file was automatically generated!!!
-    ; NOTE: DO NOT EDIT
-    ;
-
+local primary_headers = |||
     $ORIGIN measurement-lab.org.
-    $TTL    3600
 
     @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
             %s        ; Serial
@@ -87,7 +81,38 @@ std.lines([
 
     ; LetsEncrypt ACME DNS challenge record
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
-  ||| % serial(std.extVar('serial'), std.extVar('latest')),
+
+    ; Delegate mlab-sandbox subdomain to sandbox Cloud DNS servers.
+    mlab-sandbox     IN     NS      ns1-cloud-a1.googledomains.com.
+                     IN     NS      ns1-cloud-a2.googledomains.com.
+                     IN     NS      ns1-cloud-a3.googledomains.com.
+                     IN     NS      ns1-cloud-a4.googledomains.com.
+    ; Delegate mlab-staging subdomain to staging Cloud DNS servers.
+    mlab-staging     IN     NS      ns1-cloud-a1.googledomains.com.
+                     IN     NS      ns1-cloud-a2.googledomains.com.
+                     IN     NS      ns1-cloud-a3.googledomains.com.
+                     IN     NS      ns1-cloud-a4.googledomains.com.
+    ; Delegate mlab-oti subdomain to staging Cloud DNS servers.
+    mlab-oti         IN     NS      ns1-cloud-d1.googledomains.com.
+                     IN     NS      ns1-cloud-d2.googledomains.com.
+                     IN     NS      ns1-cloud-d3.googledomains.com.
+                     IN     NS      ns1-cloud-d4.googledomains.com.
+||| % serial(std.extVar('serial'), std.extVar('latest'));
+
+local project_headers = |||
+    $ORIGIN %s.measurement-lab.org.
+||| % std.extVar('project');
+                     
+std.lines([
+  |||
+    ;
+    ; NOTE: this file was automatically generated!!!
+    ; NOTE: DO NOT EDIT
+    ;
+
+    $TTL    3600
+    %s
+  ||| % if std.extVar('version') == "v2" then project_headers else primary_headers
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records
