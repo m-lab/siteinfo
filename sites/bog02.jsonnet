@@ -22,7 +22,7 @@ sitesDefault {
     continent_code: 'SA',
     country_code: 'CO',
     metro: 'bog',
-    city: 'Bogotá',
+    city: 'Bogota',
     state: '',
     latitude: 4.69715,
     longitude: -74.14329,
