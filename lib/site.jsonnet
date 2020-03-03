@@ -107,7 +107,7 @@
     // decoration if given.
     Record(decoration=''):: (
       // For v1 zones we include dotted and dashed/flat hostnames. For anything
-      // after than v1 we only include dashed/flat names.
+      // later than v1 we only include dashed/flat names.
       if std.extVar('version') == 'v1' then
         '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name]
       else
