@@ -45,7 +45,7 @@ local records = std.flattenArrays([
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
-  ] + if version == "v1" then
+  ] + if version == 'v1' || zone == 'measurement-lab.org.zone' then
     if e.flat_hostname == true then [
       { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
       { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
