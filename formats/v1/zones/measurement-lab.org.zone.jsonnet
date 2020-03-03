@@ -59,9 +59,8 @@ local records = std.flattenArrays([
       experiment.cloud_enabled == true)
 ]);
 
-local primary_headers = |||
-    $ORIGIN measurement-lab.org.
-
+// This is only included in the v1 primary zone.
+local soa_ns = |||
     @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
             %s        ; Serial
             3600      ; Refresh
@@ -70,6 +69,12 @@ local primary_headers = |||
             300 )     ; Negative caching TTL
     @       IN      NS      ns-mlab.greenhost.net.
     @       IN      NS      ns.measurementlab.net.
+||| % serial(std.extVar('serial'), std.extVar('latest'));
+
+local primary_headers = |||
+    $ORIGIN measurement-lab.org.
+
+    %s
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
@@ -97,7 +102,7 @@ local primary_headers = |||
                      IN     NS      ns1-cloud-d2.googledomains.com.
                      IN     NS      ns1-cloud-d3.googledomains.com.
                      IN     NS      ns1-cloud-d4.googledomains.com.
-||| % serial(std.extVar('serial'), std.extVar('latest'));
+||| % if std.extVar('version') == "v2" then soa_ns else ''
 
 local project_headers = |||
     $ORIGIN %s.measurement-lab.org.
