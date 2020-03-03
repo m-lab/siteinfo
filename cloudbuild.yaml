@@ -97,7 +97,7 @@ steps:
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
   args: [
-  '  ./deploy_dns.sh'
+    './deploy_dns.sh'
   ]
   env:
   - 'PROJECT=${PROJECT_ID}'
