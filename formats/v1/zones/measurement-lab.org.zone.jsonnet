@@ -102,7 +102,7 @@ local primary_headers = |||
 local project_headers = |||
     $ORIGIN %s.measurement-lab.org.
 ||| % std.extVar('project');
-                     
+
 std.lines([
   |||
     ;
