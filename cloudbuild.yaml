@@ -95,11 +95,11 @@ steps:
 
 # Deploy measurement-lab.org project subdomain zone to Cloud DNS
 - name: gcr.io/cloud-builders/gcloud
-entrypoint: '/bin/bash'
-args: [
-  './deploy_dns.sh'
-]
-env:
-- 'PROJECT=${PROJECT_ID}'
-- 'DOMAIN=${PROJECT_ID}.measurement-lab.org'
-- 'VERSION=v2'
+  entrypoint: '/bin/bash'
+  args: [
+  '  ./deploy_dns.sh'
+  ]
+  env:
+  - 'PROJECT=${PROJECT_ID}'
+  - 'DOMAIN=${PROJECT_ID}.measurement-lab.org'
+  - 'VERSION=v2'
