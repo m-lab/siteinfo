@@ -72,23 +72,23 @@ if [[ -z "${urlmap_name}" ]] ; then
 fi
 
 # Allow requests to /v1/* and /v2/* to the siteinfo backend bucket.
-v1_pathrule_index=0
-v2_pathrule_index=1
-for v in v1 v2; do
-  pathrule_index="${v}_pathrule_index"
-  found=$(
-    gcloud --project ${PROJECT} compute url-maps describe \
-      ${urlmap_name} --format="value(pathMatchers[pathRules][${!pathrule_index}][paths][0])" || :
-  )
-  if [[ "${found}" != "/${v}/*" ]] ; then
-    gcloud --project ${PROJECT} compute url-maps add-path-matcher \
-      ${urlmap_name} \
-      --path-matcher-name siteinfo-url-map-matcher \
-      --default-backend-bucket=${empty_backend_name} \
-      --backend-bucket-path-rules="/${v}/*=${siteinfo_backend_name}" \
-      --new-hosts siteinfo.${PROJECT}.measurementlab.net
-  fi
-done
+#
+# TODO(kinkade): this block makes the rather dumb assumption that if a backend
+# path rule for /v1/* doesn't exist then neither will /v2/*. It also assumes
+# that the path rule for '/v1/*' will always be at index 0. This could be made
+# more robust.
+found=$(
+  gcloud --project ${PROJECT} compute url-maps describe \
+    ${urlmap_name} --format="value(pathMatchers[pathRules][0][paths][0])" || :
+)
+if [[ "${found}" != "/v1/*" ]] ; then
+  gcloud --project ${PROJECT} compute url-maps add-path-matcher \
+    ${urlmap_name} \
+    --path-matcher-name siteinfo-url-map-matcher \
+    --default-backend-bucket=${empty_backend_name} \
+    --backend-bucket-path-rules="/v1/*=${siteinfo_backend_name},/v2/*=${siteinfo_backend_name}" \
+    --new-hosts siteinfo.${PROJECT}.measurementlab.net
+fi
 
 # Setup DNS for siteinfo hostname.
 current_ip=$(
