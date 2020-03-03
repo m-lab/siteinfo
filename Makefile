@@ -56,7 +56,8 @@ $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEP
 		--ext-str latest=$(strip $(LATEST)) \
 		--ext-str serial=$(strip $(CURRENT)) \
 		--ext-str project=$(strip $(PROJECT)) \
-		--ext-str version=$(strip $(VERSION)) $< \
+		--ext-str version=$(strip $(VERSION)) \
+		--ext-str zone=$(shell basename $@) $< \
 		| jsonnet --string - > $@
 	$(eval ZONE_FILE := $(shell echo $@ | sed -e "s/projects_/$(PROJECT)./"))
 	mv $@ ${ZONE_FILE}
