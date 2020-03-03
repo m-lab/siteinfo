@@ -35,7 +35,6 @@ apt install -y jq
 # Make sure that every switch in switches.json has a corresponding s1.* RR in the
 # generated zone file.
 SITE_COUNT=$(jq '. | length' /workspace/output/v1/sites/switches.json)
-SITE_COUNT=$(./jsonnet -J . <(echo "local sites = import 'sites.jsonnet'; std.length(sites)"))
 SW_RR_COUNT=$(grep '^s1' "${SITEINFO_ZONE}" | wc -l)
 if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
   echo "Not every site has a corresponding switch RR in the zone."
