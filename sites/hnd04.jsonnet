@@ -7,16 +7,16 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '98.124.142.192/26',
+      prefix: '64.235.255.128/26',
     },
     ipv6+: {
-      prefix: '2001:668:1f:e3::/64',
+      prefix: '2400:f780:1f:d::/64',
     },
   },
   transit+: {
-    provider: 'GTT Communications Inc.',
+    provider: 'GTT Netherlands B.V.',
     uplink: '10g',
-    asn: 'AS3257',
+    asn: 'AS5580',
   },
   location+: {
     continent_code: 'AS',
