@@ -102,7 +102,7 @@ local primary_headers = |||
                      IN     NS      ns1-cloud-d2.googledomains.com.
                      IN     NS      ns1-cloud-d3.googledomains.com.
                      IN     NS      ns1-cloud-d4.googledomains.com.
-||| % if std.extVar('version') == "v2" then soa_ns else ''
+||| % if std.extVar('version') == "v2" then soa_ns else '';
 
 local project_headers = |||
     $ORIGIN %s.measurement-lab.org.
