@@ -17,12 +17,6 @@ CLOUDDNS_ZONE="/workspace/clouddns.zone"
 CLOUDDNS_ZONE_NAME="${DOMAIN//./-}"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
-
-# Install jsonnet
-JSONNET_URL="https://github.com/google/jsonnet/releases/download/v0.15.0/jsonnet-bin-v0.15.0-linux.tar.gz"
-curl --location "${JSONNET_URL}" > jsonnet.tar.gz
-tar xzf jsonnet.tar.gz
-
 # Make sure that every experiment has the same number of RRs.
 UNIQ_EXP_RR_COUNTS=$(
   grep -oP '^([a-z-]+?)(?=[.-]mlab[1-4])' "${SITEINFO_ZONE}" \
@@ -34,8 +28,13 @@ if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
   exit 1
 fi
 
-# Make sure that every site in sites.jsonnet has a corresponding s1.* RR in the
+# Install jq
+apt update
+apt install -y jq
+
+# Make sure that every switch in switches.json has a corresponding s1.* RR in the
 # generated zone file.
+SITE_COUNT=$(jq '. | length' /workspace/output/${VERSION}/sites/switches.json)
 SITE_COUNT=$(./jsonnet -J . <(echo "local sites = import 'sites.jsonnet'; std.length(sites)"))
 SW_RR_COUNT=$(grep '^s1' "${SITEINFO_ZONE}" | wc -l)
 if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
