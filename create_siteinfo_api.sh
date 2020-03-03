@@ -75,7 +75,7 @@ fi
 v1_pathrule_index=0
 v2_pathrule_index=1
 for v in v1 v2; do
-  pathrule_index="${v}_index"
+  pathrule_index="${v}_pathrule_index"
   found=$(
     gcloud --project ${PROJECT} compute url-maps describe \
       ${urlmap_name} --format="value(pathMatchers[pathRules][${!pathrule_index}][paths][0])" || :
