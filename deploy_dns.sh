@@ -46,7 +46,7 @@ fi
 # The zone name in Cloud DNS is the domain name with all dots changed to dashes.
 if [[ "${DOMAIN}" == "measurement-lab.org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
   echo "Not deploying primary zone for ${DOMAIN} to project ${PROJECT}."
-  #exit 0
+  exit 0
 fi
 
 # Deploy the zone to Cloud DNS
