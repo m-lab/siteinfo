@@ -20,6 +20,10 @@ CLOUDDNS_ZONE_NAME="${DOMAIN//./-}"
 CLOUDDNS_ZONE_NAME="${CLOUDDNS_ZONE_NAME#clouddns_}"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
+# Install jq
+apt update
+apt install -y jq
+
 # Make sure that every experiment has the same number of RRs.
 UNIQ_EXP_RR_COUNTS=$(
   grep -oP '^([a-z-]+?)(?=[.-]mlab[1-4])' "${SITEINFO_ZONE}" \
@@ -30,10 +34,6 @@ if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
   echo "Not all experiments have the same number of RRs."
   exit 1
 fi
-
-# Install jq
-apt update
-apt install -y jq
 
 # Make sure that every switch in switches.json has a corresponding s1.* RR in the
 # generated zone file.
@@ -48,7 +48,7 @@ fi
 # The zone name in Cloud DNS is the domain name with all dots changed to dashes.
 if [[ "${CLOUDDNS_ZONE_NAME}" == "measurement-lab-org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
   echo "Not deploying primary zone for ${CLOUDDNS_ZONE_NAME} to project ${PROJECT}."
-  exit 0
+  #exit 0
 fi
 
 # Deploy the zone to Cloud DNS
