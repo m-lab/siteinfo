@@ -43,7 +43,6 @@ if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
 fi
 
 # We only deploy the primary zone file for measurement-lab.org to the mlab-oti project.
-# The zone name in Cloud DNS is the domain name with all dots changed to dashes.
 if [[ "${DOMAIN}" == "measurement-lab.org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
   echo "Not deploying primary zone for ${DOMAIN} to project ${PROJECT}."
   exit 0
