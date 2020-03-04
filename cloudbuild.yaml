@@ -82,7 +82,7 @@ steps:
 #  - 'PROJECT_ID=$PROJECT_ID'
 #  - 'BRANCH_NAME=$BRANCH_NAME'
 
-# Deploy the v2 primary measurement-lab.org zone to Cloud DNS.
+# Deploy the v1 primary measurement-lab.org zone to Cloud DNS.
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: '/bin/bash'
   args: [
@@ -90,8 +90,8 @@ steps:
   ]
   env:
   - 'PROJECT=${PROJECT_ID}'
-  - 'DOMAIN=measurement-lab.org'
-  - 'VERSION=v2'
+  - 'DOMAIN=clouddns_measurement-lab.org'
+  - 'VERSION=v1'
 
 # Deploy the v2 measurement-lab.org project subdomain zone to Cloud DNS
 - name: gcr.io/cloud-builders/gcloud

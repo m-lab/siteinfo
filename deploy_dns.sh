@@ -14,7 +14,10 @@ SITEINFO_ZONE="/workspace/output/${VERSION}/zones/${DOMAIN}.zone"
 SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
 
 CLOUDDNS_ZONE="/workspace/clouddns.zone"
+# First we replace dots with dashes in the passed DOMAIN.
 CLOUDDNS_ZONE_NAME="${DOMAIN//./-}"
+# If the zone is prefixed with 'clouddns_', remove the prefix.
+CLOUDDNS_ZONE_NAME="${CLOUD_ZONE_NAME#clouddsn_}"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
 # Make sure that every experiment has the same number of RRs.
@@ -42,8 +45,9 @@ if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
 fi
 
 # We only deploy the primary zone file for measurement-lab.org to the mlab-oti project.
-if [[ "${DOMAIN}" == "measurement-lab.org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
-  echo "Not deploying primary zone for ${DOMAIN} to project ${PROJECT}."
+# The zone name in Cloud DNS is the domain name with all dots changed to dashes.
+if [[ "${CLOUDDNS_ZONE_NAME}" == "measurement-lab-org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
+  echo "Not deploying primary zone for ${CLOUDDNS_ZONE_NAME} to project ${PROJECT}."
   exit 0
 fi
 
