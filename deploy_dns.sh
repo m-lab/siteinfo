@@ -4,20 +4,18 @@ set -eux
 
 _=${PROJECT:?Please provide PROJECT name in environment}
 _=${DOMAIN:?Please provide DOMAIN name in environment}
+_=${ZONEFILE:?Please provide ZONEFILE name in environment}
 _=${VERSION:?Please provide VERSION in environment}
 
 # The maximum amount of time in seconds to wait for the zone file import
 # operation to complete before exiting with an error.
 MAX_IMPORT_WAIT="300"
 
-SITEINFO_ZONE="/workspace/output/${VERSION}/zones/${DOMAIN}.zone"
+SITEINFO_ZONE="/workspace/output/${VERSION}/zones/${ZONEFILE}"
 SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
 
 CLOUDDNS_ZONE="/workspace/clouddns.zone"
-# First we replace dots with dashes in the passed DOMAIN.
 CLOUDDNS_ZONE_NAME="${DOMAIN//./-}"
-# If the zone is prefixed with 'clouddns_', remove the prefix.
-CLOUDDNS_ZONE_NAME="${CLOUDDNS_ZONE_NAME#clouddns_}"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
 # Install jq
@@ -46,8 +44,8 @@ fi
 
 # We only deploy the primary zone file for measurement-lab.org to the mlab-oti project.
 # The zone name in Cloud DNS is the domain name with all dots changed to dashes.
-if [[ "${CLOUDDNS_ZONE_NAME}" == "measurement-lab-org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
-  echo "Not deploying primary zone for ${CLOUDDNS_ZONE_NAME} to project ${PROJECT}."
+if [[ "${DOMAIN}" == "measurement-lab.org" ]] && [[ "${PROJECT}" != "mlab-oti" ]]; then
+  echo "Not deploying primary zone for ${DOMAIN} to project ${PROJECT}."
   #exit 0
 fi
 

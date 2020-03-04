@@ -90,7 +90,8 @@ steps:
   ]
   env:
   - 'PROJECT=${PROJECT_ID}'
-  - 'DOMAIN=clouddns_measurement-lab.org'
+  - 'DOMAIN=measurement-lab.org'
+  - 'ZONEFILE=clouddns_measurement-lab.org.zone'
   - 'VERSION=v1'
 
 # Deploy the v2 measurement-lab.org project subdomain zone to Cloud DNS
@@ -102,4 +103,5 @@ steps:
   env:
   - 'PROJECT=${PROJECT_ID}'
   - 'DOMAIN=${PROJECT_ID}.measurement-lab.org'
+  - 'ZONEFILE=${PROJECT_ID}.measurement-lab.org.zone'
   - 'VERSION=v2'
