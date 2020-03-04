@@ -45,7 +45,7 @@ local records = std.flattenArrays([
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
-  ] + if version == 'v1' || zone == 'measurement-lab.org.zone' then
+  ] + if version == 'v1' then
     if e.flat_hostname == true then [
       { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
       { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
@@ -104,7 +104,7 @@ local primary_headers = |||
                      IN     NS      ns1-cloud-d2.googledomains.com.
                      IN     NS      ns1-cloud-d3.googledomains.com.
                      IN     NS      ns1-cloud-d4.googledomains.com.
-||| % if version == "v1" then soa_ns else '';
+||| % if version == "v1" && zone != "clouddns_measurement-lab.org.zone" then soa_ns else '';
 
 local project_headers = |||
     $ORIGIN %s.measurement-lab.org.
@@ -119,7 +119,7 @@ std.lines([
 
     $TTL    3600
     %s
-  ||| % if version == 'v1' || zone == 'measurement-lab.org.zone' then primary_headers else project_headers
+  ||| % if version == 'v1' then primary_headers else project_headers
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records

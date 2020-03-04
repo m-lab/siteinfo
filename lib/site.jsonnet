@@ -108,7 +108,7 @@
     Record(decoration=''):: (
       // For v1 zones we include dotted and dashed/flat hostnames. For anything
       // later than v1 we only include dashed/flat names.
-      if std.extVar('version') == 'v1' || std.extVar('zone') == 'measurement-lab.org.zone' then
+      if std.extVar('version') == 'v1' then
         '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name]
       else
         '%s-mlab%d%s-%s' % [std.strReplace(expConfig.name, '.', '-'), m, decoration, $.name]
