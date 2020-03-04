@@ -1,5 +1,7 @@
 local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
+local version = std.extVar('version');
+local zone = std.extVar('zone');
 local flatten(record) = std.strReplace(record, '.', '-');
 local serial(current, latest) = (
   if current == '' || latest == '' then
@@ -43,7 +45,7 @@ local records = std.flattenArrays([
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
-  ] + if std.extVar('version') == "v1" then
+  ] + if version == 'v1' then
     if e.flat_hostname == true then [
       { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
       { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
@@ -59,9 +61,8 @@ local records = std.flattenArrays([
       experiment.cloud_enabled == true)
 ]);
 
-local primary_headers = |||
-    $ORIGIN measurement-lab.org.
-
+// This is only included in the v1 primary zone.
+local soa_ns = |||
     @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
             %s        ; Serial
             3600      ; Refresh
@@ -70,6 +71,12 @@ local primary_headers = |||
             300 )     ; Negative caching TTL
     @       IN      NS      ns-mlab.greenhost.net.
     @       IN      NS      ns.measurementlab.net.
+||| % serial(std.extVar('serial'), std.extVar('latest'));
+
+local primary_headers = |||
+    $ORIGIN measurement-lab.org.
+
+    %s
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
@@ -83,10 +90,10 @@ local primary_headers = |||
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
 
     ; Delegate mlab-sandbox subdomain to sandbox Cloud DNS servers.
-    mlab-sandbox     IN     NS      ns1-cloud-a1.googledomains.com.
-                     IN     NS      ns1-cloud-a2.googledomains.com.
-                     IN     NS      ns1-cloud-a3.googledomains.com.
-                     IN     NS      ns1-cloud-a4.googledomains.com.
+    mlab-sandbox     IN     NS      ns1-cloud-c1.googledomains.com.
+                     IN     NS      ns1-cloud-c2.googledomains.com.
+                     IN     NS      ns1-cloud-c3.googledomains.com.
+                     IN     NS      ns1-cloud-c4.googledomains.com.
     ; Delegate mlab-staging subdomain to staging Cloud DNS servers.
     mlab-staging     IN     NS      ns1-cloud-a1.googledomains.com.
                      IN     NS      ns1-cloud-a2.googledomains.com.
@@ -97,7 +104,7 @@ local primary_headers = |||
                      IN     NS      ns1-cloud-d2.googledomains.com.
                      IN     NS      ns1-cloud-d3.googledomains.com.
                      IN     NS      ns1-cloud-d4.googledomains.com.
-||| % serial(std.extVar('serial'), std.extVar('latest'));
+||| % if version == "v1" && zone != "clouddns_measurement-lab.org.zone" then soa_ns else '';
 
 local project_headers = |||
     $ORIGIN %s.measurement-lab.org.
@@ -110,9 +117,9 @@ std.lines([
     ; NOTE: DO NOT EDIT
     ;
 
-    $TTL    3600
+    $TTL    300
     %s
-  ||| % if std.extVar('version') == "v2" then project_headers else primary_headers
+  ||| % if version == 'v1' then primary_headers else project_headers
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records
