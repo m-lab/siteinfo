@@ -17,7 +17,7 @@ CLOUDDNS_ZONE="/workspace/clouddns.zone"
 # First we replace dots with dashes in the passed DOMAIN.
 CLOUDDNS_ZONE_NAME="${DOMAIN//./-}"
 # If the zone is prefixed with 'clouddns_', remove the prefix.
-CLOUDDNS_ZONE_NAME="${CLOUD_ZONE_NAME#clouddsn_}"
+CLOUDDNS_ZONE_NAME="${CLOUDDNS_ZONE_NAME#clouddns_}"
 CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 
 # Make sure that every experiment has the same number of RRs.
