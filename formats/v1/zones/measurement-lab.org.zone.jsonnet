@@ -117,7 +117,7 @@ std.lines([
     ; NOTE: DO NOT EDIT
     ;
 
-    $TTL    3600
+    $TTL    300
     %s
   ||| % if version == 'v1' then primary_headers else project_headers
 ] + [
