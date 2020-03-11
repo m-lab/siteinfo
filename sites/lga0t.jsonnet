@@ -12,10 +12,10 @@ sitesDefault {
     mlab2+: {
       project: 'mlab-sandbox',
     },
-    mlab2+: {
+    mlab3+: {
       project: 'mlab-sandbox',
     },
-    mlab2+: {
+    mlab4+: {
       project: 'mlab-sandbox',
     },
   },
