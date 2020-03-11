@@ -191,6 +191,12 @@ def parse_flags():
               'not specified, all machine names are selected.'))
     parser.add_option(
         '',
+        '--project',
+        dest='project',
+        default=None,
+        help=('The GCP project to select nodes from.'))
+    parser.add_option(
+        '',
         '--physical',
         dest='physical',
         action='store_true',
@@ -228,7 +234,8 @@ def parse_flags():
 # Replace this function with a more general interface for accessing
 # configuration information for a site, node, slice, or otherwise.
 def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
-                                      select_regex, labels, only_physical):
+                                      select_regex, labels, only_physical,
+                                      project):
     """Evaluates input_tmpl with values from the server network configuration.
 
     NOTE: Only fields returned by the model.Node.interface function and any
@@ -260,6 +267,7 @@ def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
         select_regex: str, a regular expression used to select node hostnames.
         labels: dict, extra key values available in the templates.
         only_physical: bool, whether to restrict targets to physical sites.
+        project: str, the GCP project to select nodes from.
 
     Raises:
         IOError, could not create or write to a file.
@@ -270,6 +278,8 @@ def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
         if only_physical and site['annotations']['type'] != 'physical':
             continue
         for node in site['nodes']:
+            if project and node['project'] != project:
+                continue
             # TODO(soltesz): support multiple (or all) object types.
             if select_regex and not re.search(select_regex, node['hostname']):
                 continue
@@ -293,7 +303,7 @@ def export_mlab_server_network_config(output, sites, name_tmpl, input_tmpl,
                 f.write(template.safe_substitute(i))
 
 
-def select_prometheus_experiment_targets(sites, select_regex,
+def select_prometheus_experiment_targets(sites, project, select_regex,
                                          target_templates, common_labels,
                                          rsync_only, use_flatnames,
                                          decoration, only_physical):
@@ -301,6 +311,7 @@ def select_prometheus_experiment_targets(sites, select_regex,
 
     Args:
       sites: list of siteinfo site objects, used to enumerate experiments.
+      project: str, the GCP project to select nodes from.
       select_regex: str, a regex used to choose a subset of hostnames. Ignored
           if empty.
       target_templates: list of templates for formatting the target(s) from the
@@ -322,6 +333,8 @@ def select_prometheus_experiment_targets(sites, select_regex,
         if only_physical and site['annotations']['type'] != 'physical':
             continue
         for node in site['nodes']:
+            if project and node['project'] != project:
+                continue
             for experiment in node['experiments']:
                 labels = common_labels.copy()
                 labels['experiment'] = experiment['name']
@@ -356,12 +369,13 @@ def select_prometheus_experiment_targets(sites, select_regex,
     return records
 
 
-def select_prometheus_node_targets(sites, select_regex, target_templates,
+def select_prometheus_node_targets(sites, project, select_regex, target_templates,
                                    common_labels, decoration, only_physical):
     """Selects and formats targets from site nodes.
 
     Args:
       sites: list of siteinfo site objects, used to enumerate nodes.
+      project: str, the GCP project to select nodes from.
       select_regex: str, a regex used to choose a subset of hostnames. Ignored
           if empty.
       target_templates: list of templates for formatting the target(s) from the
@@ -380,6 +394,8 @@ def select_prometheus_node_targets(sites, select_regex, target_templates,
         if only_physical and site['annotations']['type'] != 'physical':
             continue
         for node in site['nodes']:
+            if project and node['project'] != project:
+                continue
             if select_regex and not re.search(select_regex, node['hostname']):
                 continue
             labels = common_labels.copy()
@@ -447,25 +463,25 @@ def main():
         with open(options.template_input) as template:
             export_mlab_server_network_config(
                 sys.stdout, sites, options.filename, template, options.select,
-                options.labels, options.physical)
+                options.labels, options.physical, options.project)
 
     elif options.format == 'prom-targets':
         records = select_prometheus_experiment_targets(
-            sites, options.select, options.template_target,
+            sites, options.project, options.select, options.template_target,
             options.labels, options.rsync, options.use_flatnames,
             options.decoration, options.physical)
         json.dump(records, sys.stdout, indent=4)
 
     elif options.format == 'prom-targets-nodes':
         records = select_prometheus_node_targets(
-            sites, options.select, options.template_target, options.labels,
-            options.decoration, options.physical)
+            sites, options.project, options.select, options.template_target,
+            options.labels, options.decoration, options.physical)
         json.dump(records, sys.stdout, indent=4)
 
     elif options.format == 'prom-targets-sites':
         records = select_prometheus_site_targets(
-            sites, options.select, options.template_target, options.labels,
-            options.physical)
+            sites, options.select, options.template_target,
+            options.labels, options.physical)
         json.dump(records, sys.stdout, indent=4)
     elif options.format == 'hostips':
         # TODO: Added temporarily to work-around-dependency in script-exporter-support.
