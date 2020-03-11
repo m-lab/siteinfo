@@ -480,8 +480,8 @@ def main():
 
     elif options.format == 'prom-targets-sites':
         records = select_prometheus_site_targets(
-            sites, options.select, options.template_target,
-            options.labels, options.physical)
+            sites, options.select, options.template_target, options.labels,
+            options.physical)
         json.dump(records, sys.stdout, indent=4)
     elif options.format == 'hostips':
         # TODO: Added temporarily to work-around-dependency in script-exporter-support.
