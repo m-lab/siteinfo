@@ -17,7 +17,7 @@ def OpenStringIO(sio):
     Example:
         @mock.patch('__builtin__.open')
         def test_some_function(self, mock_open):
-            output = StringIO()
+            output = StringIO.StringIO()
             mock_open.return_value = OpenStringIO(output)
 
             some_function()
