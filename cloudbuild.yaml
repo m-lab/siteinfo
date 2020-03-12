@@ -6,7 +6,7 @@ steps:
 
 - name: gcr.io/cloud-builders/docker
   args: [
-    'build', '-t', 'python-env', 'Dockerfile.python'
+    'build', '-t', 'python-env', '-f', 'Dockerfile.python', '.'
   ]
 
 - name: python-env
