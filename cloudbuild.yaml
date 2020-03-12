@@ -4,7 +4,12 @@ steps:
 # RUN UNIT TESTS
 ############################################################################
 
-- name: python:2
+- name: gcr.io/cloud-builders/docker
+  args: [
+    'build', '-t', 'python-env', 'Docker.python'
+  ]
+
+- name: python-env
   args: [
     'python', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
   ]
