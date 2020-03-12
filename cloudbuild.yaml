@@ -1,8 +1,18 @@
+steps:
+
+############################################################################
+# RUN UNIT TESTS
+############################################################################
+
+- name: python:2-alpine
+  args: [
+    'python', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
+  ]
+
 ############################################################################
 # BUILD ARTIFACTS
 ############################################################################
 
-steps:
 # TODO: enable once we can reconstruct .git directory using cbif.
 ## Pull in submodules to run jsonnet unit tests.
 #- name: gcr.io/cloud-builders/git
