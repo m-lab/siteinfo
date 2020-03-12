@@ -1,8 +1,23 @@
+steps:
+
+############################################################################
+# RUN UNIT TESTS
+############################################################################
+
+- name: gcr.io/cloud-builders/docker
+  args: [
+    'build', '-t', 'python-env', '-f', 'Dockerfile.python', '.'
+  ]
+
+- name: python-env
+  args: [
+    'python', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
+  ]
+
 ############################################################################
 # BUILD ARTIFACTS
 ############################################################################
 
-steps:
 # TODO: enable once we can reconstruct .git directory using cbif.
 ## Pull in submodules to run jsonnet unit tests.
 #- name: gcr.io/cloud-builders/git
