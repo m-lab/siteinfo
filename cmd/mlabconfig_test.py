@@ -301,6 +301,12 @@ class MlabconfigTest(unittest.TestCase):
         self.assertEqual(len(actual_targets), 1)
         self.assertItemsEqual(actual_targets, expected_targets)
 
+    def test_select_prometheus_node_targets_excludes_unselected_project(self):
+        actual_targets = mlabconfig.select_prometheus_node_targets(
+            self.sites, "mlab-oti", "mlab1.*", ['{{hostname}}:9090'], {}, '', False)
+
+        self.assertEqual(len(actual_targets), 0)
+
     def test_select_prometheus_node_targets_decorated_names(self):
         expected_targets = [
             {
