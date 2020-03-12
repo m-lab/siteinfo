@@ -4,7 +4,7 @@ steps:
 # RUN UNIT TESTS
 ############################################################################
 
-- name: python:2-alpine
+- name: python:2
   args: [
     'python', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
   ]
