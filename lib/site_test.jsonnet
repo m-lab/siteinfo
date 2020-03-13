@@ -114,10 +114,10 @@ test.suite({
       v4v6Site.DRAC(4).Record(),
     ],
     expect: [
-      'mlab1d.mck0t',
-      'mlab2d.mck0t',
-      'mlab3d.mck0t',
-      'mlab4d.mck0t',
+      'mlab1d-mck0t',
+      'mlab2d-mck0t',
+      'mlab3d-mck0t',
+      'mlab4d-mck0t',
     ],
   },
   test_machine_v4: {
@@ -134,8 +134,8 @@ test.suite({
       '255.255.255.192',
       '192.168.1.65',
       '192.168.1.127',
-      'mlab2.mck0t',
-      'mlab2v4.mck0t',
+      'mlab2-mck0t',
+      'mlab2v4-mck0t',
     ],
   },
   test_machine_v6_gateway: {
@@ -164,8 +164,8 @@ test.suite({
       v4v6Site.Machine(2).Record('v6'),
     ],
     expect: [
-      'mlab1v6.mck0t',
-      'mlab2v6.mck0t',
+      'mlab1v6-mck0t',
+      'mlab2v6-mck0t',
     ],
   },
   test_experiment_v4: {
