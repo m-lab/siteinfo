@@ -1,3 +1,9 @@
+options:
+  env:
+  # Provide information for cbif to reconstruct .git config.
+  - COMMIT_SHA=$COMMIT_SHA
+  - GIT_ORIGIN_URL=https://github.com/m-lab/siteinfo.git
+
 steps:
 
 ############################################################################
