@@ -30,7 +30,12 @@
           error 'Machine indexes must be within range [1,4]'
       ),
     },
-    Record():: 'mlab%dd.%s' % [m, $.name],
+    Record():: (
+      if std.extVar('version') == 'v1' then
+        'mlab%dd.%s' % [m, $.name]
+      else
+        'mlab%dd-%s' % [m, $.name]
+    ),
     Hostname():: '%s.%s' % [self.Record(), $.BaseDomain(m)],
   },
   // Machine returns a network spec for machine index m. The decoration
@@ -77,7 +82,12 @@
     },
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.
-    Record(decoration=''):: 'mlab%d%s.%s' % [m, decoration, $.name],
+    Record(decoration=''):: (
+      if std.extVar('version') == 'v1' then
+        'mlab%d%s.%s' % [m, decoration, $.name]
+      else
+        'mlab%d%s-%s' % [m, decoration, $.name]
+    ),
     // Hostname returns a machine FQDN including the decoration, if given.
     Hostname(decoration=''):: '%s.%s' % [self.Record(decoration), $.BaseDomain(m)],
   },
