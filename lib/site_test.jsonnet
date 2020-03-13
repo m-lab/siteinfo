@@ -92,6 +92,10 @@ test.suite({
     actual: v4v6Site.Switch().v4.ip,
     expect: '192.168.1.66',
   },
+  test_s1_record: {
+    actual: v4v6Site.Switch().Record(),
+    expect: if version == 'v1' then 's1.mck0t' else 's1-mck0t',
+  },
   test_drac: {
     actual: [
       v4v6Site.DRAC(1).v4.ip,
