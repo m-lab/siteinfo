@@ -37,7 +37,7 @@ steps:
 # BUILD ARTIFACTS
 ############################################################################
 
-# Generate v1 json files.
+# Generate v1 and v2 json files.
 - name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
   args: [
     'make VERSION=v1',
