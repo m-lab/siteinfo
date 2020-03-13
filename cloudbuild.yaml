@@ -40,19 +40,11 @@ steps:
 # Generate v1 json files.
 - name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
   args: [
-    'make'
+    'make VERSION=v1',
+    'make VERSION=v2'
   ]
   env:
    - 'PROJECT=${PROJECT_ID}'
-   - 'VERSION=v1'
-
-- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
-  args: [
-    'make'
-  ]
-  env:
-   - 'PROJECT=${PROJECT_ID}'
-   - 'VERSION=v2'
 
 ############################################################################
 # DEPLOY ARTIFACTS
