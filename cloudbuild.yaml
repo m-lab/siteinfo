@@ -1,3 +1,9 @@
+options:
+  env:
+  # Provide information for cbif to reconstruct .git config.
+  - COMMIT_SHA=$COMMIT_SHA
+  - GIT_ORIGIN_URL=https://github.com/m-lab/siteinfo.git
+
 steps:
 
 ############################################################################
@@ -14,40 +20,31 @@ steps:
     'python', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
   ]
 
+# Import submodules to run jsonnet unit tests.
+- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
+  args: [
+    'git submodule update --init --recursive'
+  ]
+
+# Run jsonnet unit tests.
+- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
+  args: [
+    'make test VERSION=v1',
+    'make test VERSION=v2'
+  ]
+
 ############################################################################
 # BUILD ARTIFACTS
 ############################################################################
 
-# TODO: enable once we can reconstruct .git directory using cbif.
-## Pull in submodules to run jsonnet unit tests.
-#- name: gcr.io/cloud-builders/git
-#  args: [
-#    'submodule', 'update', '--init', '--recursive'
-#  ]
-
-# Create the sjsonnet container for later steps.
-- name: gcr.io/cloud-builders/docker
+# Generate v1 and v2 json files.
+- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
   args: [
-    'build', '-t', 'jsonnet-env', '.'
-  ]
-
-# Generate v1 json files.
-- name: jsonnet-env
-  args: [
-    'make'
+    'make VERSION=v1',
+    'make VERSION=v2'
   ]
   env:
    - 'PROJECT=${PROJECT_ID}'
-   - 'VERSION=v1'
-
-# Generate v2 json files.
-- name: jsonnet-env
-  args: [
-    'make'
-  ]
-  env:
-   - 'PROJECT=${PROJECT_ID}'
-   - 'VERSION=v2'
 
 ############################################################################
 # DEPLOY ARTIFACTS

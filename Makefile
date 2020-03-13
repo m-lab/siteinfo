@@ -46,7 +46,7 @@ $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEP
 	time jsonnet -J . --ext-str version=$(strip $(VERSION)) $< > $@
 
 %_test: %_test.jsonnet $(DEPS)
-	time $(SJSONNET) -J . -J jsonnetunit $<
+	time $(SJSONNET) -J . -J jsonnetunit --ext-str version=$(VERSION) $<
 
 # NOTE: sjsonnet.jar does not support the --string option. And, jsonnet alone
 # takes over 6min to process the zone file. So, this two step operation saves
@@ -60,7 +60,7 @@ $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEP
 		--ext-str zone=$(shell basename $@) $< \
 		| jsonnet --string - > $@
 	$(eval ZONE_FILE := $(shell echo $@ | sed -e "s/projects_/$(PROJECT)./"))
-	mv $@ ${ZONE_FILE}
+	if [[ $@ != ${ZONE_FILE} ]] ; then mv $@ ${ZONE_FILE} ; fi
 	./zonediff.sh ${ZONE_FILE}
 
 $(OUTDIR)/$(VERSION)/%.html: %.html.jsonnet $(DEPS)
