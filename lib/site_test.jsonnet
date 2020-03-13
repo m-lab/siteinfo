@@ -1,5 +1,6 @@
 local test = import 'jsonnetunit/test.libsonnet';
 local defaultSite = import 'sites/_default.jsonnet';
+local version = std.extVar('version');
 
 // A standard v4 and v6 enabled site.
 local v4v6Site = defaultSite {
@@ -175,8 +176,8 @@ test.suite({
     ],
     expect: [
       '192.168.1.87',
-      'fake.exp.mlab2.mck0t',
-      'fake.exp.mlab2v4.mck0t',
+      if version == 'v1' then 'fake.exp.mlab2.mck0t' else 'fake-exp-mlab2-mck0t',
+      if version == 'v1' then 'fake.exp.mlab2v4.mck0t' else 'fake-exp-mlab2v4-mck0t',
     ],
   },
   test_experiment_v6: {
@@ -188,8 +189,8 @@ test.suite({
     ],
     expect: [
       '2001:1900:2100:2d::87',
-      'fake.exp.mlab2.mck0t',
-      'fake.exp.mlab2v6.mck0t',
+      if version == 'v1' then 'fake.exp.mlab2.mck0t' else 'fake-exp-mlab2-mck0t',
+      if version == 'v1' then 'fake.exp.mlab2v6.mck0t' else 'fake-exp-mlab2v6-mck0t',
       '',
     ],
   },
