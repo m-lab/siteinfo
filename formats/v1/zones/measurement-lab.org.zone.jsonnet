@@ -71,6 +71,12 @@ local soa_ns = |||
             300 )     ; Negative caching TTL
     @       IN      NS      ns-mlab.greenhost.net.
     @       IN      NS      ns.measurementlab.net.
+
+    ; Delegate ACME DNS01 challenges for measurement-lab.org to mlab-oti Cloud DNS servers.
+    _acme-challenge  IN     NS      ns-cloud-d1.googledomains.com.
+                     IN     NS      ns-cloud-d2.googledomains.com.
+                     IN     NS      ns-cloud-d3.googledomains.com.
+                     IN     NS      ns-cloud-d4.googledomains.com.
 ||| % serial(std.extVar('serial'), std.extVar('latest'));
 
 local primary_headers = |||
@@ -102,11 +108,6 @@ local primary_headers = |||
                      IN     NS      ns-cloud-a4.googledomains.com.
     ; Delegate mlab-oti subdomain to production Cloud DNS servers.
     mlab-oti         IN     NS      ns-cloud-d1.googledomains.com.
-                     IN     NS      ns-cloud-d2.googledomains.com.
-                     IN     NS      ns-cloud-d3.googledomains.com.
-                     IN     NS      ns-cloud-d4.googledomains.com.
-    ; Delegate ACME DNS01 challenges for measurement-lab.org to mlab-oti Cloud DNS servers.
-    _acme-challenge  IN     NS      ns-cloud-d1.googledomains.com.
                      IN     NS      ns-cloud-d2.googledomains.com.
                      IN     NS      ns-cloud-d3.googledomains.com.
                      IN     NS      ns-cloud-d4.googledomains.com.
