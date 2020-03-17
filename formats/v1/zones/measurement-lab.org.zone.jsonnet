@@ -2,6 +2,7 @@ local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 local version = std.extVar('version');
 local zone = std.extVar('zone');
+local project = std.extVar('project');
 local flatten(record) = std.strReplace(record, '.', '-');
 local serial(current, latest) = (
   if current == '' || latest == '' then
@@ -71,12 +72,6 @@ local soa_ns = |||
             300 )     ; Negative caching TTL
     @       IN      NS      ns-mlab.greenhost.net.
     @       IN      NS      ns.measurementlab.net.
-
-    ; Delegate ACME DNS01 challenges for measurement-lab.org to mlab-oti Cloud DNS servers.
-    _acme-challenge  IN     NS      ns-cloud-d1.googledomains.com.
-                     IN     NS      ns-cloud-d2.googledomains.com.
-                     IN     NS      ns-cloud-d3.googledomains.com.
-                     IN     NS      ns-cloud-d4.googledomains.com.
 ||| % serial(std.extVar('serial'), std.extVar('latest'));
 
 local primary_headers = |||
@@ -88,6 +83,9 @@ local primary_headers = |||
     @       IN      A       151.101.65.195
     www     IN      A       151.101.1.195
     www     IN      A       151.101.65.195
+
+    ; ACME challenge CNAME redirect for cert-manager/LetsEncrypt
+    _acme-challenge       IN      CNAME mlab.acme.%s.measurement-lab.org.
 
     ; Google site verification to use this domain in Firebase
     @                     IN      TXT   google-site-verification=YJspItE9L3D8mw76XKHxEGb7x9usph7x_CsqFQbUK28
@@ -111,11 +109,16 @@ local primary_headers = |||
                      IN     NS      ns-cloud-d2.googledomains.com.
                      IN     NS      ns-cloud-d3.googledomains.com.
                      IN     NS      ns-cloud-d4.googledomains.com.
-||| % if version == "v1" && zone != "clouddns_measurement-lab.org.zone" then soa_ns else '';
+||| % [
+  if version == "v1" && zone != "clouddns_measurement-lab.org.zone" then soa_ns else '',
+  project,
+];
 
 local project_headers = |||
     $ORIGIN %s.measurement-lab.org.
-||| % std.extVar('project');
+
+    _acme-challenge       IN      CNAME %s.acme.%s.measurement-lab.org.
+||| % [project, project, project];
 
 std.lines([
   |||
