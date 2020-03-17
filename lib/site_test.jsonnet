@@ -92,6 +92,10 @@ test.suite({
     actual: v4v6Site.Switch().v4.ip,
     expect: '192.168.1.66',
   },
+  test_s1_record: {
+    actual: v4v6Site.Switch().Record(),
+    expect: if version == 'v1' then 's1.mck0t' else 's1-mck0t',
+  },
   test_drac: {
     actual: [
       v4v6Site.DRAC(1).v4.ip,
@@ -114,10 +118,10 @@ test.suite({
       v4v6Site.DRAC(4).Record(),
     ],
     expect: [
-      'mlab1d.mck0t',
-      'mlab2d.mck0t',
-      'mlab3d.mck0t',
-      'mlab4d.mck0t',
+      if version == 'v1' then 'mlab1d.mck0t' else 'mlab1d-mck0t',
+      if version == 'v1' then 'mlab2d.mck0t' else 'mlab2d-mck0t',
+      if version == 'v1' then 'mlab3d.mck0t' else 'mlab3d-mck0t',
+      if version == 'v1' then 'mlab4d.mck0t' else 'mlab4d-mck0t',
     ],
   },
   test_machine_v4: {
@@ -134,8 +138,8 @@ test.suite({
       '255.255.255.192',
       '192.168.1.65',
       '192.168.1.127',
-      'mlab2.mck0t',
-      'mlab2v4.mck0t',
+      if version == 'v1' then 'mlab2.mck0t' else 'mlab2-mck0t',
+      if version == 'v1' then 'mlab2v4.mck0t' else 'mlab2v4-mck0t',
     ],
   },
   test_machine_v6_gateway: {
@@ -164,8 +168,8 @@ test.suite({
       v4v6Site.Machine(2).Record('v6'),
     ],
     expect: [
-      'mlab1v6.mck0t',
-      'mlab2v6.mck0t',
+      if version == 'v1' then 'mlab1v6.mck0t' else 'mlab1v6-mck0t',
+      if version == 'v1' then 'mlab2v6.mck0t' else 'mlab2v6-mck0t',
     ],
   },
   test_experiment_v4: {

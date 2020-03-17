@@ -1,3 +1,5 @@
+local version = std.extVar('version');
+
 {
   // Returns the appropriate base domain depending on the node project for v2
   // outputs, else just the standard base domain.
@@ -7,7 +9,7 @@
       'mlab-staging': 'mlab-staging.measurement-lab.org',
       'mlab-oti': 'mlab-oti.measurement-lab.org',
     };
-    if std.extVar('version') == 'v2' then
+    if version == 'v2' then
       '%s' % domainMap[$.machines['mlab' + m].project]
     else
       'measurement-lab.org'
@@ -17,7 +19,12 @@
     v4: {
       ip: $.Index4(2),
     },
-    Record():: 's1.%s' % $.name,
+    Record():: (
+      if version == 'v1' then
+        's1.%s' % $.name
+      else
+        's1-%s' % $.name
+    ),
     Hostname():: '%s.measurement-lab.org' % self.Record(),
   },
   // DRAC returns a network spec for the drac attached to machine index m.
@@ -30,7 +37,12 @@
           error 'Machine indexes must be within range [1,4]'
       ),
     },
-    Record():: 'mlab%dd.%s' % [m, $.name],
+    Record():: (
+      if version == 'v1' then
+        'mlab%dd.%s' % [m, $.name]
+      else
+        'mlab%dd-%s' % [m, $.name]
+    ),
     Hostname():: '%s.%s' % [self.Record(), $.BaseDomain(m)],
   },
   // Machine returns a network spec for machine index m. The decoration
@@ -77,7 +89,12 @@
     },
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.
-    Record(decoration=''):: 'mlab%d%s.%s' % [m, decoration, $.name],
+    Record(decoration=''):: (
+      if version == 'v1' then
+        'mlab%d%s.%s' % [m, decoration, $.name]
+      else
+        'mlab%d%s-%s' % [m, decoration, $.name]
+    ),
     // Hostname returns a machine FQDN including the decoration, if given.
     Hostname(decoration=''):: '%s.%s' % [self.Record(decoration), $.BaseDomain(m)],
   },
@@ -108,7 +125,7 @@
     Record(decoration=''):: (
       // For v1 zones we include dotted and dashed/flat hostnames. For anything
       // later than v1 we only include dashed/flat names.
-      if std.extVar('version') == 'v1' then
+      if version == 'v1' then
         '%s.mlab%d%s.%s' % [expConfig.name, m, decoration, $.name]
       else
         '%s-mlab%d%s-%s' % [std.strReplace(expConfig.name, '.', '-'), m, decoration, $.name]
