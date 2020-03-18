@@ -57,7 +57,7 @@ acme_nameservers=$(gcloud dns record-sets list \
     --flatten "rrdatas" \
     --project mlab-sandbox | tail -n +2)
 if [[ -n "${acme_nameservers}" ]]; then
-  echo -e "\n${acme_nameservers}" >> "${SITEINFO_ZONE}"
+  echo -e "\n${acme_nameservers}\n" >> "${SITEINFO_ZONE}"
 else
   echo "No ACME challenge subdomain delegation NS records found in ${PROJECT}.measurement-lab.org zone."
   exit 1
