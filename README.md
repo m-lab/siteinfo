@@ -21,4 +21,13 @@ gcloud dns managed-zones create <name> \
 records for those zones. These nameservers are currently hard coded into the
 Jsonnet zone file(s). If a Cloud DNS zone gets [re]created, then you will need
 to verify the nameservers assigned to the zone and appropriately update the
-Jsonnet zone file(s) with the proper nameservers.
+Jsonnet zone file(s) with the proper nameservers. The nameservers for zones
+can be easily found in the GCP Console or you can find them with gcloud. For
+example:
+```
+gcloud dns record-sets list \
+      --zone "acme-mlab-sandbox-measurement-lab-org" \
+      --name "acme.mlab-sandbox.measurement-lab.org" \
+      --type "NS" \
+      --project mlab-sandbox
+```
