@@ -84,7 +84,9 @@ local primary_headers = |||
     www     IN      A       151.101.1.195
     www     IN      A       151.101.65.195
 
-    ; ACME challenge CNAME redirect for cert-manager/LetsEncrypt
+    ; ACME challenge CNAME redirect for cert-manager/LetsEncrypt. In this
+    ; configuration cert-manager will automatically create the record that the
+    ; CNAME points to instead of the usual _acme-challge.* record.
     _acme-challenge       IN      CNAME mlab.acme.%s.measurement-lab.org.
 
     ; Google site verification to use this domain in Firebase
