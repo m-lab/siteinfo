@@ -48,6 +48,21 @@ if [[ "${DOMAIN}" == "measurement-lab.org" ]] && [[ "${PROJECT}" != "mlab-oti" ]
   exit 0
 fi
 
+# If ACME subdomain delegation NS records must be in the Cloud DNS zone. We
+# need to preserve them.
+acme_nameservers=$(gcloud dns record-sets list \
+    --zone "acme-${PROJECT}-measurement-lab-org" \
+    --name "acme.${PROJECT}.measurement-lab.org" \
+    --type "NS" \
+    --flatten "rrdatas" \
+    --project mlab-sandbox | tail -n +2)
+if [[ -n "${acme_nameservers}" ]]; then
+  echo "${acme_nameservers}" >> "${SITEIFO_ZONE}"
+else
+  echo "No ACME challenge subdomain delegation NS records found in ${PROJECT}.measurement-lab.org zone."
+  exit 1
+fi
+
 # Deploy the zone to Cloud DNS
 gcloud dns record-sets import "${SITEINFO_ZONE}" \
     --zone-file-format \
