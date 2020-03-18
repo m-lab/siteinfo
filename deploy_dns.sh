@@ -59,7 +59,7 @@ acme_nameservers=$(gcloud dns record-sets list \
 if [[ -n "${acme_nameservers}" ]]; then
   ns_records=$(
     for ns in ${acme_nameservers}; do
-      echo "acme.${PROJECT}.measurement-lab.org IN NS ${ns}"
+      echo "acme IN NS ${ns}"
     done
   )
   echo "${ns_records}" >> "${SITEINFO_ZONE}"
