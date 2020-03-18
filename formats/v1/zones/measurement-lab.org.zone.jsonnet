@@ -3,7 +3,9 @@ local sites = import 'sites.jsonnet';
 local version = std.extVar('version');
 local zone = std.extVar('zone');
 local project = std.extVar('project');
+
 local flatten(record) = std.strReplace(record, '.', '-');
+
 local serial(current, latest) = (
   if current == '' || latest == '' then
     error 'ERROR: given serial and latest must not be empty!'
@@ -12,6 +14,21 @@ local serial(current, latest) = (
       latest
     else
       std.toString(std.parseInt(current) + 1)
+);
+
+// Cloud DNS nameservers are always of the format:
+//     ns-cloud-[a-z][1-4].googledomains.com
+// This small function returns the appropriate nameserver letter for each
+// project for the ACME subdomain.
+local acme_ns_letter() = (
+  if project == "mlab-sandbox" then
+    "d"
+  else if project == "mlab-staging" then
+    "b"
+  else if project == "mlab-oti" then
+    "a"
+  else
+    error 'Unknown project: %s' % project
 );
 
 local records = std.flattenArrays([
@@ -95,25 +112,36 @@ local primary_headers = |||
     ; LetsEncrypt ACME DNS challenge record
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2rE
 
-
-    ; Delegate mlab-sandbox subdomain to sandbox Cloud DNS servers.
+    ;
+    ; GCP project subdomain delegations to Cloud DNS
+    ;
     mlab-sandbox     IN     NS      ns-cloud-c1.googledomains.com.
                      IN     NS      ns-cloud-c2.googledomains.com.
                      IN     NS      ns-cloud-c3.googledomains.com.
                      IN     NS      ns-cloud-c4.googledomains.com.
-    ; Delegate mlab-staging subdomain to staging Cloud DNS servers.
     mlab-staging     IN     NS      ns-cloud-a1.googledomains.com.
                      IN     NS      ns-cloud-a2.googledomains.com.
                      IN     NS      ns-cloud-a3.googledomains.com.
                      IN     NS      ns-cloud-a4.googledomains.com.
-    ; Delegate mlab-oti subdomain to production Cloud DNS servers.
     mlab-oti         IN     NS      ns-cloud-d1.googledomains.com.
                      IN     NS      ns-cloud-d2.googledomains.com.
                      IN     NS      ns-cloud-d3.googledomains.com.
                      IN     NS      ns-cloud-d4.googledomains.com.
+
+    ;
+    ; Delegate acme subdomains to Cloud DNS servers.
+    acme             IN     NS      ns-cloud-%s1.googledomains.com.
+                     IN     NS      ns-cloud-%s2.googledomains.com.
+                     IN     NS      ns-cloud-%s3.googledomains.com.
+                     IN     NS      ns-cloud-%s4.googledomains.com.
+
 ||| % [
   if version == "v1" && zone != "clouddns_measurement-lab.org.zone" then soa_ns else '',
   project,
+  acme_ns_letter(),
+  acme_ns_letter(),
+  acme_ns_letter(),
+  acme_ns_letter(),
 ];
 
 local project_headers = |||
