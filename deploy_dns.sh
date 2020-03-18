@@ -55,7 +55,7 @@ acme_nameservers=$(gcloud dns record-sets list \
     --name "acme.${PROJECT}.measurement-lab.org" \
     --type "NS" \
     --format "value(rrdatas.flatten(separator=' '))" \
-    --project mlab-sandbox)
+    --project "${PROJECT}")
 if [[ -n "${acme_nameservers}" ]]; then
   ns_records=$(
     for ns in ${acme_nameservers}; do
