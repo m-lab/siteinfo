@@ -15,6 +15,10 @@ local default = {
     rsync_modules: ['ndt'],
   },
   default {
+    index: 3,
+    name: 'revtr',
+  },
+  default {
     index: 5,
     name: 'wehe',
   },
