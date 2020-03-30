@@ -23,8 +23,9 @@ apt update
 apt install -y jq
 
 # Make sure that every experiment has the same number of RRs.
+# NOTE: this matches v1 and v2 hostname. It does not match machine names.
 UNIQ_EXP_RR_COUNTS=$(
-  grep -oP '^([a-z-]+?)(?=[.-]mlab[1-4])' "${SITEINFO_ZONE}" \
+  grep -oP '^([a-z.-]+)[.-]mlab(?=[1-4])' "${SITEINFO_ZONE}" \
     | sort | uniq -c | awk '{print $1}' | uniq
 )
 UNIQ_EXP_RR_COUNT=$(echo "${UNIQ_EXP_RR_COUNTS}" | wc -w)
