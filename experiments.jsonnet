@@ -16,6 +16,8 @@ local default = {
   },
   default {
     index: 2,
+    flat_hostname: true,
+    cloud_enabled: true,
     name: 'ndt',
   },
   default {
@@ -34,6 +36,7 @@ local default = {
   },
   default {
     index: 10,
+    flat_hostname: true,
     name: 'neubot',
   },
 ]
