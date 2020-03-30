@@ -15,6 +15,12 @@ local default = {
     rsync_modules: ['ndt'],
   },
   default {
+    index: 2,
+    flat_hostname: true,
+    cloud_enabled: true,
+    name: 'ndt',
+  },
+  default {
     index: 3,
     name: 'revtr',
   },
@@ -27,5 +33,10 @@ local default = {
     flat_hostname: true,
     name: 'neubot.mlab',
     rsync_modules: ['neubot'],
+  },
+  default {
+    index: 10,
+    flat_hostname: true,
+    name: 'neubot',
   },
 ]
