@@ -6,7 +6,7 @@ import optparse
 import re
 import string
 import sys
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 ZONE_TTL = 60 * 5
 ZONE_MIN_TTL = 60 * 5
@@ -457,7 +457,7 @@ def select_prometheus_site_targets(sites, select_regex, target_templates,
 def main():
     (options, _) = parse_flags()
 
-    sites = json.loads(urllib2.urlopen(options.sites).read())
+    sites = json.loads(urllib.request.urlopen(options.sites).read())
 
     if options.format == 'server-network-config':
         with open(options.template_input) as template:
@@ -487,7 +487,7 @@ def main():
         # TODO: Added temporarily to work-around-dependency in script-exporter-support.
         # TODO: Remove after script-exporter-support no longer depends on this.
         # NOTE: using metadata/v0 b/c that respects legacy-network-remap.
-        hostnames = urllib2.urlopen(
+        hostnames = urllib.request.urlopen(
             'https://storage.googleapis.com/operator-mlab-oti/metadata/v0/current/mlab-host-ips.txt').read()
         sys.stdout.write(hostnames)
 
