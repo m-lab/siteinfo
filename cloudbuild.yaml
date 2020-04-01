@@ -17,7 +17,7 @@ steps:
 
 - name: python-env
   args: [
-    'python', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
+    'python3', '-m', 'unittest', 'discover', '-s', 'cmd/', '-p', '*_test.py'
   ]
 
 # Import submodules to run jsonnet unit tests.
