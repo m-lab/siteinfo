@@ -1,12 +1,13 @@
 """Tests for mlabconfig."""
 
+import builtins
 import contextlib
 import logging
 import mlabconfig
 import mock
-import StringIO
 import unittest
 
+from io import StringIO
 
 @contextlib.contextmanager
 def OpenStringIO(sio):
@@ -17,7 +18,7 @@ def OpenStringIO(sio):
     Example:
         @mock.patch('__builtin__.open')
         def test_some_function(self, mock_open):
-            output = StringIO.StringIO()
+            output = StringIO()
             mock_open.return_value = OpenStringIO(output)
 
             some_function()
@@ -25,7 +26,7 @@ def OpenStringIO(sio):
             self.assertEqual(output.getvalue(), 'Expected content')
 
     Args:
-        sio: StringIO.StringIO, the instance returned by 'open'.
+        sio: io.StringIO, the instance returned by 'open'.
     """
     try:
         yield sio
@@ -187,12 +188,12 @@ class MlabconfigTest(unittest.TestCase):
         for unexpected in unexpected_items:
             self.assertNotIn(unexpected, results)
 
-    @mock.patch('__builtin__.open')
+    @mock.patch('builtins.open')
     def test_export_mlab_server_network_config(self, mock_open):
-        stdout = StringIO.StringIO()
+        stdout = StringIO()
         name_tmpl = '{{hostname}}-foo.ipxe'
-        input_tmpl = StringIO.StringIO('ip={{ipv4_address}} ; echo ${ip} {{extra}}')
-        file_output = StringIO.StringIO()
+        input_tmpl = StringIO('ip={{ipv4_address}} ; echo ${ip} {{extra}}')
+        file_output = StringIO()
         mock_open.return_value = OpenStringIO(file_output)
 
         mlabconfig.export_mlab_server_network_config(
@@ -221,7 +222,7 @@ class MlabconfigTest(unittest.TestCase):
             False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(expected_targets, actual_targets)
+        self.assertCountEqual(expected_targets, actual_targets)
 
     def test_select_prometheus_experiment_targets_includes_selected(self):
         expected_targets = [
@@ -241,7 +242,7 @@ class MlabconfigTest(unittest.TestCase):
             False, False, '', False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(expected_targets, actual_targets)
+        self.assertCountEqual(expected_targets, actual_targets)
 
     def test_select_prometheus_experiment_targets_flattens_names(self):
         expected_targets = [
@@ -261,7 +262,7 @@ class MlabconfigTest(unittest.TestCase):
             False, True, '', False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(expected_targets, actual_targets)
+        self.assertCountEqual(expected_targets, actual_targets)
 
     def test_select_prometheus_experiment_targets_decorated_names(self):
         expected_targets = [
@@ -281,7 +282,7 @@ class MlabconfigTest(unittest.TestCase):
             False, 'v4', False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(expected_targets, actual_targets)
+        self.assertCountEqual(expected_targets, actual_targets)
 
     def test_select_prometheus_node_targets(self):
         expected_targets = [
@@ -299,7 +300,7 @@ class MlabconfigTest(unittest.TestCase):
             self.sites, "mlab-sandbox", "mlab1.*", ['{{hostname}}:9090'], {}, '', False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(actual_targets, expected_targets)
+        self.assertCountEqual(actual_targets, expected_targets)
 
     def test_select_prometheus_node_targets_excludes_unselected_project(self):
         actual_targets = mlabconfig.select_prometheus_node_targets(
@@ -323,7 +324,7 @@ class MlabconfigTest(unittest.TestCase):
             self.sites, "mlab-sandbox", "mlab1.*", ['{{hostname}}:9090'], {}, 'v6', False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(actual_targets, expected_targets)
+        self.assertCountEqual(actual_targets, expected_targets)
 
     def test_select_prometheus_node_mulitple_targets(self):
         expected_targets = [
@@ -343,7 +344,7 @@ class MlabconfigTest(unittest.TestCase):
             {}, '', False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(actual_targets, expected_targets)
+        self.assertCountEqual(actual_targets, expected_targets)
 
     def test_select_prometheus_site_targets(self):
         expected_targets = [
@@ -362,7 +363,7 @@ class MlabconfigTest(unittest.TestCase):
             False)
 
         self.assertEqual(len(actual_targets), 1)
-        self.assertItemsEqual(actual_targets, expected_targets)
+        self.assertCountEqual(actual_targets, expected_targets)
 
 
 if __name__ == '__main__':
