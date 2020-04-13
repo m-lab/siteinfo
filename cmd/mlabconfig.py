@@ -457,7 +457,8 @@ def select_prometheus_site_targets(sites, select_regex, target_templates,
 def main():
     (options, _) = parse_flags()
 
-    sites = json.loads(urllib.request.urlopen(options.sites).read())
+    sites = json.loads(
+        urllib.request.urlopen(options.sites).read().decode('utf-8'))
 
     if options.format == 'server-network-config':
         with open(options.template_input) as template:
