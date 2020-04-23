@@ -1,3 +1,16 @@
+local sites = import 'sites.jsonnet';
+local version = std.extVar('version');
+
+local records = std.flattenArrays([
+  // Routers & switches
+  local s1 = site.Switch();
+  [
+    { record: s1.Record(), ipv4: s1.v4.ip },
+  ]
+  for site in sites
+  if site.annotations.type == 'physical'
+]);
+
 std.lines([
   |||
     $ORIGIN measurement-lab.org.
@@ -29,5 +42,10 @@ std.lines([
                      IN     NS      ns-cloud-d2.googledomains.com.
                      IN     NS      ns-cloud-d3.googledomains.com.
                      IN     NS      ns-cloud-d4.googledomains.com.
-  |||,
+
+  |||
+] + [
+  '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
+  for row in records
+  if row != null && std.objectHas(row, 'ipv4') && row.ipv4 != ''
 ])
