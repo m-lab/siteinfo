@@ -19,8 +19,10 @@ local version = std.extVar('version');
     v4: {
       ip: $.Index4(2),
     },
-    Record():: (
-      if version == 'v1' then
+    // otherVersion allow the caller to override the global version.
+    Record(otherVersion=''):: (
+      local v = if otherVersion != '' then otherVersion else version;
+      if v == 'v1' then
         's1.%s' % $.name
       else
         's1-%s' % $.name
