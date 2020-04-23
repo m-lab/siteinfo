@@ -37,7 +37,8 @@ local records = std.flattenArrays([
   [
     // Add both v1 and v2 switch names for all versions.
     { record: s1.Record(), ipv4: s1.v4.ip },
-    { record: s1.Record('v2'), ipv4: s1.v4.ip },
+    if version == 'v1' then
+      { record: s1.Record('v2'), ipv4: s1.v4.ip },
   ]
   for site in sites
   if site.annotations.type == 'physical'
