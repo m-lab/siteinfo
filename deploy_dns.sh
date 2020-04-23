@@ -38,6 +38,11 @@ fi
 # generated zone file.
 SITE_COUNT=$(jq '. | length' /workspace/output/v1/sites/switches.json)
 SW_RR_COUNT=$(grep '^s1' "${SITEINFO_ZONE}" | wc -l)
+# v1 zones contain both v1 and v2 switch names, so will have exactly double the
+# count of switch records.
+if [[ $VERSION == "v1" ]]; then
+  SW_RR_COUNT=$(($SW_RR_COUNT / 2))
+fi
 if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
   echo "Not every site has a corresponding switch RR in the zone."
   exit 1
