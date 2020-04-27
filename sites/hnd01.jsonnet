@@ -5,6 +5,20 @@ sitesDefault {
   annotations+: {
     type: 'physical',
   },
+  machines+: {
+    mlab1+: {
+      model: 'r620',
+    },
+    mlab2+: {
+      model: 'r620',
+    },
+    mlab3+: {
+      model: 'r620',
+    },
+    mlab4+: {
+      model: 'r620',
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '203.178.130.192/26',
