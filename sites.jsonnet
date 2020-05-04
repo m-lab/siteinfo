@@ -88,6 +88,7 @@ local sites = {
   mad03: import 'sites/mad03.jsonnet',
   mad04: import 'sites/mad04.jsonnet',
   mad05: import 'sites/mad05.jsonnet',
+  mex01: import 'sites/mex01.jsonnet',
   mia02: import 'sites/mia02.jsonnet',
   mia03: import 'sites/mia03.jsonnet',
   mia04: import 'sites/mia04.jsonnet',
