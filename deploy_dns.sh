@@ -22,16 +22,20 @@ CLOUDDNS_NORMALIZED="/workspace/clouddns.normalized"
 apt update
 apt install -y jq
 
-# Make sure that every experiment has the same number of RRs.
-# NOTE: this matches v1 and v2 hostname. It does not match machine names.
-UNIQ_EXP_RR_COUNTS=$(
-  grep -oP '^([a-z.-]+)[.-]mlab(?=[1-4])' "${SITEINFO_ZONE}" \
-    | sort | uniq -c | awk '{print $1}' | uniq
-)
-UNIQ_EXP_RR_COUNT=$(echo "${UNIQ_EXP_RR_COUNTS}" | wc -w)
-if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
-  echo "Not all experiments have the same number of RRs."
-  exit 1
+# The v2 zone for measurement-lab.org does not contain experiment records. All
+# experiment records are in the project subdomain zones, so do not run this
+# test unless this is a project subdomain.
+if [[ "${DOMAIN}" != "measurement-lab.org" ]]; then
+  # Make sure that every experiment has the same number of RRs.
+  UNIQ_EXP_RR_COUNTS=$(
+    grep -oP '^([a-z.-]+)[.-]mlab(?=[1-4])' "${SITEINFO_ZONE}" \
+      | sort | uniq -c | awk '{print $1}' | uniq
+  )
+  UNIQ_EXP_RR_COUNT=$(echo "${UNIQ_EXP_RR_COUNTS}" | wc -w)
+  if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
+    echo "Not all experiments have the same number of RRs."
+    exit 1
+  fi
 fi
 
 # Make sure that every switch in switches.json has a corresponding s1.* RR in the

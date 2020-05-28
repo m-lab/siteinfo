@@ -103,8 +103,8 @@ steps:
   env:
   - 'PROJECT=${PROJECT_ID}'
   - 'DOMAIN=measurement-lab.org'
-  - 'ZONEFILE=clouddns_measurement-lab.org.zone'
-  - 'VERSION=v1'
+  - 'ZONEFILE=measurement-lab.org.zone'
+  - 'VERSION=v2'
 
 # Deploy the v2 measurement-lab.org project subdomain zone to Cloud DNS
 - name: gcr.io/cloud-builders/gcloud
