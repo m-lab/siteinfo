@@ -101,6 +101,7 @@ local sites = {
   mil04: import 'sites/mil04.jsonnet',
   mil05: import 'sites/mil05.jsonnet',
   mnl01: import 'sites/mnl01.jsonnet',
+  mnl02: import 'sites/mnl02.jsonnet',
   mrs01: import 'sites/mrs01.jsonnet',
   mrs02: import 'sites/mrs02.jsonnet',
   mty01: import 'sites/mty01.jsonnet',
