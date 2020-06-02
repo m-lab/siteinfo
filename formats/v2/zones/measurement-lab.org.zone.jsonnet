@@ -24,8 +24,13 @@ std.lines([
     ; Google site verification to use this domain in Firebase
     @                     IN      TXT   google-site-verification=YJspItE9L3D8mw76XKHxEGb7x9usph7x_CsqFQbUK28
 
-    ; LetsEncrypt ACME DNS challenge record
+    ; LetsEncrypt ACME DNS01 challenge record for HTTPS redirects of
+    ; www.measurement-lab.org to www.measurementlab.net by Firebase
     _acme-challenge.www   IN      TXT   zW_JZzJ7gszt1aiONHMlBMag4Zp5dDIiBWjrLHPe2r
+
+    ; LetsEncrypt ACME DNS01 challenge. cert-manager autocreates this target
+    ; when needed for validation.
+    _acme-challenge       IN      CNAME mlab.acme.mlab-oti.measurement-lab.org.
 
     ; Delegate mlab-sandbox subdomain to sandbox Cloud DNS servers.
     mlab-sandbox     IN     NS      ns-cloud-c1.googledomains.com.
