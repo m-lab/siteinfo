@@ -1,33 +1,33 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'mrs03',
+  name: 'bru05',
   annotations+: {
     type: 'physical',
   },
   network+: {
     ipv4+: {
-      prefix: '212.73.211.64/26',
+      prefix: '162.213.98.128/26',
     },
     ipv6+: {
-      prefix: '2001:4c08:2003:38::/64',
+      prefix: '2a01:3e0:a00:1::/64',
     },
   },
   transit+: {
-    provider: 'Level 3 Parent, LLC',
+    provider: 'TATA COMMUNICATIONS (AMERICA) INC',
     uplink: '10g',
-    asn: 'AS3356',
+    asn: 'AS6453',
   },
   location+: {
     continent_code: 'EU',
-    country_code: 'FR',
-    metro: 'mrs',
-    city: 'Marseille',
+    country_code: 'BE',
+    metro: 'bru',
+    city: 'Brussels',
     state: '',
-    latitude: 43.4366,
-    longitude: 5.215,
+    latitude: 50.4974,
+    longitude: 3.3528,
   },
   lifecycle+: {
-    created: '2020-03-04',
+    created: '2020-05-06',
   },
 }
