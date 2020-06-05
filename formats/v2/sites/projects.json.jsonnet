@@ -1,4 +1,3 @@
-local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 
 {
