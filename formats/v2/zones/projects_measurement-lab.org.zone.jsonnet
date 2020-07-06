@@ -1,1 +1,0 @@
-../../v1/zones/measurement-lab.org.zone.jsonnet
