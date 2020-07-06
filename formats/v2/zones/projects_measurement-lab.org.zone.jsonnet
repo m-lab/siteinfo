@@ -4,18 +4,6 @@ local version = std.extVar('version');
 local zone = std.extVar('zone');
 local project = std.extVar('project');
 
-local flatten(record) = std.strReplace(record, '.', '-');
-
-local serial(current, latest) = (
-  if current == '' || latest == '' then
-    error 'ERROR: given serial and latest must not be empty!'
-  else
-    if current < latest then
-      latest
-    else
-      std.toString(std.parseInt(current) + 1)
-);
-
 // Cloud DNS nameservers are always of the format:
 //     ns-cloud-[a-z][1-4].googledomains.com
 // This small function returns the appropriate nameserver letter for each
@@ -66,15 +54,7 @@ local records = std.flattenArrays([
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
-  ] + if version == 'v1' then
-    if e.flat_hostname == true then [
-      { record: flatten(e.Record()), ipv4: e.v4.ip, ipv6: e.v6.ip },
-      { record: flatten(e.Record('v4')), ipv4: e.v4.ip },
-      { record: flatten(e.Record('v6')), ipv6: e.v6.ip },
-    ] else [
-      // do nothing for flat_hostname == false.
-    ]
-  else []
+  ]
   for site in sites
   for mIndex in std.range(1, std.length(site.machines))
   for experiment in experiments
@@ -82,22 +62,8 @@ local records = std.flattenArrays([
       experiment.cloud_enabled == true)
 ]);
 
-// This is only included in the v1 primary zone.
-local soa_ns = |||
-    @       IN      SOA     ns.measurementlab.net. support.measurementlab.net. (
-            %s        ; Serial
-            3600      ; Refresh
-            600       ; Retry
-            604800    ; Expire
-            300 )     ; Negative caching TTL
-    @       IN      NS      ns-mlab.greenhost.net.
-    @       IN      NS      ns.measurementlab.net.
-||| % serial(std.extVar('serial'), std.extVar('latest'));
-
 local primary_headers = |||
     $ORIGIN measurement-lab.org.
-
-    %s
 
     @       IN      A       151.101.1.195
     @       IN      A       151.101.65.195
@@ -139,7 +105,6 @@ local primary_headers = |||
                      IN     NS      ns-cloud-%s4.googledomains.com.
 
 ||| % [
-  if version == "v1" && zone != "clouddns_measurement-lab.org.zone" then soa_ns else '',
   project,
   acme_ns_letter(),
   acme_ns_letter(),
