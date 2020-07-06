@@ -5,10 +5,6 @@ TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
 	        | sed -e "s/\.\///" -e "s/.jsonnet//g" )
 DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
-LATEST=$(shell date +%Y%m%d00 )
-CURRENT=$(shell dig @dns.measurementlab.net soa measurementlab.net \
-      | grep SOA \
-      | awk '{print $$7}' )
 OUTDIR=output
 ARCHDIR:=$(shell date +%Y/%m/%d/%H:%M:%S )
 SJSONNET_JAR=/usr/bin/sjsonnet.jar
@@ -53,8 +49,6 @@ $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEP
 # _considerable_ time.
 $(OUTDIR)/$(VERSION)/zones/%.zone: formats/$(VERSION)/zones/%.zone.jsonnet $(DEPS)
 	time $(SJSONNET) -J . \
-		--ext-str latest=$(strip $(LATEST)) \
-		--ext-str serial=$(strip $(CURRENT)) \
 		--ext-str project=$(strip $(PROJECT)) \
 		--ext-str version=$(strip $(VERSION)) \
 		--ext-str zone=$(shell basename $@) $< \

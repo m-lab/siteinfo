@@ -5,13 +5,12 @@ set -eux
 _=${PROJECT:?Please provide PROJECT name in environment}
 _=${DOMAIN:?Please provide DOMAIN name in environment}
 _=${ZONEFILE:?Please provide ZONEFILE name in environment}
-_=${VERSION:?Please provide VERSION in environment}
 
 # The maximum amount of time in seconds to wait for the zone file import
 # operation to complete before exiting with an error.
 MAX_IMPORT_WAIT="300"
 
-SITEINFO_ZONE="/workspace/output/${VERSION}/zones/${ZONEFILE}"
+SITEINFO_ZONE="/workspace/output/v2/zones/${ZONEFILE}"
 SITEINFO_NORMALIZED="/workspace/siteinfo.normalized"
 
 CLOUDDNS_ZONE="/workspace/clouddns.zone"
@@ -42,11 +41,6 @@ fi
 # generated zone file.
 SITE_COUNT=$(jq '. | length' /workspace/output/v1/sites/switches.json)
 SW_RR_COUNT=$(grep '^s1' "${SITEINFO_ZONE}" | wc -l)
-# v1 zones contain both v1 and v2 switch names, so will have exactly double the
-# count of switch records.
-if [[ $VERSION == "v1" ]]; then
-  SW_RR_COUNT=$(($SW_RR_COUNT / 2))
-fi
 if [[ "${SITE_COUNT}" -ne "${SW_RR_COUNT}" ]]; then
   echo "Not every site has a corresponding switch RR in the zone."
   exit 1
