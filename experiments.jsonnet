@@ -24,6 +24,10 @@ local default = {
     name: 'wehe',
   },
   default {
+    index: 6,
+    name: 'iperf3',
+  },
+  default {
     index: 10,
     name: 'neubot.mlab',
   },
