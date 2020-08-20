@@ -128,6 +128,7 @@ local sites = {
   par03: import 'sites/par03.jsonnet',
   par04: import 'sites/par04.jsonnet',
   par05: import 'sites/par05.jsonnet',
+  par06: import 'sites/par06.jsonnet',
   prg02: import 'sites/prg02.jsonnet',
   prg03: import 'sites/prg03.jsonnet',
   prg04: import 'sites/prg04.jsonnet',
