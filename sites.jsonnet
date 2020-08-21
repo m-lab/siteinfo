@@ -22,6 +22,9 @@ local sites = {
   bog02: import 'sites/bog02.jsonnet',
   bog03: import 'sites/bog03.jsonnet',
   bog04: import 'sites/bog04.jsonnet',
+  // bog05.jsonnet current contains a bad IPv4 prefix. The prefix is already
+  // used by LHR07. Waiting for Telecom Italia to clarify/correct. For now,
+  // comment out BOG05.
   //bog05: import 'sites/bog05.jsonnet',
   bom01: import 'sites/bom01.jsonnet',
   bom02: import 'sites/bom02.jsonnet',
