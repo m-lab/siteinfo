@@ -7,7 +7,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '162.213.96.64/26',
+      prefix: '162.213.97.128/26',
     },
     ipv6+: {
       prefix: null,
