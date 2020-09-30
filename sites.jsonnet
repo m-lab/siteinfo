@@ -52,6 +52,7 @@ local sites = {
   gig01: import 'sites/gig01.jsonnet',
   gig02: import 'sites/gig02.jsonnet',
   gig03: import 'sites/gig03.jsonnet',
+  gig04: import 'sites/gig04.jsonnet',
   gru01: import 'sites/gru01.jsonnet',
   gru02: import 'sites/gru02.jsonnet',
   gru03: import 'sites/gru03.jsonnet',
