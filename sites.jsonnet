@@ -52,6 +52,7 @@ local sites = {
   gig01: import 'sites/gig01.jsonnet',
   gig02: import 'sites/gig02.jsonnet',
   gig03: import 'sites/gig03.jsonnet',
+  gig04: import 'sites/gig04.jsonnet',
   gru01: import 'sites/gru01.jsonnet',
   gru02: import 'sites/gru02.jsonnet',
   gru03: import 'sites/gru03.jsonnet',
@@ -98,6 +99,7 @@ local sites = {
   mad04: import 'sites/mad04.jsonnet',
   mad05: import 'sites/mad05.jsonnet',
   mex01: import 'sites/mex01.jsonnet',
+  mex02: import 'sites/mex02.jsonnet',
   mia02: import 'sites/mia02.jsonnet',
   mia03: import 'sites/mia03.jsonnet',
   mia04: import 'sites/mia04.jsonnet',
@@ -156,6 +158,7 @@ local sites = {
   ywg01: import 'sites/ywg01.jsonnet',
   yyc02: import 'sites/yyc02.jsonnet',
   yyz02: import 'sites/yyz02.jsonnet',
+  yyz03: import 'sites/yyz03.jsonnet',
 
   // Test sites.
   lga0t: import 'sites/lga0t.jsonnet',
