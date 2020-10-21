@@ -10,7 +10,7 @@ sitesDefault {
       prefix: '162.213.96.64/26',
     },
     ipv6+: {
-      prefix: '2001:41a8:28:3::/64',
+      prefix: '2001:41a8:28:4::/64',
     },
   },
   transit+: {
