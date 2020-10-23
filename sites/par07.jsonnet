@@ -14,9 +14,9 @@ sitesDefault {
     },
   },
   transit+: {
-    provider: 'TBD',
+    provider: 'TATA COMMUNICATIONS (AMERICA) INC',
     uplink: '10g',
-    asn: 'TBD',
+    asn: 'AS6453',
   },
   location+: {
     continent_code: 'EU',
