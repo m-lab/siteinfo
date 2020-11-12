@@ -49,6 +49,7 @@ local sites = {
   fra03: import 'sites/fra03.jsonnet',
   fra04: import 'sites/fra04.jsonnet',
   fra05: import 'sites/fra05.jsonnet',
+  fra06: import 'sites/fra06.jsonnet',
   gig01: import 'sites/gig01.jsonnet',
   gig02: import 'sites/gig02.jsonnet',
   gig03: import 'sites/gig03.jsonnet',
