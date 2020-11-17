@@ -14,7 +14,7 @@ sitesDefault {
     },
   },
   transit+: {
-    provider: 'TATA COMMUNICATIONS (AMERICA) INC'
+    provider: 'TATA COMMUNICATIONS (AMERICA) INC',
     uplink: '10g',
     asn: 'AS6453',
   },
