@@ -163,6 +163,7 @@ local sites = {
   yyc02: import 'sites/yyc02.jsonnet',
   yyz02: import 'sites/yyz02.jsonnet',
   yyz03: import 'sites/yyz03.jsonnet',
+  yyz04: import 'sites/yyz04.jsonnet',
 
   // Test sites.
   lga0t: import 'sites/lga0t.jsonnet',
