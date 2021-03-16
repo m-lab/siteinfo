@@ -1,5 +1,8 @@
 local experiments = import 'experiments.jsonnet';
-local sites = import 'sites.jsonnet';
+local siteSource = {
+  sites: import 'sites.jsonnet',
+  retired: import 'retired-sites.jsonnet',
+};
 [
   site {
     nodes: [
@@ -21,5 +24,5 @@ local sites = import 'sites.jsonnet';
       for mIndex in std.range(1, std.length(site.machines))
     ],
   }
-  for site in sites
+  for site in siteSource[std.extVar('sitesource')]
 ]

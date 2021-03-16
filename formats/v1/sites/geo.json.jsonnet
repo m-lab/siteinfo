@@ -1,4 +1,7 @@
-local sites = import 'sites.jsonnet';
+local siteSource = {
+  sites: import 'sites.jsonnet',
+  retired: import 'retired-sites.jsonnet',
+};
 {
   type: 'FeatureCollection',
   features: [
@@ -20,6 +23,6 @@ local sites = import 'sites.jsonnet';
         ipv6_prefix: site.network.ipv6.prefix,
       },
     }
-    for site in sites
+    for site in siteSource[std.extVar('sitesource')]
   ],
 }

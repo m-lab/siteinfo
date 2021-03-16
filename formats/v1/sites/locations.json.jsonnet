@@ -1,4 +1,7 @@
-local sites = import 'sites.jsonnet';
+local siteSource = {
+  sites: import 'sites.jsonnet',
+  retired: import 'retired-sites.jsonnet',
+};
 [
   {
     local location = site.location,
@@ -14,5 +17,5 @@ local sites = import 'sites.jsonnet';
     roundrobin: site.loadbalancer.roundrobin,
     uplink_speed: site.transit.uplink,
   }
-  for site in sites
+  for site in siteSource[std.extVar('sitesource')]
 ]
