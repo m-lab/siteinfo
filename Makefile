@@ -38,10 +38,10 @@ clean:
 	rm -rf output
 
 $(OUTDIR)/$(VERSION)/sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . --ext-str sitesource=sites $< > $@
+	time $(SJSONNET) -J . --ext-str version=$(VERSION) --ext-str sitesource=sites $< > $@
 
 $(OUTDIR)/$(VERSION)/retired-sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . --ext-str sitesource=retired $< > $@
+	time $(SJSONNET) -J . --ext-str version=$(VERSION) --ext-str sitesource=retired $< > $@
 
 $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEPS)
 	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
