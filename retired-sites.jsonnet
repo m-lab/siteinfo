@@ -5,7 +5,7 @@ local retiredSites = {
   ams02: import 'sites/ams02.jsonnet',
   ams06: import 'sites/ams06.jsonnet',
   ams07: import 'sites/ams07.jsonnet',
-  arn01: import 'sites/arm01.jsonnet',
+  arn01: import 'sites/arn01.jsonnet',
   ath01: import 'sites/ath01.jsonnet',
   ath02: import 'sites/ath02.jsonnet',
   atl01: import 'sites/atl01.jsonnet',
@@ -62,4 +62,3 @@ local retiredSites = {
     error 'Site name (%s) does not match object.name (%s)' % [name, site.name]
   for name in std.objectFields(retiredSites)
 ]
-
