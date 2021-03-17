@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS174',
   },
   location+: {
+    city: 'New York',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'lga',
-    city: 'New York',
     state: 'NY',
     latitude: 40.7667,
     longitude: -73.8667,

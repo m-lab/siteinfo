@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS174',
   },
   location+: {
+    city: 'Seattle',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'sea',
-    city: 'Seattle',
     state: 'WA',
     latitude: 47.4489,
     longitude: -122.3094,

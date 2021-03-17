@@ -1,33 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  annotations: {
+  annotations+: {
     type: 'physical',
   },
-  lifecycle: {
+  lifecycle+: {
     created: '2021-03-16',
   },
-  location: {
+  location+: {
     city: 'Seattle',
     continent_code: 'NA',
     country_code: 'US',
     latitude: 47.4489,
     longitude: -122.3094,
-    metro: {
-      metro: 'sea',
-    },
+    metro: 'sea',
     state: '',
   },
   name: 'sea05',
-  network: {
-    ipv4: {
+  network+: {
+    ipv4+: {
       prefix: '64.3.225.64/26',
     },
-    ipv6: {
+    ipv6+: {
       prefix: '2610:18:114:4001::/64',
     },
   },
-  transit: {
+  transit+: {
     asn: 'AS2828',
     provider: 'XO Communications',
     uplink: '1g',

@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS7575',
   },
   location+: {
+    city: 'Sydney',
     continent_code: 'OC',
     country_code: 'AU',
     metro: 'syd',
-    city: 'Sydney',
     state: '',
     latitude: -33.9461,
     longitude: 151.177,

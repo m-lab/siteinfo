@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS174',
   },
   location+: {
+    city: 'Dallas',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'dfw',
-    city: 'Dallas',
     state: 'TX',
     latitude: 32.8969,
     longitude: -97.0381,

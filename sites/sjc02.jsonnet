@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS6453',
   },
   location+: {
+    city: 'San Francisco Bay Area',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'nuq',
-    city: 'San Francisco Bay Area',
     state: 'CA',
     latitude: 37.3833,
     longitude: -122.0667,

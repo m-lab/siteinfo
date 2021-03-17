@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS1299',
   },
   location+: {
+    city: 'Hamburg',
     continent_code: 'EU',
     country_code: 'DE',
     metro: 'ham',
-    city: 'Hamburg',
     state: '',
     latitude: 53.6333,
     longitude: 9.9833,

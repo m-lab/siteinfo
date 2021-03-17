@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS3356',
   },
   location+: {
+    city: 'Chicago',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'ord',
-    city: 'Chicago',
     state: 'IL',
     latitude: 41.9786,
     longitude: -87.9047,

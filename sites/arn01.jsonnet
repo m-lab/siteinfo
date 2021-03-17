@@ -1,13 +1,13 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  annotations: {
+  annotations+: {
     type: 'physical',
   },
-  lifecycle: {
+  lifecycle+: {
     created: '2021-03-16',
   },
-  location: {
+  location+: {
     city: 'Stockholm',
     continent_code: 'EU',
     country_code: 'SE',
@@ -19,15 +19,15 @@ sitesDefault {
     state: '',
   },
   name: 'arn01',
-  network: {
-    ipv4: {
+  network+: {
+    ipv4+: {
       prefix: '213.248.112.64/26',
     },
-    ipv6: {
+    ipv6+: {
       prefix: '2001:2030:0:1b::/64',
     },
   },
-  transit: {
+  transit+: {
     asn: 'AS1299',
     provider: 'Telia',
     uplink: '1g',

@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS3356',
   },
   location+: {
+    city: 'Atlanta',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'atl',
-    city: 'Atlanta',
     state: 'GA',
     latitude: 33.6367,
     longitude: -84.4281,

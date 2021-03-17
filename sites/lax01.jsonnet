@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS174',
   },
   location+: {
+    city: 'Los Angeles',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'lax',
-    city: 'Los Angeles',
     state: 'CA',
     latitude: 33.9425,
     longitude: -118.4072,

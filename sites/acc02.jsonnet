@@ -1,33 +1,31 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  annotations: {
+  annotations+: {
     type: 'physical',
   },
-  lifecycle: {
+  lifecycle+: {
     created: '2021-03-16',
   },
-  location: {
+  location+: {
     city: 'Accra',
     continent_code: 'AF',
     country_code: 'GH',
     latitude: 5.606,
     longitude: -0.1681,
-    metro: {
-      metro: 'acc',
-    },
+    metro: 'acc',
     state: '',
   },
   name: 'acc02',
-  network: {
-    ipv4: {
+  network+: {
+    ipv4+: {
       prefix: '196.49.14.192/26',
     },
-    ipv6: {
-      prefix: '',
+    ipv6+: {
+      prefix: null,
     },
   },
-  transit: {
+  transit+: {
     asn: 'AS30997',
     provider: 'Ghana Internet Exchange Association',
     uplink: '1g',

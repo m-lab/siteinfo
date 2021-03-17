@@ -19,10 +19,10 @@ sitesDefault {
     asn: 'AS3356',
   },
   location+: {
+    city: 'Miami',
     continent_code: 'NA',
     country_code: 'US',
     metro: 'mia',
-    city: 'Miami',
     state: 'FL',
     latitude: 25.7833,
     longitude: -80.2667,
