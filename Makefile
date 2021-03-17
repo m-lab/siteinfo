@@ -4,7 +4,7 @@ ALL=$(shell pushd formats/$(VERSION); find . -name "*.jsonnet" \
 TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
 	        | sed -e "s/\.\///" -e "s/.jsonnet//g" )
-DEPS=sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
+DEPS=sites.jsonnet retired-sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
 OUTDIR=output
 ARCHDIR:=$(shell date +%Y/%m/%d/%H:%M:%S )
 SJSONNET_JAR=/usr/bin/sjsonnet.jar
