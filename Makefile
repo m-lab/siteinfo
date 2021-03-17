@@ -1,6 +1,8 @@
 SHELL=/bin/bash
 ALL=$(shell pushd formats/$(VERSION); find . -name "*.jsonnet" \
             | sed -e "s/\.\//output\/$(VERSION)\//" -e "s/.jsonnet//g" )
+RETIRED=$(shell pushd formats/$(VERSION); find ./sites -name "*.jsonnet" \
+            | sed -e "s/\.\//output\/$(VERSION)\/retired-/" -e "s/.jsonnet//g" )
 TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
 	        | sed -e "s/\.\///" -e "s/.jsonnet//g" )
@@ -15,7 +17,7 @@ SJSONNET=java -Xmx2G -cp $(SJSONNET_JAR) sjsonnet.SjsonnetMain
 
 .PHONY: output
 
-all: output $(ALL) $(OUTDIR)/$(VERSION)/index.html
+all: output $(ALL) $(RETIRED) $(OUTDIR)/$(VERSION)/index.html
 	mkdir -p $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)
 	cp $(OUTDIR)/$(VERSION)/sites/* $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)/
 	mkdir -p $(OUTDIR)/configs/$(VERSION)/retired-sites/$(ARCHDIR)
