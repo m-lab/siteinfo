@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2012-08-03',
+    retired: '2019-05-22',
   },
   location+: {
     city: 'Leeds',

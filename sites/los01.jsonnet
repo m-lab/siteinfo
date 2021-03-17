@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2015-01-15',
+    retired: '2019-03-07',
   },
   location+: {
     city: 'Lagos',

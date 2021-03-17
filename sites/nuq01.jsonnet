@@ -5,10 +5,11 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2009-01-28',
+    retired: '2015-01-01',
   },
   location+: {
-    city: 'San Francisco',
+    city: 'San Francisco Bay Area',
     continent_code: 'NA',
     country_code: 'US',
     latitude: 37.3833,

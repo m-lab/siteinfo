@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2014-09-01',
+    retired: '2017-09-27',
   },
   location+: {
     city: 'Calgary',

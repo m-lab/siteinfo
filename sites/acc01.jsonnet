@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2014-12-03',
+    retired: '2015-08-01',
   },
   location+: {
     city: 'Accra',

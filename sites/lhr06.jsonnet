@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2019-11-15',
+    retired: '2020-12-03',
   },
   location+: {
     city: 'London',

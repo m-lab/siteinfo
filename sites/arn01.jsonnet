@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: null,
+    retired: '2017-10-31',
   },
   location+: {
     city: 'Stockholm',

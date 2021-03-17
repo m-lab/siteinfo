@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2011-10-12',
+    retired: '2018-07-19',
   },
   location+: {
     city: 'Washington',

@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2012-02-03',
+    retired: '2019-09-04',
   },
   location+: {
     city: 'Turin',

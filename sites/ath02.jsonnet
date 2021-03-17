@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2011-07-11',
+    retired: '2016-07-06',
   },
   location+: {
     city: 'Athens',

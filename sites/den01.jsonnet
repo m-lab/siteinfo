@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2014-11-06',
+    retired: '2019-06-20',
   },
   location+: {
     city: 'Denver',

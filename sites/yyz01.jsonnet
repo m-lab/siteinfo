@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2014-09-01',
+    retired: '2017-10-18',
   },
   location+: {
     city: 'Toronto',

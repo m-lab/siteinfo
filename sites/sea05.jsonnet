@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2015-06-16',
+    retired: '2018-07-18',
   },
   location+: {
     city: 'Seattle',

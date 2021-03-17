@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2011-11-28',
+    retired: '2021-01-21',
   },
   location+: {
     city: 'Tokyo',

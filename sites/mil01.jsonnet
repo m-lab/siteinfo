@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: null,
+    retired: '2017-08-02',
   },
   location+: {
     city: 'Milan',

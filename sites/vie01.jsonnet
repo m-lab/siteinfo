@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2012-05-10',
+    retired: '2020-08-28',
   },
   location+: {
     city: 'Vienna',

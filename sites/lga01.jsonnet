@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2009-02-10',
+    retired: '2016-04-21',
   },
   location+: {
     city: 'New York',

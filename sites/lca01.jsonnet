@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2013-02-20',
+    retired: '2019-08-06',
   },
   location+: {
     city: 'Larnaca',

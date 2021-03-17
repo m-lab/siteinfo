@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2018-05-17',
+    retired: '2019-08-21',
   },
   location+: {
     city: 'Amsterdam',

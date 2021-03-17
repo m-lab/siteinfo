@@ -48,7 +48,6 @@ local retiredSites = {
   syd01: import 'sites/syd01.jsonnet',
   trn01: import 'sites/trn01.jsonnet',
   vie01: import 'sites/vie01.jsonnet',
-  vie02: import 'sites/vie02.jsonnet',
   wlg01: import 'sites/wlg01.jsonnet',
   yul01: import 'sites/yul01.jsonnet',
   yyc01: import 'sites/yyc01.jsonnet',

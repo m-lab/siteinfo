@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2012-12-05',
+    retired: '2017-08-02',
   },
   location+: {
     city: 'Prague',

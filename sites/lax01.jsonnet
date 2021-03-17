@@ -28,6 +28,7 @@ sitesDefault {
     longitude: -118.4072,
   },
   lifecycle+: {
-    created: '2019-01-01',
+    created: '2009-05-14',
+    retired: '2019-06-05',
   },
 }

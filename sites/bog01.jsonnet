@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2014-05-20',
+    retired: '2018-03-09',
   },
   location+: {
     city: 'Bogota',

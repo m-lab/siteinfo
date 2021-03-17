@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2011-09-13',
+    retired: '2016-01-01',
   },
   location+: {
     city: 'Wellington',

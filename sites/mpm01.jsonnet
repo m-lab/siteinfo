@@ -5,7 +5,8 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: '2021-03-16',
+    created: '2017-08-17',
+    retired: '2019-11-19',
   },
   location+: {
     city: 'Maputo',
