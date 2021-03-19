@@ -5,7 +5,7 @@ sitesDefault {
     type: 'physical',
   },
   lifecycle+: {
-    created: null,
+    created: '2016-08-18',
     retired: '2019-08-21',
   },
   location+: {
