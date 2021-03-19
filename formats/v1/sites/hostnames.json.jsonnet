@@ -1,8 +1,6 @@
 local experiments = import 'experiments.jsonnet';
-local siteSource = {
-  sites: import 'sites.jsonnet',
-  retired: import 'retired-sites.jsonnet',
-};
+local sites = import 'sites.jsonnet';
+
 [
   {
     local m = site.Machine(mIndex),
@@ -10,7 +8,7 @@ local siteSource = {
     ipv4: m.v4.ip,
     ipv6: m.v6.ip,
   }
-  for site in siteSource[std.extVar('sitesource')]
+  for site in sites
   for mIndex in std.range(1, std.length(site.machines))
 ] + [
   {
@@ -19,7 +17,7 @@ local siteSource = {
     ipv4: e.v4.ip,
     ipv6: e.v6.ip,
   }
-  for site in siteSource[std.extVar('sitesource')]
+  for site in sites
   for mIndex in std.range(1, std.length(site.machines))
   for experiment in experiments
   if (site.annotations.type == 'physical' || experiment.cloud_enabled == true)

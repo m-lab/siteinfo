@@ -1,7 +1,4 @@
-local siteSource = {
-  sites: import 'sites.jsonnet',
-  retired: import 'retired-sites.jsonnet',
-};
+local sites = if std.extVar('retired') then import 'retired.jsonnet' else import 'sites.jsonnet';
 local parseASN(asn) = (
   if std.length(asn) > 2 then
     std.parseInt(std.substr(asn, 2, std.length(asn) - 2))
@@ -45,5 +42,5 @@ local parseASN(asn) = (
       },
     },
   }
-  for site in siteSource[std.extVar('sitesource')]
+  for site in sites
 ]

@@ -1,7 +1,4 @@
-local siteSource = {
-  sites: import 'sites.jsonnet',
-  retired: import 'retired-sites.jsonnet',
-};
+local sites = import 'sites.jsonnet';
 
 {
   [site.name]: {
@@ -14,6 +11,6 @@ local siteSource = {
     uplink_speed: site.transit.uplink,
     ipv4_prefix: site.network.ipv4.prefix,
   }
-  for site in siteSource[std.extVar('sitesource')]
+  for site in sites
   if site.annotations.type == 'physical'
 }

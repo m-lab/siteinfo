@@ -1,12 +1,10 @@
 SHELL=/bin/bash
 ALL=$(shell pushd formats/$(VERSION); find . -name "*.jsonnet" \
             | sed -e "s/\.\//output\/$(VERSION)\//" -e "s/.jsonnet//g" )
-RETIRED=$(shell pushd formats/$(VERSION); find ./sites -name "*.jsonnet" \
-            | sed -e "s/\.\//output\/$(VERSION)\/retired-/" -e "s/.jsonnet//g" )
 TESTS=$(shell find . -type f -a -name "*_test.jsonnet" \
 	        | grep -v jsonnetunit \
 	        | sed -e "s/\.\///" -e "s/.jsonnet//g" )
-DEPS=sites.jsonnet retired-sites.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
+DEPS=sites.jsonnet retired.jsonnet sites/_default.jsonnet lib/site.jsonnet experiments.jsonnet
 OUTDIR=output
 ARCHDIR:=$(shell date +%Y/%m/%d/%H:%M:%S )
 SJSONNET_JAR=/usr/bin/sjsonnet.jar
@@ -17,11 +15,11 @@ SJSONNET=java -Xmx2G -cp $(SJSONNET_JAR) sjsonnet.SjsonnetMain
 
 .PHONY: output
 
-all: output $(ALL) $(RETIRED) $(OUTDIR)/$(VERSION)/index.html
+all: output $(ALL) $(OUTDIR)/$(VERSION)/index.html
 	mkdir -p $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)
 	cp $(OUTDIR)/$(VERSION)/sites/* $(OUTDIR)/configs/$(VERSION)/sites/$(ARCHDIR)/
-	mkdir -p $(OUTDIR)/configs/$(VERSION)/retired-sites/$(ARCHDIR)
-	cp $(OUTDIR)/$(VERSION)/retired-sites/* $(OUTDIR)/configs/$(VERSION)/retired-sites/$(ARCHDIR)/
+	mkdir -p $(OUTDIR)/configs/$(VERSION)/retired/$(ARCHDIR)
+	cp $(OUTDIR)/$(VERSION)/retired/* $(OUTDIR)/configs/$(VERSION)/retired/$(ARCHDIR)/
 	mkdir -p $(OUTDIR)/configs/$(VERSION)/zones/$(ARCHDIR)
 	cp $(OUTDIR)/$(VERSION)/zones/* $(OUTDIR)/configs/$(VERSION)/zones/$(ARCHDIR)/
 	mkdir -p $(OUTDIR)/configs/$(VERSION)/adhoc/$(ARCHDIR)
@@ -32,7 +30,7 @@ test: $(TESTS)
 output:
 	mkdir -p $(OUTDIR)/$(VERSION)/zones
 	mkdir -p $(OUTDIR)/$(VERSION)/sites
-	mkdir -p $(OUTDIR)/$(VERSION)/retired-sites
+	mkdir -p $(OUTDIR)/$(VERSION)/retired
 	mkdir -p $(OUTDIR)/$(VERSION)/adhoc
 
 clean:
@@ -40,10 +38,10 @@ clean:
 	rm -rf output
 
 $(OUTDIR)/$(VERSION)/sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . --ext-str version=$(VERSION) --ext-str sitesource=sites $< > $@
+	time $(SJSONNET) -J . --ext-str version=$(VERSION) --ext-code retired=false $< > $@
 
-$(OUTDIR)/$(VERSION)/retired-sites/%.json: formats/$(VERSION)/sites/%.json.jsonnet $(DEPS)
-	time $(SJSONNET) -J . --ext-str version=$(VERSION) --ext-str sitesource=retired $< > $@
+$(OUTDIR)/$(VERSION)/retired/%.json: formats/$(VERSION)/retired/%.json.jsonnet $(DEPS)
+	time $(SJSONNET) -J . --ext-str version=$(VERSION) --ext-code retired=true $< > $@
 
 $(OUTDIR)/$(VERSION)/adhoc/%.json: formats/$(VERSION)/adhoc/%.json.jsonnet $(DEPS)
 	# NOTE: we must use jsonnet to support the two-argument form of std.sort().
