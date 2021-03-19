@@ -1,4 +1,5 @@
 local sites = import 'sites.jsonnet';
+
 {
   type: 'FeatureCollection',
   features: [

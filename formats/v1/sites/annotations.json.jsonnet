@@ -1,7 +1,7 @@
-local sites = import 'sites.jsonnet';
+local sites = if std.extVar('retired') then import 'retired.jsonnet' else import 'sites.jsonnet';
 local parseASN(asn) = (
   if std.length(asn) > 2 then
-    std.parseInt(std.substr(asn, 2, std.length(asn)-2))
+    std.parseInt(std.substr(asn, 2, std.length(asn) - 2))
   else
     0
 );
@@ -13,7 +13,7 @@ local parseASN(asn) = (
     // Network allows identifying individual connection CIDR values.
     Network: {
       IPv4: site.network.ipv4.prefix,
-      IPv6: if site.network.ipv6.prefix != null then site.network.ipv6.prefix else "",
+      IPv6: if site.network.ipv6.prefix != null then site.network.ipv6.prefix else '',
     },
     Annotation: {
       local loc = site.location,
@@ -35,12 +35,12 @@ local parseASN(asn) = (
         Systems: [
           {
             ASNs: [
-              asn
-            ]
-          }
-        ]
-      }
+              asn,
+            ],
+          },
+        ],
+      },
     },
-  },
+  }
   for site in sites
 ]
