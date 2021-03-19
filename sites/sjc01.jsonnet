@@ -6,7 +6,7 @@ sitesDefault {
   },
   lifecycle+: {
     created: '2017-03-27',
-    retired: '2019-08-21',
+    retired: '2019-09-10',
   },
   location+: {
     city: 'San Francisco',
