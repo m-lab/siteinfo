@@ -14,7 +14,7 @@ sitesDefault {
     },
   },
   transit+: {
-    provider: 'KPN B.V.'
+    provider: 'KPN B.V.',
     uplink: '10g',
     asn: 'AS286',
   },
