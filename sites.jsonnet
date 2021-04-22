@@ -159,6 +159,7 @@ local sites = {
   yqm01: import 'sites/yqm01.jsonnet',
   yul02: import 'sites/yul02.jsonnet',
   yul03: import 'sites/yul03.jsonnet',
+  yul04: import 'sites/yul04.jsonnet',
   yul05: import 'sites/yul05.jsonnet',
   yvr01: import 'sites/yvr01.jsonnet',
   ywg01: import 'sites/ywg01.jsonnet',
