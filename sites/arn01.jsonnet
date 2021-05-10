@@ -22,16 +22,16 @@ sitesDefault {
   name: 'arn01',
   machines+: {
     mlab1+: {
-      model: r630,
+      model: 'r630',
     },
     mlab2+: {
-      model: r630,
+      model: 'r630',
     },
     mlab3+: {
-      model: r630,
+      model: 'r630',
     },
     mlab4+: {
-      model: r630,
+      model: 'r630',
     },
   },
   network+: {
