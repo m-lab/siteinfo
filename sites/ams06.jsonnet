@@ -18,6 +18,20 @@ sitesDefault {
     state: '',
   },
   name: 'ams06',
+  machines+: {
+    mlab1+: {
+      model: 'r630',
+    },
+    mlab2+: {
+      model: 'r630',
+    },
+    mlab3+: {
+      model: 'r630',
+    },
+    mlab4+: {
+      model: 'r630',
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '212.32.246.192/26',

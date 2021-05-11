@@ -18,6 +18,20 @@ sitesDefault {
     state: '',
   },
   name: 'los01',
+  machines+: {
+    mlab1+: {
+      model: 'r630',
+    },
+    mlab2+: {
+      model: 'r630',
+    },
+    mlab3+: {
+      model: 'r630',
+    },
+    mlab4+: {
+      model: 'r630',
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '196.216.149.64/26',

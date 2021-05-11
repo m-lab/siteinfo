@@ -5,6 +5,20 @@ sitesDefault {
   annotations+: {
     type: 'physical',
   },
+  machines+: {
+    mlab1+: {
+      model: 'r640',
+    },
+    mlab2+: {
+      model: 'r640',
+    },
+    mlab3+: {
+      model: 'r640',
+    },
+    mlab4+: {
+      model: 'r640',
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '190.98.179.128/26',

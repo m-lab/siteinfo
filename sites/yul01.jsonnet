@@ -18,6 +18,20 @@ sitesDefault {
     state: '',
   },
   name: 'yul01',
+  machines+: {
+    mlab1+: {
+      model: 'r630',
+    },
+    mlab2+: {
+      model: 'r630',
+    },
+    mlab3+: {
+      model: 'r630',
+    },
+    mlab4+: {
+      model: 'r630',
+    },
+  },
   network+: {
     ipv4+: {
       prefix: '162.219.49.0/26',
