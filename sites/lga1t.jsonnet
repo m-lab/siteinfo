@@ -7,19 +7,19 @@ sitesDefault {
   },
   machines+: {
     mlab1+: {
-      model: 'r630',
+      model: 'r620',
       project: 'mlab-sandbox',
     },
     mlab2+: {
-      model: 'r630',
+      model: 'r620',
       project: 'mlab-sandbox',
     },
     mlab3+: {
-      model: 'r630',
+      model: 'r640',
       project: 'mlab-sandbox',
     },
     mlab4+: {
-      model: 'r630',
+      model: 'r640',
       project: 'mlab-sandbox',
     },
   },
