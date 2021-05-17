@@ -29,7 +29,7 @@ sitesDefault {
   },
   transit+: {
     provider: 'Telecom Malagasy',
-    uplink: '1g',
+    uplink: '10g',
     asn: 'AS37054',
   },
   switch+: {
