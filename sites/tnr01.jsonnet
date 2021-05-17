@@ -32,9 +32,6 @@ sitesDefault {
     uplink: '10g',
     asn: 'AS37054',
   },
-  switch+: {
-    auto_negotiation: 'no',
-  },
   location+: {
     continent_code: 'AF',
     country_code: 'MG',
