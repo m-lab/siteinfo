@@ -3,6 +3,7 @@ options:
   # Provide information for cbif to reconstruct .git config.
   - COMMIT_SHA=$COMMIT_SHA
   - GIT_ORIGIN_URL=https://github.com/m-lab/siteinfo.git
+  - PROJECT_ID=$PROJECT_ID
 
 steps:
 
