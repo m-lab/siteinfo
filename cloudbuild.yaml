@@ -82,6 +82,10 @@ steps:
 # POST BUILD STEPS
 ############################################################################
 
+# NOTE: The following remote Cloud Build trigger steps will not block this
+# build. The steps do not wait for the remote build to finish, but merely start
+# it.
+
 # Trigger an epoxy-images stage1 build, which will build stage1 boot images for
 # any new sites.
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif
@@ -90,7 +94,7 @@ steps:
   args: [
     '/go/bin/cbctl', '-project=$PROJECT_ID',
                      '-repo=epoxy-images',
-                     '-trigger_name=push-m-lab-epoxy-images-trigger-stage1',
+                     '-trigger_name=epoxy-images-stage1',
                      'trigger'
   ]
 
@@ -102,7 +106,7 @@ steps:
   args: [
     '/go/bin/cbctl', '-project=$PROJECT_ID',
                      '-repo=epoxy-images',
-                     '-trigger_name=push-m-lab-epoxy-images-trigger-stage3',
+                     '-trigger_name=epoxy-images-stage3',
                      'trigger'
   ]
 
@@ -114,6 +118,7 @@ steps:
   args: [
     '/go/bin/cbctl', '-project=$PROJECT_ID',
                      '-repo=switch-config',
+                     '-trigger_name=switch-config',
                      'trigger'
   ]
 
