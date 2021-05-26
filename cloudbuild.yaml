@@ -127,7 +127,7 @@ steps:
   - SINGLE_COMMAND=true
   args:
   - '-c'
-  - |
+  - >
     /go/bin/cbif
     /go/bin/cbctl -project=$PROJECT_ID
                   -repo=switch-config
