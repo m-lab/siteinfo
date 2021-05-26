@@ -5,6 +5,11 @@ options:
   - GIT_ORIGIN_URL=https://github.com/m-lab/siteinfo.git
   - PROJECT_ID=$PROJECT_ID
 
+availableSecrets:
+  secretManager:
+  - versionName: projects/${PROJECT_NUMBER}/secrets/siteinfo-builds-github-token/versions/latest
+    env: GITHUB_TOKEN
+
 steps:
 
 ############################################################################
@@ -116,15 +121,21 @@ steps:
 # Trigger a switch-config build, which will build switch configurations for any
 # new sites, and deploy them to GCS.
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif
+  entrypoint: /bin/bash
   env:
   - PROJECT_IN=mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
-  args: [
-    '/go/bin/cbctl', '-project=$PROJECT_ID',
-                     '-repo=switch-config',
-                     '-trigger_name=switch-config',
-                     'trigger'
-  ]
+  args:
+  - '-c'
+  - >
+    /go/bin/cbif
+    /go/bin/cbctl
+    -project=$PROJECT_ID
+    -repo=switch-config
+    -trigger_name=switch-config
+    trigger
+  secretEnv:
+  - GITHUB_TOKEN
 
 # Deploy the primary measurement-lab.org zone to Cloud DNS.
 - name: gcr.io/cloud-builders/gcloud
