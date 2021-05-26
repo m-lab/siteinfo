@@ -5,6 +5,15 @@ options:
   - GIT_ORIGIN_URL=https://github.com/m-lab/siteinfo.git
   - PROJECT_ID=$PROJECT_ID
 
+availableSecrets:
+  secretManager:
+  - versionName: projects/581276032543/secrets/siteinfo-builds-github-token/versions/latest
+    env: GITHUB_TOKEN_mlab-sandbox
+  - versionName: projects/240028626237/secrets/siteinfo-builds-github-token/versions/latest
+    env: GITHUB_TOKEN_mlab-staging
+  - versionName: projects/515150309683/secrets/siteinfo-builds-github-token/versions/latest
+    env: GITHUB_TOKEN_mlab-oti
+
 steps:
 
 ############################################################################
@@ -117,12 +126,14 @@ steps:
 # new sites, and deploy them to GCS.
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif
   env:
-  - PROJECT_IN=mlab-staging,mlab-oti
+  - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
   args: [
     '/go/bin/cbctl', '-project=$PROJECT_ID',
                      '-repo=switch-config',
                      '-trigger_name=switch-config',
+                     '-github_token=$$GITHUB_TOKEN_${PROJECT_ID}',
+                     '-branch=master',
                      'trigger'
   ]
 
