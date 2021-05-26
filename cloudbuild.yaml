@@ -126,7 +126,7 @@ steps:
   - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
   args:
-  - '-c',
+  - '-c'
   - |
     /go/bin/cbif
     /go/bin/cbctl -project=$PROJECT_ID
