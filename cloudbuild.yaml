@@ -136,6 +136,8 @@ steps:
                      '-branch=master',
                      'trigger'
   ]
+  secretEnv:
+  - GITHUB_TOKEN_${PROJECT_ID}
 
 # Deploy the primary measurement-lab.org zone to Cloud DNS.
 - name: gcr.io/cloud-builders/gcloud
