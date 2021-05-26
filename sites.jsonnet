@@ -171,6 +171,7 @@ local sites = {
   // Test sites.
   lga0t: import 'sites/lga0t.jsonnet',
   lga1t: import 'sites/lga1t.jsonnet',
+  fra0t: import 'sites/fra0t.jsonnet',
 };
 [
   local site = sites[name];
