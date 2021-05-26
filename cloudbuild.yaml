@@ -129,12 +129,13 @@ steps:
   - '-c'
   - >
     /go/bin/cbif
-    /go/bin/cbctl -project=$PROJECT_ID
-                  -repo=switch-config
-                  -trigger_name=switch-config
-                  -github_token=$$GITHUB_TOKEN
-                  -branch=master
-                  trigger
+    /go/bin/cbctl
+    -project=$PROJECT_ID
+    -repo=switch-config
+    -trigger_name=switch-config
+    -github_token=$$GITHUB_TOKEN
+    -branch=master
+    trigger
   secretEnv:
   - GITHUB_TOKEN
 
