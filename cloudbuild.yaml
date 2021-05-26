@@ -121,17 +121,20 @@ steps:
 # Trigger a switch-config build, which will build switch configurations for any
 # new sites, and deploy them to GCS.
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif
+  entrypoint: /bin/bash
   env:
   - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
-  args: [
-    '/go/bin/cbctl', '-project=$PROJECT_ID',
-                     '-repo=switch-config',
-                     '-trigger_name=switch-config',
-                     '-github_token=$$GITHUB_TOKEN',
-                     '-branch=master',
-                     'trigger'
-  ]
+  args:
+  - '-c',
+  - |
+    /go/bin/cbif
+    /go/bin/cbctl -project=$PROJECT_ID
+                  -repo=switch-config
+                  -trigger_name=switch-config
+                  -github_token=$$GITHUB_TOKEN
+                  -branch=master
+                  trigger
   secretEnv:
   - GITHUB_TOKEN
 
