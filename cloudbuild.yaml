@@ -123,7 +123,7 @@ steps:
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif
   entrypoint: /bin/bash
   env:
-  - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
+  - PROJECT_IN=mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
   args:
   - '-c'
@@ -133,7 +133,6 @@ steps:
     -project=$PROJECT_ID
     -repo=switch-config
     -trigger_name=switch-config
-    -branch=master
     trigger
   secretEnv:
   - GITHUB_TOKEN
