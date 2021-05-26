@@ -6,8 +6,10 @@ sitesDefault {
     type: 'cloud',
   },
   machines: {
-    mlab1+: {
-      model: 'r630',
+    mlab1: {
+      disk: 'sda',
+      iface: 'eth0',
+      model: 'gce',
       project: 'mlab-sandbox',
     },
   },
