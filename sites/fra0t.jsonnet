@@ -5,14 +5,11 @@ sitesDefault {
   annotations+: {
     type: 'cloud',
   },
-  machines+: {
+  machines: {
     mlab1+: {
       model: 'r630',
       project: 'mlab-sandbox',
     },
-    mlab2: null,
-    mlab3: null,
-    mlab4: null,
   },
   network+: {
     ipv4+: {
