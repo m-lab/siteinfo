@@ -8,11 +8,15 @@ sitesDefault {
   machines+: {
     mlab1+: {
       model: 'r630',
+      project: 'mlab-sandbox',
     },
+    mlab2: null,
+    mlab3: null,
+    mlab4: null,
   },
   network+: {
     ipv4+: {
-      prefix: '34.107.116.1/32',
+      prefix: '34.107.116.1',
     },
     ipv6+: {
       prefix: null,
