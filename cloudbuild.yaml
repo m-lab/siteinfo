@@ -7,12 +7,8 @@ options:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/581276032543/secrets/siteinfo-builds-github-token/versions/latest
-    env: GITHUB_TOKEN_mlab-sandbox
-  - versionName: projects/240028626237/secrets/siteinfo-builds-github-token/versions/latest
-    env: GITHUB_TOKEN_mlab-staging
-  - versionName: projects/515150309683/secrets/siteinfo-builds-github-token/versions/latest
-    env: GITHUB_TOKEN_mlab-oti
+  - versionName: projects/${PROJECT_NUMBER}/secrets/siteinfo-builds-github-token/versions/latest
+    env: GITHUB_TOKEN
 
 steps:
 
@@ -132,12 +128,12 @@ steps:
     '/go/bin/cbctl', '-project=$PROJECT_ID',
                      '-repo=switch-config',
                      '-trigger_name=switch-config',
-                     '-github_token=$$GITHUB_TOKEN_${PROJECT_ID}',
+                     '-github_token=$$GITHUB_TOKEN',
                      '-branch=master',
                      'trigger'
   ]
   secretEnv:
-  - GITHUB_TOKEN_${PROJECT_ID}
+  - GITHUB_TOKEN
 
 # Deploy the primary measurement-lab.org zone to Cloud DNS.
 - name: gcr.io/cloud-builders/gcloud
