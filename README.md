@@ -57,7 +57,7 @@ Manager](https://cloud.google.com/build/docs/securing-builds/use-secrets). The
 secret can be created with this command:
 
 ```lang-sh
-echo <token> | gcloud secrets create siteinfo-builds-github-token --data-file=- --project <project>
+echo -n "<token>" | gcloud secrets create siteinfo-builds-github-token --data-file=- --project <project>
 ```
 
 You will then need to make sure that the Cloud Build service account for the
@@ -68,8 +68,8 @@ you can run:
 
 ```lang-sh
 gcloud secrets add-iam-policy-binding siteinfo-builds-github-token \
-      --member 'serviceAccount:<service-account>'
-      --role 'roles/secretmanager.secretAccessor'
+      --member 'serviceAccount:<service-account>' \
+      --role 'roles/secretmanager.secretAccessor' \
       --project <project>
 ```
 
