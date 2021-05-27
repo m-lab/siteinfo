@@ -31,10 +31,10 @@ if [[ "${DOMAIN}" != "measurement-lab.org" ]]; then
       | sort | uniq -c | awk '{print $1}' | uniq
   )
   UNIQ_EXP_RR_COUNT=$(echo "${UNIQ_EXP_RR_COUNTS}" | wc -w)
-  if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
-    echo "Not all experiments have the same number of RRs."
-    exit 1
-  fi
+  # if [[ "${UNIQ_EXP_RR_COUNT}" -ne "1" ]]; then
+  #   echo "Not all experiments have the same number of RRs."
+  #   exit 1
+  # fi
 fi
 
 # Make sure that every switch in switches.json has a corresponding s1.* RR in the
