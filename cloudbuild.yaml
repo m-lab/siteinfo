@@ -165,5 +165,5 @@ steps:
   - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
   args: [
-    '/go/bin/epoxy_admin', 'sync', '-project=$PROJECT_ID'
+    '/go/bin/epoxy_admin', 'sync', '--project=$PROJECT_ID'
   ]
