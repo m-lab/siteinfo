@@ -158,3 +158,12 @@ steps:
   - 'PROJECT=${PROJECT_ID}'
   - 'DOMAIN=${PROJECT_ID}.measurement-lab.org'
   - 'ZONEFILE=${PROJECT_ID}.measurement-lab.org.zone'
+
+# Sync ePoxy Datastore entities with this repository.
+- name: gcr.io/${PROJECT_ID}/siteinfo-cbif
+  env:
+  - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
+  - SINGLE_COMMAND=true
+  args: [
+    '/go/bin/epoxy_admin', 'sync', '-project=$PROJECT_ID'
+  ]
