@@ -1,0 +1,1 @@
+../../v1/sites/machines.json.jsonnet
