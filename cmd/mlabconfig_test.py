@@ -209,6 +209,7 @@ class MlabconfigTest(unittest.TestCase):
             {
                 'labels': {
                     'experiment': 'bar.abc',
+                    'ipv6': 'enabled',
                     'machine': 'mlab1.abc01.measurement-lab.org'
                 },
                 'targets': [
@@ -224,12 +225,38 @@ class MlabconfigTest(unittest.TestCase):
         self.assertEqual(len(actual_targets), 1)
         self.assertCountEqual(expected_targets, actual_targets)
 
+    def test_select_prometheus_experiment_targets_ipv6_disabled(
+        self):
+        expected_targets = [
+            {
+                'labels': {
+                    'experiment': 'bar.abc',
+                    'ipv6': 'disabled',
+                    'machine': 'mlab1.abc01.measurement-lab.org'
+                },
+                'targets': [
+                    'bar.abc.mlab1.abc01.measurement-lab.org:9090'
+                ]
+            },
+        ]
+
+        sites_ipv6_disabled = sites
+        sites_ipv6_disabled[0]['nodes'][0]['experiments'][0]['v6']['ip'] = ""
+
+        actual_targets = mlabconfig.select_prometheus_experiment_targets(
+            self.sites, 'mlab-sandbox', None, ['{{hostname}}:9090'], {}, False, False, '',
+            False)
+
+        self.assertEqual(len(actual_targets), 1)
+        self.assertCountEqual(expected_targets, actual_targets)
+
     def test_select_prometheus_experiment_targets_includes_selected(self):
         expected_targets = [
             {
                 'labels': {
                     'machine': 'mlab1.abc01.measurement-lab.org',
-                    'experiment': 'bar.abc'
+                    'experiment': 'bar.abc',
+                    'ipv6': 'enabled'
                 },
                 'targets': [
                     'bar.abc.mlab1.abc01.measurement-lab.org:9090'
@@ -249,7 +276,8 @@ class MlabconfigTest(unittest.TestCase):
             {
                 'labels': {
                     'machine': 'mlab1.abc01.measurement-lab.org',
-                    'experiment': 'bar.abc'
+                    'experiment': 'bar.abc',
+                    'ipv6': 'enabled'
                 },
                 'targets': [
                     'bar-abc-mlab1-abc01.measurement-lab.org:9090'
@@ -269,7 +297,8 @@ class MlabconfigTest(unittest.TestCase):
             {
                 'labels': {
                     'machine': 'mlab1.abc01.measurement-lab.org',
-                    'experiment': 'bar.abc'
+                    'experiment': 'bar.abc',
+                    'ipv6': 'enabled'
                 },
                 'targets': [
                     'bar.abc.mlab1v4.abc01.measurement-lab.org:9090'
