@@ -298,7 +298,7 @@ class MlabconfigTest(unittest.TestCase):
                 'labels': {
                     'machine': 'mlab1.abc01.measurement-lab.org',
                     'experiment': 'bar.abc',
-                    'ipv6': 'enabled'
+                    'ipv6': 'present'
                 },
                 'targets': [
                     'bar.abc.mlab1v4.abc01.measurement-lab.org:9090'
