@@ -338,8 +338,8 @@ def select_prometheus_experiment_targets(sites, project, select_regex,
             for experiment in node['experiments']:
                 labels = common_labels.copy()
                 labels['experiment'] = experiment['name']
-                labels['ipv6'] = 'enabled' if experiment['v6'][
-                    'ip'] != "" else "disabled"
+                labels['ipv6'] = 'present' if experiment['v6'][
+                    'ip'] != "" else "missing"
                 labels['machine'] = node['hostname']
 
                 # Skip if rsync_only is true but the experiment has no modules.

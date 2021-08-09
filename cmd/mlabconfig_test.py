@@ -209,7 +209,7 @@ class MlabconfigTest(unittest.TestCase):
             {
                 'labels': {
                     'experiment': 'bar.abc',
-                    'ipv6': 'enabled',
+                    'ipv6': 'present',
                     'machine': 'mlab1.abc01.measurement-lab.org'
                 },
                 'targets': [
@@ -231,7 +231,7 @@ class MlabconfigTest(unittest.TestCase):
             {
                 'labels': {
                     'experiment': 'bar.abc',
-                    'ipv6': 'disabled',
+                    'ipv6': 'missing',
                     'machine': 'mlab1.abc01.measurement-lab.org'
                 },
                 'targets': [
@@ -256,7 +256,7 @@ class MlabconfigTest(unittest.TestCase):
                 'labels': {
                     'machine': 'mlab1.abc01.measurement-lab.org',
                     'experiment': 'bar.abc',
-                    'ipv6': 'enabled'
+                    'ipv6': 'present'
                 },
                 'targets': [
                     'bar.abc.mlab1.abc01.measurement-lab.org:9090'
@@ -277,7 +277,7 @@ class MlabconfigTest(unittest.TestCase):
                 'labels': {
                     'machine': 'mlab1.abc01.measurement-lab.org',
                     'experiment': 'bar.abc',
-                    'ipv6': 'enabled'
+                    'ipv6': 'present'
                 },
                 'targets': [
                     'bar-abc-mlab1-abc01.measurement-lab.org:9090'
