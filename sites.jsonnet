@@ -66,6 +66,7 @@ local sites = {
   hnd03: import 'sites/hnd03.jsonnet',
   hnd04: import 'sites/hnd04.jsonnet',
   hnd05: import 'sites/hnd05.jsonnet',
+  hnl01: import 'sites/hnl01.jsonnet',
   iad02: import 'sites/iad02.jsonnet',
   iad03: import 'sites/iad03.jsonnet',
   iad04: import 'sites/iad04.jsonnet',
