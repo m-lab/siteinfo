@@ -28,7 +28,7 @@ sitesDefault {
     },
   },
   transit+: {
-    provider: 'TELEFONICA GLOBAL SOLUTIONS SL'
+    provider: 'TELEFONICA GLOBAL SOLUTIONS SL',
     uplink: '10g',
     asn: 'AS12956',
   },
