@@ -24,7 +24,7 @@ sitesDefault {
       prefix: '8.243.113.192/26',
     },
     ipv6+: {
-      prefix: '2001:13b3:9000/64',
+      prefix: '2001:13b3:9000::/64',
     },
   },
   transit+: {
