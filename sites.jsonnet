@@ -44,6 +44,7 @@ local sites = {
   dfw08: import 'sites/dfw08.jsonnet',
   dub01: import 'sites/dub01.jsonnet',
   eze01: import 'sites/eze01.jsonnet',
+  eze02: import 'sites/eze02.jsonnet',
   eze03: import 'sites/eze03.jsonnet',
   fln01: import 'sites/fln01.jsonnet',
   fra01: import 'sites/fra01.jsonnet',
