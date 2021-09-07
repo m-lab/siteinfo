@@ -1,3 +1,5 @@
+timeout: 900s
+
 options:
   env:
   # Provide information for cbif to reconstruct .git config.
