@@ -51,6 +51,7 @@ local retiredSites = {
   yul01: import 'sites/yul01.jsonnet',
   yyc01: import 'sites/yyc01.jsonnet',
   yyz01: import 'sites/yyz01.jsonnet',
+  yyz02: import 'sites/yyz02.jsonnet',
 };
 [
   local site = retiredSites[name];
