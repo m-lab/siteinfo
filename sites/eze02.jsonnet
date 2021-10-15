@@ -21,7 +21,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '200.123.196.64/26',
+      prefix: '200.123.196.128/26',
     },
     ipv6+: {
       prefix: '2800:870:0:500::/64',
