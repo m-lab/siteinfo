@@ -244,11 +244,12 @@ class MlabconfigTest(unittest.TestCase):
         sites_ipv6_disabled[0]['nodes'][0]['experiments'][0]['v6']['ip'] = ""
 
         actual_targets = mlabconfig.select_prometheus_experiment_targets(
-            self.sites, 'mlab-sandbox', None, ['{{hostname}}:9090'], {}, False, False, '',
-            False)
+            sites_ipv6_disabled, 'mlab-sandbox', None, ['{{hostname}}:9090'],
+            {}, False, False, '', False)
 
         self.assertEqual(len(actual_targets), 1)
         self.assertCountEqual(expected_targets, actual_targets)
+        self.assertEqual(actual_targets[0]['labels']['ipv6'], "missing")
 
     def test_select_prometheus_experiment_targets_includes_selected(self):
         expected_targets = [
@@ -317,6 +318,7 @@ class MlabconfigTest(unittest.TestCase):
         expected_targets = [
             {
                 'labels': {
+                    'ipv6': 'present',
                     'machine': 'mlab1.abc01.measurement-lab.org'
                 },
                 'targets': [
@@ -331,6 +333,30 @@ class MlabconfigTest(unittest.TestCase):
         self.assertEqual(len(actual_targets), 1)
         self.assertCountEqual(actual_targets, expected_targets)
 
+    def test_select_prometheus_node_targets_ipv6_disabled(self):
+        expected_targets = [
+            {
+                'labels': {
+                    'ipv6': 'missing',
+                    'machine': 'mlab1.abc01.measurement-lab.org'
+                },
+                'targets': [
+                    'mlab1.abc01.measurement-lab.org:9090'
+                ]
+            }
+        ]
+
+        sites_ipv6_disabled = sites
+        sites_ipv6_disabled[0]['nodes'][0]['v6']['ip'] = ""
+
+        actual_targets = mlabconfig.select_prometheus_node_targets(
+            sites_ipv6_disabled, "mlab-sandbox", "mlab1.*",
+            ['{{hostname}}:9090'], {}, '', False)
+
+        self.assertEqual(len(actual_targets), 1)
+        self.assertCountEqual(actual_targets, expected_targets)
+        self.assertEqual(actual_targets[0]['labels']['ipv6'], "missing")
+
     def test_select_prometheus_node_targets_excludes_unselected_project(self):
         actual_targets = mlabconfig.select_prometheus_node_targets(
             self.sites, "mlab-oti", "mlab1.*", ['{{hostname}}:9090'], {}, '', False)
@@ -341,6 +367,7 @@ class MlabconfigTest(unittest.TestCase):
         expected_targets = [
             {
                 'labels': {
+                    'ipv6': 'present',
                     'machine': 'mlab1.abc01.measurement-lab.org'
                 },
                 'targets': [
@@ -359,6 +386,7 @@ class MlabconfigTest(unittest.TestCase):
         expected_targets = [
             {
                 'labels': {
+                    'ipv6': 'present',
                     'machine': 'mlab1.abc01.measurement-lab.org'
                 },
                 'targets': [
