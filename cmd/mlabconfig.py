@@ -402,6 +402,7 @@ def select_prometheus_node_targets(sites, project, select_regex, target_template
                 continue
             labels = common_labels.copy()
             labels['machine'] = node['hostname']
+            labels['ipv6'] = 'present' if node['v6']['ip'] != "" else "missing"
             targets = []
 
             prefix = node['hostname'][:5]
