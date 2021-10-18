@@ -244,11 +244,12 @@ class MlabconfigTest(unittest.TestCase):
         sites_ipv6_disabled[0]['nodes'][0]['experiments'][0]['v6']['ip'] = ""
 
         actual_targets = mlabconfig.select_prometheus_experiment_targets(
-            self.sites, 'mlab-sandbox', None, ['{{hostname}}:9090'], {}, False, False, '',
-            False)
+            sites_ipv6_disabled, 'mlab-sandbox', None, ['{{hostname}}:9090'],
+            {}, False, False, '', False)
 
         self.assertEqual(len(actual_targets), 1)
         self.assertCountEqual(expected_targets, actual_targets)
+        self.assertEqual(actual_targets[0]['labels']['ipv6'], "missing")
 
     def test_select_prometheus_experiment_targets_includes_selected(self):
         expected_targets = [
