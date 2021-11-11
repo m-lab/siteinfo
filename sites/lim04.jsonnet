@@ -21,7 +21,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '190.108.95.192/26',
+      prefix: '191.97.58.64/26',
     },
     ipv6+: {
       prefix: '2800:650:300:1::/64',
@@ -45,4 +45,3 @@ sitesDefault {
     created: '2021-10-06',
   },
 }
-
