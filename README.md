@@ -1,10 +1,86 @@
 # siteinfo
 
-M-Lab Public Site Information Automation
+## M-Lab Public Site Information
 
-The latest files can always be found:
+This repository is responsible for recording, tracking and publishing public
+information about every M-Lab site, server and service. All of the raw
+information can be found directly in this repository. However, this raw
+information is meant to be processed using [Jsonnet](https://jsonnet.org/) into
+parsable JSON files. While this can be done by anyone with a clone of this
+repository and the proper dependencies and utilities installed, the resources
+produced by this repository are mostly meant to be consumed through a REST-ish
+interface. Artifacts created by this repository are stored in a Google Cloud
+Storage bucket and made public through a GCP Loadbalancer backed by the
+bucket.
 
-* https://siteinfo.mlab-oti.measurementlab.net/v1/index.html
+There are currently two API versions, v1 and v2. Indexes to the resources
+available for each can be found at the following URLs, respectively:
+
+* <https://siteinfo.mlab-oti.measurementlab.net/v1/index.html>
+* <https://siteinfo.mlab-oti.measurementlab.net/v2/index.html>
+
+The v2 API does not provide all of the same resources as v1, but instead the v1
+resources where there was a change from the v1 version. That is to say, not all
+v1 resources are deprecated, except in the case where there is a v2 resources
+with the same name, in which case the v2 resource should always be used.
+Additionally, the v2 API contains a few resources which did not exist when the
+v1 API was created, and are therefore specific to v2.
+
+The primary difference between the v1 and v2 APIs is that v2 introduced the
+usage of GCP project-based hostnames, as well as replacing dots with dashes in
+hostnames. For example, a typical v1 NDT experiment hostname would have looked
+like:
+
+`ndt.iupui.mlab1.fra01.measurement-lab.org`
+
+... whereas the same v2 hostname will look like:
+
+`ndt-iupui-mlab1-fra01.mlab-oti.measurement-lab.org`
+
+**NOTE**: v1 hostnames are no longer supported on the M-Lab platform and will
+not resolve through DNS.
+
+Brief descriptions of each resource type can be found be below.
+
+### v1
+
+* `./adhoc/placeholder.json`: internal use.
+* `./retired/annotations.json`: the same as annotations.json below, but for
+  sites which have been retired and are no longer in active service.
+* `./sites/annotations.json`: mostly for internal use, consumed by the
+  [uuid-annotator](https://github.com/m-lab/uuid-annotator) to annotate every
+  test that gets run against platform experiments.
+* `./sites/geo.json`: GeoJSON formatted information about sites.
+* `./sites/hostnames.json`: a list of every M-Lab hostname, both bare machines and
+  experiments, along with IPv4 and IPv6 addresses.
+* `./sites/locations.json`: not dissimilar to geo.json, but with less
+  information and not GeoJSON formatted. Mostly for internal use.
+* `./sites/sites.json`: an exhaustive inventory of every M-Lab site, with as
+  much data and metadata as we have about the site, the machines at the site and
+  the experiments running on each machine. This will generally be overkill for
+  most use cases.
+* `./sites/switches.json`: a map of every site, with information about the layer
+  2 switch in front of the machines at that site.
+* `./zones/placeholder.zone`: internal use.
+* `./zones/placeholder.zone.diff`: internal use.
+
+### v2
+
+* `./adhoc/placeholder.json`: internal use.
+* `./retired/placeholder.json`: internal use.
+* `./sites/hostnames.json`: same as v1, but using v2 names, as described above.
+* `./sites/machines.json`: a list of machines (both physical and virtual) on the
+  platform, along with IP addresses, type and GCP project.
+* `./sites/projects.json`: similar to machines.json above, but a map of every
+  machine, using the machine's short name (e.g., mlab2-lju01), to its GCP
+  project. Mostly for internal use.
+* `./sites/sites.json`: same as v1, but using v2 names, as describe above.
+* `./zones/measurement-lab.org.zone`: BIND-style zone file for the
+  measurement-lab.org domain. Mostly for internal use.
+* `./zones/measurement-lab.org.zone.diff`: internal use.
+* `./zones/mlab-oti.measurement-lab.org.zone`: BIND-style zone file for the
+  mlab-oti.measurement-lab.org domain. Mostly for internal use.
+* `./zones/mlab-oti.measurement-lab.org.zone.diff`: internal use.
 
 ## GCP Cloud DNS zones
 
