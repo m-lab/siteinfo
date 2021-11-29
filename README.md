@@ -11,41 +11,13 @@ repository and the proper dependencies and utilities installed, the resources
 produced by this repository are mostly meant to be consumed through a REST-ish
 interface.
 
-There are currently two API versions, v1 and v2. Indexes to the resources
-available for each can be found at the following URLs, respectively:
-
-* <https://siteinfo.mlab-oti.measurementlab.net/v1/index.html>
-* <https://siteinfo.mlab-oti.measurementlab.net/v2/index.html>
-
-**NOTE**: the following v1 resources are still available, however are retired
-and should *not** be used, and will be removed in the future. Instead use the
-corresponding v2 resource of the same name:
-
-* `./sites/hostnames.json`
-* `./sites/sites.json`
-
-Brief descriptions of each resource type can be found be below.
-
-### v1
-
-* `./adhoc/placeholder.json`: internal use.
-* `./retired/annotations.json`: the same as annotations.json below, but for
-  sites which have been retired.
-* `./sites/annotations.json`: consumed by the
-  [uuid-annotator](https://github.com/m-lab/uuid-annotator) to annotate every
-  test that gets run against platform experiments.
-* `./sites/geo.json`: GeoJSON formatted information about sites.
-* `./sites/hostnames.json`: retired. Do not use.
-  experiments, along with IPv4 and IPv6 addresses.
-* `./sites/locations.json`: not dissimilar to geo.json, but with less
-  information and not GeoJSON formatted.
-* `./sites/sites.json`: retired. Do not use.
-* `./sites/switches.json`: a map of every site, with information about the layer
-  2 switch in front of the machines at that site.
-* `./zones/placeholder.zone`: internal use.
-* `./zones/placeholder.zone.diff`: internal use.
+There are currently two API versions, v2, the current API version, and a
+partially deprecated v1. Please do not use v1 resources for new integrations, as
+it may be completely removed in the future.
 
 ### v2
+
+<https://siteinfo.mlab-oti.measurementlab.net/v2/index.html>
 
 * `./adhoc/placeholder.json`: internal use.
 * `./retired/placeholder.json`: internal use.
@@ -64,6 +36,36 @@ Brief descriptions of each resource type can be found be below.
 * `./zones/mlab-oti.measurement-lab.org.zone`: BIND-style zone file for the
   mlab-oti.measurement-lab.org domain.
 * `./zones/mlab-oti.measurement-lab.org.zone.diff`: internal use.
+
+### v1
+
+<https://siteinfo.mlab-oti.measurementlab.net/v1/index.html>
+
+**NOTE**: the following v1 resources are still available, however are retired
+and should *not** be used, and will be removed in the future. Instead use the
+corresponding v2 resource of the same name:
+
+* `./sites/hostnames.json`
+* `./sites/sites.json`
+
+Brief descriptions of each resource type can be found be below.
+
+* `./adhoc/placeholder.json`: internal use.
+* `./retired/annotations.json`: the same as annotations.json below, but for
+  sites which have been retired.
+* `./sites/annotations.json`: consumed by the
+  [uuid-annotator](https://github.com/m-lab/uuid-annotator) to annotate every
+  test that gets run against platform experiments.
+* `./sites/geo.json`: GeoJSON formatted information about sites.
+* `./sites/hostnames.json`: retired. Do not use.
+  experiments, along with IPv4 and IPv6 addresses.
+* `./sites/locations.json`: not dissimilar to geo.json, but with less
+  information and not GeoJSON formatted.
+* `./sites/sites.json`: retired. Do not use.
+* `./sites/switches.json`: a map of every site, with information about the layer
+  2 switch in front of the machines at that site.
+* `./zones/placeholder.zone`: internal use.
+* `./zones/placeholder.zone.diff`: internal use.
 
 ## GCP Cloud DNS zones
 
