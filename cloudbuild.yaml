@@ -107,19 +107,6 @@ steps:
                      'trigger'
   ]
 
-# Trigger an epoxy-images stage3 build, which will build stage3 boot images for
-# any new sites.
-- name: gcr.io/${PROJECT_ID}/siteinfo-cbif
-  env:
-  - PROJECT_IN=mlab-staging,mlab-oti
-  - SINGLE_COMMAND=true
-  args: [
-    '/go/bin/cbctl', '-project=$PROJECT_ID',
-                     '-repo=epoxy-images',
-                     '-trigger_name=epoxy-images-stage3',
-                     'trigger'
-  ]
-
 # Trigger a switch-config build, which will build switch configurations for any
 # new sites, and deploy them to GCS.
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif
