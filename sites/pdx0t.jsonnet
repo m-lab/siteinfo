@@ -8,7 +8,7 @@ sitesDefault {
   machines: {
     mlab1: {
       disk: 'sda',
-      iface: 'eth0',
+      iface: 'ens4',
       model: 'gce',
       project: 'mlab-sandbox',
     },
