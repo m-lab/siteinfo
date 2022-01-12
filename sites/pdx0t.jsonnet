@@ -7,10 +7,11 @@ sitesDefault {
   },
   machines: {
     mlab1: {
-    disk: 'sda',
-    iface: 'eth0',
-    model: 'gce',
-    project: 'mlab-sandbox',
+      disk: 'sda',
+      iface: 'eth0',
+      model: 'gce',
+      project: 'mlab-sandbox',
+    },
   },
   network+: {
     ipv4+: {
