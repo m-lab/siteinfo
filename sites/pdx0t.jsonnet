@@ -15,7 +15,7 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '34.102.109.222/32',
+      prefix: '35.247.89.22/32',
     },
     ipv6+: {
       prefix: null,
@@ -24,19 +24,19 @@ sitesDefault {
   transit+: {
     provider: 'Google Cloud Platform',
     uplink: '10g',
-    asn: 'AS0000',
+    asn: null,
   },
   location+: {
-    continent_code: 'EU',
-    country_code: 'DE',
-    metro: 'fra',
-    city: 'Frankfurt',
-    state: '',
-    latitude: 50.0379,
-    longitude: 8.5622,
+    continent_code: 'NA',
+    country_code: 'US',
+    metro: 'pdx',
+    city: 'Portland',
+    state: 'OR',
+    latitude: 45.5886,
+    longitude: -122.5975,
   },
   lifecycle+: {
-    created: '2022-01-12',
+    created: '2022-01-14',
   },
 }
 
