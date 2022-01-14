@@ -22,9 +22,9 @@ sitesDefault {
     },
   },
   transit+: {
-    provider: 'Google Cloud Platform',
+    provider: 'Google LLC',
     uplink: '10g',
-    asn: null,
+    asn: 'AS396982',
   },
   location+: {
     continent_code: 'NA',
