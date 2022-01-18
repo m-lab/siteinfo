@@ -189,8 +189,10 @@ local sites = {
   yyz06: import 'sites/yyz06.jsonnet',
 
   // Test sites.
+  chs0t: import 'sites/chs0t.jsonnet',
   lga0t: import 'sites/lga0t.jsonnet',
   lga1t: import 'sites/lga1t.jsonnet',
+  pdx0t: import 'sites/pdx0t.jsonnet',
 };
 [
   local site = sites[name];
