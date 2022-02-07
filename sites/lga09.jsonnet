@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'lga03',
+  name: 'lga09',
   annotations+: {
     type: 'physical',
   },
@@ -24,7 +24,7 @@ sitesDefault {
       prefix: '64.86.148.128/26',
     },
     ipv6+: {
-      prefix: '2001:5a0:4300::/64',
+      prefix: '2001:5a0:f00:501::/64',
     },
   },
   transit+: {
@@ -42,7 +42,6 @@ sitesDefault {
     longitude: -73.8667,
   },
   lifecycle+: {
-    created: '2019-01-01',
-    retired: '2022-02-07',
+    created: '2022-02-07',
   },
 }
