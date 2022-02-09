@@ -23,7 +23,7 @@ sitesDefault {
   },
   transit+: {
     provider: 'Google LLC',
-    uplink: '10g',
+    uplink: '1g',
     asn: 'AS15169',
   },
   location+: {
