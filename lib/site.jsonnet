@@ -89,7 +89,7 @@ local version = std.extVar('version');
         ) else (
           if m == 1 then
             /* the IP is the machine. */
-            $.Index6(0)
+            std.split($.network.ipv6.prefix, '/')[0]
           else
             error 'Machine indexes for single-machine sites must be 1'
         )
@@ -136,7 +136,7 @@ local version = std.extVar('version');
             $.Index6(((m - 1) * 13) + 9 + expConfig.index)
           else
             /* the IP is the experiment. */
-            $.Index6(0)
+            std.split($.network.ipv6.prefix, '/')[0]
         )
       ),
     },
