@@ -80,7 +80,20 @@ local version = std.extVar('version');
       ip: '',
     },
     v6: if v6net != null then {
-      ip: $.Index6(((m - 1) * 13) + 9),
+      ip: (
+        if $.annotations.type == 'physical' then (
+          if m >= 1 && m <= 4 then
+            $.Index6(((m - 1) * 13) + 9)
+          else
+            error 'Machine indexes must be within range [1,4]'
+        ) else (
+          if m == 1 then
+            /* the IP is the machine. */
+            $.Index6(0)
+          else
+            error 'Machine indexes for single-machine sites must be 1'
+        )
+      ),
       dns1: $.network.ipv6.dns1,
       dns2: $.network.ipv6.dns2,
       network: v6net,
@@ -118,8 +131,13 @@ local version = std.extVar('version');
     },
     v6: {
       ip: (
-        if v6net == null then '' else
-          $.Index6(((m - 1) * 13) + 9 + expConfig.index)
+        if v6net == null then '' else (
+          if $.annotations.type == 'physical' then
+            $.Index6(((m - 1) * 13) + 9 + expConfig.index)
+          else
+            /* the IP is the experiment. */
+            $.Index6(0)
+        )
       ),
     },
     // Record returns a machine name suitable for a zone record including the
