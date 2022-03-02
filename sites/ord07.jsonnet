@@ -24,7 +24,7 @@ sitesDefault {
   transit+: {
     provider: 'Google LLC',
     uplink: '1g',
-    asn: 'AS396982',
+    asn: 'AS15169',
   },
   location+: {
     continent_code: 'NA',
