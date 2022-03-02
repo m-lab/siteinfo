@@ -30,6 +30,7 @@ local sites = {
   bru03: import 'sites/bru03.jsonnet',
   bru04: import 'sites/bru04.jsonnet',
   bru05: import 'sites/bru05.jsonnet',
+  bru06: import 'sites/bru06.jsonnet',
   cpt01: import 'sites/cpt01.jsonnet',
   del01: import 'sites/del01.jsonnet',
   del02: import 'sites/del02.jsonnet',
