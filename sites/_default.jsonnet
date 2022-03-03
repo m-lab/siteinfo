@@ -3,8 +3,8 @@ local site = import 'lib/site.jsonnet';
 site {
   name: error 'Must override site name',
   annotations: {
-    type: error 'Must override annotations.type, e.g. physical, virtual',
     provider: 'mlab',
+    type: error 'Must override annotations.type, e.g. physical, virtual',
   },
   loadbalancer: {
     roundrobin: true,
