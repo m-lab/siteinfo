@@ -4,12 +4,13 @@ sitesDefault {
   name: 'sin02',
   annotations+: {
     type: 'virtual',
+    provider: 'gcp',
   },
   machines: {
     mlab1: {
       disk: 'sda',
       iface: 'ens4',
-      model: 'gce',
+      model: 'n1-highcpu-4',
       project: 'mlab-oti',
     },
   },
