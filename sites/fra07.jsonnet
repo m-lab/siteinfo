@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'pdx0t',
+  name: 'fra07',
   annotations+: {
     type: 'virtual',
     provider: 'gcp',
@@ -11,12 +11,12 @@ sitesDefault {
       disk: 'sda',
       iface: 'ens4',
       model: 'n1-highcpu-4',
-      project: 'mlab-sandbox',
+      project: 'mlab-oti',
     },
   },
   network+: {
     ipv4+: {
-      prefix: '35.247.89.22/32',
+      prefix: '34.159.159.206/32',
     },
     ipv6+: {
       prefix: null,
@@ -25,19 +25,18 @@ sitesDefault {
   transit+: {
     provider: 'Google LLC',
     uplink: '1g',
-    asn: 'AS15169',
+    asn: 'AS396982',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
-    metro: 'pdx',
-    city: 'Portland',
-    state: 'OR',
-    latitude: 45.5886,
-    longitude: -122.5975,
+    continent_code: 'EU',
+    country_code: 'DE',
+    metro: 'fra',
+    city: 'Frankfurt',
+    state: '',
+    latitude: 50.0379,
+    longitude: 8.5622,
   },
   lifecycle+: {
-    created: '2022-01-14',
+    created: '2022-03-02',
   },
 }
-

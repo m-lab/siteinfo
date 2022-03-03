@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'pdx0t',
+  name: 'ord07',
   annotations+: {
     type: 'virtual',
     provider: 'gcp',
@@ -11,12 +11,12 @@ sitesDefault {
       disk: 'sda',
       iface: 'ens4',
       model: 'n1-highcpu-4',
-      project: 'mlab-sandbox',
+      project: 'mlab-oti',
     },
   },
   network+: {
     ipv4+: {
-      prefix: '35.247.89.22/32',
+      prefix: '35.226.8.239/32',
     },
     ipv6+: {
       prefix: null,
@@ -30,14 +30,13 @@ sitesDefault {
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'pdx',
-    city: 'Portland',
-    state: 'OR',
-    latitude: 45.5886,
-    longitude: -122.5975,
+    metro: 'ord',
+    city: 'Chicago',
+    state: 'IL',
+    latitude: 41.9786,
+    longitude: -87.9047,
   },
   lifecycle+: {
-    created: '2022-01-14',
+    created: '2022-03-02',
   },
 }
-

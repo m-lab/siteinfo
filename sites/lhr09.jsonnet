@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'pdx0t',
+  name: 'lhr09',
   annotations+: {
     type: 'virtual',
     provider: 'gcp',
@@ -11,15 +11,15 @@ sitesDefault {
       disk: 'sda',
       iface: 'ens4',
       model: 'n1-highcpu-4',
-      project: 'mlab-sandbox',
+      project: 'mlab-oti',
     },
   },
   network+: {
     ipv4+: {
-      prefix: '35.247.89.22/32',
+      prefix: '35.189.86.149/32',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2600:1900:40c0:f08e::/128',
     },
   },
   transit+: {
@@ -28,16 +28,15 @@ sitesDefault {
     asn: 'AS15169',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
-    metro: 'pdx',
-    city: 'Portland',
-    state: 'OR',
-    latitude: 45.5886,
-    longitude: -122.5975,
+    continent_code: 'EU',
+    country_code: 'GB',
+    metro: 'lhr',
+    city: 'London',
+    state: '',
+    latitude: 51.4697,
+    longitude: -0.4514,
   },
   lifecycle+: {
-    created: '2022-01-14',
+    created: '2022-03-02',
   },
 }
-

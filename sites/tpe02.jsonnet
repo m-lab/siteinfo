@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'pdx0t',
+  name: 'tpe02',
   annotations+: {
     type: 'virtual',
     provider: 'gcp',
@@ -11,33 +11,33 @@ sitesDefault {
       disk: 'sda',
       iface: 'ens4',
       model: 'n1-highcpu-4',
-      project: 'mlab-sandbox',
+      project: 'mlab-oti',
     },
   },
   network+: {
     ipv4+: {
-      prefix: '35.247.89.22/32',
+      prefix: '35.194.150.141/32',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2600:1900:4030:ddef::/128',
     },
   },
   transit+: {
     provider: 'Google LLC',
     uplink: '1g',
-    asn: 'AS15169',
+    asn: 'AS396982',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
-    metro: 'pdx',
-    city: 'Portland',
-    state: 'OR',
-    latitude: 45.5886,
-    longitude: -122.5975,
+    continent_code: 'AS',
+    country_code: 'TW',
+    metro: 'tpe',
+    city: 'Taipei',
+    state: '',
+    latitude: 25.0778,
+    longitude: 121.224,
   },
   lifecycle+: {
-    created: '2022-01-14',
+    created: '2022-03-02',
   },
 }
 

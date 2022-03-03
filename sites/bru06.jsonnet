@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'pdx0t',
+  name: 'bru06',
   annotations+: {
     type: 'virtual',
     provider: 'gcp',
@@ -11,12 +11,12 @@ sitesDefault {
       disk: 'sda',
       iface: 'ens4',
       model: 'n1-highcpu-4',
-      project: 'mlab-sandbox',
+      project: 'mlab-oti',
     },
   },
   network+: {
     ipv4+: {
-      prefix: '35.247.89.22/32',
+      prefix: '34.79.58.167/32',
     },
     ipv6+: {
       prefix: null,
@@ -28,16 +28,15 @@ sitesDefault {
     asn: 'AS15169',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
-    metro: 'pdx',
-    city: 'Portland',
-    state: 'OR',
-    latitude: 45.5886,
-    longitude: -122.5975,
+    continent_code: 'EU',
+    country_code: 'BE',
+    metro: 'bru',
+    city: 'Brussels',
+    state: '',
+    latitude: 50.4974,
+    longitude: 3.3528,
   },
   lifecycle+: {
-    created: '2022-01-14',
+    created: '2022-03-02',
   },
 }
-
