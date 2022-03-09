@@ -1,4 +1,4 @@
-local sitesDefault = import 'sites/_default.jsonnet';
+local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
   name: 'lax0t',
@@ -6,20 +6,18 @@ sitesDefault {
     type: 'virtual',
     provider: 'gcp',
   },
-  machines: {
-    mlab1: {
-      disk: 'sda',
-      iface: 'ens4',
-      model: 'n1-highcpu-4',
+  machines+: {
+    mlab1+: {
+      disk: 'pd-standard',
+      network+: {
+        ipv4+: {
+          address: '34.94.47.22/32',
+        },
+        ipv6+: {
+          address: '2600:1900:4120:8f83:0:2::/128',
+        },
+      },  
       project: 'mlab-sandbox',
-    },
-  },
-  network+: {
-    ipv4+: {
-      prefix: '34.94.47.22/32',
-    },
-    ipv6+: {
-      prefix: '2600:1900:4120:8f83:0:2::/128',
     },
   },
   transit+: {

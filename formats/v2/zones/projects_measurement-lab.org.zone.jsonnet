@@ -32,31 +32,31 @@ local records = std.flattenArrays([
   if site.annotations.type == 'physical'
 ]) + [
   // DRACs
-  local d = site.DRAC(mIndex);
+  local d = site.DRAC(machine);
   { record: d.Record(), ipv4: d.v4.ip }
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines))
+  for machine in std.objectFields(site.machines)
   if site.annotations.type == 'physical'
 ] + std.flattenArrays([
   // Machines
-  local m = site.Machine(mIndex);
+  local m = site.Machine(machine);
   [
     { record: m.Record(), ipv4: m.v4.ip, ipv6: m.v6.ip },
     { record: m.Record('v4'), ipv4: m.v4.ip },
     { record: m.Record('v6'), ipv6: m.v6.ip },
   ]
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines))
+  for machine in std.objectFields(site.machines)
 ]) + std.flattenArrays([
   // Experiments
-  local e = site.Experiment(mIndex, experiment);
+  local e = site.Experiment(machine, experiment);
   [
     { record: e.Record(), ipv4: e.v4.ip, ipv6: e.v6.ip },
     { record: e.Record('v4'), ipv4: e.v4.ip },
     { record: e.Record('v6'), ipv6: e.v6.ip },
   ]
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines))
+  for machine in std.objectFields(site.machines)
   for experiment in experiments
   if (site.annotations.type == 'physical' ||
       experiment.cloud_enabled == true)

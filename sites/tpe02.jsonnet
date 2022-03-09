@@ -1,25 +1,21 @@
-local sitesDefault = import 'sites/_default.jsonnet';
+local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
   name: 'tpe02',
   annotations+: {
-    type: 'virtual',
     provider: 'gcp',
   },
-  machines: {
-    mlab1: {
-      disk: 'sda',
-      iface: 'ens4',
-      model: 'n1-highcpu-4',
+  machines+: {
+    mlab1+: {
+      network+: {
+        ipv4+: {
+          address: '35.194.150.141/32',
+        },
+        ipv6+: {
+          address: '2600:1900:4030:ddef:0:1::/128',
+        },
+      },  
       project: 'mlab-oti',
-    },
-  },
-  network+: {
-    ipv4+: {
-      prefix: '35.194.150.141/32',
-    },
-    ipv6+: {
-      prefix: '2600:1900:4030:ddef:0:1::/128',
     },
   },
   transit+: {

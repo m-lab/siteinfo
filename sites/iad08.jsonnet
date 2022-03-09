@@ -1,25 +1,24 @@
-local sitesDefault = import 'sites/_default.jsonnet';
+local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
   name: 'iad08',
   annotations+: {
-    type: 'virtual',
     provider: 'gcp',
   },
   machines: {
     mlab4: {
-      disk: 'sda',
+      disk: 'pd-standard',
       iface: 'ens4',
       model: 'n1-highcpu-4',
+      network: {
+        ipv4: {
+          address: '35.245.211.241/32',
+        },
+        ipv6: {
+          address: null,
+        },
+      },
       project: 'mlab-staging',
-    },
-  },
-  network+: {
-    ipv4+: {
-      prefix: '35.245.211.241/32',
-    },
-    ipv6+: {
-      prefix: null
     },
   },
   transit+: {

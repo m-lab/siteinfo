@@ -1,4 +1,4 @@
-local sitesDefault = import 'sites/_default.jsonnet';
+local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
   name: 'lhr09',
@@ -8,18 +8,18 @@ sitesDefault {
   },
   machines: {
     mlab1: {
-      disk: 'sda',
+      disk: 'pd-ssd',
       iface: 'ens4',
       model: 'n1-highcpu-4',
       project: 'mlab-oti',
-    },
-  },
-  network+: {
-    ipv4+: {
-      prefix: '35.189.86.149/32',
-    },
-    ipv6+: {
-      prefix: '2600:1900:40c0:f08e:0:1::/128',
+      network+: {
+        ipv4+: {
+          address: '35.189.86.149/32',
+        },
+        ipv6+: {
+          address: '2600:1900:40c0:f08e:0:1::/128',
+        },
+      },  
     },
   },
   transit+: {

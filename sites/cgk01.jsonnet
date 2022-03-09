@@ -1,25 +1,18 @@
-local sitesDefault = import 'sites/_default.jsonnet';
+local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
   name: 'cgk01',
   annotations+: {
-    type: 'virtual',
     provider: 'gcp',
   },
-  machines: {
-    mlab1: {
-      disk: 'sda',
-      iface: 'ens4',
-      model: 'n1-highcpu-4',
+  machines+: {
+    mlab1+: {
+      network+: {
+        ipv4+: {
+          address: '34.101.131.175/32',
+        },
+      },  
       project: 'mlab-oti',
-    },
-  },
-  network+: {
-    ipv4+: {
-      prefix: '34.101.131.175/32',
-    },
-    ipv6+: {
-      prefix: null,
     },
   },
   transit+: {
