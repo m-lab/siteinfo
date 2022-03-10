@@ -24,7 +24,7 @@ sitesDefault {
       prefix: '102.88.1.128/26',
     },
     ipv6+: {
-      prefix: null
+      prefix: null,
     },
   },
   transit+: {

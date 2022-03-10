@@ -20,4 +20,3 @@ local MaxRate10g = 2500000000;
   [site.name]: if site.transit.uplink == '1g' then MaxRate1g else MaxRate10g
   for site in sites
 }
-

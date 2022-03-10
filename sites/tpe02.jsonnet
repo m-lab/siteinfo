@@ -40,4 +40,3 @@ sitesDefault {
     created: '2022-03-02',
   },
 }
-
