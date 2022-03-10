@@ -198,4 +198,32 @@ test.suite({
       '',
     ],
   },
+  test_prefixes: {
+    actual: [
+      v4v6Site.V4Prefix(),
+      v4v6Site.V6Prefix(),
+    ],
+    expect: [
+      '192.168.1.64/26',
+      '2001:1900:2100:2d::/64',
+    ],
+  },
+  test_machine_index: {
+    actual: [
+      v4Site.MachineIndex('mlab1'),
+      v4Site.MachineIndex('mlab3'),
+    ],
+    expect: [
+      1,
+      3,
+    ],
+  },
+  test_machine_network: {
+    actual: [
+      v4v6Site.Machine('mlab1').Network(),
+    ],
+    expect: [
+      { Network: { IPv4: '192.168.1.64/26', IPv6: '2001:1900:2100:2d::/64' } },
+    ],
+  },
 })

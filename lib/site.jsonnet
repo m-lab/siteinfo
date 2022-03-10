@@ -50,7 +50,7 @@ local version = std.extVar('version');
   },
   // Returns the IPv4 and IPv6 prefix for the physical site.
   V4Prefix():: $.network.ipv4.prefix,
-  V6Prefix():: $.network.ipv4.prefix,
+  V6Prefix():: $.network.ipv6.prefix,
   // Machine returns a network spec for machine m. The decoration parameter may
   // be used to decorate the machine record and hostname.
   Machine(m):: {
