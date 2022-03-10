@@ -7,16 +7,10 @@ local sites = import 'sites.jsonnet';
       local m = site.Machine(machine);
       m {
         hostname: m.Hostname(),
-        experiments: [
-          local e = site.Experiment(machine, experiment);
-          if e != null then
-            e {
-              hostname: e.Hostname(),
-            }
-          else
-            {}
+        experiments: std.prune([
+          site.Experiment(machine, experiment)
           for experiment in experiments
-        ],
+        ]),
       }
       for machine in std.objectFields(site.machines)
     ],

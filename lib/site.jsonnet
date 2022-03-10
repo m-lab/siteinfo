@@ -48,6 +48,9 @@ local version = std.extVar('version');
     ),
     Hostname():: '%s.%s' % [self.Record(), $.BaseDomain(i)],
   },
+  // Returns the IPv4 and IPv6 prefix for the physical site.
+  V4Prefix():: $.network.ipv4.prefix,
+  V6Prefix():: $.network.ipv4.prefix,
   // Machine returns a network spec for machine m. The decoration parameter may
   // be used to decorate the machine record and hostname.
   Machine(m):: {
@@ -80,6 +83,13 @@ local version = std.extVar('version');
     } else {
       ip: '',
     },
+    // Returns the network configuration for machine m.
+    Network():: {
+      Network: {
+        IPv4: v4net,
+        IPv6: if v6net != null then v6net else '',
+      },
+    },
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.
     Record(decoration=''):: (
@@ -111,6 +121,7 @@ local version = std.extVar('version');
         )
       ),
     },
+    hostname: self.Hostname(),
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.
     Record(decoration=''):: (
