@@ -98,10 +98,10 @@ test.suite({
   },
   test_drac: {
     actual: [
-      v4v6Site.DRAC(1).v4.ip,
-      v4v6Site.DRAC(2).v4.ip,
-      v4v6Site.DRAC(3).v4.ip,
-      v4v6Site.DRAC(4).v4.ip,
+      v4v6Site.DRAC('mlab1').v4.ip,
+      v4v6Site.DRAC('mlab2').v4.ip,
+      v4v6Site.DRAC('mlab3').v4.ip,
+      v4v6Site.DRAC('mlab4').v4.ip,
     ],
     expect: [
       '192.168.1.68',
@@ -112,10 +112,10 @@ test.suite({
   },
   test_drac_record: {
     actual: [
-      v4v6Site.DRAC(1).Record(),
-      v4v6Site.DRAC(2).Record(),
-      v4v6Site.DRAC(3).Record(),
-      v4v6Site.DRAC(4).Record(),
+      v4v6Site.DRAC('mlab1').Record(),
+      v4v6Site.DRAC('mlab2').Record(),
+      v4v6Site.DRAC('mlab3').Record(),
+      v4v6Site.DRAC('mlab4').Record(),
     ],
     expect: [
       if version == 'v1' then 'mlab1d.mck0t' else 'mlab1d-mck0t',
@@ -126,12 +126,12 @@ test.suite({
   },
   test_machine_v4: {
     actual: [
-      v4v6Site.Machine(2).v4.ip,
-      v4v6Site.Machine(2).v4.netmask,
-      v4v6Site.Machine(2).v4.gateway,
-      v4v6Site.Machine(2).v4.broadcast,
-      v4v6Site.Machine(2).Record(),
-      v4v6Site.Machine(2).Record('v4'),
+      v4v6Site.Machine('mlab2').v4.ip,
+      v4v6Site.Machine('mlab2').v4.netmask,
+      v4v6Site.Machine('mlab2').v4.gateway,
+      v4v6Site.Machine('mlab2').v4.broadcast,
+      v4v6Site.Machine('mlab2').Record(),
+      v4v6Site.Machine('mlab2').Record('v4'),
     ],
     expect: [
       '192.168.1.86',
@@ -154,8 +154,8 @@ test.suite({
   },
   test_machine_v6_ip: {
     actual: [
-      v4Site.Machine(2).v6.ip,
-      v4v6Site.Machine(2).v6.ip,
+      v4Site.Machine('mlab2').v6.ip,
+      v4v6Site.Machine('mlab2').v6.ip,
     ],
     expect: [
       '',
@@ -164,8 +164,8 @@ test.suite({
   },
   test_machine_v6_record: {
     actual: [
-      v4v6Site.Machine(1).Record('v6'),
-      v4v6Site.Machine(2).Record('v6'),
+      v4v6Site.Machine('mlab1').Record('v6'),
+      v4v6Site.Machine('mlba2').Record('v6'),
     ],
     expect: [
       if version == 'v1' then 'mlab1v6.mck0t' else 'mlab1v6-mck0t',
@@ -174,9 +174,9 @@ test.suite({
   },
   test_experiment_v4: {
     actual: [
-      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).v4.ip,
-      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record(),
-      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record('v4'),
+      v4v6Site.Experiment('mlab2', { index: 1, name: 'fake.exp' }).v4.ip,
+      v4v6Site.Experiment('mlab2', { index: 1, name: 'fake.exp' }).Record(),
+      v4v6Site.Experiment('mlab2', { index: 1, name: 'fake.exp' }).Record('v4'),
     ],
     expect: [
       '192.168.1.87',
@@ -186,10 +186,10 @@ test.suite({
   },
   test_experiment_v6: {
     actual: [
-      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).v6.ip,
-      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record(),
-      v4v6Site.Experiment(2, { index: 1, name: 'fake.exp' }).Record('v6'),
-      v4Site.Experiment(1, { index: 1, name: 'fake.exp' }).v6.ip,
+      v4v6Site.Experiment('mlab2', { index: 1, name: 'fake.exp' }).v6.ip,
+      v4v6Site.Experiment('mlab2', { index: 1, name: 'fake.exp' }).Record(),
+      v4v6Site.Experiment('mlab2', { index: 1, name: 'fake.exp' }).Record('v6'),
+      v4Site.Experiment('mlab1', { index: 1, name: 'fake.exp' }).v6.ip,
     ],
     expect: [
       '2001:1900:2100:2d::87',
