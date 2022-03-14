@@ -8,7 +8,7 @@ local hrefs = [
 // Output should be formatted as a string:
 //   jsonnet -J . --string formats/index.html.jsonnet
 std.lines([
-  '<html><body> Generated: '+ std.extVar('latest') +'<br><br><ul>',
+  '<html><body> Generated: ' + std.extVar('latest') + '<br><br><ul>',
   std.join('\n', hrefs),
   '</ul></body></html>',
 ])

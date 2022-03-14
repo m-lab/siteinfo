@@ -19,7 +19,7 @@ sitesDefault {
       prefix: '34.85.166.60/32',
     },
     ipv6+: {
-      prefix: null
+      prefix: null,
     },
   },
   transit+: {

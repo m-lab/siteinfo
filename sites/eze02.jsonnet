@@ -45,4 +45,3 @@ sitesDefault {
     created: '2021-08-31',
   },
 }
-

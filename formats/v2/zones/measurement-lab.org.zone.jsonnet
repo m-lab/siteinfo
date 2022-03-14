@@ -48,7 +48,7 @@ std.lines([
                      IN     NS      ns-cloud-d3.googledomains.com.
                      IN     NS      ns-cloud-d4.googledomains.com.
 
-  |||
+  |||,
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
   for row in records
