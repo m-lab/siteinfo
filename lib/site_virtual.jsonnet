@@ -20,12 +20,10 @@ local version = std.extVar('version');
     i
   ),
   // Virtual sites do not have prefixes. Instead, each machine has it's own
-  // specific network configuration. These functions just return an empty string
-  // for formats that assume every site has a prefix.
-  V4Prefix():: '',
-  V6Prefix():: '',
-  // Machine returns a network spec for virtual machine m. The decoration
-  // parameter may be used to decorate the machine record and hostname.
+  // specific network configuration. This functions just return an empty string
+  // for both IPv4 and IPv6 formats that assume every site has a prefix.
+  NetworkPrefix(proto):: '',
+  // Machine returns a network spec for virtual machine m.
   Machine(m):: {
     local i = $.MachineIndex(m),
     local v4addr = $.machines['mlab' + i].network.ipv4.address,
