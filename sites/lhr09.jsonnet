@@ -19,7 +19,7 @@ sitesDefault {
       prefix: '35.189.86.149/32',
     },
     ipv6+: {
-      prefix: '2600:1900:40c0:f08e::/128',
+      prefix: '2600:1900:40c0:f08e:0:1::/128',
     },
   },
   transit+: {
