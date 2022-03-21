@@ -93,8 +93,8 @@ test.suite({
     actual: [
       v4Site1Node.Machine('mlab1').v4.ip,
       v4Site1Node.MachineIndex('mlab1'),
-      v4Site1Node.V4Prefix(),
-      v4Site1Node.V6Prefix(),
+      v4Site1Node.NetworkPrefix('v4'),
+      v4Site1Node.NetworkPrefix('v6'),
       v4Site1Node.Machine('mlab1').Record(),
       v4Site1Node.Machine('mlab1').Record('v4'),
       v4Site1Node.Machine('mlab1').Hostname(),
