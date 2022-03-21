@@ -12,8 +12,8 @@ local parseASN(asn) = (
     Name: site.name,
     // Network allows identifying individual connection CIDR values.
     [if site.annotations.type == 'physical' then 'Network']: {
-      IPv4: site.network.ipv4.prefix,
-      IPv6: if site.network.ipv6.prefix != null then site.network.ipv6.prefix else '',
+      IPv4: site.NetworkPrefix('v4'),
+      IPv6: site.NetworkPrefix('v6'),
     },
     Annotation: {
       local loc = site.location,

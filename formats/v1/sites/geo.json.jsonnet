@@ -17,8 +17,8 @@ local sites = import 'sites.jsonnet';
         provider: site.transit.provider,
         uplink: site.transit.uplink,
         asn: site.transit.asn,
-        ipv4_prefix: site.V4Prefix(),
-        ipv6_prefix: site.V6Prefix(),
+        ipv4_prefix: site.NetworkPrefix('v4'),
+        ipv6_prefix: site.NetworkPrefix('v6'),
       },
     }
     for site in sites

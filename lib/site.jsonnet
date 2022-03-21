@@ -48,11 +48,14 @@ local version = std.extVar('version');
     ),
     Hostname():: '%s.%s' % [self.Record(), $.BaseDomain(i)],
   },
-  // Returns the IPv4 and IPv6 prefix for the physical site.
-  V4Prefix():: $.network.ipv4.prefix,
-  V6Prefix():: $.network.ipv6.prefix,
-  // Machine returns a network spec for machine m. The decoration parameter may
-  // be used to decorate the machine record and hostname.
+  // Returns the IPv4 or IPv6 prefix for the physical site.
+  NetworkPrefix(proto):: (
+    if proto == 'v6' then
+      if site.network.ipv6.prefix != null then site.network.ipv6.prefix else ''
+    else
+      $.network.ipv4.prefix
+  ),
+  // Machine returns a network spec for machine m.
   Machine(m):: {
     local i = $.MachineIndex(m),
     local v4net = $.network.ipv4.prefix,
