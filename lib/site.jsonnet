@@ -51,7 +51,7 @@ local version = std.extVar('version');
   // Returns the IPv4 or IPv6 prefix for the physical site.
   NetworkPrefix(proto):: (
     if proto == 'v6' then
-      if site.network.ipv6.prefix != null then site.network.ipv6.prefix else ''
+      if $.network.ipv6.prefix != null then $.network.ipv6.prefix else ''
     else
       $.network.ipv4.prefix
   ),
