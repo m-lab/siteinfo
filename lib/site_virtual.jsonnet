@@ -33,7 +33,7 @@ local version = std.extVar('version');
   // 'mlab1' for the machine parameter such that it is required, and remove the
   // check that 'machine' actually exists.
   NetworkPrefix(proto, machine='mlab1'):: (
-    local m = if std.objectHas($.machines, machine) == null then
+    local m = if std.objectHas($.machines, machine) then
       machine
     else
       std.objectFields($.machines)[0];

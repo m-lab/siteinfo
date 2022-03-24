@@ -95,7 +95,6 @@ test.suite({
       v4Site1Node.MachineIndex('mlab1'),
       v4Site1Node.NetworkPrefix('v4', 'mlab1'),
       v4Site1Node.NetworkPrefix('v6', 'mlab1'),
-      v4v6Site2Nodes.NetworkPrefix('v6', 'mlab4'),
       v4Site1Node.Machine('mlab1').Record(),
       v4Site1Node.Machine('mlab1').Record('v4'),
       v4Site1Node.Machine('mlab1').Hostname(),
@@ -106,7 +105,6 @@ test.suite({
       1,
       '10.0.0.5/32',
       '',
-      '2600:1900:54:e96::99/128',
       if version == 'v1' then 'mlab1.mck0t' else 'mlab1-mck0t',
       if version == 'v1' then 'mlab1v4.mck0t' else 'mlab1v4-mck0t',
       if version == 'v1' then 'mlab1.mck0t.measurement-lab.org' else 'mlab1-mck0t.mlab-sandbox.measurement-lab.org',
@@ -127,10 +125,12 @@ test.suite({
     actual: [
       v4v6Site2Nodes.Machine('mlab1').v6.ip,
       v4v6Site2Nodes.Machine('mlab4').v6.ip,
+      v4v6Site2Nodes.NetworkPrefix('v6', 'mlab4'),
     ],
     expect: [
       '2600:1900:2100:2e::35',
       '2600:1900:54:e96::99',
+      '2600:1900:54:e96::99/128',
     ],
   },
   test_experiment: {
