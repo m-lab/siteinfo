@@ -218,12 +218,4 @@ test.suite({
       3,
     ],
   },
-  test_machine_network: {
-    actual: [
-      v4v6Site.Machine('mlab1').Network(),
-    ],
-    expect: [
-      { Network: { IPv4: '192.168.1.64/26', IPv6: '2001:1900:2100:2d::/64' } },
-    ],
-  },
 })

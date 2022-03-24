@@ -154,4 +154,5 @@ test.suite({
       if version == 'v1' then 'fake.exp.mlab4.mck0t.measurement-lab.org' else 'fake-exp-mlab4-mck0t.mlab-sandbox.measurement-lab.org',
       if version == 'v1' then 'fake.exp.mlab1v6.mck0t.measurement-lab.org' else 'fake-exp-mlab1v6-mck0t.mlab-sandbox.measurement-lab.org',
     ],
-  })
+  },
+})
