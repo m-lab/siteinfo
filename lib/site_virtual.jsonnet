@@ -19,10 +19,23 @@ local version = std.extVar('version');
     local i = std.parseInt(std.substr(m, 4, 1));
     i
   ),
-  // Virtual sites do not have prefixes. Instead, each machine has its own
-  // specific network configuration. This functions just return an empty string
-  // for both IPv4 and IPv6 formats that assume every site has a prefix.
-  NetworkPrefix(proto):: '',
+  // Returns the network address for the specified machine and protocol. The
+  // 'machine' parameter defaults to 'mlab1' to accommodate formats that assume
+  // that all machines are physical, where network prefixes only exist at the
+  // site level, not the machine level. Early virtual sites only supported a
+  // single mlab1 node. Defaulting to mlab1 will allow old formats (e.g.,
+  // v1/sites/annotations.json.jsonnet) to support early virtual sites where
+  // only a single node existed.
+  // TODO(kinkade): once all v1 formats are retired, remove the default of
+  // 'mlab1' for the machine parameter such that it is required.
+  NetworkPrefix(proto, machine='mlab1'):: (
+    local v4net = $.machines[machine].network.ipv4.address;
+    local v6net = $.machines[machine].network.ipv6.address;
+    if proto == 'v6' then
+      if v6addr != null then v6net else ''
+    else
+      v4net
+  ),
   // Machine returns a network spec for virtual machine m. The decoration
   // parameter may be used to decorate the machine record and hostname.
   Machine(m):: {
@@ -40,13 +53,6 @@ local version = std.extVar('version');
           std.split($.machines['mlab' + i].network.ipv6.address, '/')[0]
         )
       ),
-    },
-    // Returns the network configuration for machine m.
-    Network():: {
-      Network: {
-        IPv4: v4addr,
-        IPv6: if v6addr != null then v6addr else '',
-      },
     },
     // Record returns a machine name suitable for a zone record including the
     // decoration if given.

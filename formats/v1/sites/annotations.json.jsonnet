@@ -11,7 +11,7 @@ local parseASN(asn) = (
     // following object keys are capitalized accordingly.
     Name: site.name,
     // Network allows identifying individual connection CIDR values.
-    [if site.annotations.type == 'physical' then 'Network']: {
+    Network: {
       IPv4: site.NetworkPrefix('v4'),
       IPv6: site.NetworkPrefix('v6'),
     },
