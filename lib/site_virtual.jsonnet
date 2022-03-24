@@ -32,7 +32,7 @@ local version = std.extVar('version');
   // TODO(kinkade): once all v1 formats are retired, remove the default of
   // 'mlab1' for the machine parameter such that it is required.
   NetworkPrefix(proto, machine='mlab1'):: (
-    local m = if $.machines[machine] then machine else $.machines[0];
+    local m = if std.isObject($.machines[machine]) then machine else $.machines[0];
     local v4net = $.machines[m].network.ipv4.address;
     local v6net = $.machines[m].network.ipv6.address;
     if proto == 'v6' then
