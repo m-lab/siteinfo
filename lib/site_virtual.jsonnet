@@ -32,7 +32,7 @@ local version = std.extVar('version');
     local v4net = $.machines[machine].network.ipv4.address;
     local v6net = $.machines[machine].network.ipv6.address;
     if proto == 'v6' then
-      if v6addr != null then v6net else ''
+      if v6net != null then v6net else ''
     else
       v4net
   ),
