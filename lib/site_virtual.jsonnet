@@ -30,9 +30,13 @@ local version = std.extVar('version');
   // defined in $.machines, to accommodate the case where the virtual site has
   // some other machine, e.g., mlab4.
   // TODO(kinkade): once all v1 formats are retired, remove the default of
-  // 'mlab1' for the machine parameter such that it is required.
+  // 'mlab1' for the machine parameter such that it is required, and remove the
+  // check that 'machine' actually exists.
   NetworkPrefix(proto, machine='mlab1'):: (
-    local m = if std.isObject($.machines[machine]) then machine else $.machines[0];
+    local m = if std.objectHas($.machines, machine) == null then
+      machine
+    else
+      std.objectFields($.machines)[0];
     local v4net = $.machines[m].network.ipv4.address;
     local v6net = $.machines[m].network.ipv6.address;
     if proto == 'v6' then
