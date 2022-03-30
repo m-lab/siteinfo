@@ -19,26 +19,10 @@ local version = std.extVar('version');
     local i = std.parseInt(std.substr(m, 4, 1));
     i
   ),
-  // Returns the network address for the specified machine and protocol. The
-  // 'machine' parameter defaults to 'mlab1' to accommodate formats that assume
-  // that all machines are physical, where network prefixes only exist at the
-  // site level, not the machine level. Early virtual sites only supported a
-  // single node. Defaulting to mlab1 will allow old formats (e.g.,
-  // v1/sites/annotations.json.jsonnet) to support early virtual sites where
-  // only a single node existed. Additionally, there is a sanity check that
-  // mlab1 exists, and if it does not exist it will use the first machine
-  // defined in $.machines, to accommodate the case where the virtual site has
-  // some other machine, e.g., mlab4.
-  // TODO(kinkade): once all v1 formats are retired, remove the default of
-  // 'mlab1' for the machine parameter such that it is required, and remove the
-  // check that 'machine' actually exists.
-  NetworkPrefix(proto, machine='mlab1'):: (
-    local m = if std.objectHas($.machines, machine) then
-      machine
-    else
-      std.objectFields($.machines)[0];
-    local v4net = $.machines[m].network.ipv4.address;
-    local v6net = $.machines[m].network.ipv6.address;
+  // Returns the network address for the specified machine and protocol.
+  NetworkPrefix(proto, machine):: (
+    local v4net = $.machines[machine].network.ipv4.address;
+    local v6net = $.machines[machine].network.ipv6.address;
     if proto == 'v6' then
       if v6net != null then v6net else ''
     else

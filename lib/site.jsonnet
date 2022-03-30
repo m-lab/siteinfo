@@ -49,16 +49,11 @@ local version = std.extVar('version');
     Hostname():: '%s.%s' % [self.Record(), $.BaseDomain(i)],
   },
   // Returns the IPv4 or IPv6 prefix for the physical site. The machine
-  // parameter is always set to 'mlab1' for physical sites, as the machine
-  // doesn't matter for physical sites because there is only a network config at
-  // the site level. However, this parameter exists for this function because
-  // for virtual sites it does matter, since networking information is machine
-  // specific for them. Old virtual sites only supported a single mlab1 node.
-  // Defaulting the machine parameter to 'mlab1' will allow this function to
-  // return a meaningful value for old sites and formats.
-  // TODO(kinkade): once all v1 formats are retired, remove the default of
-  // 'mlab1' for the machine parameter such that it is required.
-  NetworkPrefix(proto, machine='mlab1'):: (
+  // parameter is unused and only exists to support older formats that
+  // assume that all sites are physical and have a site-wide network
+  // configuration, as opposed to virtual sites which have network
+  // configurations on a per-machine basis.
+  NetworkPrefix(proto, machine):: (
     if proto == 'v6' then
       if $.network.ipv6.prefix != null then $.network.ipv6.prefix else ''
     else
