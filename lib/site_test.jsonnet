@@ -200,8 +200,8 @@ test.suite({
   },
   test_prefixes: {
     actual: [
-      v4v6Site.NetworkPrefix('v4', 'mlab1'),
-      v4v6Site.NetworkPrefix('v6', 'mlab1'),
+      v4v6Site.NetworkCIDR('v4', 'mlab1'),
+      v4v6Site.NetworkCIDR('v6', 'mlab1'),
     ],
     expect: [
       '192.168.1.64/26',

@@ -19,8 +19,9 @@ local version = std.extVar('version');
     local i = std.parseInt(std.substr(m, 4, 1));
     i
   ),
-  // Returns the network address for the specified machine and protocol.
-  NetworkPrefix(proto, machine):: (
+  // Returns the network address, in CIDR notation, for the specified machine
+  // and protocol.
+  NetworkCIDR(proto, machine):: (
     local v4net = $.machines[machine].network.ipv4.address;
     local v6net = $.machines[machine].network.ipv6.address;
     if proto == 'v6' then

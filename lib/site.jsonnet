@@ -53,7 +53,7 @@ local version = std.extVar('version');
   // assume that all sites are physical and have a site-wide network
   // configuration, as opposed to virtual sites which have network
   // configurations on a per-machine basis.
-  NetworkPrefix(proto, machine):: (
+  NetworkCIDR(proto, machine):: (
     if proto == 'v6' then
       if $.network.ipv6.prefix != null then $.network.ipv6.prefix else ''
     else

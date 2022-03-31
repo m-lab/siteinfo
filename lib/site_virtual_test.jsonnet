@@ -93,8 +93,8 @@ test.suite({
     actual: [
       v4Site1Node.Machine('mlab1').v4.ip,
       v4Site1Node.MachineIndex('mlab1'),
-      v4Site1Node.NetworkPrefix('v4', 'mlab1'),
-      v4Site1Node.NetworkPrefix('v6', 'mlab1'),
+      v4Site1Node.NetworkCIDR('v4', 'mlab1'),
+      v4Site1Node.NetworkCIDR('v6', 'mlab1'),
       v4Site1Node.Machine('mlab1').Record(),
       v4Site1Node.Machine('mlab1').Record('v4'),
       v4Site1Node.Machine('mlab1').Hostname(),
@@ -125,7 +125,7 @@ test.suite({
     actual: [
       v4v6Site2Nodes.Machine('mlab1').v6.ip,
       v4v6Site2Nodes.Machine('mlab4').v6.ip,
-      v4v6Site2Nodes.NetworkPrefix('v6', 'mlab4'),
+      v4v6Site2Nodes.NetworkCIDR('v6', 'mlab4'),
     ],
     expect: [
       '2600:1900:2100:2e::35',

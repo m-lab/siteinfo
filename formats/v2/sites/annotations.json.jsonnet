@@ -13,8 +13,8 @@ local parseASN(asn) = (
     Type: site.annotations.type,
     // Network allows identifying individual connection CIDR values.
     Network: {
-      IPv4: site.NetworkPrefix('v4', machine),
-      IPv6: site.NetworkPrefix('v6', machine),
+      IPv4: site.NetworkCIDR('v4', machine),
+      IPv6: site.NetworkCIDR('v6', machine),
     },
     Annotation: {
       local loc = site.location,

@@ -34,8 +34,8 @@ local getMachine(site) = (
         provider: site.transit.provider,
         uplink: site.transit.uplink,
         asn: site.transit.asn,
-        ipv4_prefix: site.NetworkPrefix('v4', getMachine(site)),
-        ipv6_prefix: site.NetworkPrefix('v6', getMachine(site)),
+        ipv4_prefix: site.NetworkCIDR('v4', getMachine(site)),
+        ipv6_prefix: site.NetworkCIDR('v6', getMachine(site)),
       },
     }
     for site in sites
