@@ -4,7 +4,7 @@ site {
   name: error 'Must override site name',
   annotations: {
     provider: 'mlab',
-    type: error 'Must override annotations.type, e.g. physical, virtual',
+    type: 'physical',
   },
   loadbalancer: {
     roundrobin: true,

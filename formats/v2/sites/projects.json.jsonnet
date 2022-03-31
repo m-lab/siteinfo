@@ -1,8 +1,8 @@
 local sites = import 'sites.jsonnet';
 
 {
-  local project = site.Machine(mIndex).project,
-  [site.Machine(mIndex).Record()]: project
+  local project = site.Machine(machine).project,
+  [site.Machine(machine).Record()]: project
   for site in sites
-  for mIndex in std.range(1, std.length(site.machines))
+  for machine in std.objectFields(site.machines)
 }
