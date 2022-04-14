@@ -24,13 +24,13 @@ sitesDefault {
       prefix: '162.213.101.64/26',
     },
     ipv6+: {
-      prefix: '',
+      prefix: '2401:d000:3180::/64',
     },
   },
   transit+: {
     provider: 'Superloop',
     uplink: '10g',
-    asn: ' AS38195',
+    asn: 'AS38195',
   },
   location+: {
     continent_code: 'OC',

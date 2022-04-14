@@ -24,7 +24,7 @@ sitesDefault {
       prefix: '175.45.79.64/26',
     },
     ipv6+: {
-      prefix: '',
+      prefix: '2402:7800:200f:1::/64',
     },
   },
   transit+: {
