@@ -5,7 +5,7 @@ sitesDefault {
   annotations+: {
     provider: 'gcp',
   },
-  machines+: {
+  machines: {
     mlab4: {
       disk: 'pd-standard',
       iface: 'ens4',
