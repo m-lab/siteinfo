@@ -5,11 +5,10 @@ local parseASN(asn) = (
   else
     0
 );
-[
-  {
+{
+  [site.Machine(machine).Hostname()]: {
     // NOTE: the uuid-annotator uses camel case in exported JSON, so the
     // following object keys are capitalized accordingly.
-    Name: site.name,
     Type: site.annotations.type,
     // Network allows identifying individual connection CIDR values.
     Network: {
@@ -20,7 +19,7 @@ local parseASN(asn) = (
       local loc = site.location,
       local transit = site.transit,
       Site: site.name,
-      Machine: site.Machine(machine).Hostname(),
+      Machine: machine,
       Geo: {
         ContinentCode: loc.continent_code,
         CountryCode: loc.country_code,
@@ -45,4 +44,4 @@ local parseASN(asn) = (
   }
   for site in sites
   for machine in std.objectFields(site.machines)
-]
+}
