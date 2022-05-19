@@ -176,6 +176,7 @@ local sites = {
   sin01: import 'sites/sin01.jsonnet',
   sin02: import 'sites/sin02.jsonnet',
   sof01: import 'sites/sof01.jsonnet',
+  sof02: import 'sites/sof02.jsonnet',
   svg01: import 'sites/svg01.jsonnet',
   syd03: import 'sites/syd03.jsonnet',
   syd04: import 'sites/syd04.jsonnet',
