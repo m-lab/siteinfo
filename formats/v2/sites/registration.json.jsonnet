@@ -19,7 +19,7 @@ local sites = import 'sites.jsonnet';
     metro: loc.metro,
     project: m.project,
     site: site.name,
-    hostname: e.Hostname(),
+    hostname: e.hostname,
     uplink: site.transit.uplink,
   }
   for site in sites
