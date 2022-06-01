@@ -23,5 +23,5 @@ local sites = import 'sites.jsonnet';
   }
   for site in sites
   for machine in std.objectFields(site.machines)
-  for experiment in experiment
+  for experiment in experiments
 ]
