@@ -3,8 +3,9 @@ local sites = import 'sites.jsonnet';
 
 [
   {
-    local e = site.Experiment(machine, experiment),
     local loc = site.location,
+    local m = site.Machine(machine),
+    local e = site.Experiment(machine, experiment),
     city: loc.city,
     country_code: loc.country_code,
     continent_code: loc.continent_code,
@@ -16,7 +17,7 @@ local sites = import 'sites.jsonnet';
     machine: machine,
     type: site.annotations.type,
     metro: loc.metro,
-    project: machine.project,
+    project: m.project,
     site: site.name,
     hostname: e.Hostname(),
     uplink: site.transit.uplink,
