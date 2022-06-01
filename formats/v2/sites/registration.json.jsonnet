@@ -17,9 +17,11 @@ local sites = import 'sites.jsonnet';
     metro: loc.metro,
     project: m.project,
     site: site.name,
+    hostname: e.Hostname(),
     uplink: site.transit.uplink,
   }
   for site in sites
   for machine in std.objectFields(site.machines)
   for experiment in experiments
+  if (site.Experiment(machine, experiment) != null)
 ]
