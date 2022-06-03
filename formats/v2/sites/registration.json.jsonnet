@@ -5,7 +5,6 @@ local sites = import 'sites.jsonnet';
   {
     local loc = site.location,
     local m = site.Machine(machine),
-    local e = site.Experiment(machine, experiment),
     City: loc.city,
     CountryCode: loc.country_code,
     ContinentCode: loc.continent_code,
@@ -20,6 +19,4 @@ local sites = import 'sites.jsonnet';
   }
   for site in sites
   for machine in std.objectFields(site.machines)
-  for experiment in experiments
-  if (site.Experiment(machine, experiment) != null)
 ]
