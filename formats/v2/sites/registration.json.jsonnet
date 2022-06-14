@@ -1,8 +1,8 @@
 local experiments = import 'experiments.jsonnet';
 local sites = import 'sites.jsonnet';
 
-[
-  {
+{
+  [site.Machine(machine).Hostname()]: {
     local loc = site.location,
     local m = site.Machine(machine),
     City: loc.city,
@@ -19,4 +19,4 @@ local sites = import 'sites.jsonnet';
   }
   for site in sites
   for machine in std.objectFields(site.machines)
-]
+}
