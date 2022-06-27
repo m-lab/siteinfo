@@ -30,6 +30,9 @@ it may be completely removed in the future.
   much data and metadata as we have about the site, the machines at the site and
   the experiments running on each machine. This will generally be overkill for
   most use cases.
+* `./sites/site-machines.json`: a map of every site listing which machines the
+  site has (e.g., ["mlab1", "mlab2"]). With the introduction of virtual sites,
+  it can no longer be assumed that every site has 4 machines.
 * `./zones/measurement-lab.org.zone`: BIND-style zone file for the
   measurement-lab.org domain.
 * `./zones/measurement-lab.org.zone.diff`: internal use.
