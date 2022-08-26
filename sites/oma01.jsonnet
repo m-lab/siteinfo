@@ -5,13 +5,16 @@ sitesDefault {
   annotations+: {
     provider: 'gcp',
   },
-  machines+: {
-    mlab1+: {
-      network+: {
-        ipv4+: {
+  machines: {
+    mlab4: {
+      disk: 'pd-standard',
+      iface: 'ens4',
+      model: 'n1-highcpu-4',
+      network: {
+        ipv4: {
           address: '104.197.205.150/32',
         },
-        ipv6+: {
+        ipv6: {
           address: '2600:1900:4000:bcb9::/128',
         },
       },
