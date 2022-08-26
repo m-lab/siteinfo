@@ -145,6 +145,7 @@ local sites = {
   nuq04: import 'sites/nuq04.jsonnet',
   nuq06: import 'sites/nuq06.jsonnet',
   nuq07: import 'sites/nuq07.jsonnet',
+  oma01: import 'sites/oma01.jsonnet',
   ord02: import 'sites/ord02.jsonnet',
   ord03: import 'sites/ord03.jsonnet',
   ord04: import 'sites/ord04.jsonnet',
