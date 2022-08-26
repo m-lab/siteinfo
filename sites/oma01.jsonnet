@@ -6,7 +6,7 @@ sitesDefault {
     provider: 'gcp',
   },
   machines+: {
-    mlab1+: {
+    mlab4+: {
       network+: {
         ipv4+: {
           address: '104.197.205.150/32',
