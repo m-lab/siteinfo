@@ -12,9 +12,9 @@ sitesDefault {
           address: '104.197.205.150/32',
         },
         ipv6+: {
-          address: '2600:1900:4000:bcb9:0:0:0:0/128',
+          address: '2600:1900:4000:bcb9::/128',
         },
-      },  
+      },
       project: 'mlab-staging',
     },
   },
