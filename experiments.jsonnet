@@ -6,6 +6,10 @@ local default = {
 
 [
   default {
+    index: 1,
+    name: 'demo1',
+  },
+  default {
     index: 2,
     name: 'ndt.iupui',
     cloud_enabled: true,
