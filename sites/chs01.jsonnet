@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'lax07',
+  name: 'chs01',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,10 +9,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.102.13.15/32',
+          address: '34.139.106.82/32',
         },
         ipv6+: {
-          address: '2600:1900:4120:30e8:0:1::/128',
+          address: '2600:1900:4020:5b68::/128',
         },
       },
       project: 'mlab-oti',
@@ -26,13 +26,13 @@ sitesDefault {
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'lax',
-    city: 'Los Angeles',
-    state: 'CA',
-    latitude: 33.9425,
-    longitude: -118.4072,
+    metro: 'chs',
+    city: 'Charleston',
+    state: 'SC',
+    latitude: 32.8986,
+    longitude: -80.0406,
   },
   lifecycle+: {
-    created: '2022-03-02',
+    created: '2022-09-07',
   },
 }
