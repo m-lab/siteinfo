@@ -6,6 +6,7 @@ local sites = {
   ams05: import 'sites/ams05.jsonnet',
   ams08: import 'sites/ams08.jsonnet',
   ams09: import 'sites/ams09.jsonnet',
+  ams10: import 'sites/ams10.jsonnet',
   arn02: import 'sites/arn02.jsonnet',
   arn03: import 'sites/arn03.jsonnet',
   arn04: import 'sites/arn04.jsonnet',
