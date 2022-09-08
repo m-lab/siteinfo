@@ -38,6 +38,7 @@ local sites = {
   cpt01: import 'sites/cpt01.jsonnet',
   del01: import 'sites/del01.jsonnet',
   del02: import 'sites/del02.jsonnet',
+  del03: import 'sites/del03.jsonnet',
   den02: import 'sites/den02.jsonnet',
   den04: import 'sites/den04.jsonnet',
   den05: import 'sites/den05.jsonnet',
