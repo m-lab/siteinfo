@@ -71,6 +71,7 @@ local sites = {
   gru03: import 'sites/gru03.jsonnet',
   gru04: import 'sites/gru04.jsonnet',
   ham02: import 'sites/ham02.jsonnet',
+  hel01: import 'sites/hel01.jsonnet',
   hkg01: import 'sites/hkg01.jsonnet',
   hkg02: import 'sites/hkg02.jsonnet',
   hkg03: import 'sites/hkg03.jsonnet',
