@@ -90,6 +90,7 @@ local sites = {
   iad06: import 'sites/iad06.jsonnet',
   iad07: import 'sites/iad07.jsonnet',
   iad08: import 'sites/iad08.jsonnet',
+  icn01: import 'sites/icn01.jsonnet',
   jnb01: import 'sites/jnb01.jsonnet',
   kix01: import 'sites/kix01.jsonnet',
   las01: import 'sites/las01.jsonnet',
