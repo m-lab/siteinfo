@@ -191,6 +191,7 @@ local sites = {
   sea09: import 'sites/sea09.jsonnet',
   sin01: import 'sites/sin01.jsonnet',
   sin02: import 'sites/sin02.jsonnet',
+  slc01: import 'sites/slc01.jsonnet',
   sof01: import 'sites/sof01.jsonnet',
   sof02: import 'sites/sof02.jsonnet',
   svg01: import 'sites/svg01.jsonnet',
