@@ -124,6 +124,7 @@ local sites = {
   mad03: import 'sites/mad03.jsonnet',
   mad04: import 'sites/mad04.jsonnet',
   mad06: import 'sites/mad06.jsonnet',
+  mad07: import 'sites/mad07.jsonnet',
   mex01: import 'sites/mex01.jsonnet',
   mex02: import 'sites/mex02.jsonnet',
   mex03: import 'sites/mex03.jsonnet',
