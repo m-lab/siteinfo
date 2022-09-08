@@ -26,6 +26,7 @@ local sites = {
   bog05: import 'sites/bog05.jsonnet',
   bom01: import 'sites/bom01.jsonnet',
   bom02: import 'sites/bom02.jsonnet',
+  bom03: import 'sites/bom03.jsonnet',
   bru01: import 'sites/bru01.jsonnet',
   bru02: import 'sites/bru02.jsonnet',
   bru03: import 'sites/bru03.jsonnet',
