@@ -183,6 +183,7 @@ local sites = {
   scl02: import 'sites/scl02.jsonnet',
   scl03: import 'sites/scl03.jsonnet',
   scl04: import 'sites/scl04.jsonnet',
+  scl05: import 'sites/scl05.jsonnet',
   sea02: import 'sites/sea02.jsonnet',
   sea03: import 'sites/sea03.jsonnet',
   sea04: import 'sites/sea04.jsonnet',
