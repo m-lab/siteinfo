@@ -8,8 +8,11 @@ sitesDefault {
   machines+: {
     mlab1+: {
       network+: {
-        ipv4: {
+        ipv4+: {
           address: '34.159.159.206/32',
+        },
+        ipv6+: {
+          address: '2600:1900:40d0:3976::/128',
         },
       },
       project: 'mlab-oti',
