@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'cgk01',
+  name: 'mil08',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,30 +9,30 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.101.131.175/32',
+          address: '34.154.171.24/32',
         },
         ipv6+: {
-          address: '2600:1901:8170:40d1::/128',
+          address: '2600:1901:8110:97b::/128',
         },
-      },  
+      },
       project: 'mlab-oti',
     },
   },
   transit+: {
     provider: 'Google LLC',
     uplink: '1g',
-    asn: 'AS139190',
+    asn: 'AS396982',
   },
   location+: {
-    continent_code: 'AS',
-    country_code: 'ID',
-    metro: 'cgk',
-    city: 'Jakarta',
+    continent_code: 'EU',
+    country_code: 'IT',
+    metro: 'mil',
+    city: 'Milan',
     state: '',
-    latitude: -6.1256,
-    longitude: 106.6558,
+    latitude: 45.464,
+    longitude: 9.1916,
   },
   lifecycle+: {
-    created: '2022-03-02',
+    created: '2022-09-08',
   },
 }

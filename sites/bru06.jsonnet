@@ -11,6 +11,9 @@ sitesDefault {
         ipv4+: {
           address: '34.79.58.167/32',
         },
+        ipv6+: {
+          address: '2600:1900:4010:a6d4::/128',
+        },
       },  
       project: 'mlab-oti',
     },
