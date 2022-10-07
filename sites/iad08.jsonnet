@@ -6,6 +6,20 @@ sitesDefault {
     provider: 'gcp',
   },
   machines: {
+    mlab3: {
+      disk: 'pd-ssd',
+      iface: 'ens4',
+      model: 'n1-highcpu-4',
+      network: {
+        ipv4: {
+          address: '34.145.210.246/32',
+        },
+        ipv6: {
+          address: '2600:1900:4090:6589::/128',
+        },
+      },
+      project: 'mlab-staging',
+    },
     mlab4: {
       disk: 'pd-standard',
       iface: 'ens4',
