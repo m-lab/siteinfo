@@ -16,6 +16,20 @@ sitesDefault {
       },
       project: 'mlab-sandbox',
     },
+    mlab2: {
+      disk: 'pd-ssd',
+      iface: 'ens4',
+      model: 'n1-highcpu-4',
+      network: {
+        ipv4: {
+          address: '34.74.30.247/32',
+        },
+        ipv6: {
+          address: '2600:1900:4020:31cd:0:2::/128',
+        },
+      },
+      project: 'mlab-sandbox',
+    },
   },
   transit+: {
     provider: 'Google LLC',
