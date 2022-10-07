@@ -24,8 +24,28 @@ local default = {
     name: 'revtr',
   },
   default {
+    index: 4,
+    name: 'demo4',
+  },
+  default {
     index: 5,
     name: 'wehe',
+  },
+  default {
+    index: 6,
+    name: 'demo6',
+  },
+  default {
+    index: 7,
+    name: 'demo7',
+  },
+  default {
+    index: 8,
+    name: 'demo8',
+  },
+  default {
+    index: 9,
+    name: 'demo9',
   },
   default {
     index: 10,
@@ -34,5 +54,13 @@ local default = {
   default {
     index: 10,
     name: 'neubot',
+  },
+  default {
+    index: 11,
+    name: 'demo11',
+  },
+  default {
+    index: 12,
+    name: 'demo12',
   },
 ]
