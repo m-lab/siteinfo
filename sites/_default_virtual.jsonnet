@@ -13,7 +13,7 @@ site {
     mlab1: {
       disk: 'pd-ssd',
       iface: 'ens4',
-      model: 'n1-highcpu-4',
+      model: 'n2-highcpu-4',
       network: {
         ipv4: {
           address: error 'Must override IPv4 address',

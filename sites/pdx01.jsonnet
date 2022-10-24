@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'sea09',
+  name: 'pdx01',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,12 +9,12 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.105.122.11/32',
+          address: '34.168.208.61/32',
         },
         ipv6+: {
-          address: '2600:1900:4040:ed0d::/128',
+          address: '2600:1900:4040:ed0d:0:1::/128',
         },
-      },  
+      },
       project: 'mlab-oti',
     },
   },
@@ -26,14 +26,13 @@ sitesDefault {
   location+: {
     continent_code: 'NA',
     country_code: 'US',
-    metro: 'sea',
-    city: 'Seattle',
-    state: 'WA',
-    latitude: 47.4489,
-    longitude: -122.3094,
+    metro: 'pdx',
+    city: 'Portland',
+    state: 'OR',
+    latitude: 45.5886,
+    longitude: -122.5975,
   },
   lifecycle+: {
-    created: '2022-03-02',
-    retired: '2022-10-21',
+    created: '2022-10-21',
   },
 }

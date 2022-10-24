@@ -6,6 +6,17 @@ sitesDefault {
     provider: 'gcp',
   },
   machines: {
+    mlab1+: {
+      network+: {
+        ipv4+: {
+          address: '34.132.178.43/32',
+        },
+        ipv6+: {
+          address: '2600:1900:4000:2264:0:1::/128',
+        },
+      },
+      project: 'mlab-oti',
+    },
     mlab4: {
       disk: 'pd-standard',
       iface: 'ens4',
