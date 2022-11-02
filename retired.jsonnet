@@ -53,7 +53,10 @@ local retiredSites = {
   vie01: import 'sites/vie01.jsonnet',
   wlg01: import 'sites/wlg01.jsonnet',
   yul01: import 'sites/yul01.jsonnet',
+  yvr01: import 'sites/yvr01.jsonnet',
+  ywg01: import 'sites/ywg01.jsonnet',
   yyc01: import 'sites/yyc01.jsonnet',
+  yyc02: import 'sites/yyc02.jsonnet',
   yyz01: import 'sites/yyz01.jsonnet',
   yyz02: import 'sites/yyz02.jsonnet',
 };
