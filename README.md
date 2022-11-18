@@ -26,6 +26,7 @@ it may be completely removed in the future.
 * `./sites/projects.json`: similar to machines.json above, but a map of every
   machine, using the machine's short name (e.g., mlab2-lju01), to its GCP
   project.
+* `./sites/registration.json`: consumed by the [Heartbeat Service](https://github.com/m-lab/locate/tree/main/cmd/heartbeat#readme) to create the registration message on start.
 * `./sites/sites.json`: an exhaustive inventory of every M-Lab site, with as
   much data and metadata as we have about the site, the machines at the site and
   the experiments running on each machine. This will generally be overkill for
