@@ -29,13 +29,13 @@ steps:
   ]
 
 # Import submodules to run jsonnet unit tests.
-- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
+- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif:1.0
   args: [
     'git submodule update --init --recursive'
   ]
 
 # Run jsonnet unit tests.
-- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
+- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif:1.0
   args: [
     'make test VERSION=v1',
     'make test VERSION=v2'
@@ -46,7 +46,7 @@ steps:
 ############################################################################
 
 # Generate v1 and v2 json files.
-- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif
+- name: gcr.io/$PROJECT_ID/gcloud-jsonnet-cbif:1.0
   args: [
     'make VERSION=v1',
     'make VERSION=v2'
@@ -96,7 +96,7 @@ steps:
 
 # Trigger an epoxy-images stage1 build, which will build stage1 boot images for
 # any new sites.
-- name: gcr.io/${PROJECT_ID}/siteinfo-cbif
+- name: gcr.io/${PROJECT_ID}/siteinfo-cbif:1.0
   env:
   - PROJECT_IN=mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
@@ -109,7 +109,7 @@ steps:
 
 # Trigger a switch-config build, which will build switch configurations for any
 # new sites, and deploy them to GCS.
-- name: gcr.io/${PROJECT_ID}/siteinfo-cbif
+- name: gcr.io/${PROJECT_ID}/siteinfo-cbif:1.0
   entrypoint: /bin/bash
   env:
   - PROJECT_IN=mlab-staging,mlab-oti
@@ -149,7 +149,7 @@ steps:
   - 'ZONEFILE=${PROJECT_ID}.measurement-lab.org.zone'
 
 # Sync ePoxy Datastore entities with this repository.
-- name: gcr.io/${PROJECT_ID}/siteinfo-cbif
+- name: gcr.io/${PROJECT_ID}/siteinfo-cbif:1.0
   env:
   - PROJECT_IN=mlab-sandbox,mlab-staging,mlab-oti
   - SINGLE_COMMAND=true
