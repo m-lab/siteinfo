@@ -7,7 +7,7 @@ local default = {
 [
   default {
     index: 1,
-    name: 'demo1',
+    name: 'msak',
   },
   default {
     index: 2,
