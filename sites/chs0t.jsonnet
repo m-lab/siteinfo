@@ -11,7 +11,7 @@ sitesDefault {
       disk: 'pd-standard',
       network+: {
         ipv4+: {
-          address: '34.73.52.238/32',
+          address: '34.139.153.144/32',
         },
       },
       project: 'mlab-sandbox',
@@ -19,13 +19,13 @@ sitesDefault {
     mlab2: {
       disk: 'pd-ssd',
       iface: 'ens4',
-      model: 'n1-highcpu-4',
+      model: 'n2-highcpu-4',
       network: {
         ipv4: {
           address: '34.74.30.247/32',
         },
         ipv6: {
-          address: '2600:1900:4020:31cd:0:2::/128',
+          address: null,
         },
       },
       project: 'mlab-sandbox',

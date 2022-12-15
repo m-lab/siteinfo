@@ -13,9 +13,6 @@ sitesDefault {
         ipv4+: {
           address: '34.94.47.22/32',
         },
-        ipv6+: {
-          address: '2600:1900:4120:8f83:0:5::/128',
-        },
       },  
       project: 'mlab-sandbox',
     },
