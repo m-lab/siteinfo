@@ -9,7 +9,6 @@ sitesDefault {
   machines+: {
     mlab1+: {
       disk: 'pd-standard',
-      model: 'n1-highcpu-4',
       network+: {
         ipv4+: {
           address: '35.247.89.22/32',
