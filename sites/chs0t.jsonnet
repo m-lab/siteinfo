@@ -24,7 +24,9 @@ sitesDefault {
         ipv4: {
           address: '34.74.30.247/32',
         },
-        ipv6: null,
+        ipv6: {
+          address: null,
+        },
       },
       project: 'mlab-sandbox',
     },
