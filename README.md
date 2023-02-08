@@ -21,6 +21,9 @@ it may be completely removed in the future.
 
 * `./adhoc/placeholder.json`: internal use.
 * `./retired/placeholder.json`: internal use.
+* `./sites/locations-physical.json`: a list of site locations, ingested by
+  mlab-ns, but only containing physical sites. mlab-ns is now deprecated and
+  should only return physical sites in its results.
 * `./sites/machines.json`: a list of machines (both physical and virtual) on the
   platform, along with IP addresses, type and GCP project.
 * `./sites/projects.json`: similar to machines.json above, but a map of every
