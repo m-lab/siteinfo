@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'bom',
     city: 'Mumbai',
     state: '',
-    latitude: 19.0886,
-    longitude: 72.8681,
+    latitude: 21.0686228,
+    longitude: 82.7525294,
   },
   lifecycle+: {
     created: '2019-01-01',

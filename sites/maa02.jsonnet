@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'maa',
     city: 'Chennai',
     state: '',
-    latitude: 12.9941,
-    longitude: 80.1709,
+    latitude: 21.0686228,
+    longitude: 82.7525294,
   },
   lifecycle+: {
     created: '2019-09-09',
