@@ -4,6 +4,7 @@ sitesDefault {
   name: 'hnd02',
   annotations+: {
     type: 'physical',
+    probability: 0.1,
   },
   machines+: {
     mlab1+: {
