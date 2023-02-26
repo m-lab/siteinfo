@@ -4,7 +4,7 @@ sitesDefault {
   name: 'ams10',
   annotations+: {
     provider: 'gcp',
-    probability: 0,2,
+    probability: 0.2,
   },
   machines+: {
     mlab1+: {
