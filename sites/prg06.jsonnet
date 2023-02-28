@@ -4,6 +4,7 @@ sitesDefault {
   name: 'prg06',
   annotations+: {
     type: 'physical',
+    probability: 0.3,
   },
   machines+: {
     mlab1+: {

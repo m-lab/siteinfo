@@ -4,6 +4,7 @@ sitesDefault {
   name: 'yul02',
   annotations+: {
     type: 'physical',
+    probability: 0.2,
   },
   machines+: {
     mlab1+: {

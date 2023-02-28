@@ -12,6 +12,7 @@ local sites = import 'sites.jsonnet';
     Longitude: loc.longitude,
     Machine: machine,
     Type: site.annotations.type,
+    Probability: site.annotations.probability,
     Metro: loc.metro,
     Project: m.project,
     Site: site.name,

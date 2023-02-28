@@ -3,6 +3,7 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   annotations+: {
     type: 'physical',
+    probability: 0.5,
   },
   lifecycle+: {
     created: '2012-05-10',

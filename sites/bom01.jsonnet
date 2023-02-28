@@ -4,6 +4,7 @@ sitesDefault {
   name: 'bom01',
   annotations+: {
     type: 'physical',
+    probability: 0.1,
   },
   machines+: {
     mlab1+: {
