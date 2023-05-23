@@ -22,10 +22,10 @@ sitesDefault {
       model: 'n2-highcpu-4',
       network: {
         ipv4: {
-          address: '35.185.69.66/32',
+          address: '34.23.227.171/32',
         },
         ipv6: {
-          address: '2600:1900:4020:31cd:0:36::/128',
+          address: '2600:1900:4020:31cd:0:5d::/128',
         },
       },
       project: 'mlab-sandbox',
