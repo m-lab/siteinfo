@@ -11,7 +11,7 @@ sitesDefault {
       disk: 'pd-standard',
       network+: {
         ipv4+: {
-          address: '34.94.47.22/32',
+          address: '34.94.92.192/32',
         },
       },  
       project: 'mlab-sandbox',
