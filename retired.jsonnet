@@ -17,9 +17,12 @@ local retiredSites = {
   den03: import 'sites/den03.jsonnet',
   dfw01: import 'sites/dfw01.jsonnet',
   dfw04: import 'sites/dfw04.jsonnet',
+  dfw05: import 'sites/dfw05.jsonnet',
   dfw06: import 'sites/dfw06.jsonnet',
   ham01: import 'sites/ham01.jsonnet',
   hnd01: import 'sites/hnd01.jsonnet',
+  hnd03: import 'sites/hnd03.jsonnet',
+  hnd04: import 'sites/hnd04.jsonnet',
   iad01: import 'sites/iad01.jsonnet',
   lax01: import 'sites/lax01.jsonnet',
   lba01: import 'sites/lba01.jsonnet',
@@ -49,6 +52,7 @@ local retiredSites = {
   sjc01: import 'sites/sjc01.jsonnet',
   syd01: import 'sites/syd01.jsonnet',
   syd02: import 'sites/syd02.jsonnet',
+  syd04: import 'sites/syd04.jsonnet',
   trn01: import 'sites/trn01.jsonnet',
   vie01: import 'sites/vie01.jsonnet',
   wlg01: import 'sites/wlg01.jsonnet',
@@ -61,6 +65,7 @@ local retiredSites = {
   yyc02: import 'sites/yyc02.jsonnet',
   yyz01: import 'sites/yyz01.jsonnet',
   yyz02: import 'sites/yyz02.jsonnet',
+  yyz05: import 'sites/yyz05.jsonnet',
 };
 [
   local site = retiredSites[name];
