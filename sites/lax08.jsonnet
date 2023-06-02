@@ -15,7 +15,7 @@ sitesDefault {
           address: '34.102.101.93/32',
         },
         ipv6: {
-          address: '2600:1900:4120:7571::/128',
+          address: '2600:1900:4120:7571:0:1::/128',
         },
       },
       project: 'mlab-staging',
