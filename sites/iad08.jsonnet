@@ -15,7 +15,7 @@ sitesDefault {
           address: '34.145.210.246/32',
         },
         ipv6: {
-          address: '2600:1900:4090:6589::/128',
+          address: '2600:1900:4090:6589:0:1::/128',
         },
       },
       project: 'mlab-staging',
@@ -29,7 +29,7 @@ sitesDefault {
           address: '35.245.211.241/32',
         },
         ipv6: {
-          address: null,
+          address: '2600:1900:4090:6589:0:2::/128',
         },
       },
       project: 'mlab-staging',
