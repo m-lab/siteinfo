@@ -34,6 +34,7 @@ local retiredSites = {
   lga07: import 'sites/lga07.jsonnet',
   lhr01: import 'sites/lhr01.jsonnet',
   lhr06: import 'sites/lhr06.jsonnet',
+  lhr08: import 'sites/lhr08.jsonnet',
   los01: import 'sites/los01.jsonnet',
   mad01: import 'sites/mad01.jsonnet',
   mad05: import 'sites/mad05.jsonnet',
