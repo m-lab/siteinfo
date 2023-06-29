@@ -45,6 +45,7 @@ local retiredSites = {
   mil01: import 'sites/mil01.jsonnet',
   mpm01: import 'sites/mpm01.jsonnet',
   nuq01: import 'sites/nuq01.jsonnet',
+  nuq02: import 'sites/nuq02.jsonnet',
   nuq05: import 'sites/nuq05.jsonnet',
   ord01: import 'sites/ord01.jsonnet',
   ord07: import 'sites/ord07.jsonnet',
