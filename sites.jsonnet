@@ -220,6 +220,7 @@ local sites = {
   zrh01: import 'sites/zrh01.jsonnet',
 
   // Test sites.
+  atl0t: import 'sites/atl0t.jsonnet',
   chs0t: import 'sites/chs0t.jsonnet',
   lax0t: import 'sites/lax0t.jsonnet',
   lga0t: import 'sites/lga0t.jsonnet',
