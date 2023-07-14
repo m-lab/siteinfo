@@ -42,7 +42,7 @@ sitesDefault {
     metro: 'lga',
     city: 'New York',
     state: 'NY',
-    latitude: 40.7661,
+    latitude: 40.7660,
     longitude: -73.8667,
   },
   lifecycle+: {
