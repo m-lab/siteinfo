@@ -4,6 +4,7 @@ sitesDefault {
   name: 'del03',
   annotations+: {
     provider: 'gcp',
+    probability: 0.3,
   },
   machines+: {
     mlab1+: {
