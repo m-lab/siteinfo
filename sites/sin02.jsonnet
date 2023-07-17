@@ -4,6 +4,7 @@ sitesDefault {
   name: 'sin02',
   annotations+: {
     provider: 'gcp',
+    probability: 0.3,
   },
   machines+: {
     mlab1+: {
@@ -14,7 +15,7 @@ sitesDefault {
         ipv6+: {
           address: '2600:1900:4080:5afb::/128',
         },
-      },  
+      },
       project: 'mlab-oti',
     },
   },

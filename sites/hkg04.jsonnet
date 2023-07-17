@@ -4,6 +4,7 @@ sitesDefault {
   name: 'hkg04',
   annotations+: {
     provider: 'gcp',
+    probability: 0.3,
   },
   machines+: {
     mlab1+: {

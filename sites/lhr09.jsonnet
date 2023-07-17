@@ -5,6 +5,7 @@ sitesDefault {
   annotations+: {
     type: 'virtual',
     provider: 'gcp',
+    probability: 0.3,
   },
   machines: {
     mlab1: {
@@ -19,7 +20,7 @@ sitesDefault {
         ipv6+: {
           address: '2600:1900:40c0:f08e:0:1::/128',
         },
-      },  
+      },
     },
   },
   transit+: {

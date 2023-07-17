@@ -5,7 +5,7 @@ site {
   annotations: {
     provider: 'mlab',
     type: 'virtual',
-    probability: 0.2,
+    probability: 1.0,
   },
   loadbalancer: {
     roundrobin: true,

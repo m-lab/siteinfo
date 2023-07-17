@@ -4,7 +4,6 @@ sitesDefault {
   name: 'fra07',
   annotations+: {
     provider: 'gcp',
-    probability: 1.0,
   },
   machines+: {
     mlab1+: {
