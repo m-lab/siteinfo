@@ -107,6 +107,23 @@ steps:
                      'trigger'
   ]
 
+# Trigger a prometheus-support build. prometheus-support builds build various
+# static target files that Prometheus consumes. These static target files are
+# gnerated based on sites present, or not, in siteinfo. When a site is retired,
+# for example, we need the prometheus-support build to generate updated target
+# files, else the old target files will stay in use and alerts may fire for
+# retired sites.
+- name: gcr.io/${PROJECT_ID}/siteinfo-cbif:1.0
+  env:
+  - PROJECT_IN=mlab-staging,mlab-oti
+  - SINGLE_COMMAND=true
+  args: [
+    '/go/bin/cbctl', '-project=$PROJECT_ID',
+                     '-repo=prometheus-support',
+                     '-trigger_name=push-m-lab-prometheus-support-trigger',
+                     'trigger'
+  ]
+
 # Trigger a switch-config build, which will build switch configurations for any
 # new sites, and deploy them to GCS.
 - name: gcr.io/${PROJECT_ID}/siteinfo-cbif:1.0
