@@ -4,7 +4,6 @@ sitesDefault {
   name: 'bru06',
   annotations+: {
     provider: 'gcp',
-    probability: 0.3,
   },
   machines+: {
     mlab1+: {
