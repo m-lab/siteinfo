@@ -4,6 +4,7 @@ sitesDefault {
   name: 'lis03',
   annotations+: {
     type: 'physical',
+    probability: 0.4,
   },
   machines+: {
     mlab1+: {

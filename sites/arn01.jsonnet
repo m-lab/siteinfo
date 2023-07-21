@@ -14,9 +14,7 @@ sitesDefault {
     country_code: 'SE',
     latitude: 59.6519,
     longitude: 17.9186,
-    metro: {
-      metro: 'arn',
-    },
+    metro: 'arn',
     state: '',
   },
   name: 'arn01',
