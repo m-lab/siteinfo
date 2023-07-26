@@ -4,7 +4,7 @@ sitesDefault {
   name: 'lga1t',
   annotations+: {
     type: 'physical',
-    probability: 0.5,
+    probability: 0.4,
   },
   machines+: {
     mlab1+: {
