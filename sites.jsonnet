@@ -93,7 +93,6 @@ local sites = {
   lax06: import 'sites/lax06.jsonnet',
   lax07: import 'sites/lax07.jsonnet',
   lax08: import 'sites/lax08.jsonnet',
-  lax09: import 'sites/lax09.jsonnet',
   lga04: import 'sites/lga04.jsonnet',
   lga05: import 'sites/lga05.jsonnet',
   lga06: import 'sites/lga06.jsonnet',
@@ -215,7 +214,6 @@ local sites = {
   zrh01: import 'sites/zrh01.jsonnet',
 
   // Test sites.
-  atl0t: import 'sites/atl0t.jsonnet',
   chs0t: import 'sites/chs0t.jsonnet',
   lax0t: import 'sites/lax0t.jsonnet',
   lga0t: import 'sites/lga0t.jsonnet',

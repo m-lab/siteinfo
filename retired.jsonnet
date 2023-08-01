@@ -31,6 +31,7 @@ local retiredSites = {
   iad05: import 'sites/iad05.jsonnet',
   lax01: import 'sites/lax01.jsonnet',
   lax05: import 'sites/lax05.jsonnet',
+  lax09: import 'sites/lax09.jsonnet',
   lba01: import 'sites/lba01.jsonnet',
   lca01: import 'sites/lca01.jsonnet',
   lga01: import 'sites/lga01.jsonnet',
@@ -79,6 +80,9 @@ local retiredSites = {
   yyz01: import 'sites/yyz01.jsonnet',
   yyz02: import 'sites/yyz02.jsonnet',
   yyz05: import 'sites/yyz05.jsonnet',
+
+  // Test sites.
+  atl0t: import 'sites/atl0t.jsonnet',
 };
 [
   local site = retiredSites[name];
