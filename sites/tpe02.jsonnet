@@ -17,6 +17,20 @@ sitesDefault {
       },
       project: 'mlab-oti',
     },
+    mlab2: {
+      disk: 'pd-ssd',
+      iface: 'ens4',
+      model: 'n2-highcpu-4',
+      network: {
+        ipv4: {
+          address: '34.80.84.0/32',
+        },
+        ipv6: {
+          address: '2600:1900:4030:ddef:0:5::/128',
+        },
+      },
+      project: 'mlab-oti',
+    },
   },
   transit+: {
     provider: 'Google LLC',

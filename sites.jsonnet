@@ -195,6 +195,7 @@ local sites = {
   tpe01: import 'sites/tpe01.jsonnet',
   tpe02: import 'sites/tpe02.jsonnet',
   trn02: import 'sites/trn02.jsonnet',
+  trn03: import 'sites/trn03.jsonnet',
   tun01: import 'sites/tun01.jsonnet',
   waw01: import 'sites/waw01.jsonnet',
   wlg02: import 'sites/wlg02.jsonnet',
