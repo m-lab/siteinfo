@@ -4,7 +4,6 @@ sitesDefault {
   name: 'cgk01',
   annotations+: {
     provider: 'gcp',
-    probability: 0.3,
   },
   machines+: {
     mlab1+: {
@@ -14,6 +13,34 @@ sitesDefault {
         },
         ipv6+: {
           address: '2600:1901:8170:40d1::/128',
+        },
+      },
+      project: 'mlab-oti',
+    },
+    mlab2: {
+      disk: 'pd-ssd',
+      iface: 'ens4',
+      model: 'n2-highcpu-4',
+      network: {
+        ipv4: {
+          address: '34.101.73.243/32',
+        },
+        ipv6: {
+          address: '2600:1901:8170:40d1:0:4::/128',
+        },
+      },
+      project: 'mlab-oti',
+    },
+    mlab3: {
+      disk: 'pd-ssd',
+      iface: 'ens4',
+      model: 'n2-highcpu-4',
+      network: {
+        ipv4: {
+          address: '34.101.74.219/32',
+        },
+        ipv6: {
+          address: '2600:1901:8170:40d1:0:6::/128',
         },
       },
       project: 'mlab-oti',
