@@ -26,7 +26,7 @@ sitesDefault {
           address: '34.174.104.110/32',
         },
         ipv6: {
-          address: '2600:1901:8140:9cd3:0:3::/128',
+          address: '2600:1901:8140:9cd3:0:6::/128',
         },
       },
       project: 'mlab-oti',
@@ -40,7 +40,7 @@ sitesDefault {
           address: '34.174.134.185/32',
         },
         ipv6: {
-          address: '2600:1901:8140:9cd3:0:2::/128',
+          address: '2600:1901:8140:9cd3:0:8::/128',
         },
       },
       project: 'mlab-oti',
