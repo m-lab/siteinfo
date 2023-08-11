@@ -45,7 +45,7 @@ sitesDefault {
       },
       project: 'mlab-oti',
     },
-    mlab4: {
+    mlab4+: {
       disk: 'pd-ssd',
       iface: 'ens4',
       model: 'n2-highcpu-4',
