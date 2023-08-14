@@ -1,0 +1,47 @@
+local sitesDefault = import 'sites/_default.jsonnet';
+
+sitesDefault {
+  name: 'maa03',
+  annotations+: {
+    type: 'physical',
+  },
+  machines+: {
+    mlab1+: {
+      model: 'r640',
+    },
+    mlab2+: {
+      model: 'r640',
+    },
+    mlab3+: {
+      model: 'r640',
+    },
+    mlab4+: {
+      model: 'r640',
+    },
+  },
+  network+: {
+    ipv4+: {
+      prefix: '49.45.151.129/26',
+    },
+    ipv6+: {
+      prefix: '2405:203:9c0:2::1/64',
+    },
+  },
+  transit+: {
+    provider: 'Reliance Jio Infocomm Limited',
+    uplink: '10g',
+    asn: 'AS55836',
+  },
+  location+: {
+    continent_code: 'AS',
+    country_code: 'IN',
+    metro: 'maa',
+    city: 'Chennai',
+    state: '',
+    latitude: 12.9941,
+    longitude: 80.1709,
+  },
+  lifecycle+: {
+    created: '2023-08-15',
+  },
+}
