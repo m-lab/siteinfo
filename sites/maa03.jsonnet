@@ -7,16 +7,16 @@ sitesDefault {
   },
   machines+: {
     mlab1+: {
-      model: 'r640',
+      model: 'r630',
     },
     mlab2+: {
-      model: 'r640',
+      model: 'r630',
     },
     mlab3+: {
-      model: 'r640',
+      model: 'r630',
     },
     mlab4+: {
-      model: 'r640',
+      model: 'r630',
     },
   },
   network+: {
