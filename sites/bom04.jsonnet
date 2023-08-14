@@ -21,10 +21,10 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '49.45.151.1/26',
+      prefix: '49.45.151.0/26',
     },
     ipv6+: {
-      prefix: '2405:203:9c0::1/64',
+      prefix: '2405:203:9c0::/64',
     },
   },
   transit+: {

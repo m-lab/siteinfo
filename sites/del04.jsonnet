@@ -24,7 +24,7 @@ sitesDefault {
       prefix: '49.45.151.64/26',
     },
     ipv6+: {
-      prefix: '2405:203:9c0:1::1/64',
+      prefix: '2405:203:9c0:1::/64',
     },
   },
   transit+: {
