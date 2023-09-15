@@ -8,10 +8,12 @@ sitesDefault {
   },
   machines+: {
     mlab1+: {
-      disk: 'pd-standard',
       network+: {
         ipv4+: {
           address: '34.127.102.87/32',
+        },
+        ipv6+: {
+          address: '2600:1900:4040:85ea:8000::/128',
         },
       },
       project: 'mlab-sandbox',
