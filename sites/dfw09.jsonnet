@@ -37,10 +37,10 @@ sitesDefault {
       model: 'n2-highcpu-4',
       network: {
         ipv4: {
-          address: '34.174.134.185/32',
+          address: '34.174.143.111/32',
         },
         ipv6: {
-          address: '2600:1901:8140:9cd3:0:8::/128',
+          address: null
         },
       },
       project: 'mlab-oti',
