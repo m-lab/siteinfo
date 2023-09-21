@@ -62,6 +62,7 @@ local retiredSites = {
   par07: import 'sites/par07.jsonnet',
   prg01: import 'sites/prg01.jsonnet',
   scl02: import 'sites/scl02.jsonnet',
+  scl04: import 'sites/scl04.jsonnet',
   sea01: import 'sites/sea01.jsonnet',
   sea02: import 'sites/sea02.jsonnet',
   sea05: import 'sites/sea05.jsonnet',
