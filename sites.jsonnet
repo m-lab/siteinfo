@@ -142,7 +142,6 @@ local sites = {
   ord02: import 'sites/ord02.jsonnet',
   ord03: import 'sites/ord03.jsonnet',
   ord06: import 'sites/ord06.jsonnet',
-  par02: import 'sites/par02.jsonnet',
   par05: import 'sites/par05.jsonnet',
   par08: import 'sites/par08.jsonnet',
   pdx01: import 'sites/pdx01.jsonnet',
