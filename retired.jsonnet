@@ -24,6 +24,8 @@ local retiredSites = {
   dfw04: import 'sites/dfw04.jsonnet',
   dfw05: import 'sites/dfw05.jsonnet',
   dfw06: import 'sites/dfw06.jsonnet',
+  dfw07: import 'sites/dfw07.jsonnet',
+  fra01: import 'sites/fra01.jsonnet',
   fra02: import 'sites/fra02.jsonnet',
   fra05: import 'sites/fra05.jsonnet',
   gig01: import 'sites/gig01.jsonnet',
