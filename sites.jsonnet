@@ -54,7 +54,6 @@ local sites = {
   eze03: import 'sites/eze03.jsonnet',
   eze04: import 'sites/eze04.jsonnet',
   fln01: import 'sites/fln01.jsonnet',
-  fra01: import 'sites/fra01.jsonnet',
   fra03: import 'sites/fra03.jsonnet',
   fra04: import 'sites/fra04.jsonnet',
   fra06: import 'sites/fra06.jsonnet',
