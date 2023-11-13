@@ -12,7 +12,7 @@ sitesDefault {
           address: '34.32.35.146/32',
         },
         ipv6+: {
-          address: '2600:1901:81f0:266:0:1::/128',
+          address: '2600:1901:81f0:266::/128',
         },
       },
       project: 'mlab-oti',
