@@ -193,6 +193,7 @@ local sites = {
   lax0t: import 'sites/lax0t.jsonnet',
   lga0t: import 'sites/lga0t.jsonnet',
   lga1t: import 'sites/lga1t.jsonnet',
+  nuq0t: import 'sites/nuq0t.jsonnet',
   pdx0t: import 'sites/pdx0t.jsonnet',
 };
 [
