@@ -44,8 +44,6 @@ local sites = {
   dfw03: import 'sites/dfw03.jsonnet',
   dfw08: import 'sites/dfw08.jsonnet',
   dfw09: import 'sites/dfw09.jsonnet',
-  dfw10: import 'sites/dfw10.jsonnet',
-  dfw11: import 'sites/dfw11.jsonnet',
   doh01: import 'sites/doh01.jsonnet',
   dub01: import 'sites/dub01.jsonnet',
   eze01: import 'sites/eze01.jsonnet',
