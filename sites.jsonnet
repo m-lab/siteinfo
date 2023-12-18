@@ -72,7 +72,6 @@ local sites = {
   iad02: import 'sites/iad02.jsonnet',
   iad03: import 'sites/iad03.jsonnet',
   iad04: import 'sites/iad04.jsonnet',
-  iad06: import 'sites/iad06.jsonnet',
   iad07: import 'sites/iad07.jsonnet',
   iad08: import 'sites/iad08.jsonnet',
   icn01: import 'sites/icn01.jsonnet',
