@@ -17,6 +17,7 @@ local retiredSites = {
   atl03: import 'sites/atl03.jsonnet',
   atl05: import 'sites/atl05.jsonnet',
   atl06: import 'sites/atl06.jsonnet',
+  atl07: import 'sites/atl07.jsonnet',
   atl08: import 'sites/atl08.jsonnet',
   bkk01: import 'sites/bkk01.jsonnet',
   bog01: import 'sites/bog01.jsonnet',

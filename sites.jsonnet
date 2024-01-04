@@ -10,7 +10,6 @@ local sites = {
   ath03: import 'sites/ath03.jsonnet',
   atl02: import 'sites/atl02.jsonnet',
   atl04: import 'sites/atl04.jsonnet',
-  atl07: import 'sites/atl07.jsonnet',
   bcn01: import 'sites/bcn01.jsonnet',
   beg01: import 'sites/beg01.jsonnet',
   ber01: import 'sites/ber01.jsonnet',
