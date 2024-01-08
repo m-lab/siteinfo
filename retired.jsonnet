@@ -38,6 +38,8 @@ local retiredSites = {
   fra05: import 'sites/fra05.jsonnet',
   gig01: import 'sites/gig01.jsonnet',
   gig02: import 'sites/gig02.jsonnet',
+  gig03: import 'sites/gig03.jsonnet',
+  gig04: import 'sites/gig04.jsonnet',
   gru01: import 'sites/gru01.jsonnet',
   gru04: import 'sites/gru04.jsonnet',
   ham01: import 'sites/ham01.jsonnet',
