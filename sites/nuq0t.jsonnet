@@ -21,6 +21,7 @@ sitesDefault {
       prefix: null,
     },
   },
+  switch: null,
   transit+: {
     provider: 'Internet Systems Consortium, Inc.',
     uplink: '10g',
@@ -39,4 +40,3 @@ sitesDefault {
     created: '2023-11-29',
   },
 }
-

@@ -37,8 +37,10 @@ local version = std.extVar('version');
   // DRAC returns a network spec for the drac attached to machine index m.
   DRAC(m):: {
     local i = $.MachineIndex(m),
+    local v4net = $.network.ipv4.prefix,
+    local drac_offset = if $._net_subnet(v4net) == 26 then 3 else 1,
     v4: {
-      ip: $.Index4(i + 3),
+      ip: $.Index4(i + drac_offset),
     },
     Record():: (
       if version == 'v1' then
@@ -65,23 +67,24 @@ local version = std.extVar('version');
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     local drac = $.DRAC(m),
+    local bcast_offset = if $._net_subnet(v4net) == 26 then 63 else 15,
     index: i,
     drac: drac,
     project: $.machines['mlab' + i].project,
     v4: if v4net != null then {
-      ip: $.Index4(((i - 1) * 13) + 9),
+      ip: $.Index4($.BaseIPOffset(i)),
       dns1: $.network.ipv4.dns1,
       dns2: $.network.ipv4.dns2,
       network: v4net,
       netmask: $._v4_netmask($._net_subnet(v4net)),
       subnet: $._net_subnet(v4net),
       gateway: $.Index4(1),
-      broadcast: $.Index4(63),
+      broadcast: $.Index4(bcast_offset),
     } else {
       ip: '',
     },
     v6: if v6net != null then {
-      ip: $.Index6(((i - 1) * 13) + 9),
+      ip: $.Index6($.BaseIPOffset(i)),
       dns1: $.network.ipv6.dns1,
       dns2: $.network.ipv6.dns2,
       network: v6net,
@@ -110,14 +113,14 @@ local version = std.extVar('version');
     v4: {
       ip: (
         if v4net == null then '' else (
-          $.Index4(((i - 1) * 13) + 9 + expConfig.index)
+          $.Index4($.BaseIPOffset(i) + expConfig.index)
         )
       ),
     },
     v6: {
       ip: (
         if v6net == null then '' else (
-          $.Index6(((i - 1) * 13) + 9 + expConfig.index)
+          $.Index6($.BaseIPOffset(i) + expConfig.index)
         )
       ),
     },
@@ -157,6 +160,12 @@ local version = std.extVar('version');
       else
         '%s1' % [std.split(v6net, '/')[0]]
     )
+  ),
+  BaseIPOffset(mIndex):: (
+    if $._net_subnet($.network.ipv4.prefix) == 26 then
+      (((mIndex - 1) * 13) + 9)
+    else
+      3
   ),
 
   // Extract the last octet as an integer.
