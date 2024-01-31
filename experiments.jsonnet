@@ -11,11 +11,6 @@ local default = {
   },
   default {
     index: 2,
-    name: 'ndt.iupui',
-    cloud_enabled: true,
-  },
-  default {
-    index: 2,
     cloud_enabled: true,
     name: 'ndt',
   },
@@ -46,10 +41,6 @@ local default = {
   default {
     index: 9,
     name: 'demo9',
-  },
-  default {
-    index: 10,
-    name: 'neubot.mlab',
   },
   default {
     index: 10,
