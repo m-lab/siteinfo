@@ -9,6 +9,7 @@ local records = std.flattenArrays([
   ]
   for site in sites
   if site.annotations.type == 'physical'
+  if site.switch != null
 ]);
 
 std.lines([

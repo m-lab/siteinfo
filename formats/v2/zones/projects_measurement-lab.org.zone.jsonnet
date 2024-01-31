@@ -30,6 +30,7 @@ local records = std.flattenArrays([
   ]
   for site in sites
   if site.annotations.type == 'physical'
+  if site.switch != null
 ]) + [
   // DRACs
   local d = site.DRAC(machine);
