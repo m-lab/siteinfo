@@ -1,6 +1,0 @@
-[
-    {
-      "origin": ["*"],
-      "method": ["GET", "POST", "PUT", "HEAD", "PATCH", "DELETE", "OPTIONS"]
-    }
-]
