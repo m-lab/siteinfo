@@ -13,4 +13,6 @@ local sites = import 'sites.jsonnet';
   }
   for site in sites
   if site.annotations.type == 'physical'
+  if site.switch != null
+
 }
