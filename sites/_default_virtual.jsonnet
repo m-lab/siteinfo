@@ -3,9 +3,13 @@ local site = import 'lib/site_virtual.jsonnet';
 site {
   name: error 'Must override site name',
   annotations: {
+    // Currently, we only support a single experiment on cloud machines (ndt).
+    Setting this to 12 just gives the code a chance to add more than one, if we
+    ever set any other experiment(s) to be "cloud_enabled=true".
+    experiment_count: 12,
+    probability: 1.0,
     provider: 'mlab',
     type: 'virtual',
-    probability: 1.0,
   },
   loadbalancer: {
     roundrobin: true,
