@@ -3,6 +3,7 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   name: 'nuq0t',
   annotations+: {
+    experiment_count: 11,
     type: 'physical',
   },
   machines: {
