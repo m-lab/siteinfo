@@ -3,7 +3,6 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   name: 'nuq0t',
   annotations+: {
-    experiment_count: 11,
     type: 'physical',
   },
   machines: {
@@ -19,7 +18,7 @@ sitesDefault {
       prefix: '192.158.252.176/28',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2001:4f8:ffff:3::/64',
     },
   },
   switch: null,
