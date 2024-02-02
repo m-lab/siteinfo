@@ -88,4 +88,10 @@ local version = std.extVar('version');
     // Hostname returns a machine FQDN including the decoration, if given.
     Hostname(decoration=''):: '%s.%s' % [self.Record(decoration), $.BaseDomain(i)],
   },
+  ExperimentCount():: (
+    // Virtual sites can in theory support the max experiment count, but
+    // practically speaking only records for ndt will be generated since it is
+    // the only experiment that has "cloud_enabled=true".
+    12
+  ),
 }
