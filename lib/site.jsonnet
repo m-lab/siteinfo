@@ -183,7 +183,7 @@ local version = std.extVar('version');
   // Extract the subnet.
   _net_subnet(net, proto='v4'):: (
     local subnet = std.parseInt(std.split(net, '/')[1]);
-    local valid_prefixes = if proto == 'v6' then [48, 64] else [26, 28, 29];
+    local valid_prefixes = if proto == 'v6' then [48, 64] else [26, 28, 29, 32];
     if std.member(valid_prefixes, subnet) then subnet
     else error 'Unsupported %s prefix length for physical site %s: %d' % [proto, $.name, subnet]
   ),
