@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'scl05',
+  name: 'syd08',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,10 +9,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.176.106.68/32',
+          address: '34.116.113.110/32',
         },
         ipv6+: {
-          address: '2600:1901:4010:c39::/128',
+          address: '2600:1900:40b0:16a4:8000::/128',
         },
       },
       project: 'mlab-oti',
@@ -24,16 +24,15 @@ sitesDefault {
     asn: 'AS396982',
   },
   location+: {
-    continent_code: 'SA',
-    country_code: 'CL',
-    metro: 'scl',
-    city: 'Santiago',
+    continent_code: 'OC',
+    country_code: 'AU',
+    metro: 'syd',
+    city: 'Sydney',
     state: '',
-    latitude: -33.3928,
-    longitude: -70.7856,
+    latitude: -33.9461,
+    longitude: 151.177,
   },
   lifecycle+: {
-    created: '2022-09-08',
-    retired: '2024-02-07',
+    created: '2024-02-07',
   },
 }

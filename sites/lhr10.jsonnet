@@ -1,18 +1,19 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'scl05',
+  name: 'lhr10',
   annotations+: {
+    type: 'virtual',
     provider: 'gcp',
   },
-  machines+: {
+  machines: {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.176.106.68/32',
+          address: '34.147.202.50/32',
         },
         ipv6+: {
-          address: '2600:1901:4010:c39::/128',
+          address: '2600:1900:40c0:f08e:8000::/128',
         },
       },
       project: 'mlab-oti',
@@ -24,16 +25,15 @@ sitesDefault {
     asn: 'AS396982',
   },
   location+: {
-    continent_code: 'SA',
-    country_code: 'CL',
-    metro: 'scl',
-    city: 'Santiago',
+    continent_code: 'EU',
+    country_code: 'GB',
+    metro: 'lhr',
+    city: 'London',
     state: '',
-    latitude: -33.3928,
-    longitude: -70.7856,
+    latitude: 51.4697,
+    longitude: -0.4514,
   },
   lifecycle+: {
-    created: '2022-09-08',
-    retired: '2024-02-07',
+    created: '2024-02-07',
   },
 }

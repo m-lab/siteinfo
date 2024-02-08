@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'iad07',
+  name: 'iad09',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,24 +9,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.85.166.60/32',
+          address: '34.150.246.35/32',
         },
         ipv6+: {
-          address: '2600:1900:4090:5709::/128',
-        },
-      },
-      project: 'mlab-oti',
-    },
-    mlab2: {
-      disk: 'pd-ssd',
-      iface: 'ens4',
-      model: 'n2-highcpu-4',
-      network: {
-        ipv4: {
-          address: '35.212.126.50/32',
-        },
-        ipv6: {
-          address: '2600:1900:4090:5709:0:1::/128',
+          address: '2600:1900:4090:5709:8000:1::/128',
         },
       },
       project: 'mlab-oti',
@@ -47,7 +33,6 @@ sitesDefault {
     longitude: -77.4558,
   },
   lifecycle+: {
-    created: '2022-03-02',
-    retired: '2024-02-07',
+    created: '2024-02-08',
   },
 }

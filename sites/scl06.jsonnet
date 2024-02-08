@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'scl05',
+  name: 'scl06',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,10 +9,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.176.106.68/32',
+          address: '34.176.183.137/32',
         },
         ipv6+: {
-          address: '2600:1901:4010:c39::/128',
+          address: '2600:1901:4010:c39:8000::/128',
         },
       },
       project: 'mlab-oti',
@@ -33,7 +33,6 @@ sitesDefault {
     longitude: -70.7856,
   },
   lifecycle+: {
-    created: '2022-09-08',
-    retired: '2024-02-07',
+    created: '2024-02-07',
   },
 }

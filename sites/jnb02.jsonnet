@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'scl05',
+  name: 'jnb02',
   annotations+: {
     provider: 'gcp',
   },
@@ -9,10 +9,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.176.106.68/32',
+          address: '34.35.31.99/32',
         },
         ipv6+: {
-          address: '2600:1901:4010:c39::/128',
+          address: '2600:1900:8000:6b8:8000::/128',
         },
       },
       project: 'mlab-oti',
@@ -24,16 +24,15 @@ sitesDefault {
     asn: 'AS396982',
   },
   location+: {
-    continent_code: 'SA',
-    country_code: 'CL',
-    metro: 'scl',
-    city: 'Santiago',
+    continent_code: 'AF',
+    country_code: 'ZA',
+    metro: 'jnb',
+    city: 'Johannesburg',
     state: '',
-    latitude: -33.3928,
-    longitude: -70.7856,
+    latitude: -26.2035,
+    longitude: 28.1335,
   },
   lifecycle+: {
-    created: '2022-09-08',
-    retired: '2024-02-07',
+    created: '2024-02-07',
   },
 }
