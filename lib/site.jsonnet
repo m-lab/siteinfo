@@ -67,7 +67,7 @@ local version = std.extVar('version');
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     local drac = $.DRAC(m),
-    local subnet = $._net_subnet(v4net, 'v4')
+    local subnet = $._net_subnet(v4net, 'v4'),
     local bcast_offset = (
       if subnet == 26 then 63 else if subnet == 28 then 15 else 7
     ),
