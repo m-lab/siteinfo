@@ -67,7 +67,10 @@ local version = std.extVar('version');
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     local drac = $.DRAC(m),
-    local bcast_offset = if $._net_subnet(v4net, 'v4') == 26 then 63 else 15,
+    local subnet = $._net_subnet(v4net, 'v4')
+    local bcast_offset = (
+      if subnet == 26 then 63 else if subnet == 28 then 15 else 7
+    ),
     index: i,
     drac: drac,
     project: $.machines['mlab' + i].project,
