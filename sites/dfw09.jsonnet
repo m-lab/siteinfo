@@ -54,7 +54,7 @@ sitesDefault {
           address: '34.174.31.191/32',
         },
         ipv6: {
-          address: null,
+          address: '2600:1901:8140:31e:8000::/128',
         },
       },
       project: 'mlab-staging',
