@@ -37,8 +37,10 @@ local version = std.extVar('version');
   // DRAC returns a network spec for the drac attached to machine index m.
   DRAC(m):: {
     local i = $.MachineIndex(m),
+    local v4net = $.network.ipv4.prefix,
+    local drac_offset = if $._net_subnet(v4net, 'v4') == 26 then 3 else 1,
     v4: {
-      ip: $.Index4(i + 3),
+      ip: $.Index4(i + drac_offset),
     },
     Record():: (
       if version == 'v1' then
@@ -65,27 +67,31 @@ local version = std.extVar('version');
     local v4net = $.network.ipv4.prefix,
     local v6net = $.network.ipv6.prefix,
     local drac = $.DRAC(m),
+    local subnet = $._net_subnet(v4net, 'v4'),
+    local bcast_offset = (
+      if subnet == 26 then 63 else if subnet == 28 then 15 else 7
+    ),
     index: i,
     drac: drac,
     project: $.machines['mlab' + i].project,
     v4: if v4net != null then {
-      ip: $.Index4(((i - 1) * 13) + 9),
+      ip: $.Index4($.BaseIPOffset(i)),
       dns1: $.network.ipv4.dns1,
       dns2: $.network.ipv4.dns2,
       network: v4net,
-      netmask: $._v4_netmask($._net_subnet(v4net)),
-      subnet: $._net_subnet(v4net),
+      netmask: $._v4_netmask($._net_subnet(v4net, 'v4')),
+      subnet: $._net_subnet(v4net, 'v4'),
       gateway: $.Index4(1),
-      broadcast: $.Index4(63),
+      broadcast: $.Index4(bcast_offset),
     } else {
       ip: '',
     },
     v6: if v6net != null then {
-      ip: $.Index6(((i - 1) * 13) + 9),
+      ip: $.Index6($.BaseIPOffset(i)),
       dns1: $.network.ipv6.dns1,
       dns2: $.network.ipv6.dns2,
       network: v6net,
-      subnet: $._net_subnet(v6net),
+      subnet: $._net_subnet(v6net, 'v6'),
       gateway: $.Gateway6(),
     } else {
       ip: '',
@@ -110,14 +116,14 @@ local version = std.extVar('version');
     v4: {
       ip: (
         if v4net == null then '' else (
-          $.Index4(((i - 1) * 13) + 9 + expConfig.index)
+          $.Index4($.BaseIPOffset(i) + expConfig.index)
         )
       ),
     },
     v6: {
       ip: (
         if v6net == null then '' else (
-          $.Index6(((i - 1) * 13) + 9 + expConfig.index)
+          $.Index6($.BaseIPOffset(i) + expConfig.index)
         )
       ),
     },
@@ -158,6 +164,17 @@ local version = std.extVar('version');
         '%s1' % [std.split(v6net, '/')[0]]
     )
   ),
+  BaseIPOffset(mIndex):: (
+    local subnet = $._net_subnet($.network.ipv4.prefix, 'v4');
+    if subnet == 26 then (((mIndex - 1) * 13) + 9)
+    else 3
+  ),
+  ExperimentCount():: (
+    local subnet = $._net_subnet($.network.ipv4.prefix, 'v4');
+    if subnet == 26 then 12
+    else if subnet == 28 then 11
+    else 3
+  ),
 
   // Extract the last octet as an integer.
   _v4_net_offset(net):: std.parseInt(std.split(std.split(net, '/')[0], '.')[3]),
@@ -167,7 +184,12 @@ local version = std.extVar('version');
     std.join('.', [octets[0], octets[1], octets[2]])
   ),
   // Extract the subnet.
-  _net_subnet(net):: std.parseInt(std.split(net, '/')[1]),
+  _net_subnet(net, proto='v4'):: (
+    local subnet = std.parseInt(std.split(net, '/')[1]);
+    local valid_prefixes = if proto == 'v6' then [48, 64] else [26, 28, 29, 32];
+    if std.member(valid_prefixes, subnet) then subnet
+    else error 'Unsupported %s prefix length for physical site %s: %d' % [proto, $.name, subnet]
+  ),
   // Calculate netmask.
   _v4_netmask(subnet):: (
     local hexmask = (std.pow(2, 32) - std.pow(2, 32 - subnet));

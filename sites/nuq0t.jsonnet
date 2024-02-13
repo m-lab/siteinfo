@@ -18,9 +18,10 @@ sitesDefault {
       prefix: '192.158.252.176/28',
     },
     ipv6+: {
-      prefix: null,
+      prefix: '2001:4f8:ffff:3::/64',
     },
   },
+  switch: null,
   transit+: {
     provider: 'Internet Systems Consortium, Inc.',
     uplink: '10g',
@@ -39,4 +40,3 @@ sitesDefault {
     created: '2023-11-29',
   },
 }
-
