@@ -138,6 +138,7 @@ local retiredSites = {
 
   // Test sites.
   atl0t: import 'sites/atl0t.jsonnet',
+  nuq0t: import 'sites/nuq0t.jsonnet',
 };
 [
   local site = retiredSites[name];
