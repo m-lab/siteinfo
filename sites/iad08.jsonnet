@@ -21,15 +21,15 @@ sitesDefault {
       project: 'mlab-staging',
     },
     mlab4: {
-      disk: 'pd-standard',
+      disk: 'pd-ssd',
       iface: 'ens4',
-      model: 'n1-highcpu-4',
+      model: 'n2-highcpu-4',
       network: {
         ipv4: {
-          address: '35.245.211.241/32',
+          address: '34.85.171.228/32',
         },
         ipv6: {
-          address: '2600:1900:4090:6589:0:2::/128',
+          address: '2600:1900:4090:6589:0:1d::/128',
         },
       },
       project: 'mlab-staging',
