@@ -189,7 +189,7 @@ local version = std.extVar('version');
       else
         // 450Mbits/s
         450000000
-    else if
+    else
       if subnet == 26 then
         // 2.5Gbits/s
         2500000000
