@@ -175,6 +175,28 @@ local version = std.extVar('version');
     else if subnet == 28 then 11
     else 3
   ),
+  // MaxRate returns the appropriate value for the -txcontroller.max-rate flag
+  // of ndt-server. It only applies to physical machines. The general rule is
+  // that the value for "minimal" (i.e., single server) sites should be 3x the
+  // rate for a "full" site.
+  MaxRate():: (
+    local subnet = $._net_subnet($.network.ipv4.prefix, 'v4');
+    local uplink = $.transit.uplink;
+    if uplink == '1g' then
+      if subnet == 26 then
+        // 150Mbits/s
+        150000000
+      else
+        // 450Mbits/s
+        450000000
+    else if
+      if subnet == 26 then
+        // 2.5Gbits/s
+        2500000000
+      else
+        // 7.5Gbits/s
+        7500000000
+  ),
 
   // Extract the last octet as an integer.
   _v4_net_offset(net):: std.parseInt(std.split(std.split(net, '/')[0], '.')[3]),
