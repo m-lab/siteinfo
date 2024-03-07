@@ -176,9 +176,11 @@ local version = std.extVar('version');
     else 3
   ),
   // MaxRate returns the appropriate value for the -txcontroller.max-rate flag
-  // of ndt-server. It only applies to physical machines. The general rule is
+  // of ndt-server. It only applies to physical machines. The _general_ rule is
   // that the value for "minimal" (i.e., single server) sites should be 3x the
-  // rate for a "full" site.
+  // rate for a "full" site. The one exception to this is for 1g sites, where a
+  // single fast client could exhaust the circuit, in which case we keep the
+  // value for minimal sites lower.
   MaxRate():: (
     local subnet = $._net_subnet($.network.ipv4.prefix, 'v4');
     local uplink = $.transit.uplink;
@@ -187,8 +189,8 @@ local version = std.extVar('version');
         // 150Mbits/s
         150000000
       else
-        // 450Mbits/s
-        450000000
+        // 300Mbits/s
+        300000000
     else
       if subnet == 26 then
         // 2.5Gbits/s
