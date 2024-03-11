@@ -100,14 +100,14 @@ local primary_headers = |||
   ;
   ; Autojoin zone delegations.
   ;
-  sandbox          IN     NS      ns-cloud-a1.googledomains.com.
-                   IN     NS      ns-cloud-a2.googledomains.com.
-                   IN     NS      ns-cloud-a3.googledomains.com.
-                   IN     NS      ns-cloud-a4.googledomains.com.
-  staging          IN     NS      ns-cloud-d1.googledomains.com.
+  sandbox          IN     NS      ns-cloud-d1.googledomains.com.
                    IN     NS      ns-cloud-d2.googledomains.com.
                    IN     NS      ns-cloud-d3.googledomains.com.
                    IN     NS      ns-cloud-d4.googledomains.com.
+  staging          IN     NS      ns-cloud-b1.googledomains.com.
+                   IN     NS      ns-cloud-b2.googledomains.com.
+                   IN     NS      ns-cloud-b3.googledomains.com.
+                   IN     NS      ns-cloud-b4.googledomains.com.
 
 
   ;
