@@ -120,6 +120,7 @@ local sites = {
   nuq03: import 'sites/nuq03.jsonnet',
   nuq04: import 'sites/nuq04.jsonnet',
   nuq06: import 'sites/nuq06.jsonnet',
+  nuq08: import 'sites/nuq08.jsonnet',
   oma01: import 'sites/oma01.jsonnet',
   ord02: import 'sites/ord02.jsonnet',
   ord03: import 'sites/ord03.jsonnet',
@@ -177,7 +178,6 @@ local sites = {
   lax0t: import 'sites/lax0t.jsonnet',
   lga0t: import 'sites/lga0t.jsonnet',
   lga1t: import 'sites/lga1t.jsonnet',
-  nuq0t: import 'sites/nuq0t.jsonnet',
   pdx0t: import 'sites/pdx0t.jsonnet',
 };
 [

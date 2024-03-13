@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'nuq0t',
+  name: 'nuq08',
   annotations+: {
     type: 'physical',
   },
@@ -10,7 +10,7 @@ sitesDefault {
       disk: 'sda',
       iface: 'eth0',
       model: 'r630',
-      project: 'mlab-sandbox',
+      project: 'mlab-oti',
     },
   },
   network+: {
@@ -37,7 +37,6 @@ sitesDefault {
     longitude: -122.0667,
   },
   lifecycle+: {
-    created: '2023-11-29',
-    retired: '2024-02-29',
+    created: '2024-02-29',
   },
 }
