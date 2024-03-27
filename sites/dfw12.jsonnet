@@ -9,10 +9,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '192.168.0.1/32',
+          address: '34.174.102.230/32',
         },
         ipv6+: {
-          address: null,
+          address: '2600:1901:8140:9cd3:8000::/128',
         },
       },
       project: 'mlab-oti',
