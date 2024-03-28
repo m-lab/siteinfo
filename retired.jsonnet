@@ -46,6 +46,7 @@ local retiredSites = {
   gru01: import 'sites/gru01.jsonnet',
   gru04: import 'sites/gru04.jsonnet',
   ham01: import 'sites/ham01.jsonnet',
+  hkg01: import 'sites/hkg01.jsonnet',
   hnd01: import 'sites/hnd01.jsonnet',
   hnd03: import 'sites/hnd03.jsonnet',
   hnd04: import 'sites/hnd04.jsonnet',
