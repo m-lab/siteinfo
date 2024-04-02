@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default.jsonnet';
 
 sitesDefault {
-  name: 'hnl01',
+  name: 'hnl02',
   annotations+: {
     type: 'physical',
   },
@@ -21,16 +21,16 @@ sitesDefault {
   },
   network+: {
     ipv4+: {
-      prefix: '74.199.156.192/26',
+      prefix: '38.64.64.64/26',
     },
     ipv6+: {
-      prefix: '2001:668:1f:fe06::/64',
+      prefix: '2001:550:a03::/64',
     },
   },
   transit+: {
-    provider: 'GTT Communications Inc.',
+    provider: 'Cogent Communications',
     uplink: '10g',
-    asn: 'AS3257',
+    asn: 'AS174',
   },
   location+: {
     continent_code: 'NA',
@@ -42,7 +42,7 @@ sitesDefault {
     longitude: -157.9240,
   },
   lifecycle+: {
-    created: '2021-08-24',
-    retired: '2022-06-15',
+    created: '2024-04-02',
   },
 }
+
