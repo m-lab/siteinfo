@@ -33,7 +33,7 @@ local default = {
   },
   default {
     index: 6,
-    name: 'demo6',
+    name: 'pp',
   },
   default {
     index: 7,
