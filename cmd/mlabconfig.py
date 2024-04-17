@@ -443,6 +443,11 @@ def select_prometheus_site_targets(sites, select_regex, target_templates,
             continue
         if only_physical and site['annotations']['type'] != 'physical':
             continue
+        # If the target is a switch, and the site's switch field value is
+        # None, then skip it. The site is probably a minimal physical site
+        # without a switch or a BYOS physical site.
+        if site['switch'] == None and target_templates[0].startswith("s1-"):
+            continue
         labels = common_labels.copy()
         labels['site'] = site['name']
         targets = []
