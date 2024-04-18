@@ -166,7 +166,25 @@ sites = [
                "subnet": 64
             }
          },
-      ]
+      ],
+      "switch": {
+        "auto_negotiation": "yes",
+        "flow_control": "no",
+        "make": "juniper",
+        "model": "qfx5100",
+        "rstp": "yes",
+        "uplink_port": "xe-0/0/45",
+      },
+    },
+]
+
+site_no_switch = [
+   {
+      "name": "xyz0t",
+      "annotations": {
+         "type": "physical"
+      },
+      "switch": None,
    },
 ]
 
@@ -175,6 +193,7 @@ class MlabconfigTest(unittest.TestCase):
     def setUp(self):
         self.users = [('User', 'Name', 'username@gmail.com')]
         self.sites = sites
+        self.site_no_switch = site_no_switch
         # Turn off logging output during testing (unless CRITICAL).
         logging.disable(logging.ERROR)
 
@@ -415,9 +434,10 @@ class MlabconfigTest(unittest.TestCase):
             }
         ]
 
+        sites = self.sites + self.site_no_switch
         actual_targets = mlabconfig.select_prometheus_site_targets(
-            self.sites, None, ['s1.{{sitename}}.measurement-lab.org:9116'], {},
-            False)
+            sites, None, ['s1.{{sitename}}.measurement-lab.org:9116'], {},
+            True)
 
         self.assertEqual(len(actual_targets), 1)
         self.assertCountEqual(actual_targets, expected_targets)
