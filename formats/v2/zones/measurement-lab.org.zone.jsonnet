@@ -59,6 +59,10 @@ std.lines([
                      IN     NS      ns-cloud-b2.googledomains.com.
                      IN     NS      ns-cloud-b3.googledomains.com.
                      IN     NS      ns-cloud-b4.googledomains.com.
+    autojoin         IN     NS      ns-cloud-a1.googledomains.com.
+                     IN     NS      ns-cloud-a2.googledomains.com.
+                     IN     NS      ns-cloud-a3.googledomains.com.
+                     IN     NS      ns-cloud-a4.googledomains.com.
   |||,
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]
