@@ -43,7 +43,7 @@ std.lines([
                      IN     NS      ns-cloud-a2.googledomains.com.
                      IN     NS      ns-cloud-a3.googledomains.com.
                      IN     NS      ns-cloud-a4.googledomains.com.
-    ; Delegate mlab-oti subdomain to staging Cloud DNS servers.
+    ; Delegate mlab-oti subdomain to production Cloud DNS servers.
     mlab-oti         IN     NS      ns-cloud-d1.googledomains.com.
                      IN     NS      ns-cloud-d2.googledomains.com.
                      IN     NS      ns-cloud-d3.googledomains.com.
@@ -59,6 +59,10 @@ std.lines([
                      IN     NS      ns-cloud-b2.googledomains.com.
                      IN     NS      ns-cloud-b3.googledomains.com.
                      IN     NS      ns-cloud-b4.googledomains.com.
+    autojoin         IN     NS      ns-cloud-a1.googledomains.com.
+                     IN     NS      ns-cloud-a2.googledomains.com.
+                     IN     NS      ns-cloud-a3.googledomains.com.
+                     IN     NS      ns-cloud-a4.googledomains.com.
   |||,
 ] + [
   '%-32s  IN  A   \t%s' % [row.record, row.ipv4]

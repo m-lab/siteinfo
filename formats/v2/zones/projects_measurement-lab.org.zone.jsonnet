@@ -108,7 +108,10 @@ local primary_headers = |||
                    IN     NS      ns-cloud-b2.googledomains.com.
                    IN     NS      ns-cloud-b3.googledomains.com.
                    IN     NS      ns-cloud-b4.googledomains.com.
-
+  autojoin         IN     NS      ns-cloud-a1.googledomains.com.
+                   IN     NS      ns-cloud-a2.googledomains.com.
+                   IN     NS      ns-cloud-a3.googledomains.com.
+                   IN     NS      ns-cloud-a4.googledomains.com.
 
   ;
   ; Delegate acme subdomains to Cloud DNS servers.
