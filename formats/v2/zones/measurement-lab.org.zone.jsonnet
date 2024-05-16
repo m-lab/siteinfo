@@ -43,7 +43,7 @@ std.lines([
                      IN     NS      ns-cloud-a2.googledomains.com.
                      IN     NS      ns-cloud-a3.googledomains.com.
                      IN     NS      ns-cloud-a4.googledomains.com.
-    ; Delegate mlab-oti subdomain to staging Cloud DNS servers.
+    ; Delegate mlab-oti subdomain to production Cloud DNS servers.
     mlab-oti         IN     NS      ns-cloud-d1.googledomains.com.
                      IN     NS      ns-cloud-d2.googledomains.com.
                      IN     NS      ns-cloud-d3.googledomains.com.
