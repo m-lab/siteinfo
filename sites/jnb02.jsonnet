@@ -3,6 +3,7 @@ local sitesDefault = import 'sites/_default_virtual.jsonnet';
 sitesDefault {
   name: 'jnb02',
   annotations+: {
+    probability: 0.5,
     provider: 'gcp',
   },
   machines+: {
