@@ -3,6 +3,7 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   name: 'hkg03',
   annotations+: {
+    donated: true,
     type: 'physical',
   },
   machines+: {

@@ -3,8 +3,9 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   name: 'tun01',
   annotations+: {
-    type: 'physical',
+    donated: true,
     probability: 0.5,
+    type: 'physical',
   },
   machines+: {
     mlab1+: {

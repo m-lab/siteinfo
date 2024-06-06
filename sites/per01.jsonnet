@@ -3,6 +3,7 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   name: 'per01',
   annotations+: {
+    donated: true,
     type: 'physical',
   },
   machines+: {

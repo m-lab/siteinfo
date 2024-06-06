@@ -3,6 +3,7 @@ local sitesDefault = import 'sites/_default.jsonnet';
 sitesDefault {
   name: 'par05',
   annotations+: {
+    donated: true,
     type: 'physical',
   },
   machines+: {

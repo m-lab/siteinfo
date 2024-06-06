@@ -3,9 +3,10 @@ local site = import 'lib/site.jsonnet';
 site {
   name: error 'Must override site name',
   annotations: {
+    donated: false,
+    probability: 1.0,
     provider: 'mlab',
     type: 'physical',
-    probability: 1.0,
   },
   loadbalancer: {
     roundrobin: true,
