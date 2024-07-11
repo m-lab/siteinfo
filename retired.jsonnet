@@ -149,7 +149,7 @@ local retiredSites = {
   yyz01: import 'sites/yyz01.jsonnet',
   yyz02: import 'sites/yyz02.jsonnet',
   yyz05: import 'sites/yyz05.jsonnet',
-  zrh01: import 'sites/zhr01.jsonnet',
+  zrh01: import 'sites/zrh01.jsonnet',
 
   // Test sites.
   atl0t: import 'sites/atl0t.jsonnet',
