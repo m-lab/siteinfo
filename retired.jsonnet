@@ -41,6 +41,7 @@ local retiredSites = {
   del03: import 'sites/del03.jsonnet',
   doh01: import 'sites/doh01.jsonnet',
   eze02: import 'sites/eze02.jsonnet',
+  eze03: import 'sites/eze03.jsonnet',
   fra01: import 'sites/fra01.jsonnet',
   fra02: import 'sites/fra02.jsonnet',
   fra05: import 'sites/fra05.jsonnet',
