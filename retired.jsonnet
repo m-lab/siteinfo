@@ -24,6 +24,7 @@ local retiredSites = {
   bkk01: import 'sites/bkk01.jsonnet',
   bog01: import 'sites/bog01.jsonnet',
   bom03: import 'sites/bom03.jsonnet',
+  bom05: import 'sites/bom05.jsonnet',
   bru03: import 'sites/bru03.jsonnet',
   bru05: import 'sites/bru05.jsonnet',
   bru06: import 'sites/bru06.jsonnet',
