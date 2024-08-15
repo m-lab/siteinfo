@@ -43,5 +43,6 @@ sitesDefault {
   },
   lifecycle+: {
     created: '2021-03-31',
+    retired: '2024-08-15',
   },
 }
