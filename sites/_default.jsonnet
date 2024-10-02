@@ -58,10 +58,12 @@ site {
     auto_negotiation: 'yes',
     flow_control: 'no',
     make: 'juniper',
-    model: 'qfx5100',
+    model: 'qfx5100-48s',
     rstp: 'yes',
     uplink_port: (
-      if $.transit.uplink == '10g' then
+      if $.transit.uplink == '40g' then
+        'et-0/0/23'
+      else if $.transit.uplink == '10g' then
         'xe-0/0/45'
       else if $.transit.uplink == '1g' then
         'ge-0/0/47'
