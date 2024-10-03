@@ -30,7 +30,7 @@ sitesDefault {
   },
   transit+: {
     provider: '"Wholesail networks LLC',
-    uplink: '10g',
+    uplink: '40g',
     asn: 'AS20055',
   },
   location+: {
@@ -41,6 +41,9 @@ sitesDefault {
     state: 'WA',
     latitude: 47.6200,
     longitude: -117.5339,
+  },
+  switch+: {
+    model: 'qfx5100-24q',
   },
   lifecycle+: {
     created: '2024-04-22',
