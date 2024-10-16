@@ -18,6 +18,7 @@ sitesDefault {
     },
     mlab4+: {
       model: 'r630',
+      project: 'mlab-sandbox'
     },
   },
   network+: {
