@@ -191,13 +191,21 @@ local version = std.extVar('version');
       else
         // 300Mbits/s
         300000000
-    else
+    else if uplink == '10g' then
       if subnet == 26 then
         // 2.5Gbits/s
         2500000000
       else
         // 7.5Gbits/s
         7500000000
+    else if uplink == '40g' then
+      if subnet == 26 then
+        // 10Gbits/s
+        10000000000
+      else
+        // 30Gbits/s
+        30000000000
+    else error 'Unknown uplink speed for site %s: %d' % [$.name, uplink]
   ),
 
   // Extract the last octet as an integer.

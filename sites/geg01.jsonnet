@@ -18,6 +18,7 @@ sitesDefault {
     },
     mlab4+: {
       model: 'r630',
+      project: 'mlab-sandbox'
     },
   },
   network+: {
@@ -30,7 +31,7 @@ sitesDefault {
   },
   transit+: {
     provider: '"Wholesail networks LLC',
-    uplink: '10g',
+    uplink: '40g',
     asn: 'AS20055',
   },
   location+: {
@@ -41,6 +42,9 @@ sitesDefault {
     state: 'WA',
     latitude: 47.6199,
     longitude: -117.534,
+  },
+  switch+: {
+    model: 'qfx5100-24q',
   },
   lifecycle+: {
     created: '2024-04-22',
