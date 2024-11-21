@@ -40,7 +40,7 @@ sitesDefault {
     city: 'Maputo',
     state: '',
     latitude: -25.9208,
-    longitude: 32.5725,
+    longitude: 32.5726,
   },
   lifecycle+: {
     created: '2022-07-12',

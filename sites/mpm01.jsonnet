@@ -13,7 +13,7 @@ sitesDefault {
     continent_code: 'AF',
     country_code: 'MZ',
     latitude: -25.9208,
-    longitude: 32.5725,
+    longitude: 32.5726,
     metro: 'mpm',
     state: '',
   },

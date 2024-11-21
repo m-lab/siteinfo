@@ -40,7 +40,7 @@ sitesDefault {
     city: 'Stavanger',
     state: '',
     latitude: 58.8767,
-    longitude: 5.6378,
+    longitude: 5.63778,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -40,7 +40,7 @@ sitesDefault {
     city: 'Los Angeles',
     state: 'CA',
     latitude: 33.9425,
-    longitude: -118.4072,
+    longitude: -118.408,
   },
   lifecycle+: {
     created: '2019-01-01',

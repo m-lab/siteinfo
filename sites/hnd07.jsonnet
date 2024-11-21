@@ -30,8 +30,8 @@ sitesDefault {
     metro: 'hnd',
     city: 'Tokyo',
     state: '',
-    latitude: 35.5522,
-    longitude: 139.78,
+    latitude: 35.5533,
+    longitude: 139.781,
   },
   lifecycle+: {
     created: '2024-02-07',

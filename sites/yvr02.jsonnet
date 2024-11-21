@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'yvr',
     city: 'Vancouver',
     state: '',
-    latitude: 49.1902,
-    longitude: -123.1837,
+    latitude: 49.1939,
+    longitude: -123.184,
   },
   lifecycle+: {
     created: '2021-07-12',

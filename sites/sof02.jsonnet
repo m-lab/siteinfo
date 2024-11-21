@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'sof',
     city: 'Sofia',
     state: '',
-    latitude: 42.6950,
-    longitude: 23.4083,
+    latitude: 42.6967,
+    longitude: 23.4114,
   },
   lifecycle+: {
     created: '2022-05-19',

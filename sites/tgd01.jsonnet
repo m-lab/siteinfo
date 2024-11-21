@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'tgd',
     city: 'Podgorica',
     state: '',
-    latitude: 42.1078,
-    longitude: 18.7616,
+    latitude: 42.3594,
+    longitude: 19.2519,
   },
   lifecycle+: {
     created: '2019-01-01',

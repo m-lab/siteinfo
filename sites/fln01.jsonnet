@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'fln',
     city: 'Florianopolis',
     state: '',
-    latitude: -27.6685,
-    longitude: -48.546,
+    latitude: -27.6703,
+    longitude: -48.5525,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'yul',
     city: 'Montreal',
     state: '',
-    latitude: 45.4576,
-    longitude: -73.7497,
+    latitude: 45.4657,
+    longitude: -73.7455,
   },
   lifecycle+: {
     created: '2019-01-01',

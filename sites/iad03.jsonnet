@@ -38,7 +38,7 @@ sitesDefault {
     metro: 'iad',
     city: 'Washington',
     state: 'DC',
-    latitude: 38.9444,
+    latitude: 38.9445,
     longitude: -77.4558,
   },
   lifecycle+: {

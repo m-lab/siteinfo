@@ -30,8 +30,8 @@ sitesDefault {
     metro: 'yyz',
     city: 'Toronto',
     state: '',
-    latitude: 43.6767,
-    longitude: -79.6306,
+    latitude: 43.6797,
+    longitude: -79.6227,
   },
   lifecycle+: {
     created: '2024-07-18',

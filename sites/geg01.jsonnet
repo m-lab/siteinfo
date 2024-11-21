@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'geg',
     city: 'Spokane',
     state: 'WA',
-    latitude: 47.6200,
-    longitude: -117.5339,
+    latitude: 47.6199,
+    longitude: -117.534,
   },
   lifecycle+: {
     created: '2024-04-22',

@@ -30,8 +30,8 @@ sitesDefault {
     metro: 'sin',
     city: 'Singapore',
     state: '',
-    latitude: 1.355,
-    longitude: 103.988,
+    latitude: 1.35019,
+    longitude: 103.994,
   },
   lifecycle+: {
     created: '2024-07-18',

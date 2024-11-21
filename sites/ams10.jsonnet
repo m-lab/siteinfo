@@ -31,7 +31,7 @@ sitesDefault {
     city: 'Amsterdam',
     state: '',
     latitude: 52.3086,
-    longitude: 4.7639,
+    longitude: 4.76389,
   },
   lifecycle+: {
     created: '2022-09-07',

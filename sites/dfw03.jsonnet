@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'dfw',
     city: 'Dallas',
     state: 'TX',
-    latitude: 32.8969,
-    longitude: -97.0381,
+    latitude: 32.8968,
+    longitude: -97.038,
   },
   lifecycle+: {
     created: '2019-01-01',

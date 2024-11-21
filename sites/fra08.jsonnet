@@ -30,8 +30,8 @@ sitesDefault {
     metro: 'fra',
     city: 'Frankfurt',
     state: '',
-    latitude: 50.0379,
-    longitude: 8.5622,
+    latitude: 50.0333,
+    longitude: 8.57056,
   },
   lifecycle+: {
     created: '2024-07-18',

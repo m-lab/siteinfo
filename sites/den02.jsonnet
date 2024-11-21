@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'den',
     city: 'Denver',
     state: 'CO',
-    latitude: 39.8561,
-    longitude: -104.6737,
+    latitude: 39.8617,
+    longitude: -104.673,
   },
   lifecycle+: {
     created: '2019-01-01',

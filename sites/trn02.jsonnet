@@ -40,7 +40,7 @@ sitesDefault {
     city: 'Turin',
     state: '',
     latitude: 45.2008,
-    longitude: 7.6497,
+    longitude: 7.64963,
   },
   lifecycle+: {
     created: '2019-09-04',

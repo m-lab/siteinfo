@@ -34,8 +34,8 @@ sitesDefault {
     metro: 'nuq',
     city: 'San Francisco Bay Area',
     state: 'CA',
-    latitude: 37.3833,
-    longitude: -122.0667,
+    latitude: 37.4161,
+    longitude: -122.049,
   },
   lifecycle+: {
     created: '2024-02-29',

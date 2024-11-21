@@ -29,7 +29,7 @@ sitesDefault {
     metro: 'cmh',
     city: 'Columbus',
     state: 'OH',
-    latitude: 39.9981,
+    latitude: 39.998,
     longitude: -82.8919,
   },
   lifecycle+: {

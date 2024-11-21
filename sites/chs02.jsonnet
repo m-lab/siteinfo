@@ -30,7 +30,7 @@ sitesDefault {
     city: 'Charleston',
     state: 'SC',
     latitude: 32.8986,
-    longitude: -80.0406,
+    longitude: -80.0405,
   },
   lifecycle+: {
     created: '2024-03-25',

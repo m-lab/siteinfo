@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'gig',
     city: 'Rio de Janeiro',
     state: '',
-    latitude: -22.8052,
-    longitude: -43.2588,
+    latitude: -22.8100,
+    longitude: -43.2506,
   },
   lifecycle+: {
     created: '2020-09-30',

@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'dub',
     city: 'Dublin',
     state: '',
-    latitude: 53.4333,
-    longitude: -6.25,
+    latitude: 53.4213,
+    longitude: -6.27007,
   },
   lifecycle+: {
     created: '2019-01-01',

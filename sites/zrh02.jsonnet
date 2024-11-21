@@ -30,7 +30,7 @@ sitesDefault {
     city: 'Zurich',
     state: '',
     latitude: 47.4647,
-    longitude: 8.5492,
+    longitude: 8.54917,
   },
   lifecycle+: {
     created: '2024-03-25',

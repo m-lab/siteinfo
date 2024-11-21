@@ -41,8 +41,8 @@ sitesDefault {
     metro: 'ywg',
     city: 'Winnipeg',
     state: '',
-    latitude: 49.906,
-    longitude: -97.2373,
+    latitude: 49.91,
+    longitude: -97.2399,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -29,8 +29,8 @@ sitesDefault {
     metro: 'slc',
     city: 'Salt Lake City',
     state: 'UT',
-    latitude: 40.7883,
-    longitude: -111.9778,
+    latitude: 40.7884,
+    longitude: -111.978,
   },
   lifecycle+: {
     created: '2024-07-18',

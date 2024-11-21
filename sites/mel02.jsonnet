@@ -30,7 +30,7 @@ sitesDefault {
     city: 'Melbourne',
     state: '',
     latitude: -37.6733,
-    longitude: 144.8433,
+    longitude: 144.843,
   },
   lifecycle+: {
     created: '2024-07-18',

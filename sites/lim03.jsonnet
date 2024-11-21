@@ -39,7 +39,7 @@ sitesDefault {
     city: 'Lima',
     state: '',
     latitude: -12.0219,
-    longitude: -77.1144,
+    longitude: -77.1143,
   },
   lifecycle+: {
     created: '2021-08-26',

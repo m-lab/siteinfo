@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'hnl',
     city: 'Honolulu',
     state: 'HI',
-    latitude: 21.3254,
-    longitude: -157.9240,
+    latitude: 21.3206,
+    longitude: -157.924,
   },
   lifecycle+: {
     created: '2021-08-24',

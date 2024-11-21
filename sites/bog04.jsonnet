@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'bog',
     city: 'Bogota',
     state: '',
-    latitude: 4.69715,
-    longitude: -74.14329,
+    latitude: 4.70159,
+    longitude: -74.1469,
   },
   lifecycle+: {
     created: '2020-07-06',

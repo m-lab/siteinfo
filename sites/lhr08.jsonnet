@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'lhr',
     city: 'London',
     state: '',
-    latitude: 51.4697,
-    longitude: -0.4514,
+    latitude: 51.4775,
+    longitude: -0.461389,
   },
   lifecycle+: {
     created: '2020-12-02',
