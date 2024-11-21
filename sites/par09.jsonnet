@@ -30,8 +30,8 @@ sitesDefault {
     metro: 'par',
     city: 'Paris',
     state: '',
-    latitude: 48.8584,
-    longitude: 2.349,
+    latitude: 49.0097,
+    longitude: 2.54778,
   },
   lifecycle+: {
     created: '2024-07-18',
