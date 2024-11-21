@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'mil',
     city: 'Milan',
     state: '',
-    latitude: 45.464,
-    longitude: 9.1916,
+    latitude: 45.4494,
+    longitude: 9.2783,
   },
   lifecycle+: {
     created: '2020-11-17',
