@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'bru',
     city: 'Brussels',
     state: '',
-    latitude: 50.4974,
-    longitude: 3.3528,
+    latitude: 50.9014,
+    longitude: 4.48444,
   },
   lifecycle+: {
     created: '2020-05-06',

@@ -38,8 +38,8 @@ sitesDefault {
     country_code: 'US',
     metro: 'mia',
     state: 'FL',
-    latitude: 25.7833,
-    longitude: -80.2667,
+    latitude: 25.7932,
+    longitude: -80.2906,
   },
   lifecycle+: {
     created: '2009-05-28',

@@ -29,8 +29,8 @@ sitesDefault {
     metro: 'del',
     city: 'New Delhi',
     state: '',
-    latitude: 28.5562,
-    longitude: 77.1000,
+    latitude: 28.5665,
+    longitude: 77.1031,
   },
   lifecycle+: {
     created: '2022-09-08',

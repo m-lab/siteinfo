@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'mty',
     city: 'Monterrey',
     state: '',
-    latitude: 25.7783,
-    longitude: -100.1063,
+    latitude: 25.7785,
+    longitude: -100.107,
   },
   lifecycle+: {
     created: '2020-05-04',

@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'yyc',
     city: 'Calgary',
     state: '',
-    latitude: 51.1315,
-    longitude: -114.0106,
+    latitude: 51.1139,
+    longitude: -114.02,
   },
   lifecycle+: {
     created: '2022-10-27',

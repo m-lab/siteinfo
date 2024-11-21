@@ -29,8 +29,8 @@ sitesDefault {
     metro: 'tlv',
     city: 'Tel Aviv',
     state: '',
-    latitude: 32.0094,
-    longitude: 34.8828,
+    latitude: 32.0114,
+    longitude: 34.8867,
   },
   lifecycle+: {
     created: '2024-07-18',

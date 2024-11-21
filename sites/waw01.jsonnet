@@ -57,8 +57,8 @@ sitesDefault {
     metro: 'waw',
     city: 'Warsaw',
     state: '',
-    latitude: 52.1658,
-    longitude: 20.9672,
+    latitude: 52.1657,
+    longitude: 20.9671,
   },
   lifecycle+: {
     created: '2022-09-08',

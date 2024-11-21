@@ -40,8 +40,8 @@ sitesDefault {
     metro: 'lju',
     city: 'Ljubljana',
     state: '',
-    latitude: 46.2236,
-    longitude: 14.4575,
+    latitude: 46.2237,
+    longitude: 14.4576,
   },
   lifecycle+: {
     created: '2019-01-01',

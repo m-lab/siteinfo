@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'ham',
     city: 'Hamburg',
     state: '',
-    latitude: 53.6333,
-    longitude: 9.9833,
+    latitude: 53.6304,
+    longitude: 9.98823,
   },
   lifecycle+: {
     created: '2019-01-01',

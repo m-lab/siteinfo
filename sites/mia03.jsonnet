@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'mia',
     city: 'Miami',
     state: 'FL',
-    latitude: 25.7833,
-    longitude: -80.2667,
+    latitude: 25.7932,
+    longitude: -80.2906,
   },
   lifecycle+: {
     created: '2019-01-01',

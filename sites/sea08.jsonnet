@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'sea',
     city: 'Seattle',
     state: 'WA',
-    latitude: 47.4489,
-    longitude: -122.3094,
+    latitude: 47.449,
+    longitude: -122.309,
   },
   lifecycle+: {
     created: '2019-01-01',

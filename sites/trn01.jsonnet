@@ -13,7 +13,7 @@ sitesDefault {
     continent_code: 'EU',
     country_code: 'IT',
     latitude: 45.2008,
-    longitude: 7.6497,
+    longitude: 7.64963,
     metro: 'trn',
     state: '',
   },

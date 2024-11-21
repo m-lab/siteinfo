@@ -40,7 +40,7 @@ sitesDefault {
     city: 'Athens',
     state: '',
     latitude: 37.9364,
-    longitude: 23.9444,
+    longitude: 23.9445,
   },
   lifecycle+: {
     created: '2019-01-01',

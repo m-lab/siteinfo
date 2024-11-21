@@ -30,8 +30,8 @@ sitesDefault {
     metro: 'jnb',
     city: 'Johannesburg',
     state: '',
-    latitude: -26.2035,
-    longitude: 28.1335,
+    latitude: -26.1392,
+    longitude: 28.246,
   },
   lifecycle+: {
     created: '2024-02-07',

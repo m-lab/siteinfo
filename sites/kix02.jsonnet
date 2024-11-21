@@ -29,8 +29,8 @@ sitesDefault {
     metro: 'kix',
     city: 'Osaka',
     state: '',
-    latitude: 34.4342,
-    longitude: 135.2328,
+    latitude: 34.4305,
+    longitude: 135.23,
   },
   lifecycle+: {
     created: '2024-07-18',

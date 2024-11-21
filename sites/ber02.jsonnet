@@ -29,8 +29,8 @@ sitesDefault {
     metro: 'ber',
     city: 'Berlin',
     state: '',
-    latitude: 52.3667,
-    longitude: 13.5033,
+    latitude: 52.3514,
+    longitude: 13.4939,
   },
   lifecycle+: {
     created: '2024-07-18',

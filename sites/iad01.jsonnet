@@ -12,7 +12,7 @@ sitesDefault {
     city: 'Washington',
     continent_code: 'NA',
     country_code: 'US',
-    latitude: 38.9444,
+    latitude: 38.9445,
     longitude: -77.4558,
     metro: 'iad',
     state: '',

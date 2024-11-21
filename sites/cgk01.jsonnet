@@ -57,8 +57,8 @@ sitesDefault {
     metro: 'cgk',
     city: 'Jakarta',
     state: '',
-    latitude: -6.1256,
-    longitude: 106.6558,
+    latitude: -6.12556,
+    longitude: 106.656,
   },
   lifecycle+: {
     created: '2022-03-02',

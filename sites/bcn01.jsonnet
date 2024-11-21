@@ -42,8 +42,8 @@ sitesDefault {
     metro: 'bcn',
     city: 'Barcelona',
     state: '',
-    latitude: 41.2974,
-    longitude: 2.0811,
+    latitude: 41.2971,
+    longitude: 2.07846,
   },
   lifecycle+: {
     created: '2019-01-01',

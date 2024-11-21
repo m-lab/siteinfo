@@ -38,8 +38,8 @@ sitesDefault {
     country_code: 'US',
     metro: 'sea',
     state: 'WA',
-    latitude: 47.4489,
-    longitude: -122.3094,
+    latitude: 47.449,
+    longitude: -122.309,
   },
   lifecycle+: {
     created: '2009-03-13',

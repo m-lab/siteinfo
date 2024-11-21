@@ -29,8 +29,8 @@ sitesDefault {
     metro: 'las',
     city: 'Las Vegas',
     state: 'NV',
-    latitude: 36.08,
-    longitude: -115.1522,
+    latitude: 36.0801,
+    longitude: -115.152,
   },
   lifecycle+: {
     created: '2022-09-08',

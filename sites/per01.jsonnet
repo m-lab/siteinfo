@@ -40,7 +40,7 @@ sitesDefault {
     city: 'Perth',
     state: '',
     latitude: -31.9403,
-    longitude: 115.9669,
+    longitude: 115.967,
   },
   lifecycle+: {
     created: '2022-02-18',

@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'los',
     city: 'Lagos',
     state: '',
-    latitude: 6.5821,
-    longitude: 3.3211,
+    latitude: 6.57737,
+    longitude: 3.32116,
   },
   lifecycle+: {
     created: '2020-05-27',

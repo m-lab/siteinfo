@@ -40,8 +40,8 @@ sitesDefault {
     metro: 'tun',
     city: 'Tunis',
     state: '',
-    latitude: 36.8516,
-    longitude: 10.2291,
+    latitude: 36.8511,
+    longitude: 10.2272,
   },
   lifecycle+: {
     created: '2019-01-01',

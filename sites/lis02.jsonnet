@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'lis',
     city: 'Lisbon',
     state: '',
-    latitude: 38.7756,
-    longitude: -9.1354,
+    latitude: 38.7813,
+    longitude: -9.13592,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -43,8 +43,8 @@ sitesDefault {
     metro: 'oma',
     city: 'Omaha',
     state: 'IA',
-    latitude: 41.3000,
-    longitude: -95.8950,
+    latitude: 41.3032,
+    longitude: -95.8941,
   },
   lifecycle+: {
     created: '2022-08-26',

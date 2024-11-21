@@ -58,8 +58,8 @@ sitesDefault {
     metro: 'gru',
     city: 'Sao Paulo',
     state: '',
-    latitude: -23.4305,
-    longitude: -46.473,
+    latitude: -23.4322,
+    longitude: -46.4692,
   },
   lifecycle+: {
     created: '2022-09-08',

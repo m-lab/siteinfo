@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'cpt',
     city: 'Cape Town',
     state: '',
-    latitude: -33.9724,
-    longitude: 18.6018,
+    latitude: -33.9648,
+    longitude: 18.6017,
   },
   lifecycle+: {
     created: '2019-01-01',

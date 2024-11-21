@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'akl',
     city: 'Auckland',
     state: '',
-    latitude: -36.85,
-    longitude: 174.783,
+    latitude: -37.0081,
+    longitude: 174.792,
   },
   lifecycle+: {
     created: '2019-01-01',

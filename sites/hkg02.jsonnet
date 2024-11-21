@@ -39,7 +39,7 @@ sitesDefault {
     city: 'Hong Kong',
     state: '',
     latitude: 22.3089,
-    longitude: 113.9144,
+    longitude: 113.915,
   },
   lifecycle+: {
     created: '2020-02-13',

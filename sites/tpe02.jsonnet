@@ -44,8 +44,8 @@ sitesDefault {
     metro: 'tpe',
     city: 'Taipei',
     state: '',
-    latitude: 25.0778,
-    longitude: 121.224,
+    latitude: 25.0777,
+    longitude: 121.233,
   },
   lifecycle+: {
     created: '2022-03-02',

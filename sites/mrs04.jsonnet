@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'mrs',
     city: 'Marseille',
     state: '',
-    latitude: 43.4366,
-    longitude: 5.215,
+    latitude: 43.4393,
+    longitude: 5.22142,
   },
   lifecycle+: {
     created: '2020-11-04',

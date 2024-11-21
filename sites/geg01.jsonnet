@@ -40,8 +40,8 @@ sitesDefault {
     metro: 'geg',
     city: 'Spokane',
     state: 'WA',
-    latitude: 47.6200,
-    longitude: -117.5339,
+    latitude: 47.6199,
+    longitude: -117.534,
   },
   switch+: {
     model: 'qfx5100-24q',

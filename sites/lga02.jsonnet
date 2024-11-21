@@ -38,8 +38,8 @@ sitesDefault {
     country_code: 'US',
     metro: 'lga',
     state: 'NY',
-    latitude: 40.7667,
-    longitude: -73.8667,
+    latitude: 40.775,
+    longitude: -73.875,
   },
   lifecycle+: {
     created: '2006-06-08',

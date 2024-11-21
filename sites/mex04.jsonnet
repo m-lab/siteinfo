@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'mex',
     city: 'Mexico City',
     state: '',
-    latitude: 19.4361,
-    longitude: -99.0719,
+    latitude: 19.4363,
+    longitude: -99.0721,
   },
   lifecycle+: {
     created: '2021-07-19',

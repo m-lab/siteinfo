@@ -42,8 +42,8 @@ sitesDefault {
     metro: 'yqm',
     city: 'Moncton',
     state: '',
-    latitude: 46.1073,
-    longitude: -64.6738,
+    latitude: 46.1122,
+    longitude: -64.6786,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'prg',
     city: 'Prague',
     state: '',
-    latitude: 50.0833,
-    longitude: 14.4167,
+    latitude: 50.1008,
+    longitude: 14.26,
   },
   lifecycle+: {
     created: '2019-01-01',

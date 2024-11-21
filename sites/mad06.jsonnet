@@ -38,8 +38,8 @@ sitesDefault {
     metro: 'mad',
     city: 'Madrid',
     state: '',
-    latitude: 40.4667,
-    longitude: -3.5667,
+    latitude: 40.4719,
+    longitude: -3.56264,
   },
   lifecycle+: {
     created: '2020-12-02',

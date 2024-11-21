@@ -13,7 +13,7 @@ sitesDefault {
     continent_code: '',
     country_code: 'GR',
     latitude: 37.9364,
-    longitude: 23.9444,
+    longitude: 23.9445,
     metro: 'ath',
     state: '',
   },

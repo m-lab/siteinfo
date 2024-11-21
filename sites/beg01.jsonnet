@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'beg',
     city: 'Belgrade',
     state: '',
-    latitude: 44.8216,
-    longitude: 20.2921,
+    latitude: 44.8184,
+    longitude: 20.3091,
   },
   lifecycle+: {
     created: '2019-01-01',

@@ -39,8 +39,8 @@ sitesDefault {
     metro: 'nbo',
     city: 'Nairobi',
     state: '',
-    latitude: -1.3192,
-    longitude: 36.9258,
+    latitude: -1.31924,
+    longitude: 36.9278,
   },
   lifecycle+: {
     created: '2019-01-01',
