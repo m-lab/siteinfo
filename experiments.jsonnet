@@ -25,7 +25,7 @@ local default = {
   },
   default {
     index: 4,
-    name: 'demo4',
+    name: 'ark',
   },
   default {
     index: 5,
