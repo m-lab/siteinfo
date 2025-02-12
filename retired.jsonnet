@@ -104,6 +104,7 @@ local retiredSites = {
   lhr08: import 'sites/lhr08.jsonnet',
   lim03: import 'sites/lim03.jsonnet',
   lim04: import 'sites/lim04.jsonnet',
+  lju01: import 'sites/lju01.jsonnet',
   los01: import 'sites/los01.jsonnet',
   mad01: import 'sites/mad01.jsonnet',
   mad02: import 'sites/mad02.jsonnet',
