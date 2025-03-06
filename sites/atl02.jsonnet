@@ -44,6 +44,5 @@ sitesDefault {
   },
   lifecycle+: {
     created: '2019-01-01',
-    retired: '2025-02-06',
   },
 }
