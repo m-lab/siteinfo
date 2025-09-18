@@ -37,7 +37,7 @@ local default = {
   },
   default {
     index: 7,
-    name: 'demo7',
+    name: 'flooefi',
   },
   default {
     index: 8,
