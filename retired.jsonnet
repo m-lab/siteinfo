@@ -4,6 +4,7 @@ local retiredSites = {
   ams01: import 'sites/ams01.jsonnet',
   ams02: import 'sites/ams02.jsonnet',
   ams03: import 'sites/ams03.jsonnet',
+  ams04: import 'sites/ams04.jsonnet',
   ams06: import 'sites/ams06.jsonnet',
   ams07: import 'sites/ams07.jsonnet',
   ams08: import 'sites/ams08.jsonnet',
