@@ -1,7 +1,6 @@
 local sites = {
   // Physical sites.
   akl01: import 'sites/akl01.jsonnet',
-  ams04: import 'sites/ams04.jsonnet',
   ams05: import 'sites/ams05.jsonnet',
   ams11: import 'sites/ams11.jsonnet',
   arn02: import 'sites/arn02.jsonnet',
