@@ -1,0 +1,39 @@
+local sitesDefault = import 'sites/_default_virtual.jsonnet';
+
+sitesDefault {
+  name: 'bru08',
+  annotations+: {
+    probability: 0.5,
+    provider: 'gcp',
+  },
+  machines+: {
+    mlab1+: {
+      network+: {
+        ipv4+: {
+          address: '35.233.9.210/32',
+        },
+        ipv6+: {
+          address: '2600:1900:4010:a6d4:0:35::/128',
+        },
+      },
+      project: 'mlab-oti',
+    },
+  },
+  transit+: {
+    provider: 'Google LLC',
+    uplink: '1g',
+    asn: 'AS396982',
+  },
+  location+: {
+    continent_code: 'EU',
+    country_code: 'BE',
+    metro: 'bru',
+    city: 'Brussels',
+    state: '',
+    latitude: 50.9014,
+    longitude: 4.48444,
+  },
+  lifecycle+: {
+    created: '2026-06-25',
+  },
+}
