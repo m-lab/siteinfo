@@ -1,7 +1,7 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'dfw13',
+  name: 'yul09',
   annotations+: {
     probability: 0.5,
     provider: 'gcp',
@@ -10,10 +10,10 @@ sitesDefault {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.174.219.43/32',
+          address: '34.186.223.36/32',
         },
         ipv6+: {
-          address: '2600:1901:8140:9cd3:0:8a::/128',
+          address: '2600:1900:40e0:7615:0:5f::/128',
         },
       },
       project: 'mlab-oti',
@@ -24,26 +24,13 @@ sitesDefault {
       model: 'n2-highcpu-4',
       network: {
         ipv4: {
-          address: '34.174.246.246/32',
+          address: '34.118.164.82/32',
         },
         ipv6: {
-          address: '2600:1901:8140:9cd3:0:89::/128',
+          address: '2600:1900:40e0:7615:0:5e::/128',
         },
       },
       project: 'mlab-oti',
-    },
-    mlab4: {
-      iface: 'ens4',
-      model: 'n2-highcpu-4',
-      network: {
-        ipv4: {
-          address: '34.174.63.201/32',
-        },
-        ipv6: {
-          address: '2600:1901:8140:31e:8000:1::/128',
-        },
-      },
-      project: 'mlab-staging',
     },
   },
   transit+: {
@@ -53,15 +40,14 @@ sitesDefault {
   },
   location+: {
     continent_code: 'NA',
-    country_code: 'US',
-    metro: 'dfw',
-    city: 'Dallas',
-    state: 'TX',
-    latitude: 32.8968,
-    longitude: -97.038,
+    country_code: 'CA',
+    metro: 'yul',
+    city: 'Montreal',
+    state: '',
+    latitude: 45.4657,
+    longitude: -73.7455,
   },
   lifecycle+: {
-    created: '2024-07-29',
+    created: '2026-06-25',
   },
 }
-

@@ -1,19 +1,18 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'dfw13',
+  name: 'tlv03',
   annotations+: {
-    probability: 0.5,
     provider: 'gcp',
   },
   machines+: {
     mlab1+: {
       network+: {
         ipv4+: {
-          address: '34.174.219.43/32',
+          address: '34.165.219.126/32',
         },
         ipv6+: {
-          address: '2600:1901:8140:9cd3:0:8a::/128',
+          address: '2600:1901:8160:9036:0:4a::/128',
         },
       },
       project: 'mlab-oti',
@@ -24,26 +23,27 @@ sitesDefault {
       model: 'n2-highcpu-4',
       network: {
         ipv4: {
-          address: '34.174.246.246/32',
+          address: '34.165.247.200/32',
         },
         ipv6: {
-          address: '2600:1901:8140:9cd3:0:89::/128',
+          address: '2600:1901:8160:9036:0:4c::/128',
         },
       },
       project: 'mlab-oti',
     },
-    mlab4: {
+    mlab3: {
+      disk: 'pd-ssd',
       iface: 'ens4',
       model: 'n2-highcpu-4',
       network: {
         ipv4: {
-          address: '34.174.63.201/32',
+          address: '34.165.47.149/32',
         },
         ipv6: {
-          address: '2600:1901:8140:31e:8000:1::/128',
+          address: '2600:1901:8160:9036:0:4b::/128',
         },
       },
-      project: 'mlab-staging',
+      project: 'mlab-oti',
     },
   },
   transit+: {
@@ -52,16 +52,15 @@ sitesDefault {
     asn: 'AS396982',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
-    metro: 'dfw',
-    city: 'Dallas',
-    state: 'TX',
-    latitude: 32.8968,
-    longitude: -97.038,
+    continent_code: 'AS',
+    country_code: 'IL',
+    metro: 'tlv',
+    city: 'Tel Aviv',
+    state: '',
+    latitude: 32.0114,
+    longitude: 34.8867,
   },
   lifecycle+: {
-    created: '2024-07-29',
+    created: '2026-06-25',
   },
 }
-

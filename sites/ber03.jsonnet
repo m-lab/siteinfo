@@ -1,19 +1,19 @@
 local sitesDefault = import 'sites/_default_virtual.jsonnet';
 
 sitesDefault {
-  name: 'dfw13',
+  name: 'ber03',
   annotations+: {
-    probability: 0.5,
     provider: 'gcp',
   },
   machines+: {
     mlab1+: {
+      model: 'e2-highcpu-4',
       network+: {
         ipv4+: {
-          address: '34.174.219.43/32',
+          address: '34.32.90.187/32',
         },
         ipv6+: {
-          address: '2600:1901:8140:9cd3:0:8a::/128',
+          address: '2600:1901:81f0:266:0:52::/128',
         },
       },
       project: 'mlab-oti',
@@ -21,29 +21,30 @@ sitesDefault {
     mlab2: {
       disk: 'pd-ssd',
       iface: 'ens4',
-      model: 'n2-highcpu-4',
+      model: 'e2-highcpu-4',
       network: {
         ipv4: {
-          address: '34.174.246.246/32',
+          address: '34.32.40.51/32',
         },
         ipv6: {
-          address: '2600:1901:8140:9cd3:0:89::/128',
+          address: '2600:1901:81f0:266:0:50::/128',
         },
       },
       project: 'mlab-oti',
     },
-    mlab4: {
+    mlab3: {
+      disk: 'pd-ssd',
       iface: 'ens4',
-      model: 'n2-highcpu-4',
+      model: 'e2-highcpu-4',
       network: {
         ipv4: {
-          address: '34.174.63.201/32',
+          address: '34.32.4.83/32',
         },
         ipv6: {
-          address: '2600:1901:8140:31e:8000:1::/128',
+          address: '2600:1901:81f0:266:0:51::/128',
         },
       },
-      project: 'mlab-staging',
+      project: 'mlab-oti',
     },
   },
   transit+: {
@@ -52,16 +53,15 @@ sitesDefault {
     asn: 'AS396982',
   },
   location+: {
-    continent_code: 'NA',
-    country_code: 'US',
-    metro: 'dfw',
-    city: 'Dallas',
-    state: 'TX',
-    latitude: 32.8968,
-    longitude: -97.038,
+    continent_code: 'EU',
+    country_code: 'DE',
+    metro: 'ber',
+    city: 'Berlin',
+    state: '',
+    latitude: 52.3514,
+    longitude: 13.4939,
   },
   lifecycle+: {
-    created: '2024-07-29',
+    created: '2026-06-25',
   },
 }
-
